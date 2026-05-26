@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCV Weekly · OL Agent</title>
+  <meta name="description" content="Weekly customer-feedback signal for the Outlook AI Agent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Google+Sans+Code:wght@400;500&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-tint: #14171d;
+      --surface: #1a1d24;
+      --surface-elevated: #20242c;
+      --surface-recessed: #14171d;
+      --text: #e8eaed;
+      --text-dim: #9aa0a6;
+      --text-faint: #5f6368;
+      --border: rgba(232, 234, 237, 0.08);
+      --border-strong: rgba(232, 234, 237, 0.16);
+
+      --navy: #8ab4f8;
+      --navy-dim: rgba(138, 180, 248, 0.12);
+      --gold: #fdd663;
+      --gold-dim: rgba(253, 214, 99, 0.12);
+      --terracotta: #f28b82;
+      --terracotta-dim: rgba(242, 139, 130, 0.12);
+      --sage: #81c995;
+      --sage-dim: rgba(129, 201, 149, 0.12);
+
+      --font-display: 'Google Sans Display', 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
+      --font-body:    'Google Sans Text', 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
+      --font-mono:    'Google Sans Code', 'Roboto Mono', ui-monospace, 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(at 20% 0%, rgba(138, 180, 248, 0.06), transparent 50%),
+        radial-gradient(at 80% 100%, rgba(253, 214, 99, 0.04), transparent 50%);
+      background-attachment: fixed;
+    }
+    a { color: var(--navy); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--navy); }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 72px 32px 96px;
+    }
+
+    /* HEADER */
+    header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 48px; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+      display: inline-flex; align-items: center; gap: 8px;
+      margin: 0 0 18px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--navy);
+      box-shadow: 0 0 0 3px var(--navy-dim);
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(40px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+    h1 em { color: var(--navy); font-style: normal; font-weight: 500; }
+    .lede {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 640px;
+      margin: 0;
+    }
+    .header__meta {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .header__meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .header__meta strong { color: var(--text); font-weight: 500; }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-faint);
+      margin: 0 0 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 1px; background: var(--border-strong);
+    }
+
+    /* REPORT GRID */
+    .reports { display: grid; gap: 14px; }
+    .report-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px 28px;
+      align-items: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .report-card:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-elevated);
+      transform: translateY(-1px);
+    }
+    .report-card__main { min-width: 0; }
+    .report-card__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin: 0 0 6px;
+    }
+    .report-card__title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.012em;
+      color: var(--text);
+      margin: 0 0 6px;
+    }
+    .report-card__highlight {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin: 0;
+    }
+    .report-card__metrics {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .metric {
+      text-align: right;
+      min-width: 56px;
+    }
+    .metric__value {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .metric__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      margin-top: 6px;
+      display: block;
+    }
+    .metric__delta {
+      display: inline-block;
+      margin-top: 4px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .metric__delta--up    { color: var(--terracotta); background: var(--terracotta-dim); }
+    .metric__delta--down  { color: var(--sage);       background: var(--sage-dim); }
+    .metric__delta--flat  { color: var(--text-faint); }
+    .metric__delta--none  { color: var(--text-faint); font-style: italic; }
+    .report-card__cta {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .report-card__cta .open {
+      color: var(--navy);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    /* EMPTY STATE */
+    .empty, .loading {
+      background: var(--surface);
+      border: 1px dashed var(--border-strong);
+      border-radius: 10px;
+      padding: 48px 28px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    .empty strong { color: var(--text); display: block; font-family: var(--font-display); font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+
+    /* ABOUT */
+    .about {
+      margin-top: 64px;
+      padding: 28px;
+      background: var(--surface-recessed);
+      border-left: 2px solid var(--navy);
+      border-radius: 0 8px 8px 0;
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .about strong { color: var(--text); font-weight: 500; }
+    .about code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: var(--bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 48px 20px 64px; }
+      .report-card { grid-template-columns: 1fr; }
+      .report-card__metrics { justify-content: flex-start; }
+      .metric { text-align: left; min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow" id="eyebrow">Internal · Microsoft FTE</p>
+      <h1>OCV <em>Weekly</em></h1>
+      <p class="lede" id="lede">Weekly customer-feedback signal for the Outlook AI Agent — what's hurting users, what changed since last week, and which themes deserve engineering attention.</p>
+      <div class="header__meta">
+        <span>Owner: <strong id="owner">Outlook Web — Copilot &amp; Agent</strong></span>
+        <span>Cadence: <strong>Weekly · Tuesday</strong></span>
+        <span>Source: <strong>OCV + Copilot Dash</strong></span>
+      </div>
+    </header>
+
+    <p class="section-label">All reports</p>
+    <div id="reports" class="reports">
+      <div class="loading">Loading reports…</div>
+    </div>
+
+    <section class="about">
+      <strong>What's in each report?</strong> Each weekly digest groups thumbs-down feedback from the OutlookAIAgent into subtopics, scores them P0–P3, surfaces sentiment and rating drift week-over-week, and links each row to its <code>ocv.microsoft.com</code> source items and (when present) the matching <code>copilotdash.microsoft.com</code> conversation.
+    </section>
+
+    <footer>
+      <span>OL Agent · Customer signal pipeline</span>
+      <span id="footer-build">Static site · GitHub Pages</span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.getElementById('reports');
+
+      function fmtDate(iso) {
+        if (!iso) return '';
+        const d = new Date(iso + 'T12:00:00');
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      function renderEmpty() {
+        root.innerHTML =
+          '<div class="empty"><strong>No reports yet</strong>' +
+          'Drop the first weekly HTML in <code>reports/</code> and add an entry to <code>reports.json</code>.</div>';
+      }
+
+      function renderError(msg) {
+        root.innerHTML =
+          '<div class="empty"><strong>Could not load reports.json</strong>' +
+          (msg || 'Check that reports.json exists at the site root.') + '</div>';
+      }
+
+      function deltaBadge(cur, prior, invert) {
+        if (typeof cur !== 'number') return '';
+        if (typeof prior !== 'number') {
+          return '<span class="metric__delta metric__delta--none">no prior</span>';
+        }
+        const d = cur - prior;
+        // invert=true means "up is good" (e.g. ThumbsUp): more = green, less = red.
+        // invert=false (default) means "up is bad" (Negatives, Topics, ThumbsDown).
+        const good = invert ? (d > 0) : (d < 0);
+        if (d === 0) return '<span class="metric__delta metric__delta--flat">&plusmn;0 WoW</span>';
+        const cls = good ? 'metric__delta--down' : 'metric__delta--up';
+        const sign = d > 0 ? '+' : '';
+        return '<span class="metric__delta ' + cls + '">' + sign + d + ' WoW</span>';
+      }
+
+      function metric(value, label, prior, invert) {
+        if (typeof value !== 'number') return '';
+        return ''
+          + '<div class="metric">'
+          +   '<div class="metric__value">' + value + '</div>'
+          +   '<span class="metric__label">' + label + '</span>'
+          +   '<div>' + deltaBadge(value, prior, invert) + '</div>'
+          + '</div>';
+      }
+
+      function card(r, prior) {
+        const a = document.createElement('a');
+        a.className = 'report-card';
+        a.href = r.file;
+        const priorNeg = prior && typeof prior.negatives === 'number' ? prior.negatives : null;
+        const priorTop = prior && typeof prior.topics === 'number' ? prior.topics : null;
+        const priorTd  = prior && typeof prior.thumbs_down === 'number' ? prior.thumbs_down : null;
+        const priorTu  = prior && typeof prior.thumbs_up === 'number' ? prior.thumbs_up : null;
+        a.innerHTML = `
+          <div class="report-card__main">
+            <p class="report-card__eyebrow">${r.range || r.week_of || ''}</p>
+            <h3 class="report-card__title">${r.label || ('Week of ' + r.week_of)}</h3>
+            <p class="report-card__highlight">${r.highlights || ''}</p>
+          </div>
+          <div class="report-card__metrics">
+            ${metric(r.negatives, 'Negatives', priorNeg, false)}
+            ${metric(r.topics, 'Topics', priorTop, false)}
+            ${metric(r.thumbs_down, '\u{1F44E} Down', priorTd, false)}
+            ${metric(r.thumbs_up, '\u{1F44D} Up', priorTu, true)}
+          </div>
+          <div class="report-card__cta">
+            <span class="open">Open report &rarr;</span>
+          </div>
+        `;
+        return a;
+      }
+
+      fetch('reports.json', { cache: 'no-store' })
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(data => {
+          if (data.title) document.title = data.title + ' · OCV Weekly';
+          if (data.subtitle) document.getElementById('lede').textContent = data.subtitle;
+          if (data.owner) document.getElementById('owner').textContent = data.owner;
+
+          const reports = (data.reports || []).slice().sort((a, b) => {
+            return (b.week_of || '').localeCompare(a.week_of || '');
+          });
+
+          if (!reports.length) { renderEmpty(); return; }
+          root.innerHTML = '';
+          reports.forEach((r, i) => root.appendChild(card(r, reports[i + 1])));
+        })
+        .catch(err => renderError(String(err.message || err)));
+    })();
+  </script>
+</body>
+</html>

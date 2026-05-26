@@ -1,0 +1,43 @@
+{
+  "title": "OL Agent OCV Dashboard",
+  "subtitle": "Weekly customer-feedback signal for the Outlook AI Agent",
+  "owner": "Yohnathan Carletti",
+  "reports": [
+    {
+      "week_of": "2026-05-24",
+      "label": "Week of May 24, 2026",
+      "range": "May 18 - May 24, 2026",
+      "file": "reports/2026-05-24.html",
+      "negatives": 117,
+      "topics": 10,
+      "thumbs_down": 138,
+      "thumbs_up": 45,
+      "highlights": "T1 (Action not executed) leads at 36.8%; 21 ADO bugs filed and auto-assigned to owners.",
+      "published": "2026-05-25"
+    },
+    {
+      "week_of": "2026-05-18",
+      "label": "Week of May 18, 2026",
+      "range": "May 12 - May 18, 2026",
+      "file": "reports/2026-05-18.html",
+      "negatives": 88,
+      "topics": 11,
+      "thumbs_down": 107,
+      "thumbs_up": 43,
+      "highlights": "Drafting & Scheduling dominate; 1 new Dash<->OCV join surfaced.",
+      "published": "2026-05-21"
+    },
+    {
+      "week_of": "2026-05-11",
+      "label": "Week of May 11, 2026",
+      "range": "May 4-11, 2026",
+      "file": "reports/2026-05-11.html",
+      "negatives": 249,
+      "topics": 13,
+      "thumbs_down": 311,
+      "thumbs_up": 129,
+      "highlights": "Baseline week: 249 negatives across 97 subtopics. Top topics: Action not executed (66), Wrong context (39), HitL violation (29). P0=10, P1=33.",
+      "published": "2026-05-25"
+    }
+  ]
+}
