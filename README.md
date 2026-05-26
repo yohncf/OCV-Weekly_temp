@@ -2,7 +2,7 @@
 
 **OL Agent OCV Dashboard** — weekly customer-feedback digests for the Outlook AI Agent.
 
-Live site (once GitHub Pages is enabled): https://gim-home.github.io/OCV-Weekly/
+Live site (once GitHub Pages is enabled): https://gim-home.github.io/OCV-Weekly_temp/
 
 ## Repo layout
 
