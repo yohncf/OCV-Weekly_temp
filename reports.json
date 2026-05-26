@@ -6,14 +6,14 @@
     {
       "week_of": "2026-05-24",
       "label": "Week of May 24, 2026",
-      "range": "May 18 - May 24, 2026",
+      "range": "2026-05-18 to 2026-05-24",
       "file": "reports/2026-05-24.html",
       "negatives": 117,
       "topics": 10,
       "thumbs_down": 138,
       "thumbs_up": 45,
-      "highlights": "T1 (Action not executed) leads at 36.8%; 21 ADO bugs filed and auto-assigned to owners.",
-      "published": "2026-05-25"
+      "highlights": "T1 (Action not executed) tops the queue at 43 items (36.8%); T8 (Wrong context / grounding) surged +16pp WoW to 32 items.",
+      "published": "2026-05-26"
     },
     {
       "week_of": "2026-05-18",

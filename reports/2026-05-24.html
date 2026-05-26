@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>OCV Weekly · Outlook Agent · May 18-24, 2026</title>
+  <title>OCV Weekly · Outlook Agent · 2026-05-18 to 2026-05-24</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Google+Sans+Code:wght@400;500&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -393,17 +393,18 @@ p.note {
 
 /* ============== DELTA INDICATORS ============== */
 .delta {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
-  padding: 2px 8px; border-radius: 4px;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  padding: 4px 10px; border-radius: 5px;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3px;
 }
-.delta--up { color: var(--up); background: rgba(242, 139, 130, 0.10); }
-.delta--up::before { content: '▲'; font-size: 9px; }
-.delta--down { color: var(--down); background: rgba(129, 201, 149, 0.10); }
-.delta--down::before { content: '▼'; font-size: 9px; }
-.delta--flat { color: var(--flat); background: rgba(154, 160, 166, 0.08); }
-.delta--flat::before { content: '●'; font-size: 8px; }
+.delta--up { color: var(--up); background: rgba(242, 139, 130, 0.18); }
+.delta--up::before { content: '▲'; font-size: 11px; }
+.delta--down { color: var(--down); background: rgba(129, 201, 149, 0.18); }
+.delta--down::before { content: '▼'; font-size: 11px; }
+.delta--flat { color: var(--flat); background: rgba(154, 160, 166, 0.12); }
+.delta--flat::before { content: '●'; font-size: 9px; }
 .delta--none { color: var(--text-faint); }
 
 /* ============== DATASET GRID ============== */
@@ -555,7 +556,7 @@ p.note {
 .data-table td.dim { color: var(--text-dim); }
 .topic-id code { background: transparent; color: var(--text-faint); padding: 0; }
 .topic-name { color: var(--text); font-weight: 500; }
-.bar-cell { width: 30%; }
+.bar-cell { width: 18%; }
 .bar {
   height: 6px;
   border-radius: 3px;
@@ -688,6 +689,50 @@ p.note {
   background: var(--surface-recessed); color: var(--navy);
 }
 .ticket-card__links .dim { color: var(--text-faint); font-style: italic; }
+.model-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--text-faint);
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.03);
+  white-space: nowrap;
+}
+
+/* Routing path × surface table */
+.path-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono); font-size: 12px;
+  margin-top: 12px;
+}
+.path-table th, .path-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  color: var(--text-dim);
+}
+.path-table th {
+  color: var(--text-faint);
+  font-weight: normal;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  font-size: 10px;
+  background: var(--surface-recessed);
+}
+.path-table td:first-child, .path-table th:first-child {
+  text-align: left;
+  color: var(--text);
+}
+.path-table tr.path-row--total td { color: var(--text); border-top: 1px solid var(--border); font-weight: 600; }
+.path-table td.cell--zero { color: var(--text-faint); opacity: 0.5; }
+.path-table .path-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  background: var(--surface-recessed);
+  color: var(--navy);
+}
 
 /* ADO link badge in ticket card head */
 .ado-link {
@@ -748,19 +793,19 @@ footer a { color: var(--text-dim); }
       <li><a href="#kpis">02 · Headlines</a></li>
       <li><a href="#dataset">03 · Dataset</a></li>
       <li><a href="#findings">04 · Findings</a></li>
-      <li><a href="#topics">05 · Topics</a></li>
-      <li><a href="#wow">06 · WoW</a></li>
-      <li><a href="#categories">07 · Categories</a></li>
-      <li><a href="#tickets">08 · Ticket queue</a></li>
+      <li><a href="#topics">05 · Topic shifts</a></li>
+      <li><a href="#categories">06 · Categories</a></li>
+      <li><a href="#routing">06b · Routing path</a></li>
+      <li><a href="#tickets">07 · Ticket queue</a></li>
       </ul>
     </aside>
     <main>
       <header>
   <a href="https://gim-home.github.io/OCV-Weekly" class="back-link">&larr; All weekly reports</a>
   <p class="eyebrow">OCV Weekly Report &middot; <em>Outlook Agent</em></p>
-  <h1>Week of <em>May 18-24, 2026</em></h1>
+  <h1>Week of <em>2026-05-18 to 2026-05-24</em></h1>
   <div class="header__meta">
-    <span><strong>Analysis date:</strong> 2026-05-25</span>
+    <span><strong>Analysis date:</strong> 2026-05-26</span>
   </div>
 </header>
 <section id="tldr">
@@ -854,123 +899,16 @@ footer a { color: var(--text-dim); }
   </div>
 </section>
 <section id="topics">
-  <p class="section-label">05 · Primary topic ranking</p>
-  <h2>Where the negatives are concentrating</h2>
+  <p class="section-label">05 · Topic shifts (week over week)</p>
+  <h2>WoW shifts: <em>2026-05-18</em> → <em>2026-05-24</em></h2>
+  <p class="note">Sorted by this-week volume. Δ shown in percentage points (pp) of share-of-negative. Prior baseline: n=88 negative.</p>
   <table class="data-table topic-table">
     <thead>
       <tr>
         <th class="num">#</th>
         <th>Topic</th>
-        <th class="num">Items</th>
-        <th class="num">Share</th>
-        <th>Distribution</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td class="topic-id"><code>01</code></td>
-          <td class="topic-name">Action not executed</td>
-          <td class="num">43</td>
-          <td class="num">36.8%</td>
-          <td class="bar-cell">
-            <div class="bar bar--red" style="width:100.0%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>08</code></td>
-          <td class="topic-name">Wrong context / grounding</td>
-          <td class="num">32</td>
-          <td class="num">27.4%</td>
-          <td class="bar-cell">
-            <div class="bar bar--navy" style="width:74.4%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>03</code></td>
-          <td class="topic-name">Output doesn&#x27;t match intent</td>
-          <td class="num">11</td>
-          <td class="num">9.4%</td>
-          <td class="bar-cell">
-            <div class="bar bar--amber" style="width:25.6%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>07</code></td>
-          <td class="topic-name">Inaccurate or fabricated content</td>
-          <td class="num">9</td>
-          <td class="num">7.7%</td>
-          <td class="bar-cell">
-            <div class="bar bar--amber" style="width:20.9%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>09</code></td>
-          <td class="topic-name">Tone, language, or format quality</td>
-          <td class="num">7</td>
-          <td class="num">6.0%</td>
-          <td class="bar-cell">
-            <div class="bar bar--navy" style="width:16.3%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>06</code></td>
-          <td class="topic-name">Reliability failure</td>
-          <td class="num">5</td>
-          <td class="num">4.3%</td>
-          <td class="bar-cell">
-            <div class="bar bar--red" style="width:11.6%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>04</code></td>
-          <td class="topic-name">Constraints ignored</td>
-          <td class="num">3</td>
-          <td class="num">2.6%</td>
-          <td class="bar-cell">
-            <div class="bar bar--amber" style="width:7.0%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>10</code></td>
-          <td class="topic-name">File I/O failure</td>
-          <td class="num">3</td>
-          <td class="num">2.6%</td>
-          <td class="bar-cell">
-            <div class="bar bar--amber" style="width:7.0%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>11</code></td>
-          <td class="topic-name">Calendar correctness</td>
-          <td class="num">3</td>
-          <td class="num">2.6%</td>
-          <td class="bar-cell">
-            <div class="bar bar--red" style="width:7.0%"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>13</code></td>
-          <td class="topic-name">Intrusive Outlook Agent UI</td>
-          <td class="num">1</td>
-          <td class="num">0.9%</td>
-          <td class="bar-cell">
-            <div class="bar bar--navy" style="width:2.3%"></div>
-          </td>
-        </tr></tbody>
-  </table>
-</section>
-<section id="wow">
-  <p class="section-label">06 · Week over week</p>
-  <h2>WoW shifts: <em>2026-05-18</em> → <em>2026-05-24</em></h2>
-  <p class="note">Δ shown in percentage points (pp) of share-of-negative.
-  Prior baseline: <code>data/ocv_outlook-agent_2026-05-18_range.csv</code>
-  (n=88 negative).</p>
-  <table class="data-table wow-table">
-    <thead>
-      <tr>
-        <th class="num">#</th>
-        <th>Topic</th>
         <th class="num">This week</th>
+        <th>Distribution</th>
         <th class="num">Last week</th>
         <th class="num">Δ pp</th>
       </tr>
@@ -980,6 +918,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>01</code></td>
           <td class="topic-name">Action not executed</td>
           <td class="num">43 · 36.8%</td>
+          <td class="bar-cell"><div class="bar bar--red" style="width:100.0%"></div></td>
           <td class="num dim">26 · 29.5%</td>
           <td class="num"><span class="delta delta--up">+7.2 pp</span></td>
         </tr>
@@ -987,6 +926,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>08</code></td>
           <td class="topic-name">Wrong context / grounding</td>
           <td class="num">32 · 27.4%</td>
+          <td class="bar-cell"><div class="bar bar--navy" style="width:74.4%"></div></td>
           <td class="num dim">10 · 11.4%</td>
           <td class="num"><span class="delta delta--up">+16.0 pp</span></td>
         </tr>
@@ -994,6 +934,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>03</code></td>
           <td class="topic-name">Output doesn&#x27;t match intent</td>
           <td class="num">11 · 9.4%</td>
+          <td class="bar-cell"><div class="bar bar--amber" style="width:25.6%"></div></td>
           <td class="num dim">8 · 9.1%</td>
           <td class="num"><span class="delta delta--flat">+0.3 pp</span></td>
         </tr>
@@ -1001,6 +942,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>07</code></td>
           <td class="topic-name">Inaccurate or fabricated content</td>
           <td class="num">9 · 7.7%</td>
+          <td class="bar-cell"><div class="bar bar--amber" style="width:20.9%"></div></td>
           <td class="num dim">9 · 10.2%</td>
           <td class="num"><span class="delta delta--down">-2.5 pp</span></td>
         </tr>
@@ -1008,6 +950,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>09</code></td>
           <td class="topic-name">Tone, language, or format quality</td>
           <td class="num">7 · 6.0%</td>
+          <td class="bar-cell"><div class="bar bar--navy" style="width:16.3%"></div></td>
           <td class="num dim">2 · 2.3%</td>
           <td class="num"><span class="delta delta--up">+3.7 pp</span></td>
         </tr>
@@ -1015,20 +958,15 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>06</code></td>
           <td class="topic-name">Reliability failure</td>
           <td class="num">5 · 4.3%</td>
+          <td class="bar-cell"><div class="bar bar--red" style="width:11.6%"></div></td>
           <td class="num dim">12 · 13.6%</td>
           <td class="num"><span class="delta delta--down">-9.4 pp</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>11</code></td>
-          <td class="topic-name">Calendar correctness</td>
-          <td class="num">3 · 2.6%</td>
-          <td class="num dim">1 · 1.1%</td>
-          <td class="num"><span class="delta delta--up">+1.4 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>10</code></td>
           <td class="topic-name">File I/O failure</td>
           <td class="num">3 · 2.6%</td>
+          <td class="bar-cell"><div class="bar bar--amber" style="width:7.0%"></div></td>
           <td class="num dim">9 · 10.2%</td>
           <td class="num"><span class="delta delta--down">-7.7 pp</span></td>
         </tr>
@@ -1036,13 +974,23 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>04</code></td>
           <td class="topic-name">Constraints ignored</td>
           <td class="num">3 · 2.6%</td>
+          <td class="bar-cell"><div class="bar bar--amber" style="width:7.0%"></div></td>
           <td class="num dim">6 · 6.8%</td>
           <td class="num"><span class="delta delta--down">-4.3 pp</span></td>
+        </tr>
+        <tr>
+          <td class="topic-id"><code>11</code></td>
+          <td class="topic-name">Calendar correctness</td>
+          <td class="num">3 · 2.6%</td>
+          <td class="bar-cell"><div class="bar bar--red" style="width:7.0%"></div></td>
+          <td class="num dim">1 · 1.1%</td>
+          <td class="num"><span class="delta delta--up">+1.4 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>13</code></td>
           <td class="topic-name">Intrusive Outlook Agent UI</td>
           <td class="num">1 · 0.9%</td>
+          <td class="bar-cell"><div class="bar bar--navy" style="width:2.3%"></div></td>
           <td class="num dim">1 · 1.1%</td>
           <td class="num"><span class="delta delta--flat">-0.3 pp</span></td>
         </tr>
@@ -1050,6 +998,7 @@ footer a { color: var(--text-dim); }
           <td class="topic-id"><code>02</code></td>
           <td class="topic-name">HitL violation</td>
           <td class="num">0 · 0.0%</td>
+          <td class="bar-cell"></td>
           <td class="num dim">4 · 4.5%</td>
           <td class="num"><span class="delta delta--down">-4.5 pp</span></td>
         </tr></tbody>
@@ -1103,6 +1052,15 @@ footer a { color: var(--text-dim); }
         </g>
     </svg></div>
 </section>
+<section id="routing">
+  <p class="section-label">06b · Routing path</p>
+  <h2>Which routing path is generating the most issues</h2>
+  <p class="note">44 of 117 negative items had path attribution available this week (38%). 73 item(s) had no Dash record.</p>
+  <table class="path-table">
+    <thead><tr><th>Path</th><th>Search</th><th>Drafting</th><th>Triage</th><th>Rules</th><th>Scheduling</th><th>Replying</th><th>File</th><th>General</th><th>Summarization</th><th>Total</th></tr></thead>
+    <tbody><tr><td><span class="path-pill">Sydney-Tools</span></td><td>8</td><td>9</td><td>3</td><td>2</td><td>1</td><td>2</td><td>2</td><td>1</td><td>1</td><td>29</td></tr><tr><td><span class="path-pill">Sydney-Tools+WorkBerry</span></td><td>2</td><td>2</td><td>1</td><td>2</td><td class="cell--zero">0</td><td>1</td><td class="cell--zero">0</td><td class="cell--zero">0</td><td class="cell--zero">0</td><td>8</td></tr><tr><td><span class="path-pill">Unknown</span></td><td>2</td><td class="cell--zero">0</td><td>2</td><td class="cell--zero">0</td><td>3</td><td class="cell--zero">0</td><td class="cell--zero">0</td><td class="cell--zero">0</td><td class="cell--zero">0</td><td>7</td></tr><tr class="path-row--total"><td>Total (classified)</td><td>12</td><td>11</td><td>6</td><td>4</td><td>4</td><td>3</td><td>2</td><td>1</td><td>1</td><td>44</td></tr></tbody>
+  </table>
+</section>
 <section id="tickets">
   <p class="section-label">08 · Ticket queue</p>
   <h2>P0 / P1 / P2 rows worth engineering attention</h2>
@@ -1124,7 +1082,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_5d3c11930b9154c1ba6102c1520a7a8f" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_34597e3351395c32a49d98008a698d2b" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_84d3d2e095615257b7ef243f85f67aeb" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_ab9898f5dc1c55849be87a362a1c0843" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_99fb08357cdb59e696f46c35381d1193" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/467b9d36-e1de-48a5-9015-357415326a1f" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/9aecdf26-8bf8-44e8-ab6e-eec333027920" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/b61b4aa9-a7ed-4cb4-870d-61960f9593c7" target="_blank" rel="noopener">dash 3</a><a href="https://copilotdash.microsoft.com/ticket/f48a7da9-1ec5-454c-9c8d-0d06e4d1fe29" target="_blank" rel="noopener">dash 4</a><a href="https://copilotdash.microsoft.com/ticket/43519af9-acf9-4ebf-9e44-1cd23b66134a" target="_blank" rel="noopener">dash 5</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/467b9d36-e1de-48a5-9015-357415326a1f" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/9aecdf26-8bf8-44e8-ab6e-eec333027920" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/b61b4aa9-a7ed-4cb4-870d-61960f9593c7" target="_blank" rel="noopener">dash 3</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/f48a7da9-1ec5-454c-9c8d-0d06e4d1fe29" target="_blank" rel="noopener">dash 4</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/43519af9-acf9-4ebf-9e44-1cd23b66134a" target="_blank" rel="noopener">dash 5</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span></div>
           </div>
         </details>
         
@@ -1144,7 +1102,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_a7cc603cc4b15ffd86f92db83bb1eeec" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b165f45698bb59b89dcd0ea22fc95310" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e9b79fdcb2565b0da50f8f0abb5a306b" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_fc0823cfba9e5495accc1d97ba668c27" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_285c10ad7157520ebc744902dab8dcf2" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/84558da1-1454-41fd-9828-237f01b07de2" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/1a19300b-95b0-414a-a374-46c84a15aa70" target="_blank" rel="noopener">dash 2</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/84558da1-1454-41fd-9828-237f01b07de2" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span><a href="https://copilotdash.microsoft.com/ticket/1a19300b-95b0-414a-a374-46c84a15aa70" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14, prod-gpt-53-chat, prod-sonicberry]</span></div>
           </div>
         </details>
         
@@ -1164,7 +1122,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_f0a9bfe1fa7d5ddc838c756039417347" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_ae2547b914ef5cef8ec9cf2279baec78" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_85f0d06b14df5f858e44ff5241a9414c" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_2d422cf7cf695722ae1593da52b7f66a" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f3f1b3993285528dbcd0082cde3b4d93" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/7f11159a-bf0c-4a1d-9e73-2e5d68b87905" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/11e41bb2-f1d8-4681-818c-611f245e7c88" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/58daa96b-fedb-4e49-84d0-ba774d1bb09b" target="_blank" rel="noopener">dash 3</a><a href="https://copilotdash.microsoft.com/ticket/e20e02f3-57ce-40c0-843b-75c8d85013f5" target="_blank" rel="noopener">dash 4</a></div>
+            
           </div>
         </details>
         
@@ -1184,7 +1142,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_4891cbfd63435668aa17f00b2737dcff" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_44c09ffa2512529da5a41f25ac67cadc" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e2b36e9208bf5c3e82166b398838b6d4" target="_blank" rel="noopener">item 3</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/1f369315-db7d-4601-94c1-eaf609640c7d" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/ce2f8256-c6db-4e88-88aa-008956f10d99" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/68ed2dc4-3b79-49b5-b212-fea7e46b929b" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/68ed2dc4-3b79-49b5-b212-fea7e46b929b" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
           </div>
         </details>
         
@@ -1204,7 +1162,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_fc1350326ff85e9293334dbeddfa9649" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_a59827ed86195496a46612ee180af732" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b30c6d87bf8656e7a73b0088eae7e9fd" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_0cf74a4edde95127bfccf190e677f48b" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e86490ca66ef5745b26e89cad0c35909" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/1df91adb-675c-4af4-abb9-3821d063dc20" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/994fb2dd-e59f-44a4-a31c-79eff14b6cbb" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/63f5e848-dd65-480e-800d-f17998c1f6a2" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/63f5e848-dd65-480e-800d-f17998c1f6a2" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span></div>
           </div>
         </details>
         
@@ -1224,7 +1182,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_003195295a0c5f228b7eb71c7faec95d" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_654fec0b91415a90bc71c5a747fbd790" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f1dc5c822151528e869c5245304f9075" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b0d333755c7d54b6a29036bdeee2aba1" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_47b4b42e52695efa8630ffeb812a68ab" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/9bbcd022-d110-4b91-81c1-65d7002b2e04" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/e858ddd0-6673-4b9a-8014-6ab244c03b01" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/f98f9496-54a7-48a6-9377-b35234da89be" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/f98f9496-54a7-48a6-9377-b35234da89be" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
           </div>
         </details>
         
@@ -1244,7 +1202,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_904a2571135d53a3952259c7d8bcd7c0" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_399d5cf32d675773bf3cd0e1ad8da7c7" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_bd70347d72505b0e8f189101598fe659" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_4df791c3fa5953ea95e82c2131299e6e" target="_blank" rel="noopener">item 4</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/dd10ad01-224a-4bcd-968a-5c6830e9fd50" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/4048294b-85ff-4311-bf93-e11229272d19" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/0bc92e91-2861-4a01-b7c3-5c00a98cb816" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/0bc92e91-2861-4a01-b7c3-5c00a98cb816" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
           </div>
         </details>
         
@@ -1264,7 +1222,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_f41a6a76fc94543cb8dcf470d020d502" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_0700b1b7482959a4bffbbefb48d1896e" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_3ea5d49ccba6535a8fb07feb93473ed7" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_96092541c18350259f8fdf25747838e6" target="_blank" rel="noopener">item 4</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/640c7602-65fc-45b4-a636-b32cad0c5f9f" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/eeec3c5f-d99b-493d-8bda-fc7d7ebb3c5d" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/1c6c281c-d165-4d80-835c-0fc84048845b" target="_blank" rel="noopener">dash 3</a><a href="https://copilotdash.microsoft.com/ticket/b177f4f9-2998-4251-a19e-aaab2cd25e9f" target="_blank" rel="noopener">dash 4</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/eeec3c5f-d99b-493d-8bda-fc7d7ebb3c5d" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span><a href="https://copilotdash.microsoft.com/ticket/1c6c281c-d165-4d80-835c-0fc84048845b" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/b177f4f9-2998-4251-a19e-aaab2cd25e9f" target="_blank" rel="noopener">dash 3</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span></div>
           </div>
         </details>
         
@@ -1284,7 +1242,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_6a8028382fa85c96a0521beb6646da5d" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e278a01146e558b5a7dca9ce37c2eff6" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1273972a24295812b3292a2a3a4bf246" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_fd2564431aea5b9aa3b773ec62ed655a" target="_blank" rel="noopener">item 4</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/5b900826-8dd2-415a-89b7-60ec8d012e63" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/23ff03dd-fe1c-460b-8fb3-134c5d44cc88" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/9edcd7a4-86d7-4916-bf26-b61d3f42358f" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/5b900826-8dd2-415a-89b7-60ec8d012e63" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14, prod-gpt-53-chat, prod-sonicberry]</span><a href="https://copilotdash.microsoft.com/ticket/23ff03dd-fe1c-460b-8fb3-134c5d44cc88" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/9edcd7a4-86d7-4916-bf26-b61d3f42358f" target="_blank" rel="noopener">dash 3</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14, prod-gpt-53-chat, prod-sonicberry]</span></div>
           </div>
         </details>
         
@@ -1304,7 +1262,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_7419a95699bf571a9a328f42abbdd451" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b808790bcf9b52a18bd3a9932ca9b03f" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1adf1f557922538ba29e2b8897c2c23e" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_963825d43a7a5bd3971e121f87476444" target="_blank" rel="noopener">item 4</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/503b9509-406b-4d96-8840-851022923b85" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/0ee670fa-d995-46d1-858e-668ea9d099ac" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/fb4398b1-218f-4a30-9a85-33ee4db29082" target="_blank" rel="noopener">dash 3</a><a href="https://copilotdash.microsoft.com/ticket/00915c20-c296-4436-95dc-5bedc1e28bc5" target="_blank" rel="noopener">dash 4</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/503b9509-406b-4d96-8840-851022923b85" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span><a href="https://copilotdash.microsoft.com/ticket/0ee670fa-d995-46d1-858e-668ea9d099ac" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/fb4398b1-218f-4a30-9a85-33ee4db29082" target="_blank" rel="noopener">dash 3</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/00915c20-c296-4436-95dc-5bedc1e28bc5" target="_blank" rel="noopener">dash 4</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span></div>
           </div>
         </details>
         
@@ -1324,7 +1282,7 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_11ced348fe2c53d49ed69f330e4730f8" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_fe4ad803fd545869b8bab2619d2ea0f3" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e21b3135b43153268c55fcbbc79da055" target="_blank" rel="noopener">item 3</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/a70fa22c-66bf-4254-990c-fb259df7fd46" target="_blank" rel="noopener">dash 1</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/a70fa22c-66bf-4254-990c-fb259df7fd46" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-41-mini-04-14, prod-gpt-53-chat]</span></div>
           </div>
         </details>
         
@@ -1344,13 +1302,13 @@ footer a { color: var(--text-dim); }
             <div class="ticket-card__links">
               <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_f19300d0489f50799826071c6bbcd49b" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_61b561eb9a625c97b13fa8d30f9ed21c" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b5555ed3870750139a58cc5c77972177" target="_blank" rel="noopener">item 3</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/f35c1608-fee8-49de-b322-69e859cb47ab" target="_blank" rel="noopener">dash 1</a><a href="https://copilotdash.microsoft.com/ticket/c561f704-d663-411d-bff8-ac035355290c" target="_blank" rel="noopener">dash 2</a><a href="https://copilotdash.microsoft.com/ticket/2c877e09-4ee4-4230-a6ea-3ed7132bdd6c" target="_blank" rel="noopener">dash 3</a></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/2c877e09-4ee4-4230-a6ea-3ed7132bdd6c" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14, prod-gpt-53-chat, prod-sonicberry]</span></div>
           </div>
         </details>
         </div>
 </section>
       <footer>
-        <span>Generated 2026-05-25 13:31 · publish-ocv-report · Outlook Agent · 2026-05-24</span>
+        <span>Generated 2026-05-26 17:15 · publish-ocv-report · Outlook Agent · 2026-05-24</span>
         <span><a href="https://ocv.microsoft.com/" target="_blank" rel="noopener">OCV →</a></span>
       </footer>
     </main>
