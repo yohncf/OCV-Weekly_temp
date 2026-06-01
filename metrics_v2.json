@@ -1,0 +1,435 @@
+{
+  "weeks": [
+    {
+      "week_of": "2026-05-11",
+      "date_range": "May 4-11, 2026",
+      "total_items": 4047,
+      "verbatim_items": 473,
+      "structured_only_items": 3574,
+      "negative_items": 249,
+      "rating": {
+        "up": 2812,
+        "down": 1235,
+        "total": 4047,
+        "positive_pct": 69.5
+      },
+      "sentiment": {
+        "negative": 272,
+        "positive": 91,
+        "neutral": 109,
+        "negative_pct_of_scored": 57.6
+      },
+      "topic_counts": {
+        "1": 66,
+        "2": 29,
+        "3": 17,
+        "4": 10,
+        "5": 5,
+        "6": 16,
+        "7": 18,
+        "8": 39,
+        "9": 17,
+        "10": 17,
+        "11": 6,
+        "12": 7,
+        "13": 2
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 66
+        },
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 39
+        },
+        {
+          "topic_id": 2,
+          "name": "HitL violation",
+          "count": 29
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 18
+        },
+        {
+          "topic_id": 3,
+          "name": "Output doesn't match intent",
+          "count": 17
+        }
+      ],
+      "priority": {
+        "p0": 10,
+        "p1": 33,
+        "p2": 28,
+        "p3": 26
+      },
+      "ticket_worthy_rows": 71,
+      "ado_synced_rows": 0,
+      "subtopic_rows": 97,
+      "clients": {
+        "Desktop (Monarch)": 2424,
+        "OWA": 1172,
+        "Desktop (Win32)": 450,
+        "Mobile (iOS)": 1
+      },
+      "languages": {
+        "en": 3957,
+        "es": 41,
+        "pt": 16,
+        "de": 8,
+        "fr": 6,
+        "it": 3,
+        "zh-Hant": 3,
+        "ja": 2,
+        "fi": 2,
+        "he": 2,
+        "ko": 2,
+        "pl": 2,
+        "da": 1,
+        "uk": 1,
+        "sv": 1
+      },
+      "wow": null,
+      "emerging": []
+    },
+    {
+      "week_of": "2026-05-18",
+      "date_range": "May 11-16, 2026",
+      "total_items": 1223,
+      "verbatim_items": 156,
+      "structured_only_items": 1067,
+      "negative_items": 88,
+      "rating": {
+        "up": 908,
+        "down": 315,
+        "total": 1223,
+        "positive_pct": 74.2
+      },
+      "sentiment": {
+        "negative": 90,
+        "positive": 37,
+        "neutral": 29,
+        "negative_pct_of_scored": 57.7
+      },
+      "topic_counts": {
+        "1": 26,
+        "2": 4,
+        "3": 8,
+        "4": 6,
+        "6": 12,
+        "7": 9,
+        "8": 10,
+        "9": 2,
+        "10": 9,
+        "11": 1,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 26
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 12
+        },
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 10
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 9
+        },
+        {
+          "topic_id": 10,
+          "name": "File I/O failure",
+          "count": 9
+        }
+      ],
+      "priority": {
+        "p0": 5,
+        "p1": 6,
+        "p2": 14,
+        "p3": 29
+      },
+      "ticket_worthy_rows": 44,
+      "ado_synced_rows": 3,
+      "subtopic_rows": 54,
+      "clients": {
+        "Desktop (Monarch)": 876,
+        "Desktop (Win32)": 185,
+        "OWA": 161,
+        "Mac": 1
+      },
+      "languages": {
+        "en": 1206,
+        "es": 8,
+        "ja": 3,
+        "ko": 2,
+        "nl": 1,
+        "fr": 1,
+        "zh-Hans": 1,
+        "cs": 1
+      },
+      "wow": {
+        "rating_pp": 4.7,
+        "volume_pct": -69.8,
+        "negatives_pct": -64.7,
+        "p0p1_delta": -32
+      },
+      "emerging": []
+    },
+    {
+      "week_of": "2026-05-24",
+      "date_range": "2026-05-18 to 2026-05-24",
+      "total_items": 1403,
+      "verbatim_items": 187,
+      "structured_only_items": 1216,
+      "negative_items": 117,
+      "rating": {
+        "up": 1085,
+        "down": 318,
+        "total": 1403,
+        "positive_pct": 77.3
+      },
+      "sentiment": {
+        "negative": 120,
+        "positive": 32,
+        "neutral": 34,
+        "negative_pct_of_scored": 64.5
+      },
+      "topic_counts": {
+        "1": 43,
+        "3": 11,
+        "4": 3,
+        "6": 5,
+        "7": 9,
+        "8": 32,
+        "9": 7,
+        "10": 3,
+        "11": 3,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 43
+        },
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 32
+        },
+        {
+          "topic_id": 3,
+          "name": "Output doesn't match intent",
+          "count": 11
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 9
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "count": 7
+        }
+      ],
+      "priority": {
+        "p0": 4,
+        "p1": 10,
+        "p2": 15,
+        "p3": 24
+      },
+      "ticket_worthy_rows": 27,
+      "ado_synced_rows": 32,
+      "subtopic_rows": 53,
+      "clients": {
+        "Desktop (Monarch)": 1019,
+        "OWA": 208,
+        "Desktop (Win32)": 175,
+        "Mac": 1
+      },
+      "languages": {
+        "en": 1390,
+        "es": 7,
+        "ja": 2,
+        "cs": 1,
+        "de": 1,
+        "pt": 1,
+        "ko": 1
+      },
+      "wow": {
+        "rating_pp": 3.1,
+        "volume_pct": 14.7,
+        "negatives_pct": 33.0,
+        "p0p1_delta": 3
+      },
+      "emerging": [
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "this_week": 32,
+          "last_week": 10,
+          "delta": 22
+        },
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "this_week": 43,
+          "last_week": 26,
+          "delta": 17
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "this_week": 7,
+          "last_week": 2,
+          "delta": 5
+        }
+      ]
+    },
+    {
+      "week_of": "2026-05-31",
+      "date_range": "2026-05-25 to 2026-05-31",
+      "total_items": 1079,
+      "verbatim_items": 134,
+      "structured_only_items": 945,
+      "negative_items": 68,
+      "rating": {
+        "up": 864,
+        "down": 215,
+        "total": 1079,
+        "positive_pct": 80.1
+      },
+      "sentiment": {
+        "negative": 68,
+        "positive": 42,
+        "neutral": 24,
+        "negative_pct_of_scored": 50.7
+      },
+      "topic_counts": {
+        "1": 10,
+        "2": 1,
+        "3": 4,
+        "4": 8,
+        "5": 1,
+        "6": 8,
+        "7": 9,
+        "8": 8,
+        "9": 9,
+        "10": 1,
+        "11": 2,
+        "12": 6,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 10
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 9
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "count": 9
+        },
+        {
+          "topic_id": 4,
+          "name": "Constraints ignored",
+          "count": 8
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 8
+        }
+      ],
+      "priority": {
+        "p0": 4,
+        "p1": 7,
+        "p2": 8,
+        "p3": 9
+      },
+      "ticket_worthy_rows": 19,
+      "ado_synced_rows": 20,
+      "subtopic_rows": 28,
+      "clients": {
+        "Desktop (Monarch)": 763,
+        "OWA": 163,
+        "Desktop (Win32)": 153
+      },
+      "languages": {
+        "en": 1056,
+        "es": 9,
+        "pt": 5,
+        "ja": 4,
+        "fr": 1,
+        "de": 1,
+        "it": 1,
+        "zh-Hant": 1,
+        "pl": 1
+      },
+      "wow": {
+        "rating_pp": 2.8,
+        "volume_pct": -23.1,
+        "negatives_pct": -41.9,
+        "p0p1_delta": -3
+      },
+      "emerging": [
+        {
+          "topic_id": 12,
+          "name": "Capability refusal",
+          "this_week": 6,
+          "last_week": 0,
+          "delta": 6
+        },
+        {
+          "topic_id": 4,
+          "name": "Constraints ignored",
+          "this_week": 8,
+          "last_week": 3,
+          "delta": 5
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "this_week": 8,
+          "last_week": 5,
+          "delta": 3
+        }
+      ]
+    }
+  ],
+  "topic_names": {
+    "1": "Action not executed",
+    "2": "HitL violation",
+    "3": "Output doesn't match intent",
+    "4": "Constraints ignored",
+    "5": "Unnecessary clarifying question",
+    "6": "Reliability failure",
+    "7": "Inaccurate or fabricated content",
+    "8": "Wrong context / grounding",
+    "9": "Tone / language / format",
+    "10": "File I/O failure",
+    "11": "Calendar correctness",
+    "12": "Capability refusal",
+    "13": "Intrusive Outlook Agent UI"
+  }
+}
