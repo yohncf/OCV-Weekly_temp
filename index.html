@@ -307,6 +307,14 @@
       font-style: normal;
       font-weight: 500;
     }
+    .progress-card__title .title-rating {
+      color: var(--sage);
+      font-weight: 500;
+    }
+    .progress-card__title .title-neg {
+      color: var(--text-dim);
+      font-weight: 500;
+    }
     .progress-card__lede {
       font-size: 13.5px;
       color: var(--text-dim);
@@ -403,7 +411,7 @@
 
     <section class="progress-card" id="progress" hidden>
       <p class="progress-card__eyebrow">Progress at a glance</p>
-      <h2 class="progress-card__title">User Rating vs <em>Negative comments</em></h2>
+      <h2 class="progress-card__title"><span class="title-rating">User Rating</span> vs <span class="title-neg">Negative comments</span></h2>
       <p class="progress-card__lede">
         Trend across every published week: total negative feedback received (left axis) and the share of users rating the agent positively (right axis). Hover any point for the exact value.
       </p>
@@ -514,7 +522,6 @@
           <div class="report-card__metrics">
             ${metric(r.thumbs_down, '\u{1F44E} Down', priorTd, false)}
             ${metric(r.thumbs_up, '\u{1F44D} Up', priorTu, true)}
-            ${topicMetric(r.top_topic)}
           </div>
           <div class="report-card__cta">
             <span class="open">Open report &rarr;</span>
