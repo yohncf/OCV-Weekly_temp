@@ -4,6 +4,18 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "week_of": "2026-05-31",
+      "label": "Week of May 31, 2026",
+      "range": "2026-05-25 to 2026-05-31",
+      "file": "reports/2026-05-31.html",
+      "negatives": 65,
+      "topics": 13,
+      "thumbs_down": 77,
+      "thumbs_up": 52,
+      "highlights": "Drafts-never-in-Drafts regression (n=3) and partial mailbox actions dominate this week; capability-refusal is a new pattern (6 items) absorbing what used to be classified as action-not-executed.",
+      "published": "2026-06-01"
+    },
+    {
       "week_of": "2026-05-24",
       "label": "Week of May 24, 2026",
       "range": "2026-05-18 to 2026-05-24",
