@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCV Weekly · Outlook AI Agent · Week of 2026-05-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <style>
+
+:root {
+  --md-sys-color-surface: #101418;
+  --md-sys-color-surface-container-low: #161a1f;
+  --md-sys-color-surface-container: #1a1e23;
+  --md-sys-color-surface-container-high: #22272d;
+  --md-sys-color-surface-container-highest: #2a2f36;
+  --md-sys-color-on-surface: #e3e2e6;
+  --md-sys-color-on-surface-variant: #c4c6cf;
+  --md-sys-color-on-surface-faint: #8a8d94;
+  --md-sys-color-outline-variant: #43474e;
+  --md-sys-color-primary: #a8c7fa;
+  --md-sys-color-primary-container: rgba(168, 199, 250, 0.12);
+  --md-sys-color-tertiary: #a4ccaf;
+  --md-sys-color-tertiary-container: rgba(164, 204, 175, 0.14);
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-error-container: rgba(255, 180, 171, 0.14);
+  --md-sys-color-secondary: #bbc7db;
+  --md-sys-color-secondary-container: rgba(187, 199, 219, 0.10);
+  --md-shape-corner-small: 8px;
+  --md-shape-corner-medium: 12px;
+  --md-shape-corner-large: 16px;
+  --md-shape-corner-extra-large: 28px;
+  --md-elevation-1: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-elevation-2: 0 2px 6px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --font-display: 'Google Sans Display','Google Sans','Roboto',system-ui,sans-serif;
+  --font-body: 'Google Sans Text','Google Sans','Roboto',system-ui,sans-serif;
+  --font-mono: 'Roboto Mono',ui-monospace,monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--font-body);
+  font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+a { color: var(--md-sys-color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, .mono { font-family: var(--font-mono); }
+.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.cell-sub { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
+
+/* ===== Type scale ===== */
+.display-medium  { font-family: var(--font-display); font-weight: 400; font-size: 45px; line-height: 52px; }
+.headline-large  { font-family: var(--font-display); font-weight: 500; font-size: 32px; line-height: 40px; }
+.headline-medium { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 36px; }
+.title-large     { font-family: var(--font-body); font-weight: 500; font-size: 22px; line-height: 28px; }
+.title-medium    { font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 24px; }
+.body-large      { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 24px; }
+.body-medium     { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 20px; }
+.body-small      { font-family: var(--font-body); font-weight: 400; font-size: 12px; line-height: 16px; }
+.label-medium    { font-family: var(--font-body); font-weight: 500; font-size: 12px; line-height: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* ===== Top app bar ===== */
+.top-bar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding: 12px 32px;
+  display: flex; align-items: center; gap: 16px;
+}
+.top-bar__back {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  color: var(--md-sys-color-on-surface);
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.top-bar__back:hover { background: var(--md-sys-color-surface-container-high); text-decoration: none; }
+.top-bar__title { color: var(--md-sys-color-on-surface); }
+.top-bar__subtitle { color: var(--md-sys-color-on-surface-variant); margin-top: 2px; }
+.top-bar__spacer { flex: 1; }
+.top-bar__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-tertiary);
+}
+.top-bar__chip-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--md-sys-color-tertiary);
+}
+
+/* ===== Layout: TOC rail + content ===== */
+.page {
+  max-width: 1400px; margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.toc {
+  position: sticky; top: 96px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.toc a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px;
+  border-radius: 100px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px; font-weight: 500;
+  transition: background 200ms var(--md-easing-emphasized), color 200ms var(--md-easing-emphasized);
+}
+.toc a:hover { background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-on-surface); text-decoration: none; }
+.toc a.is-active {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+.toc a .material-symbols-rounded { font-size: 18px; }
+.content { display: flex; flex-direction: column; gap: 28px; }
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+  .toc { position: static; flex-direction: row; overflow-x: auto; flex-wrap: nowrap; }
+  .toc a { white-space: nowrap; }
+}
+
+/* ===== Hero ===== */
+.hero-header {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.hero-header__title { color: var(--md-sys-color-on-surface); }
+.hero-header__subtitle { color: var(--md-sys-color-on-surface-variant); }
+.hero {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1100px) { .hero { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .hero { grid-template-columns: 1fr; } }
+.kpi {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-shape-corner-extra-large);
+  padding: 24px;
+  box-shadow: var(--md-elevation-1);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.kpi:hover { background: var(--md-sys-color-surface-container-highest); }
+.kpi__header { display: flex; align-items: center; gap: 10px; color: var(--md-sys-color-on-surface-variant); }
+.kpi__header .material-symbols-rounded { font-size: 20px; color: var(--md-sys-color-primary); }
+.kpi__value { color: var(--md-sys-color-on-surface); font-size: 44px; line-height: 52px; font-weight: 500; font-family: var(--font-display); }
+.kpi__value--text { font-size: 24px; line-height: 32px; }
+.kpi__sub {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--md-shape-corner-small);
+  width: fit-content;
+  font-size: 13px; font-weight: 500;
+}
+.kpi__sub--pos { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.kpi__sub--neg { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.kpi__sub--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.kpi__sub .material-symbols-rounded { font-size: 16px; }
+.kpi__caption { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
+
+/* ===== Report cards (sections) ===== */
+.report-card {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 28px;
+  box-shadow: var(--md-elevation-1);
+  scroll-margin-top: 96px;
+}
+.section-eyebrow {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 6px;
+}
+.section-title { color: var(--md-sys-color-on-surface); margin: 0 0 20px 0; }
+.section-note { color: var(--md-sys-color-on-surface-faint); margin-bottom: 16px; }
+
+/* ===== Markdown content ===== */
+.md-p { color: var(--md-sys-color-on-surface); margin: 0 0 12px 0; }
+.md-p:last-child { margin-bottom: 0; }
+.md-list { color: var(--md-sys-color-on-surface); padding-left: 20px; margin: 0; }
+.md-list li { margin-bottom: 8px; }
+.md-list li:last-child { margin-bottom: 0; }
+.md-list strong, .md-p strong { color: var(--md-sys-color-on-surface); font-weight: 600; }
+.md-h3 { color: var(--md-sys-color-on-surface); margin: 20px 0 12px 0; }
+
+/* ===== Tables (data + dataset) ===== */
+.data-table-wrap, .dataset-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--md-shape-corner-medium);
+  background: var(--md-sys-color-surface-container-low);
+}
+table.data-table, table.dataset-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.data-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+.data-table thead th.num { text-align: right; }
+.data-table tbody td { padding: 12px 16px; border-bottom: 1px solid var(--md-sys-color-outline-variant); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--md-sys-color-surface-container-high); }
+.topic-cell { color: var(--md-sys-color-on-surface); }
+.topic-id {
+  display: inline-block; min-width: 22px; text-align: center;
+  padding: 2px 6px; border-radius: 6px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  margin-right: 6px;
+}
+.delta-up   { color: var(--md-sys-color-error); }
+.delta-down { color: var(--md-sys-color-tertiary); }
+.delta-flat { color: var(--md-sys-color-on-surface-faint); }
+
+.dataset-table th.row-head {
+  text-align: left; padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top; min-width: 200px;
+}
+.dataset-table .cell {
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top;
+}
+.dataset-table tbody tr:last-child th, .dataset-table tbody tr:last-child td { border-bottom: none; }
+
+/* ===== Ticket cards ===== */
+.ticket-list { display: flex; flex-direction: column; gap: 12px; }
+.ticket-card {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  overflow: hidden;
+  transition: border-color 200ms var(--md-easing-emphasized), background 200ms var(--md-easing-emphasized);
+}
+.ticket-card[open] { background: var(--md-sys-color-surface-container-high); }
+.ticket-card--p0[open] { border-color: var(--md-sys-color-error); }
+.ticket-card--p1[open] { border-color: #ffd1ac; }
+.ticket-card--p2[open] { border-color: var(--md-sys-color-secondary); }
+.ticket-card__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto 28px;
+  align-items: center; gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+.ticket-card__head::-webkit-details-marker { display: none; }
+.ticket-card__title { color: var(--md-sys-color-on-surface); }
+.ticket-card__count { color: var(--md-sys-color-on-surface-faint); font-size: 13px; }
+.ticket-card__chevron {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 22px;
+  transition: transform 200ms var(--md-easing-emphasized);
+}
+.ticket-card[open] .ticket-card__chevron { transform: rotate(180deg); }
+
+.prio-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.prio-p0 { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.prio-p1 { background: rgba(255, 209, 172, 0.16); color: #ffd1ac; }
+.prio-p2 { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.prio-p3 { background: var(--md-sys-color-surface-container-highest); color: var(--md-sys-color-on-surface-faint); }
+
+.ticket-card__body {
+  padding: 0 20px 20px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  padding-top: 16px;
+}
+.ticket-chips {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.ticket-card__desc {
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+}
+.ticket-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.ticket-links__label {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-right: 4px;
+}
+.ticket-model-tag {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--md-sys-color-on-surface-faint);
+}
+
+/* ===== Material 3 chips & buttons ===== */
+.m3-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px; font-weight: 500;
+}
+.m3-chip .material-symbols-rounded { font-size: 14px; }
+.m3-chip--assist {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+.m3-chip--link {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+.m3-chip--link:hover { background: rgba(168,199,250,0.22); text-decoration: none; }
+
+.m3-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.m3-btn .material-symbols-rounded { font-size: 16px; }
+.m3-btn--outlined {
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+.m3-btn--outlined:hover { background: var(--md-sys-color-primary-container); text-decoration: none; }
+
+/* ===== FAB ===== */
+.fab {
+  position: fixed; bottom: 32px; right: 32px;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  background: var(--md-sys-color-primary);
+  color: #002e69;
+  border: none; border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  z-index: 30;
+  text-decoration: none;
+  transition: background 200ms var(--md-easing-emphasized),
+              transform 200ms var(--md-easing-emphasized),
+              box-shadow 200ms var(--md-easing-emphasized);
+}
+.fab:hover { transform: translateY(-2px); text-decoration: none; }
+.fab .material-symbols-rounded { font-size: 20px; }
+@media (max-width: 600px) {
+  .fab { bottom: 20px; right: 20px; padding: 12px 16px; }
+  .fab__label { display: none; }
+}
+
+/* ===== Preview tag (only on v2 preview files) ===== */
+.preview-tag {
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a class="top-bar__back" href="../index.html" aria-label="Back to dashboard">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </a>
+    <div>
+      <div class="top-bar__title title-large">OCV Weekly · Outlook AI Agent</div>
+      <div class="top-bar__subtitle body-small">Week of 2026-05-25 to 2026-05-31</div>
+    </div>
+    <div class="top-bar__spacer"></div>
+    <div class="preview-tag label-medium">M3 Preview</div>
+    <div class="top-bar__chip label-medium">
+      <span class="top-bar__chip-dot"></span>
+      <span>live</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <nav class="toc" id="toc"><a href="#hero" data-target="hero"><span class="material-symbols-rounded">speed</span>Headline</a><a href="#tldr" data-target="tldr"><span class="material-symbols-rounded">summarize</span>TL;DR</a><a href="#dataset" data-target="dataset"><span class="material-symbols-rounded">dataset</span>Dataset</a><a href="#findings" data-target="findings"><span class="material-symbols-rounded">lightbulb</span>Findings</a><a href="#topics" data-target="topics"><span class="material-symbols-rounded">compare_arrows</span>Topic shifts</a><a href="#routing" data-target="routing"><span class="material-symbols-rounded">route</span>Routing</a><a href="#categories" data-target="categories"><span class="material-symbols-rounded">category</span>Categories</a><a href="#tickets" data-target="tickets"><span class="material-symbols-rounded">assignment</span>Tickets</a></nav>
+
+    <main class="content">
+      <section id="hero">
+        <div class="hero-header" style="margin-bottom: 16px;">
+          <div class="hero-header__title headline-large">Week of 2026-05-25 to 2026-05-31</div>
+          <div class="hero-header__subtitle body-large">Customer-feedback signal · classified into 13-topic taxonomy</div>
+        </div>
+        <div class="hero">
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">sentiment_satisfied</span>
+        <span class="label-medium">Positive rating</span>
+      </div>
+      <div class="kpi__value ">80.1%</div>
+      <div class="kpi__sub kpi__sub--pos">
+        <span class="material-symbols-rounded">trending_up</span>
+        +2.7 pp vs last week
+      </div>
+      <div class="kpi__caption">864 up · 215 down</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">comment</span>
+        <span class="label-medium">Verbatim negatives</span>
+      </div>
+      <div class="kpi__value ">68</div>
+      <div class="kpi__sub kpi__sub--pos">
+        <span class="material-symbols-rounded">trending_down</span>
+        -41.9% vs last week
+      </div>
+      <div class="kpi__caption">of 134 verbatim, 1,079 total submissions</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">warning</span>
+        <span class="label-medium">Top pain topic</span>
+      </div>
+      <div class="kpi__value kpi__value--text">Action not executed</div>
+      <div class="kpi__sub kpi__sub--pos">
+        <span class="material-symbols-rounded">trending_down</span>
+        -33 items vs last week
+      </div>
+      <div class="kpi__caption">10 negatives this week</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">engineering</span>
+        <span class="label-medium">P0 + P1 queue</span>
+      </div>
+      <div class="kpi__value ">11</div>
+      <div class="kpi__sub kpi__sub--pos">
+        <span class="material-symbols-rounded">trending_down</span>
+        -3 vs last week
+      </div>
+      <div class="kpi__caption">4 P0 · 7 P1 · 20 synced to ADO</div>
+    </div>
+    </div>
+      </section>
+
+      <section id="tldr" class="report-card">
+        <div class="section-eyebrow label-medium">01 · TL;DR</div>
+        <h2 class="section-title headline-medium">What you need to know</h2>
+        <div class="md-content"><ul class="md-list">
+<li class="body-medium"><strong>Volume:</strong> 1,079 total submissions this week — 134 with a written comment (12.4%) and 945 thumbs-only ratings.</li>
+<li class="body-medium"><strong>Overall sentiment is positive on raw ratings:</strong> 864 thumbs-up vs 215 thumbs-down (80.1% positive). Written comments skew negative because users self-select to type when frustrated.</li>
+<li class="body-medium"><strong>Classified negatives:</strong> 68 verbatim items form the engineering analysis universe.</li>
+<li class="body-medium"><strong>Top topic — Action not executed (10 items, 14.7%).</strong> Drafting/triage actions where Copilot claimed completion but state never changed. Includes a clear Agent Mode regression: drafts not landing in the Drafts folder (3 items).</li>
+<li class="body-medium"><strong>Runner-ups:</strong> Inaccurate / fabricated content (9 items, 13.2%) and Wrong context / grounding (8 items, 11.8%).</li>
+<li class="body-medium"><strong>New pattern — Capability refusal (6 items, 8.8%).</strong> Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap.</li>
+</ul>
+<h3 class="md-h3 title-large">Dataset Summary</h3></div>
+      </section>
+
+      
+<section id="dataset" class="report-card">
+  <div class="section-eyebrow label-medium">03 · Dataset summary</div>
+  <h2 class="section-title headline-medium">What was sampled</h2>
+  <div class="dataset-table-wrap">
+    <table class="dataset-table">
+      <tbody><tr><th class='row-head'>Total submissions</th><td class='cell'>1,079</td></tr><tr><th class='row-head'>With verbatim</th><td class='cell'>134<br><span class='cell-sub'>12.4%</span></td><td class='cell'>No verbatim (unscored)<br><span class='cell-sub'>945 · 87.6%</span></td></tr><tr><th class='row-head'>Sentiment (verbatim slice)</th><td class="cell">Negative<br><span class="cell-sub">68 · 6.3%</span></td><td class="cell">Positive<br><span class="cell-sub">42 · 3.9%</span></td><td class="cell">Neutral<br><span class="cell-sub">24 · 2.2%</span></td></tr><tr><th class='row-head'>Rating (all submissions)</th><td class="cell">Thumbs up<br><span class="cell-sub">864 · 80.1%</span></td><td class="cell">Thumbs down<br><span class="cell-sub">215 · 19.9%</span></td></tr><tr><th class='row-head'>Client</th><td class="cell">Desktop (Monarch)<br><span class="cell-sub">763 · 70.7%</span></td><td class="cell">OWA<br><span class="cell-sub">163 · 15.1%</span></td><td class="cell">Desktop (Win32)<br><span class="cell-sub">153 · 14.2%</span></td></tr><tr><th class='row-head'>Language</th><td class="cell">en<br><span class="cell-sub">1,056 · 97.9%</span></td><td class="cell">es<br><span class="cell-sub">9 · 0.8%</span></td><td class="cell">pt<br><span class="cell-sub">5 · 0.5%</span></td><td class="cell">ja<br><span class="cell-sub">4 · 0.4%</span></td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+
+      <section id="findings" class="report-card">
+        <div class="section-eyebrow label-medium">04 · Key findings</div>
+        <h2 class="section-title headline-medium">What the data is telling us</h2>
+        <div class="md-content"><ul class="md-list">
+<li class="body-medium"><strong>Most submissions are silent thumbs-up.</strong> 864 of 1079 ratings (80.1%) were positive. Only 134 users left any written comment (12.4% of all submissions). All findings below are drawn from the verbatim slice, which heavily oversamples dissatisfied users.</li>
+<li class="body-medium"><strong>Agent Mode drafting regression (P0).</strong> Three independent users report Copilot confirms reply drafts have been saved to the Drafts folder, but the drafts never appear. In one case Copilot itself admitted &#x27;attempts to create the drafts failed again (expired) and were never saved.&#x27;</li>
+<li class="body-medium"><strong>Mailbox bulk actions partial-or-no execution (P0).</strong> Three triage interactions where claimed completion didn&#x27;t match actual state.</li>
+<li class="body-medium"><strong>Calendar correctness failed at the suggestion step twice (P0 by multi-item rule).</strong></li>
+<li class="body-medium"><strong>Capability-refusal cluster is new this week.</strong> Items where Copilot represented capabilities it doesn&#x27;t have (persistent memory, staff calendar visibility, prior-session recovery), then acknowledged the gap. Prior week&#x27;s manifest had 0 items in Topic 12.</li>
+<li class="body-medium"><strong>Reliability error_string on informational surfaces (P1, n=8).</strong> Inbox summary, 12-month historical search, master-data pull, multi-language email evaluation, slash-command grounding — all returned canned errors or failed silently on informational queries.</li>
+<li class="body-medium"><strong>Drafting constraint-ignored is concentrated (P1, n=6).</strong> Recipient mis-pluralization, format constraints dropped, content truncation, missing flight-numbers in an itinerary, no clickable links on a re-run, plain-list-vs-bulleted format ignored.</li>
+<li class="body-medium"><strong>Calendar Instructions UX dead-end (P2, n=3).</strong> Set-up flow refuses or rule never applied; user routed in a loop.</li>
+</ul></div>
+      </section>
+
+      
+<section id="topics" class="report-card">
+  <div class="section-eyebrow label-medium">05 · Topic shifts (week over week)</div>
+  <h2 class="section-title headline-medium">WoW shifts vs week of 2026-05-24</h2>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Topic</th><th class="num">This week</th><th class="num">Last week</th><th class="num">Δ (pp)</th></tr></thead>
+      <tbody>
+          <tr>
+            <td class="topic-cell"><span class="topic-id">1</span> Action not executed</td>
+            <td class="num">10 <span class="cell-sub">(14.7%)</span></td>
+            <td class="num">43 <span class="cell-sub">(36.8%)</span></td>
+            <td class="num delta-down">-22.0 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">7</span> Inaccurate or fabricated content</td>
+            <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
+            <td class="num">9 <span class="cell-sub">(7.7%)</span></td>
+            <td class="num delta-up">+5.5 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">9</span> Tone / language / format</td>
+            <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
+            <td class="num">7 <span class="cell-sub">(6.0%)</span></td>
+            <td class="num delta-up">+7.3 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">4</span> Constraints ignored</td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
+            <td class="num delta-up">+9.2 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">6</span> Reliability failure</td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="num">5 <span class="cell-sub">(4.3%)</span></td>
+            <td class="num delta-up">+7.5 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">8</span> Wrong context / grounding</td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="num">32 <span class="cell-sub">(27.4%)</span></td>
+            <td class="num delta-down">-15.6 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">12</span> Capability refusal</td>
+            <td class="num">6 <span class="cell-sub">(8.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="num delta-up">+8.8 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">3</span> Output doesn&#x27;t match intent</td>
+            <td class="num">4 <span class="cell-sub">(5.9%)</span></td>
+            <td class="num">11 <span class="cell-sub">(9.4%)</span></td>
+            <td class="num delta-down">-3.5 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">11</span> Calendar correctness</td>
+            <td class="num">2 <span class="cell-sub">(2.9%)</span></td>
+            <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
+            <td class="num delta-up">+0.4 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">2</span> HitL violation</td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="num delta-up">+1.5 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">5</span> Unnecessary clarifying question</td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="num delta-up">+1.5 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">10</span> File I/O failure</td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
+            <td class="num delta-down">-1.1 pp</td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">13</span> Intrusive Outlook Agent UI</td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="num">1 <span class="cell-sub">(0.9%)</span></td>
+            <td class="num delta-up">+0.6 pp</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+      
+<section id="routing" class="report-card">
+  <div class="section-eyebrow label-medium">06b · Routing path</div>
+  <h2 class="section-title headline-medium">Which routing path is generating the most issues</h2>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Path</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
+      <tbody>
+          <tr>
+            <td class="mono">Unknown</td>
+            <td class="num">57</td>
+            <td class="num"><span class="cell-sub">83.8%</span></td>
+          </tr>
+        
+          <tr>
+            <td class="mono">Sydney-Tools</td>
+            <td class="num">7</td>
+            <td class="num"><span class="cell-sub">10.3%</span></td>
+          </tr>
+        
+          <tr>
+            <td class="mono">Sydney-Tools+WorkBerry</td>
+            <td class="num">4</td>
+            <td class="num"><span class="cell-sub">5.9%</span></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+      
+<section id="categories" class="report-card">
+  <div class="section-eyebrow label-medium">07 · Category breakdown</div>
+  <h2 class="section-title headline-medium">Which surfaces are bearing the load</h2>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Category</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
+      <tbody>
+          <tr>
+            <td>Search</td>
+            <td class="num">18</td>
+            <td class="num"><span class="cell-sub">26.5%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Drafting</td>
+            <td class="num">14</td>
+            <td class="num"><span class="cell-sub">20.6%</span></td>
+          </tr>
+        
+          <tr>
+            <td>General</td>
+            <td class="num">9</td>
+            <td class="num"><span class="cell-sub">13.2%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Scheduling</td>
+            <td class="num">6</td>
+            <td class="num"><span class="cell-sub">8.8%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Summarization</td>
+            <td class="num">5</td>
+            <td class="num"><span class="cell-sub">7.4%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Triage</td>
+            <td class="num">4</td>
+            <td class="num"><span class="cell-sub">5.9%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Rules</td>
+            <td class="num">3</td>
+            <td class="num"><span class="cell-sub">4.4%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Tasks</td>
+            <td class="num">3</td>
+            <td class="num"><span class="cell-sub">4.4%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Replying</td>
+            <td class="num">3</td>
+            <td class="num"><span class="cell-sub">4.4%</span></td>
+          </tr>
+        
+          <tr>
+            <td>Unknown</td>
+            <td class="num">2</td>
+            <td class="num"><span class="cell-sub">2.9%</span></td>
+          </tr>
+        
+          <tr>
+            <td>File</td>
+            <td class="num">1</td>
+            <td class="num"><span class="cell-sub">1.5%</span></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+      
+<section id="tickets">
+  <div class="section-eyebrow label-medium">08 · Ticket queue</div>
+  <h2 class="section-title headline-medium">P0 / P1 / P2 rows worth engineering attention</h2>
+  <p class="section-note body-medium">Showing top 12 rows by priority then prevalence. Click any row to expand.</p>
+  <div class="ticket-list">
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: Drafts confirmed but never appear in Drafts folder (Agent Mode regression)</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432565" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Across multiple users, Copilot in Outlook confirmed that reply drafts had been saved to the Drafts folder, but the drafts were never actually created. In at least one case the user spent 30 minutes attempting the same request. Copilot itself, when pushed, acknowledged &#x27;attempts to create the drafts failed again (expired) and were never saved to Drafts&#x27;. This is a false-success claim on a core drafting capability and breaks user trust in Agent Mode.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bfe518cb73265b59a8f45e629e161742" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_8243c65baacd57e4bda707a28df6376d" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_427d215b9a9853f8b967580ed789b110" target="_blank" rel="noopener">item 3</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Triage: Mailbox actions (move/folder/mark-read) execute partially or not at all</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Triage</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Bulk mailbox actions claimed success without fully executing. Examples: a &#x27;create folder X and move all matching emails&#x27; request returned a canned error; a &#x27;copy emails to Unisys/Colombia_Legal&#x27; returned &#x27;I executed exactly what you requested&#x27; but the user reports nothing moved; a mark-as-read against Copilot-categorized Low-priority items executed on 29 of 74 emails while claiming all were cleared.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_2e3825f46c3350b4a6656c5c97ae2f66" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7643ab5a025755cf90beeb5171211698" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_dd5b5fd360cb5a41a68c6295be26a0d8" target="_blank" rel="noopener">item 3</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Scheduling: Suggested or listed availability conflicts with existing booked meetings</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>11. Calendar correctness</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434990" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Two cases where calendar correctness failed at the suggestion stage: (a) &#x27;go look at my calendar&#x27; surfaced meeting-time recommendations during slots the user had already booked; (b) a request for true availability across 8AM-4PM EST excluding tentative meetings returned inaccurate date/time blocks. Both undermine the basic trust contract of a calendar agent.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_56855968c4f9574e9a7c30619dab3f75" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bef67834e624511b80fce39619de41f8" target="_blank" rel="noopener">item 2</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/105f8788-df83-41cc-ab1c-4ac11753876d" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: Draft content not exposed for inline review/edit in the Outlook surface</span>
+            <span class="ticket-card__count mono">×1</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432128" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">User reports that after Copilot generates the desired email content, there is no inline edit path in Outlook to refine before sending — they have to copy/paste out. Single occurrence this week, but Topic 2 (HitL) is automatically P0 because the trust/approval surface is the boundary that must not be skipped.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a95231e0e25e55ccbac5d49bd9d90e7f" target="_blank" rel="noopener">item 1</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Drafting: Recipient / length / format / inclusion constraints ignored</span>
+            <span class="ticket-card__count mono">×6</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>4. Constraints ignored</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434992" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Five drafting interactions where the user&#x27;s explicit instruction was understood but not followed. Examples: drafted to &#x27;shortlisted candidates&#x27; when only one was attached; &#x27;@pfizer.com domain filter&#x27; dropped from a search-then-draft; newsletter rewrite missing half the content; itinerary draft missing requested flight numbers/confirmations; re-run did not produce the requested clickable links.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_5817f9f7be4d54d2a87e9ecc8b4cf4cd" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_781386b77a22584bbb4bf2202455a139" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_ff2cec51d4235eecabc99ba97ef6dbb1" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_d2e0b798c0af591cafec368f56d6d977" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f4e5288d397954f792df9c62332ab3bf" target="_blank" rel="noopener">item 5</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/d87ab721-42b3-48c2-849b-f3ca3f248bd4 | https://copilotdash.microsoft.com/ticket/e6e3a927-9457-4d42-b4bb-07f7441dc107" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools | Unknown: prod-gpt-53-chat | prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search &amp; Summarization: Fabricated or outdated factual answers</span>
+            <span class="ticket-card__count mono">×6</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>7. Inaccurate or fabricated content</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434991" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Six items where on-topic content contained wrong facts: stale INR/USD FX rate quoted as &#x27;today&#x27;s&#x27;; savings-fund payment date sourced without verifying recency; Ctrl+Y shortcut recommended for New Outlook (does not exist); &#x27;core message&#x27; summary factually wrong; exec summary contained incorrect product-name claim; an internal HR question (TP vs P) answered with a hallucinated &#x27;estimate&#x27; instead of grounding or refusing.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_af345dcb5fd55a9794e8912b7a437bea" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_537ef9b9a5925753b8dc14741c7dfc70" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_abe4fb24498c560dae0d7fe1bacf6655" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_87e4e8ad123056aa91d716077e2773f5" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_9acec6138a0251a99ce136dfa61b0d1d" target="_blank" rel="noopener">item 5</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search &amp; Summarization: Canned &#x27;something went wrong&#x27; on informational queries</span>
+            <span class="ticket-card__count mono">×5</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>6. Reliability failure</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Four informational queries (inbox summary, long-range message search, master-data pull, multi-language email evaluation) returned canned &#x27;I&#x27;m sorry, I wasn&#x27;t able to process&#x27; / &#x27;Something went wrong&#x27; instead of usable output. SubMode = error_string. Promoted to P1 because these are core informational surfaces.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bc273fcf78a25d63aa91dbff79634976" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_44ce4b061db15ad7aef8e2209de3ac52" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_1c409fe99d825434b7bd0c19f863f025" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e3e11376d978551e8997924646afc98a" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_d22515cb5639575a846ee2f250202142" target="_blank" rel="noopener">item 5</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/613c7ef4-0eae-48c7-abb5-7519393aaf1f" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown: prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Drafting: Wrong source email pulled for rewrite, reply, or links</span>
+            <span class="ticket-card__count mono">×5</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>8. Wrong context / grounding</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434993" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Five drafting/summarization interactions where Copilot acted on the wrong source content. Examples: &#x27;Auto rewrite&#x27; returned content from an unrelated meeting invite; ScheduleFromEmail button used the wrong email chain; inline links in a re-summarization pointed to wrong emails; reply context lost across turns; Copilot didn&#x27;t detect that the referenced email was still a draft, not yet sent.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_c6c7a228483f5a8d8ce0c5afdf84f5dc" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_118524c7a41f54e38ab22b45279360fa" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_45eb4883057353e6830eaf2e8d28900e" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_0f45b09ebd8c5c9e944518df33d2b96e" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_14dc72269c9a596aac1435bc93ae7ba4" target="_blank" rel="noopener">item 5</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/2ac49cf6-a8b6-446e-bce7-174a422691e8 | https://copilotdash.microsoft.com/ticket/6e348a92-a36a-4d21-9aa1-5b13b82c4a0c" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">General: Copilot promises capabilities it doesn&#x27;t have, then admits gap</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>12. Capability refusal for in-scope request</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>General</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434994" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Four interactions where Copilot represented a capability it does not actually have, then acknowledged the gap when challenged: persistent memory across chats; live Microsoft staff calendar visibility for meeting-time suggestion; recovery of a prior session&#x27;s content; ability to take action when permissions were absent. Erodes trust by appearing to commit then back-pedaling.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_ccc908ac65815fd39f0a1984efc73d4a" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_463b0e5bb69756d5b0c8a171dfcf8537" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_ad7cf2ed5c095b5a99c7488c9d4c18de" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f3fa3395148b518f8f44eefed46e47cb" target="_blank" rel="noopener">item 4</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search &amp; Drafting: Output unrelated to user intent (initial misunderstanding)</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>3. Output doesn&#x27;t match intent</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434995" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Four items where the top-level intent was misread, producing on-target-looking output that addressed a different question. Spans rewrite, prospect identification, ready-to-send report with citations, and a multi-turn topic-correction conversation.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_3c4aa1ae2f50568c90c6f0ea224793ee" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a62b378b582959bd9c852ff5c37ee979" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_386fe132e1b2507890f1493952eacd28" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_8c3564b9012a5c6dbf829a62b04e6e02" target="_blank" rel="noopener">item 4</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Scheduling: Calendar add / candidate-time action returns canned error or false success</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Two calendar-write attempts failed in different ways: &#x27;just add the calendar&#x27; produced &#x27;Your calendar event is already created and updated&#x27; but nothing was added; a candidate-date proposal returned &#x27;Something went wrong... error_during_execution&#x27;. Promoted to P1 per the rule covering Topic 1 on Scheduling with Item Count &gt;= 2.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_37dd376af9e253dd8b820e580252350d" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bff77f32ea4a598eb9e24d194cb81d85" target="_blank" rel="noopener">item 2</a></div>
+            
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p2">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p2">P2</span>
+            <span class="ticket-card__title title-medium">Search: Vague quality complaints with no specific failure mode</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>9. Tone, language, or format quality</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434999" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Three items captioned &#x27;sloppy&#x27;, &#x27;not helpful at all&#x27;, and &#x27;not helpful at all&#x27; against on-topic responses where the user did not cite a specific failure. Bumped to P2 by multi-item rule but not actionable as filed.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7de2fa1e54a95b75a96037dc840f027f" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bfe6ef8055a9560e81534d8b92846121" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_1416f9dc160450348e488cff500da506" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_abc6cdbbc99354508499fca929482a6e" target="_blank" rel="noopener">item 4</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/0524a397-9d36-4ac1-bd0a-3e0e434ecadf" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry</span></div>
+          </div>
+        </details>
+        </div>
+</section>
+
+    </main>
+  </div>
+
+  <a class="fab" href="#hero" aria-label="Back to top">
+    <span class="material-symbols-rounded">arrow_upward</span>
+    <span class="fab__label">Back to top</span>
+  </a>
+
+  <script>
+    // Active-section highlighting in TOC
+    (function () {
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      const targets = links.map(a => document.getElementById(a.dataset.target)).filter(Boolean);
+      function onScroll() {
+        const fromTop = window.scrollY + 120;
+        let activeIdx = 0;
+        targets.forEach((t, i) => { if (t.offsetTop <= fromTop) activeIdx = i; });
+        links.forEach((a, i) => a.classList.toggle('is-active', i === activeIdx));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
