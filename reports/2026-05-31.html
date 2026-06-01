@@ -812,7 +812,7 @@ footer a { color: var(--text-dim); }
   <p class="section-label">01 · TL;DR</p>
   <h2>tl;dr</h2>
   <div class="tldr">
-    <div class="tldr__body"><p>This week&#x27;s snapshot (n=65 negatives across 129 total) is dominated by <strong>Action not executed</strong> (10 items, 15.4%) — drafting and triage actions where Copilot claimed completion but state never changed, including a clear Agent Mode regression on drafts not landing in the Drafts folder (3 items). <strong>Inaccurate / fabricated content</strong> (9 items, 13.8%) and <strong>Wrong context / grounding</strong> (8 items, 12.3%) are the next two largest categories. A new pattern this week: <strong>Capability refusal for in-scope requests</strong> (6 items, 9.2%) — Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap when challenged. <strong>Calendar correctness</strong> appears twice and automatically promotes to P0 under the multi-item rule. Sample is <strong>35% smaller than last week</strong> (65 vs 117 negatives), so cross-week percentages should be read directionally.</p></div>
+    <div class="tldr__body"><p>This week&#x27;s full snapshot is <strong>1079 total submissions</strong> (vs 117 prior-week negatives baseline) — of these, only <strong>134 include a written comment</strong> (12.4%); the remaining 945 are thumbs-only ratings with no text. The verbatim slice contains <strong>68 negative items</strong> (classification universe). Overall rating split: <strong>864 thumbs-up vs 215 thumbs-down</strong> (80.1% positive on ratings; comments skew negative because users self-select to type when frustrated). The classified negatives are dominated by <strong>Action not executed</strong> (10 items, 14.7%) — drafting/triage actions where Copilot claimed completion but state never changed, including a clear Agent Mode regression on drafts not landing in the Drafts folder (3 items). <strong>Inaccurate / fabricated content</strong> (9 items, 13.2%) and <strong>Wrong context / grounding</strong> (8 items, 11.8%) are next. New pattern: <strong>Capability refusal</strong> (6 items, 8.8%) — Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap.</p></div>
   </div>
 </section>
 <section id="kpis">
@@ -821,8 +821,8 @@ footer a { color: var(--text-dim); }
   <div class="kpi-grid kpi-grid--three">
     <div class="kpi kpi--hero">
       <div class="kpi__label">Negative items</div>
-      <div class="kpi__value">65</div>
-      <div class="kpi__was"><span class="kpi__was-label">Last week</span><span class="kpi__was-value">117</span><span class="delta delta--down">-44.4%</span></div>
+      <div class="kpi__value">68</div>
+      <div class="kpi__was"><span class="kpi__was-label">Last week</span><span class="kpi__was-value">117</span><span class="delta delta--down">-41.9%</span></div>
     </div>
     <div class="kpi">
       <div class="kpi__label">Topics surfaced</div>
@@ -834,15 +834,15 @@ footer a { color: var(--text-dim); }
       <div class="kpi__thumbs">
         <div class="thumb thumb--down">
           <span class="thumb__icon" aria-hidden="true">👎</span>
-          <strong>77</strong>
+          <strong>215</strong>
           <span class="was">138</span>
-          <span class="row-delta row-delta--down">-44.2%</span>
+          <span class="row-delta row-delta--up">+55.8%</span>
         </div>
         <div class="thumb thumb--up">
           <span class="thumb__icon" aria-hidden="true">👍</span>
-          <strong>52</strong>
+          <strong>864</strong>
           <span class="was">45</span>
-          <span class="row-delta row-delta--up">+15.6%</span>
+          <span class="row-delta row-delta--up">+1820.0%</span>
         </div>
       </div>
     </div>
@@ -854,15 +854,15 @@ footer a { color: var(--text-dim); }
   <div class="dataset-grid dataset-grid--three">
     <div class="dataset-card">
       <h4>Sentiment</h4>
-      <table class="micro-table"><tr><td>Negative</td><td class="num">65</td><td class="num dim">50.4%</td></tr><tr><td>Positive</td><td class="num">41</td><td class="num dim">31.8%</td></tr><tr><td>Neutral</td><td class="num">23</td><td class="num dim">17.8%</td></tr></table>
+      <table class="micro-table"><tr><td>Unscored (structured-only, no verbatim)</td><td class="num">945</td><td class="num dim">87.6%</td></tr><tr><td>Negative</td><td class="num">68</td><td class="num dim">6.3%</td></tr><tr><td>Positive</td><td class="num">42</td><td class="num dim">3.9%</td></tr><tr><td>Neutral</td><td class="num">24</td><td class="num dim">2.2%</td></tr></table>
     </div>
     <div class="dataset-card">
       <h4>Language <span class="dataset-card__hint">top 4</span></h4>
-      <table class="micro-table"><tr><td>en</td><td class="num">106</td><td class="num dim">82.2%</td></tr><tr><td>es</td><td class="num">9</td><td class="num dim">7.0%</td></tr><tr><td>pt</td><td class="num">5</td><td class="num dim">3.9%</td></tr><tr><td>ja</td><td class="num">4</td><td class="num dim">3.1%</td></tr><tr class="micro-table__more"><td class="dim">+ 5 more</td><td class="num dim">5</td><td class="num dim">3.9%</td></tr></table>
+      <table class="micro-table"><tr><td>en</td><td class="num">1,056</td><td class="num dim">97.9%</td></tr><tr><td>es</td><td class="num">9</td><td class="num dim">0.8%</td></tr><tr><td>pt</td><td class="num">5</td><td class="num dim">0.5%</td></tr><tr><td>ja</td><td class="num">4</td><td class="num dim">0.4%</td></tr><tr class="micro-table__more"><td class="dim">+ 5 more</td><td class="num dim">5</td><td class="num dim">0.5%</td></tr></table>
     </div>
     <div class="dataset-card">
       <h4>Client</h4>
-      <table class="micro-table"><tr><td>Desktop (Monarch)</td><td class="num">65</td><td class="num dim">50.4%</td></tr><tr><td>Desktop (Win32)</td><td class="num">49</td><td class="num dim">38.0%</td></tr><tr><td>OWA</td><td class="num">15</td><td class="num dim">11.6%</td></tr></table>
+      <table class="micro-table"><tr><td>Desktop (Monarch)</td><td class="num">763</td><td class="num dim">70.7%</td></tr><tr><td>OWA</td><td class="num">163</td><td class="num dim">15.1%</td></tr><tr><td>Desktop (Win32)</td><td class="num">153</td><td class="num dim">14.2%</td></tr></table>
     </div>
   </div>
 </section>
@@ -873,42 +873,42 @@ footer a { color: var(--text-dim); }
     
         <div class="finding-card">
           <div class="finding-card__num">01</div>
-          <div class="finding-card__body"><p><strong>Agent Mode drafting regression (P0).</strong> Three independent users (i=34, 40, 41) report Copilot confirms reply drafts have been saved to the Drafts folder, but the drafts never appear. In one case Copilot itself admitted &#x27;attempts to create the drafts failed again (expired) and were never saved.&#x27; One user spent 30 minutes on a single repeated draft request before filing feedback.</p></div>
+          <div class="finding-card__body"><p><strong>Most submissions are silent thumbs-up.</strong> 864 of 1079 ratings (80.1%) were positive. Only 134 users left any written comment (12.4% of all submissions). All findings below are drawn from the verbatim slice, which heavily oversamples dissatisfied users.</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">02</div>
-          <div class="finding-card__body"><p><strong>Mailbox bulk actions partial-or-no execution (P0).</strong> Three triage interactions: a folder-create-and-move returned a canned error; a copy-to-folder claimed &#x27;I executed exactly what you requested&#x27; but the user reports nothing moved; a Copilot-categorized Low-priority mark-as-read executed on 29 of 74 emails while claiming all were cleared.</p></div>
+          <div class="finding-card__body"><p><strong>Agent Mode drafting regression (P0).</strong> Three independent users report Copilot confirms reply drafts have been saved to the Drafts folder, but the drafts never appear. In one case Copilot itself admitted &#x27;attempts to create the drafts failed again (expired) and were never saved.&#x27;</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">03</div>
-          <div class="finding-card__body"><p><strong>Calendar correctness failed at the suggestion step twice (P0 by multi-item rule).</strong> A &#x27;go look at my calendar&#x27; surface recommended meeting times during slots the user had already booked; a true-availability request (8AM-4PM EST, ignore tentative, June 8-19) returned inaccurate dates/times.</p></div>
+          <div class="finding-card__body"><p><strong>Mailbox bulk actions partial-or-no execution (P0).</strong> Three triage interactions where claimed completion didn&#x27;t match actual state.</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">04</div>
-          <div class="finding-card__body"><p><strong>Capability-refusal cluster is new this week.</strong> Six items where Copilot represented capabilities it doesn&#x27;t have (persistent memory across chats, live staff calendar visibility, prior-session content recovery, action without permissions, CalendarInstructions follow-through). Four items where the agent acknowledged the gap after-the-fact (P1); three more clustered around the CalendarInstructions UX dead-end (P2). Prior week&#x27;s manifest had 0 items in Topic 12.</p></div>
+          <div class="finding-card__body"><p><strong>Calendar correctness failed at the suggestion step twice (P0 by multi-item rule).</strong></p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">05</div>
-          <div class="finding-card__body"><p><strong>Reliability error_string on informational surfaces (P1, n=4).</strong> Inbox summary, 12-month historical search, master-data pull, and a Portuguese-language email evaluation all returned canned &#x27;Something went wrong&#x27; / &#x27;I&#x27;m sorry, I wasn&#x27;t able to process&#x27;. These are core informational capabilities.</p></div>
+          <div class="finding-card__body"><p><strong>Capability-refusal cluster is new this week.</strong> Items where Copilot represented capabilities it doesn&#x27;t have (persistent memory, staff calendar visibility, prior-session recovery), then acknowledged the gap. Prior week&#x27;s manifest had 0 items in Topic 12.</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">06</div>
-          <div class="finding-card__body"><p><strong>Constraint-ignored is concentrated in Drafting (P1, n=5).</strong> Recipient mis-pluralization, domain-filter dropped, content truncation, missing flight-numbers in an itinerary, and no clickable links on a re-run. No single root cause.</p></div>
+          <div class="finding-card__body"><p><strong>Reliability error_string on informational surfaces (P1, n=8).</strong> Inbox summary, 12-month historical search, master-data pull, multi-language email evaluation, slash-command grounding — all returned canned errors or failed silently on informational queries.</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">07</div>
-          <div class="finding-card__body"><p><strong>Calendar Instructions UX dead-end (P2, n=3).</strong> Three items where the user followed the CalendarInstructions surface but the agent either refused, gave text-only instructions that route back to the failing Copilot pane, or could not create an auto-decline rule despite user expectation that it should be in scope.</p></div>
+          <div class="finding-card__body"><p><strong>Drafting constraint-ignored is concentrated (P1, n=6).</strong> Recipient mis-pluralization, format constraints dropped, content truncation, missing flight-numbers in an itinerary, no clickable links on a re-run, plain-list-vs-bulleted format ignored.</p></div>
         </div>
         
         <div class="finding-card">
           <div class="finding-card__num">08</div>
-          <div class="finding-card__body"><p><strong>Anecdotal signals worth watching but not actionable as filed (n=1 each, marked anecdotal):</strong> HitL inline-edit gap (Topic 2); Unnecessary clarification on Outlook variant (Topic 5); foreign-language injection in English response (Topic 9).</p></div>
+          <div class="finding-card__body"><p><strong>Calendar Instructions UX dead-end (P2, n=3).</strong> Set-up flow refuses or rule never applied; user routed in a loop.</p></div>
         </div>
         
   </div>
@@ -932,74 +932,74 @@ footer a { color: var(--text-dim); }
         <tr>
           <td class="topic-id"><code>01</code></td>
           <td class="topic-name">Action not executed</td>
-          <td class="num">10 · 15.4%</td>
+          <td class="num">10 · 14.7%</td>
           <td class="bar-cell"><div class="bar bar--red" style="width:100.0%"></div></td>
           <td class="num dim">43 · 36.8%</td>
-          <td class="num"><span class="delta delta--down">-21.4 pp</span></td>
+          <td class="num"><span class="delta delta--down">-22.0 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>07</code></td>
           <td class="topic-name">Inaccurate or fabricated content</td>
-          <td class="num">9 · 13.8%</td>
+          <td class="num">9 · 13.2%</td>
           <td class="bar-cell"><div class="bar bar--amber" style="width:90.0%"></div></td>
           <td class="num dim">9 · 7.7%</td>
-          <td class="num"><span class="delta delta--up">+6.2 pp</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>08</code></td>
-          <td class="topic-name">Wrong context / grounding</td>
-          <td class="num">8 · 12.3%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:80.0%"></div></td>
-          <td class="num dim">32 · 27.4%</td>
-          <td class="num"><span class="delta delta--down">-15.0 pp</span></td>
+          <td class="num"><span class="delta delta--up">+5.5 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>09</code></td>
           <td class="topic-name">Tone, language, or format quality</td>
-          <td class="num">8 · 12.3%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:80.0%"></div></td>
+          <td class="num">9 · 13.2%</td>
+          <td class="bar-cell"><div class="bar bar--navy" style="width:90.0%"></div></td>
           <td class="num dim">7 · 6.0%</td>
-          <td class="num"><span class="delta delta--up">+6.3 pp</span></td>
+          <td class="num"><span class="delta delta--up">+7.3 pp</span></td>
+        </tr>
+        <tr>
+          <td class="topic-id"><code>08</code></td>
+          <td class="topic-name">Wrong context / grounding</td>
+          <td class="num">8 · 11.8%</td>
+          <td class="bar-cell"><div class="bar bar--navy" style="width:80.0%"></div></td>
+          <td class="num dim">32 · 27.4%</td>
+          <td class="num"><span class="delta delta--down">-15.6 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>06</code></td>
           <td class="topic-name">Reliability failure</td>
-          <td class="num">7 · 10.8%</td>
-          <td class="bar-cell"><div class="bar bar--red" style="width:70.0%"></div></td>
+          <td class="num">8 · 11.8%</td>
+          <td class="bar-cell"><div class="bar bar--red" style="width:80.0%"></div></td>
           <td class="num dim">5 · 4.3%</td>
-          <td class="num"><span class="delta delta--up">+6.5 pp</span></td>
+          <td class="num"><span class="delta delta--up">+7.5 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>04</code></td>
           <td class="topic-name">Constraints ignored</td>
-          <td class="num">7 · 10.8%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:70.0%"></div></td>
+          <td class="num">8 · 11.8%</td>
+          <td class="bar-cell"><div class="bar bar--amber" style="width:80.0%"></div></td>
           <td class="num dim">3 · 2.6%</td>
-          <td class="num"><span class="delta delta--up">+8.2 pp</span></td>
+          <td class="num"><span class="delta delta--up">+9.2 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>12</code></td>
           <td class="topic-name">Capability refusal (in-scope)</td>
-          <td class="num">6 · 9.2%</td>
+          <td class="num">6 · 8.8%</td>
           <td class="bar-cell"><div class="bar bar--navy" style="width:60.0%"></div></td>
           <td class="num dim">0 · 0.0%</td>
-          <td class="num"><span class="delta delta--up">+9.2 pp</span></td>
+          <td class="num"><span class="delta delta--up">+8.8 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>03</code></td>
           <td class="topic-name">Output doesn&#x27;t match intent</td>
-          <td class="num">4 · 6.2%</td>
+          <td class="num">4 · 5.9%</td>
           <td class="bar-cell"><div class="bar bar--amber" style="width:40.0%"></div></td>
           <td class="num dim">11 · 9.4%</td>
-          <td class="num"><span class="delta delta--down">-3.2 pp</span></td>
+          <td class="num"><span class="delta delta--down">-3.5 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>11</code></td>
           <td class="topic-name">Calendar correctness</td>
-          <td class="num">2 · 3.1%</td>
+          <td class="num">2 · 2.9%</td>
           <td class="bar-cell"><div class="bar bar--red" style="width:20.0%"></div></td>
           <td class="num dim">3 · 2.6%</td>
-          <td class="num"><span class="delta delta--up">+0.5 pp</span></td>
+          <td class="num"><span class="delta delta--flat">+0.4 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>10</code></td>
@@ -1007,7 +1007,7 @@ footer a { color: var(--text-dim); }
           <td class="num">1 · 1.5%</td>
           <td class="bar-cell"><div class="bar bar--amber" style="width:10.0%"></div></td>
           <td class="num dim">3 · 2.6%</td>
-          <td class="num"><span class="delta delta--down">-1.0 pp</span></td>
+          <td class="num"><span class="delta delta--down">-1.1 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>13</code></td>
@@ -1015,7 +1015,7 @@ footer a { color: var(--text-dim); }
           <td class="num">1 · 1.5%</td>
           <td class="bar-cell"><div class="bar bar--navy" style="width:10.0%"></div></td>
           <td class="num dim">1 · 0.9%</td>
-          <td class="num"><span class="delta delta--up">+0.7 pp</span></td>
+          <td class="num"><span class="delta delta--up">+0.6 pp</span></td>
         </tr>
         <tr>
           <td class="topic-id"><code>02</code></td>
@@ -1040,56 +1040,56 @@ footer a { color: var(--text-dim); }
   <h2>Which surfaces are bearing the load</h2>
   <p class="note">Slice size = share of this week's negative items. Callouts show the WoW change in share (percentage points) vs the prior manifest.</p>
   <div class="cat-chart-wrap"><svg viewBox="0 0 700 460" preserveAspectRatio="xMidYMid meet" class="cat-chart" role="img" aria-label="Category breakdown donut chart">
-      <g><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#8ab4f8" stroke-width="50.0" stroke-dasharray="162.40 497.34" stroke-dashoffset="-0.00" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#fdd663" stroke-width="50.0" stroke-dasharray="131.95 527.79" stroke-dashoffset="-162.40" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#f28b82" stroke-width="50.0" stroke-dasharray="91.35 568.39" stroke-dashoffset="-294.34" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#81c995" stroke-width="50.0" stroke-dasharray="60.90 598.84" stroke-dashoffset="-385.69" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#c58af9" stroke-width="50.0" stroke-dasharray="50.75 608.99" stroke-dashoffset="-446.59" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#aecbfa" stroke-width="50.0" stroke-dasharray="40.60 619.14" stroke-dashoffset="-497.34" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#5f6368" stroke-width="50.0" stroke-dasharray="121.80 537.94" stroke-dashoffset="-537.94" transform="rotate(-90 350.0 220.0)" /></g>
+      <g><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#8ab4f8" stroke-width="50.0" stroke-dasharray="174.64 485.10" stroke-dashoffset="-0.00" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#fdd663" stroke-width="50.0" stroke-dasharray="135.83 523.91" stroke-dashoffset="-174.64" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#f28b82" stroke-width="50.0" stroke-dasharray="87.32 572.42" stroke-dashoffset="-310.46" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#81c995" stroke-width="50.0" stroke-dasharray="58.21 601.52" stroke-dashoffset="-397.78" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#c58af9" stroke-width="50.0" stroke-dasharray="48.51 611.22" stroke-dashoffset="-455.99" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#aecbfa" stroke-width="50.0" stroke-dasharray="38.81 620.93" stroke-dashoffset="-504.50" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#5f6368" stroke-width="50.0" stroke-dasharray="116.42 543.31" stroke-dashoffset="-543.31" transform="rotate(-90 350.0 220.0)" /></g>
       <g>
     <text x="350.0" y="212.0" text-anchor="middle" class="donut-center__label">Negatives</text>
-    <text x="350.0" y="242.0" text-anchor="middle" class="donut-center__value">65</text>
+    <text x="350.0" y="242.0" text-anchor="middle" class="donut-center__value">68</text>
     </g>
       <g>
-        <polyline points="278.8,111.3 268.9,96.2 268.9,96.2 130.0,96.2"
+        <polyline points="281.6,109.5 272.1,94.2 272.1,94.2 130.0,94.2"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="92.2" text-anchor="end" class="callout__name">Other <tspan class="callout__count">12</tspan></text>
-        <text x="134.0" y="108.2" text-anchor="end" class="callout__delta callout__delta--down">-2.1 pp vs last week</text>
+        <text x="134.0" y="90.2" text-anchor="end" class="callout__name">Other <tspan class="callout__count">12</tspan></text>
+        <text x="134.0" y="106.2" text-anchor="end" class="callout__delta callout__delta--down">-2.9 pp vs last week</text>
         
-        <polyline points="223.1,191.9 205.5,188.1 205.5,188.1 130.0,188.1"
+        <polyline points="225.0,184.4 207.6,179.5 207.6,179.5 130.0,179.5"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="184.1" text-anchor="end" class="callout__name">Triage <tspan class="callout__count">4</tspan></text>
-        <text x="134.0" y="200.1" text-anchor="end" class="callout__delta callout__delta--down">-1.5 pp vs last week</text>
+        <text x="134.0" y="175.5" text-anchor="end" class="callout__name">Triage <tspan class="callout__count">4</tspan></text>
+        <text x="134.0" y="191.5" text-anchor="end" class="callout__delta callout__delta--down">-1.8 pp vs last week</text>
         
-        <polyline points="223.1,248.1 205.5,251.9 205.5,251.9 130.0,251.9"
+        <polyline points="221.2,238.0 203.4,240.4 203.4,240.4 130.0,240.4"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="247.9" text-anchor="end" class="callout__name">Summarization <tspan class="callout__count">5</tspan></text>
-        <text x="134.0" y="263.9" text-anchor="end" class="callout__delta callout__delta--up">+3.4 pp vs last week</text>
+        <text x="134.0" y="236.4" text-anchor="end" class="callout__name">Summarization <tspan class="callout__count">5</tspan></text>
+        <text x="134.0" y="252.4" text-anchor="end" class="callout__delta callout__delta--up">+3.1 pp vs last week</text>
         
-        <polyline points="254.8,308.5 241.6,320.8 241.6,320.8 130.0,320.8"
+        <polyline points="246.3,298.3 231.9,309.2 231.9,309.2 130.0,309.2"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="316.8" text-anchor="end" class="callout__name">Scheduling <tspan class="callout__count">6</tspan></text>
-        <text x="134.0" y="332.8" text-anchor="end" class="callout__delta callout__delta--down">-7.9 pp vs last week</text>
+        <text x="134.0" y="305.2" text-anchor="end" class="callout__name">Scheduling <tspan class="callout__count">6</tspan></text>
+        <text x="134.0" y="321.2" text-anchor="end" class="callout__delta callout__delta--down">-8.3 pp vs last week</text>
         
-        <polyline points="337.5,349.4 335.7,367.3 335.7,367.3 130.0,367.3"
+        <polyline points="320.2,346.5 316.1,364.1 316.1,364.1 130.0,364.1"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="363.3" text-anchor="end" class="callout__name">General <tspan class="callout__count">9</tspan></text>
-        <text x="134.0" y="379.3" text-anchor="end" class="callout__delta callout__delta--up">+9.6 pp vs last week</text>
+        <text x="134.0" y="360.1" text-anchor="end" class="callout__name">General <tspan class="callout__count">9</tspan></text>
+        <text x="134.0" y="376.1" text-anchor="end" class="callout__delta callout__delta--up">+9.0 pp vs last week</text>
         
-        <polyline points="440.8,127.0 453.4,114.1 453.4,114.1 570.0,114.1"
+        <polyline points="446.1,132.4 459.4,120.3 459.4,120.3 570.0,120.3"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="566.0" y="110.1" text-anchor="start" class="callout__name">Search <tspan class="callout__count">16</tspan></text>
-        <text x="566.0" y="126.1" text-anchor="start" class="callout__delta callout__delta--down">-1.9 pp vs last week</text>
+        <text x="566.0" y="116.3" text-anchor="start" class="callout__name">Search <tspan class="callout__count">18</tspan></text>
+        <text x="566.0" y="132.3" text-anchor="start" class="callout__delta callout__delta--flat">-0.0 pp vs last week</text>
         
-        <polyline points="457.0,293.8 471.8,304.1 471.8,304.1 570.0,304.1"
+        <polyline points="446.1,307.6 459.4,319.7 459.4,319.7 570.0,319.7"
           fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="566.0" y="300.1" text-anchor="start" class="callout__name">Drafting <tspan class="callout__count">13</tspan></text>
-        <text x="566.0" y="316.1" text-anchor="start" class="callout__delta callout__delta--up">+2.1 pp vs last week</text>
+        <text x="566.0" y="315.7" text-anchor="start" class="callout__name">Drafting <tspan class="callout__count">14</tspan></text>
+        <text x="566.0" y="331.7" text-anchor="start" class="callout__delta callout__delta--up">+2.6 pp vs last week</text>
         </g>
     </svg></div>
 </section>
 <section id="routing">
   <p class="section-label">06b · Routing path</p>
   <h2>Which routing path is generating the most issues</h2>
-  <p class="note">65 of 119 negative items had path attribution available this week (55%). 54 item(s) had no Dash record.</p>
+  <p class="note">68 of 125 negative items had path attribution available this week (54%). 57 item(s) had no Dash record.</p>
   <table class="path-table">
     <thead><tr><th>Path</th><th>Total</th></tr></thead>
-    <tbody><tr><td><span class="path-pill">Unknown</span></td><td>54</td></tr><tr><td><span class="path-pill">Sydney-Tools</span></td><td>7</td></tr><tr><td><span class="path-pill">Sydney-Tools+WorkBerry</span></td><td>4</td></tr><tr class="path-row--total"><td>Total (classified)</td><td>65</td></tr></tbody>
+    <tbody><tr><td><span class="path-pill">Unknown</span></td><td>57</td></tr><tr><td><span class="path-pill">Sydney-Tools</span></td><td>7</td></tr><tr><td><span class="path-pill">Sydney-Tools+WorkBerry</span></td><td>4</td></tr><tr class="path-row--total"><td>Total (classified)</td><td>68</td></tr></tbody>
   </table>
 </section>
 <section id="tickets">
@@ -1180,6 +1180,26 @@ footer a { color: var(--text-dim); }
         <details class="ticket-card ticket-card--p1">
           <summary class="ticket-card__head">
             <span class="ticket-card__prio prio--p1">P1</span>
+            <span class="ticket-card__title">Drafting: Recipient / length / format / inclusion constraints ignored</span>
+            <span class="ticket-card__count">×6</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-card__meta">
+              <span><strong>Topic:</strong> 4. Constraints ignored</span>
+              <span><strong>Surface:</strong> Drafting</span>
+              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434992" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
+            </div>
+            <p class="ticket-card__desc">Five drafting interactions where the user&#x27;s explicit instruction was understood but not followed. Examples: drafted to &#x27;shortlisted candidates&#x27; when only one was attached; &#x27;@pfizer.com domain filter&#x27; dropped from a search-then-draft; newsletter rewrite missing half the content; itinerary draft missing requested flight numbers/confirmations; re-run did not produce the requested clickable links.</p>
+            <div class="ticket-card__links">
+              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_5817f9f7be4d54d2a87e9ecc8b4cf4cd" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_781386b77a22584bbb4bf2202455a139" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_ff2cec51d4235eecabc99ba97ef6dbb1" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_d2e0b798c0af591cafec368f56d6d977" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f4e5288d397954f792df9c62332ab3bf" target="_blank" rel="noopener">item 5</a>
+            </div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/d87ab721-42b3-48c2-849b-f3ca3f248bd4" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/e6e3a927-9457-4d42-b4bb-07f7441dc107" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="ticket-card__prio prio--p1">P1</span>
             <span class="ticket-card__title">Search &amp; Summarization: Fabricated or outdated factual answers</span>
             <span class="ticket-card__count">×6</span>
           </summary>
@@ -1200,20 +1220,20 @@ footer a { color: var(--text-dim); }
         <details class="ticket-card ticket-card--p1">
           <summary class="ticket-card__head">
             <span class="ticket-card__prio prio--p1">P1</span>
-            <span class="ticket-card__title">Drafting: Recipient / length / format / inclusion constraints ignored</span>
+            <span class="ticket-card__title">Search &amp; Summarization: Canned &#x27;something went wrong&#x27; on informational queries</span>
             <span class="ticket-card__count">×5</span>
           </summary>
           <div class="ticket-card__body">
             <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 4. Constraints ignored</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434992" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
+              <span><strong>Topic:</strong> 6. Reliability failure</span>
+              <span><strong>Surface:</strong> Search</span>
+              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
             </div>
-            <p class="ticket-card__desc">Five drafting interactions where the user&#x27;s explicit instruction was understood but not followed. Examples: drafted to &#x27;shortlisted candidates&#x27; when only one was attached; &#x27;@pfizer.com domain filter&#x27; dropped from a search-then-draft; newsletter rewrite missing half the content; itinerary draft missing requested flight numbers/confirmations; re-run did not produce the requested clickable links.</p>
+            <p class="ticket-card__desc">Four informational queries (inbox summary, long-range message search, master-data pull, multi-language email evaluation) returned canned &#x27;I&#x27;m sorry, I wasn&#x27;t able to process&#x27; / &#x27;Something went wrong&#x27; instead of usable output. SubMode = error_string. Promoted to P1 because these are core informational surfaces.</p>
             <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_5817f9f7be4d54d2a87e9ecc8b4cf4cd" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_781386b77a22584bbb4bf2202455a139" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_ff2cec51d4235eecabc99ba97ef6dbb1" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_d2e0b798c0af591cafec368f56d6d977" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f4e5288d397954f792df9c62332ab3bf" target="_blank" rel="noopener">item 5</a>
+              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_bc273fcf78a25d63aa91dbff79634976" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_44ce4b061db15ad7aef8e2209de3ac52" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1c409fe99d825434b7bd0c19f863f025" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e3e11376d978551e8997924646afc98a" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_d22515cb5639575a846ee2f250202142" target="_blank" rel="noopener">item 5</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/d87ab721-42b3-48c2-849b-f3ca3f248bd4" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools: prod-gpt-53-chat]</span><a href="https://copilotdash.microsoft.com/ticket/e6e3a927-9457-4d42-b4bb-07f7441dc107" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/613c7ef4-0eae-48c7-abb5-7519393aaf1f" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
           </div>
         </details>
         
@@ -1280,26 +1300,6 @@ footer a { color: var(--text-dim); }
         <details class="ticket-card ticket-card--p1">
           <summary class="ticket-card__head">
             <span class="ticket-card__prio prio--p1">P1</span>
-            <span class="ticket-card__title">Search &amp; Summarization: Canned &#x27;something went wrong&#x27; on informational queries</span>
-            <span class="ticket-card__count">×4</span>
-          </summary>
-          <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 6. Reliability failure</span>
-              <span><strong>Surface:</strong> Search</span>
-              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
-            </div>
-            <p class="ticket-card__desc">Four informational queries (inbox summary, long-range message search, master-data pull, multi-language email evaluation) returned canned &#x27;I&#x27;m sorry, I wasn&#x27;t able to process&#x27; / &#x27;Something went wrong&#x27; instead of usable output. SubMode = error_string. Promoted to P1 because these are core informational surfaces.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_bc273fcf78a25d63aa91dbff79634976" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_44ce4b061db15ad7aef8e2209de3ac52" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1c409fe99d825434b7bd0c19f863f025" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e3e11376d978551e8997924646afc98a" target="_blank" rel="noopener">item 4</a>
-            </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/613c7ef4-0eae-48c7-abb5-7519393aaf1f" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
-          </div>
-        </details>
-        
-        <details class="ticket-card ticket-card--p1">
-          <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p1">P1</span>
             <span class="ticket-card__title">Scheduling: Calendar add / candidate-time action returns canned error or false success</span>
             <span class="ticket-card__count">×2</span>
           </summary>
@@ -1320,26 +1320,26 @@ footer a { color: var(--text-dim); }
         <details class="ticket-card ticket-card--p2">
           <summary class="ticket-card__head">
             <span class="ticket-card__prio prio--p2">P2</span>
-            <span class="ticket-card__title">Rules: CalendarInstructions UX dead-ends - set-up flow refuses or rule never applied</span>
-            <span class="ticket-card__count">×3</span>
+            <span class="ticket-card__title">Search: Vague quality complaints with no specific failure mode</span>
+            <span class="ticket-card__count">×4</span>
           </summary>
           <div class="ticket-card__body">
             <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 12. Capability refusal for in-scope request</span>
-              <span><strong>Surface:</strong> Rules</span>
-              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434998" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
+              <span><strong>Topic:</strong> 9. Tone, language, or format quality</span>
+              <span><strong>Surface:</strong> Search</span>
+              <a class="ado-link ado-link--created" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434999" target="_blank" rel="noopener">ADO (new) <span class="ado-link__arrow">↗</span></a>
             </div>
-            <p class="ticket-card__desc">Three items where the user followed the CalendarInstructions surface but the agent either refused (&#x27;not available through the APIs I have access to&#x27;), gave text-only instructions that route back to the failing Copilot pane, or could not create an auto-decline rule for meeting invites despite the user&#x27;s expectation that this is in scope. Mixed Topic 1/12 across the cluster.</p>
+            <p class="ticket-card__desc">Three items captioned &#x27;sloppy&#x27;, &#x27;not helpful at all&#x27;, and &#x27;not helpful at all&#x27; against on-topic responses where the user did not cite a specific failure. Bumped to P2 by multi-item rule but not actionable as filed.</p>
             <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_029678030ea254af8d1d8fd35e6c12c2" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e022a63a88115aa79dd75382f8b4b8df" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_5591cbb9e1ee58b6a1c42d7f6ea1a6bb" target="_blank" rel="noopener">item 3</a>
+              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_7de2fa1e54a95b75a96037dc840f027f" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_bfe6ef8055a9560e81534d8b92846121" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1416f9dc160450348e488cff500da506" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_abc6cdbbc99354508499fca929482a6e" target="_blank" rel="noopener">item 4</a>
             </div>
-            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/3c2020b0-1767-4191-9fb4-5fe25dc91ee9" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span><a href="https://copilotdash.microsoft.com/ticket/69dd756b-a924-440a-8eb0-c5053471c406" target="_blank" rel="noopener">dash 2</a> <span class="model-tag" title="diagnosed path + resolved models">[Unknown: prod-gpt-41-mini-04-14]</span></div>
+            <div class="ticket-card__links"><span class="ticket-card__links-label">Dash:</span> <a href="https://copilotdash.microsoft.com/ticket/0524a397-9d36-4ac1-bd0a-3e0e434ecadf" target="_blank" rel="noopener">dash 1</a> <span class="model-tag" title="diagnosed path + resolved models">[Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14, prod-gpt-53-chat, prod-sonicberry]</span></div>
           </div>
         </details>
         </div>
 </section>
       <footer>
-        <span>Generated 2026-06-01 13:22 · publish-ocv-report · Outlook Agent · 2026-05-31</span>
+        <span>Generated 2026-06-01 15:05 · publish-ocv-report · Outlook Agent · 2026-05-31</span>
         <span><a href="https://ocv.microsoft.com/" target="_blank" rel="noopener">OCV →</a></span>
       </footer>
     </main>
