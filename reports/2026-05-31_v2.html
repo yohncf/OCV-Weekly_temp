@@ -383,6 +383,166 @@ table.data-table, table.dataset-table {
   color: var(--md-sys-color-primary);
 }
 
+/* ===== Dataset mini-cards (3-pill vertical grid) ===== */
+.mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.mini-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mini-card__eyebrow { color: var(--md-sys-color-on-surface-faint); }
+.mini-card__title { color: var(--md-sys-color-on-surface); margin-bottom: 4px; }
+.pill-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pill {
+  display: grid;
+  grid-template-columns: 8px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.pill__dot { width: 8px; height: 8px; border-radius: 50%; }
+.pill__dot.pill--pos { background: var(--md-sys-color-tertiary); }
+.pill__dot.pill--neg { background: var(--md-sys-color-error); }
+.pill__dot.pill--neutral { background: var(--md-sys-color-on-surface-faint); }
+.pill__label { color: var(--md-sys-color-on-surface); }
+.pill__value { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.pill__share { color: var(--md-sys-color-on-surface-faint); }
+
+/* ===== Findings cards ===== */
+.finding-list { display: flex; flex-direction: column; gap: 12px; }
+.finding-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-left: 4px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 20px;
+}
+.finding-card--p0 { border-left-color: var(--md-sys-color-error); }
+.finding-card--p1 { border-left-color: #ffd1ac; }
+.finding-card--p2 { border-left-color: var(--md-sys-color-secondary); }
+.finding-card--p3 { border-left-color: var(--md-sys-color-on-surface-faint); }
+.finding-card__head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  margin-bottom: 6px;
+}
+.finding-card__title { color: var(--md-sys-color-on-surface); }
+.finding-card__body { color: var(--md-sys-color-on-surface-variant); margin: 0; }
+
+/* ===== WoW chip + magnitude bar ===== */
+.wow-th { text-align: left !important; padding-left: 16px; min-width: 220px; }
+.wow-cell { vertical-align: middle; }
+.wow-delta { display: flex; flex-direction: column; gap: 6px; min-width: 180px; }
+.wow-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 12px;
+  width: fit-content;
+}
+.wow-chip .material-symbols-rounded { font-size: 14px; }
+.wow-chip--up   { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.wow-chip--down { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.wow-chip--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.wow-bar {
+  position: relative;
+  height: 6px; width: 100%;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.wow-bar__zero {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  background: var(--md-sys-color-outline-variant);
+}
+.wow-bar__fill {
+  position: absolute; top: 0; bottom: 0;
+  border-radius: 3px;
+  transition: width 400ms var(--md-easing-emphasized);
+}
+.wow-bar__fill--up   { left: 50%; background: var(--md-sys-color-error); }
+.wow-bar__fill--down { right: 50%; background: var(--md-sys-color-tertiary); }
+.wow-bar__fill--flat { left: 50%; background: var(--md-sys-color-secondary); width: 0 !important; }
+
+/* ===== Donut chart for routing paths ===== */
+.donut-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 720px) { .donut-layout { grid-template-columns: 1fr; } }
+.donut-figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.donut-svg { width: 220px; height: 220px; display: block; }
+.donut-seg {
+  transition: transform 220ms var(--md-easing-emphasized), opacity 200ms var(--md-easing-emphasized);
+  transform-origin: 100px 100px;
+  cursor: pointer;
+}
+.donut-svg:hover .donut-seg { opacity: 0.55; }
+.donut-svg .donut-seg:hover { opacity: 1; transform: scale(1.035); }
+.donut-center__num {
+  fill: var(--md-sys-color-on-surface);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+}
+.donut-center__lbl {
+  fill: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.donut-caption { color: var(--md-sys-color-on-surface-variant); text-align: center; }
+.donut-caption strong { color: var(--md-sys-color-on-surface); }
+.donut-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.donut-legend__item {
+  display: grid;
+  grid-template-columns: 14px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.donut-legend__swatch {
+  width: 12px; height: 12px; border-radius: 3px;
+}
+.donut-legend__label  { color: var(--md-sys-color-on-surface); }
+.donut-legend__share  { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.donut-legend__count  { color: var(--md-sys-color-on-surface-faint); font-variant-numeric: tabular-nums; }
+.donut-swatch {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.donut-details { margin-top: 20px; }
+.donut-details__summary {
+  cursor: pointer;
+  color: var(--md-sys-color-primary);
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--md-sys-color-primary-container);
+  display: inline-flex; align-items: center;
+  width: fit-content;
+  list-style: none;
+}
+.donut-details__summary::-webkit-details-marker { display: none; }
+.donut-details__summary::before {
+  content: "▸"; margin-right: 8px;
+  transition: transform 200ms var(--md-easing-emphasized);
+  display: inline-block;
+}
+.donut-details[open] .donut-details__summary::before { transform: rotate(90deg); }
+
   </style>
 </head>
 <body>
@@ -408,6 +568,7 @@ table.data-table, table.dataset-table {
     <main class="content">
       <section id="hero">
         <div class="hero-header" style="margin-bottom: 16px;">
+          <div class="section-eyebrow label-medium">02 · Headline numbers</div>
           <div class="hero-header__title headline-large">Week of 2026-05-25 to 2026-05-31</div>
           <div class="hero-header__subtitle body-large">Customer-feedback signal · classified into 13-topic taxonomy</div>
         </div>
@@ -476,18 +637,33 @@ table.data-table, table.dataset-table {
 <li class="body-medium"><strong>Top topic — Action not executed (10 items, 14.7%).</strong> Drafting/triage actions where Copilot claimed completion but state never changed. Includes a clear Agent Mode regression: drafts not landing in the Drafts folder (3 items).</li>
 <li class="body-medium"><strong>Runner-ups:</strong> Inaccurate / fabricated content (9 items, 13.2%) and Wrong context / grounding (8 items, 11.8%).</li>
 <li class="body-medium"><strong>New pattern — Capability refusal (6 items, 8.8%).</strong> Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap.</li>
-</ul>
-<h3 class="md-h3 title-large">Dataset Summary</h3></div>
+</ul></div>
       </section>
 
       
 <section id="dataset" class="report-card">
   <div class="section-eyebrow label-medium">03 · Dataset summary</div>
   <h2 class="section-title headline-medium">What was sampled</h2>
-  <div class="dataset-table-wrap">
-    <table class="dataset-table">
-      <tbody><tr><th class='row-head'>Total submissions</th><td class='cell'>1,079</td></tr><tr><th class='row-head'>With verbatim</th><td class='cell'>134<br><span class='cell-sub'>12.4%</span></td><td class='cell'>No verbatim (unscored)<br><span class='cell-sub'>945 · 87.6%</span></td></tr><tr><th class='row-head'>Sentiment (verbatim slice)</th><td class="cell">Negative<br><span class="cell-sub">68 · 6.3%</span></td><td class="cell">Positive<br><span class="cell-sub">42 · 3.9%</span></td><td class="cell">Neutral<br><span class="cell-sub">24 · 2.2%</span></td></tr><tr><th class='row-head'>Rating (all submissions)</th><td class="cell">Thumbs up<br><span class="cell-sub">864 · 80.1%</span></td><td class="cell">Thumbs down<br><span class="cell-sub">215 · 19.9%</span></td></tr><tr><th class='row-head'>Client</th><td class="cell">Desktop (Monarch)<br><span class="cell-sub">763 · 70.7%</span></td><td class="cell">OWA<br><span class="cell-sub">163 · 15.1%</span></td><td class="cell">Desktop (Win32)<br><span class="cell-sub">153 · 14.2%</span></td></tr><tr><th class='row-head'>Language</th><td class="cell">en<br><span class="cell-sub">1,056 · 97.9%</span></td><td class="cell">es<br><span class="cell-sub">9 · 0.8%</span></td><td class="cell">pt<br><span class="cell-sub">5 · 0.5%</span></td><td class="cell">ja<br><span class="cell-sub">4 · 0.4%</span></td></tr></tbody>
-    </table>
+  <div class="mini-card-grid">
+    
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Volume</div>
+          <div class="mini-card__title title-medium">Submissions</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Total submissions</span><span class="pill__value title-medium">1,079</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">With verbatim</span><span class="pill__value title-medium">134</span><span class="pill__share label-medium">12.4%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">No verbatim (unscored)</span><span class="pill__value title-medium">945</span><span class="pill__share label-medium">87.6%</span></li></ul>
+        </div>
+        
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Voice of customer</div>
+          <div class="mini-card__title title-medium">Sentiment &amp; rating</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Negative</span><span class="pill__value title-medium">68</span><span class="pill__share label-medium">6.3%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Positive</span><span class="pill__value title-medium">42</span><span class="pill__share label-medium">3.9%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Neutral</span><span class="pill__value title-medium">24</span><span class="pill__share label-medium">2.2%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Thumbs up</span><span class="pill__value title-medium">864</span><span class="pill__share label-medium">80.1%</span></li><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Thumbs down</span><span class="pill__value title-medium">215</span><span class="pill__share label-medium">19.9%</span></li></ul>
+        </div>
+        
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Surface mix</div>
+          <div class="mini-card__title title-medium">Clients &amp; languages</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Monarch)</span><span class="pill__value title-medium">763</span><span class="pill__share label-medium">70.7%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">OWA</span><span class="pill__value title-medium">163</span><span class="pill__share label-medium">15.1%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Win32)</span><span class="pill__value title-medium">153</span><span class="pill__share label-medium">14.2%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">en</span><span class="pill__value title-medium">1,056</span><span class="pill__share label-medium">97.9%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">es</span><span class="pill__value title-medium">9</span><span class="pill__share label-medium">0.8%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">pt</span><span class="pill__value title-medium">5</span><span class="pill__share label-medium">0.5%</span></li></ul>
+        </div>
+        
   </div>
 </section>
 
@@ -495,16 +671,71 @@ table.data-table, table.dataset-table {
       <section id="findings" class="report-card">
         <div class="section-eyebrow label-medium">04 · Key findings</div>
         <h2 class="section-title headline-medium">What the data is telling us</h2>
-        <div class="md-content"><ul class="md-list">
-<li class="body-medium"><strong>Most submissions are silent thumbs-up.</strong> 864 of 1079 ratings (80.1%) were positive. Only 134 users left any written comment (12.4% of all submissions). All findings below are drawn from the verbatim slice, which heavily oversamples dissatisfied users.</li>
-<li class="body-medium"><strong>Agent Mode drafting regression (P0).</strong> Three independent users report Copilot confirms reply drafts have been saved to the Drafts folder, but the drafts never appear. In one case Copilot itself admitted &#x27;attempts to create the drafts failed again (expired) and were never saved.&#x27;</li>
-<li class="body-medium"><strong>Mailbox bulk actions partial-or-no execution (P0).</strong> Three triage interactions where claimed completion didn&#x27;t match actual state.</li>
-<li class="body-medium"><strong>Calendar correctness failed at the suggestion step twice (P0 by multi-item rule).</strong></li>
-<li class="body-medium"><strong>Capability-refusal cluster is new this week.</strong> Items where Copilot represented capabilities it doesn&#x27;t have (persistent memory, staff calendar visibility, prior-session recovery), then acknowledged the gap. Prior week&#x27;s manifest had 0 items in Topic 12.</li>
-<li class="body-medium"><strong>Reliability error_string on informational surfaces (P1, n=8).</strong> Inbox summary, 12-month historical search, master-data pull, multi-language email evaluation, slash-command grounding — all returned canned errors or failed silently on informational queries.</li>
-<li class="body-medium"><strong>Drafting constraint-ignored is concentrated (P1, n=6).</strong> Recipient mis-pluralization, format constraints dropped, content truncation, missing flight-numbers in an itinerary, no clickable links on a re-run, plain-list-vs-bulleted format ignored.</li>
-<li class="body-medium"><strong>Calendar Instructions UX dead-end (P2, n=3).</strong> Set-up flow refuses or rule never applied; user routed in a loop.</li>
-</ul></div>
+        <div class="md-content"><div class="finding-list">
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Most submissions are silent thumbs-up</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">864 of 1079 ratings (80.1%) were positive. Only 134 users left any written comment (12.4% of all submissions). All findings below are drawn from the verbatim slice, which heavily oversamples dissatisfied users.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Agent Mode drafting regression (P0)</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          <p class="finding-card__body body-medium">Three independent users report Copilot confirms reply drafts have been saved to the Drafts folder, but the drafts never appear. In one case Copilot itself admitted &#x27;attempts to create the drafts failed again (expired) and were never saved.&#x27;</p>
+        </div>
+        
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Mailbox bulk actions partial-or-no execution (P0)</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          <p class="finding-card__body body-medium">Three triage interactions where claimed completion didn&#x27;t match actual state.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Calendar correctness failed at the suggestion step twice (P0 by multi-item rule)</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Capability-refusal cluster is new this week</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">Items where Copilot represented capabilities it doesn&#x27;t have (persistent memory, staff calendar visibility, prior-session recovery), then acknowledged the gap. Prior week&#x27;s manifest had 0 items in Topic 12.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p1">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Reliability error_string on informational surfaces (P1, n=8)</div>
+            <span class="prio-badge prio-p1">P1</span>
+          </div>
+          <p class="finding-card__body body-medium">Inbox summary, 12-month historical search, master-data pull, multi-language email evaluation, slash-command grounding — all returned canned errors or failed silently on informational queries.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p1">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Drafting constraint-ignored is concentrated (P1, n=6)</div>
+            <span class="prio-badge prio-p1">P1</span>
+          </div>
+          <p class="finding-card__body body-medium">Recipient mis-pluralization, format constraints dropped, content truncation, missing flight-numbers in an itinerary, no clickable links on a re-run, plain-list-vs-bulleted format ignored.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p2">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Calendar Instructions UX dead-end (P2, n=3)</div>
+            <span class="prio-badge prio-p2">P2</span>
+          </div>
+          <p class="finding-card__body body-medium">Set-up flow refuses or rule never applied; user routed in a loop.</p>
+        </div>
+        </div></div>
       </section>
 
       
@@ -513,97 +744,240 @@ table.data-table, table.dataset-table {
   <h2 class="section-title headline-medium">WoW shifts vs week of 2026-05-24</h2>
   <div class="data-table-wrap">
     <table class="data-table">
-      <thead><tr><th>Topic</th><th class="num">This week</th><th class="num">Last week</th><th class="num">Δ (pp)</th></tr></thead>
+      <thead><tr><th>Topic</th><th class="num">This week</th><th class="num">Last week</th><th class="wow-th">Δ vs last week</th></tr></thead>
       <tbody>
           <tr>
             <td class="topic-cell"><span class="topic-id">1</span> Action not executed</td>
             <td class="num">10 <span class="cell-sub">(14.7%)</span></td>
             <td class="num">43 <span class="cell-sub">(36.8%)</span></td>
-            <td class="num delta-down">-22.0 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -22.0 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--down" style="width: 100.0%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">7</span> Inaccurate or fabricated content</td>
             <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
             <td class="num">9 <span class="cell-sub">(7.7%)</span></td>
-            <td class="num delta-up">+5.5 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +5.5 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 25.1%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">9</span> Tone / language / format</td>
             <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
             <td class="num">7 <span class="cell-sub">(6.0%)</span></td>
-            <td class="num delta-up">+7.3 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +7.3 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 32.9%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">4</span> Constraints ignored</td>
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
-            <td class="num delta-up">+9.2 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +9.2 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 41.7%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">6</span> Reliability failure</td>
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">5 <span class="cell-sub">(4.3%)</span></td>
-            <td class="num delta-up">+7.5 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +7.5 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 34.0%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">8</span> Wrong context / grounding</td>
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">32 <span class="cell-sub">(27.4%)</span></td>
-            <td class="num delta-down">-15.6 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -15.6 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--down" style="width: 70.7%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">12</span> Capability refusal</td>
             <td class="num">6 <span class="cell-sub">(8.8%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
-            <td class="num delta-up">+8.8 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +8.8 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 40.0%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">3</span> Output doesn&#x27;t match intent</td>
             <td class="num">4 <span class="cell-sub">(5.9%)</span></td>
             <td class="num">11 <span class="cell-sub">(9.4%)</span></td>
-            <td class="num delta-down">-3.5 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -3.5 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--down" style="width: 16.0%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">11</span> Calendar correctness</td>
             <td class="num">2 <span class="cell-sub">(2.9%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
-            <td class="num delta-up">+0.4 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +0.4 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 1.7%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">2</span> HitL violation</td>
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
-            <td class="num delta-up">+1.5 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +1.5 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 6.7%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">5</span> Unnecessary clarifying question</td>
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
-            <td class="num delta-up">+1.5 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +1.5 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 6.7%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">10</span> File I/O failure</td>
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
-            <td class="num delta-down">-1.1 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -1.1 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--down" style="width: 5.0%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         
           <tr>
             <td class="topic-cell"><span class="topic-id">13</span> Intrusive Outlook Agent UI</td>
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">1 <span class="cell-sub">(0.9%)</span></td>
-            <td class="num delta-up">+0.6 pp</td>
+            <td class="wow-cell">
+          <div class="wow-delta">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +0.6 pp
+            </span>
+            <div class="wow-bar" aria-hidden="true">
+              <span class="wow-bar__zero"></span>
+              <span class="wow-bar__fill wow-bar__fill--up" style="width: 2.8%;"></span>
+            </div>
+          </div>
+        </td>
           </tr>
         </tbody>
     </table>
@@ -612,32 +986,51 @@ table.data-table, table.dataset-table {
 
       
 <section id="routing" class="report-card">
-  <div class="section-eyebrow label-medium">06b · Routing path</div>
+  <div class="section-eyebrow label-medium">06 · Routing path</div>
   <h2 class="section-title headline-medium">Which routing path is generating the most issues</h2>
-  <div class="data-table-wrap">
-    <table class="data-table">
-      <thead><tr><th>Path</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
-      <tbody>
+  <div class="donut-layout">
+    <figure class="donut-figure" aria-label="Donut chart of routing-path distribution">
+      <svg viewBox="0 0 200 200" class="donut-svg" role="img" aria-hidden="false">
+        <title>Routing-path distribution</title>
+        <path d="M 100.000 12.000 A 88 88 0 1 1 25.181 53.674 L 52.388 70.520 A 56 56 0 1 0 100.000 44.000 Z" fill="#a8c7fa" class="donut-seg" data-label="Unknown" data-count="57" data-pct="83.8%"><title>Unknown · 57 · 83.8%</title></path><path d="M 25.181 53.674 A 88 88 0 0 1 68.211 17.942 L 79.770 47.782 A 56 56 0 0 0 52.388 70.520 Z" fill="#a4ccaf" class="donut-seg" data-label="Sydney-Tools" data-count="7" data-pct="10.3%"><title>Sydney-Tools · 7 · 10.3%</title></path><path d="M 68.211 17.942 A 88 88 0 0 1 100.000 12.000 L 100.000 44.000 A 56 56 0 0 0 79.770 47.782 Z" fill="#ffb4ab" class="donut-seg" data-label="Sydney-Tools+WorkBerry" data-count="4" data-pct="5.9%"><title>Sydney-Tools+WorkBerry · 4 · 5.9%</title></path>
+        <text x="100" y="92" class="donut-center__num" text-anchor="middle">68</text>
+        <text x="100" y="112" class="donut-center__lbl" text-anchor="middle">items routed</text>
+      </svg>
+      <figcaption class="donut-caption body-small">
+        Top path: <strong>Unknown</strong> · 83.8%
+      </figcaption>
+    </figure>
+    <ul class="donut-legend">
+      <li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#a8c7fa"></span><span class="donut-legend__label body-medium">Unknown</span><span class="donut-legend__share label-medium">83.8%</span><span class="donut-legend__count body-small">57</span></li><li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#a4ccaf"></span><span class="donut-legend__label body-medium">Sydney-Tools</span><span class="donut-legend__share label-medium">10.3%</span><span class="donut-legend__count body-small">7</span></li><li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#ffb4ab"></span><span class="donut-legend__label body-medium">Sydney-Tools+WorkBerry</span><span class="donut-legend__share label-medium">5.9%</span><span class="donut-legend__count body-small">4</span></li>
+    </ul>
+  </div>
+  <details class="donut-details">
+    <summary class="donut-details__summary label-medium">Full breakdown table</summary>
+    <div class="data-table-wrap" style="margin-top: 12px;">
+      <table class="data-table">
+        <thead><tr><th>Path</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
+        <tbody>
           <tr>
-            <td class="mono">Unknown</td>
+            <td><span class="donut-swatch" style="background:#a8c7fa"></span><span class="mono">Unknown</span></td>
             <td class="num">57</td>
             <td class="num"><span class="cell-sub">83.8%</span></td>
           </tr>
         
           <tr>
-            <td class="mono">Sydney-Tools</td>
+            <td><span class="donut-swatch" style="background:#a4ccaf"></span><span class="mono">Sydney-Tools</span></td>
             <td class="num">7</td>
             <td class="num"><span class="cell-sub">10.3%</span></td>
           </tr>
         
           <tr>
-            <td class="mono">Sydney-Tools+WorkBerry</td>
+            <td><span class="donut-swatch" style="background:#ffb4ab"></span><span class="mono">Sydney-Tools+WorkBerry</span></td>
             <td class="num">4</td>
             <td class="num"><span class="cell-sub">5.9%</span></td>
           </tr>
         </tbody>
-    </table>
-  </div>
+      </table>
+    </div>
+  </details>
 </section>
 
       
