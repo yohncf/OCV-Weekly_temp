@@ -22,22 +22,22 @@
       "file": "reports/2026-05-24.html",
       "negatives": 117,
       "topics": 10,
-      "thumbs_down": 138,
-      "thumbs_up": 45,
+      "thumbs_down": 318,
+      "thumbs_up": 1085,
       "highlights": "T1 (Action not executed) tops the queue at 43 items (36.8%); T8 (Wrong context / grounding) surged +16pp WoW to 32 items.",
-      "published": "2026-05-26"
+      "published": "2026-06-01"
     },
     {
       "week_of": "2026-05-18",
       "label": "Week of May 18, 2026",
-      "range": "May 12 - May 18, 2026",
+      "range": "May 11-16, 2026",
       "file": "reports/2026-05-18.html",
       "negatives": 88,
       "topics": 11,
-      "thumbs_down": 107,
-      "thumbs_up": 43,
+      "thumbs_down": 315,
+      "thumbs_up": 908,
       "highlights": "Drafting & Scheduling dominate; 1 new Dash<->OCV join surfaced.",
-      "published": "2026-05-21"
+      "published": "2026-06-01"
     },
     {
       "week_of": "2026-05-11",
@@ -46,10 +46,10 @@
       "file": "reports/2026-05-11.html",
       "negatives": 249,
       "topics": 13,
-      "thumbs_down": 311,
-      "thumbs_up": 129,
+      "thumbs_down": 1235,
+      "thumbs_up": 2812,
       "highlights": "Baseline week: 249 negatives across 97 subtopics. Top topics: Action not executed (66), Wrong context (39), HitL violation (29). P0=10, P1=33.",
-      "published": "2026-05-25"
+      "published": "2026-06-01"
     }
   ]
 }
