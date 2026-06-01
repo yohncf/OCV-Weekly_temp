@@ -812,7 +812,7 @@ footer a { color: var(--text-dim); }
   <p class="section-label">01 · TL;DR</p>
   <h2>tl;dr</h2>
   <div class="tldr">
-    <div class="tldr__body"><p>This week&#x27;s full snapshot is <strong>1079 total submissions</strong> (vs 117 prior-week negatives baseline) — of these, only <strong>134 include a written comment</strong> (12.4%); the remaining 945 are thumbs-only ratings with no text. The verbatim slice contains <strong>68 negative items</strong> (classification universe). Overall rating split: <strong>864 thumbs-up vs 215 thumbs-down</strong> (80.1% positive on ratings; comments skew negative because users self-select to type when frustrated). The classified negatives are dominated by <strong>Action not executed</strong> (10 items, 14.7%) — drafting/triage actions where Copilot claimed completion but state never changed, including a clear Agent Mode regression on drafts not landing in the Drafts folder (3 items). <strong>Inaccurate / fabricated content</strong> (9 items, 13.2%) and <strong>Wrong context / grounding</strong> (8 items, 11.8%) are next. New pattern: <strong>Capability refusal</strong> (6 items, 8.8%) — Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap.</p></div>
+    <div class="tldr__body"><p>- <strong>Volume:</strong> 1,079 total submissions this week — 134 with a written comment (12.4%) and 945 thumbs-only ratings.<br>- <strong>Overall sentiment is positive on raw ratings:</strong> 864 thumbs-up vs 215 thumbs-down (80.1% positive). Written comments skew negative because users self-select to type when frustrated.<br>- <strong>Classified negatives:</strong> 68 verbatim items form the engineering analysis universe.<br>- <strong>Top topic — Action not executed (10 items, 14.7%).</strong> Drafting/triage actions where Copilot claimed completion but state never changed. Includes a clear Agent Mode regression: drafts not landing in the Drafts folder (3 items).<br>- <strong>Runner-ups:</strong> Inaccurate / fabricated content (9 items, 13.2%) and Wrong context / grounding (8 items, 11.8%).<br>- <strong>New pattern — Capability refusal (6 items, 8.8%).</strong> Copilot promising memory, staff-availability, or session-continuity capabilities it doesn&#x27;t actually have, then admitting the gap.</p></div>
   </div>
 </section>
 <section id="kpis">
@@ -820,7 +820,7 @@ footer a { color: var(--text-dim); }
   <h2>What changed this week</h2>
   <div class="kpi-grid kpi-grid--three">
     <div class="kpi kpi--hero">
-      <div class="kpi__label">Negative items</div>
+      <div class="kpi__label">Verbatim negative items</div>
       <div class="kpi__value">68</div>
       <div class="kpi__was"><span class="kpi__was-label">Last week</span><span class="kpi__was-value">117</span><span class="delta delta--down">-41.9%</span></div>
     </div>
@@ -835,14 +835,14 @@ footer a { color: var(--text-dim); }
         <div class="thumb thumb--down">
           <span class="thumb__icon" aria-hidden="true">👎</span>
           <strong>215</strong>
-          <span class="was">138</span>
-          <span class="row-delta row-delta--up">+55.8%</span>
+          <span class="was">318</span>
+          <span class="row-delta row-delta--down">-32.4%</span>
         </div>
         <div class="thumb thumb--up">
           <span class="thumb__icon" aria-hidden="true">👍</span>
           <strong>864</strong>
-          <span class="was">45</span>
-          <span class="row-delta row-delta--up">+1820.0%</span>
+          <span class="was">1,085</span>
+          <span class="row-delta row-delta--down">-20.4%</span>
         </div>
       </div>
     </div>
@@ -854,7 +854,7 @@ footer a { color: var(--text-dim); }
   <div class="dataset-grid dataset-grid--three">
     <div class="dataset-card">
       <h4>Sentiment</h4>
-      <table class="micro-table"><tr><td>Unscored (structured-only, no verbatim)</td><td class="num">945</td><td class="num dim">87.6%</td></tr><tr><td>Negative</td><td class="num">68</td><td class="num dim">6.3%</td></tr><tr><td>Positive</td><td class="num">42</td><td class="num dim">3.9%</td></tr><tr><td>Neutral</td><td class="num">24</td><td class="num dim">2.2%</td></tr></table>
+      <table class="micro-table"><tr><td>No verbatim (unscored)</td><td class="num">945</td><td class="num dim">87.6%</td></tr><tr><td>Negative</td><td class="num">68</td><td class="num dim">6.3%</td></tr><tr><td>Positive</td><td class="num">42</td><td class="num dim">3.9%</td></tr><tr><td>Neutral</td><td class="num">24</td><td class="num dim">2.2%</td></tr></table>
     </div>
     <div class="dataset-card">
       <h4>Language <span class="dataset-card__hint">top 4</span></h4>
@@ -1339,7 +1339,7 @@ footer a { color: var(--text-dim); }
         </div>
 </section>
       <footer>
-        <span>Generated 2026-06-01 15:05 · publish-ocv-report · Outlook Agent · 2026-05-31</span>
+        <span>Generated 2026-06-01 15:58 · publish-ocv-report · Outlook Agent · 2026-05-31</span>
         <span><a href="https://ocv.microsoft.com/" target="_blank" rel="noopener">OCV →</a></span>
       </footer>
     </main>

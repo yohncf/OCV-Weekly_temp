@@ -180,6 +180,15 @@
       color: var(--text);
       font-variant-numeric: tabular-nums;
     }
+    .metric--topic { min-width: 120px; max-width: 200px; }
+    .metric__value--text {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      white-space: normal;
+    }
     .metric__label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -394,14 +403,14 @@
 
     <section class="progress-card" id="progress" hidden>
       <p class="progress-card__eyebrow">Progress at a glance</p>
-      <h2 class="progress-card__title">Negatives volume vs. <em>user rating</em></h2>
+      <h2 class="progress-card__title">User Rating vs <em>Negative comments</em></h2>
       <p class="progress-card__lede">
         Trend across every published week: total negative feedback received (left axis) and the share of users rating the agent positively (right axis). Hover any point for the exact value.
       </p>
 
       <div class="progress-card__legend">
-        <span><span class="dot dot--neg"></span>Negative comments received</span>
         <span><span class="dot dot--pos"></span>User rating</span>
+        <span><span class="dot dot--neg"></span>Negative comments received</span>
       </div>
 
       <div class="progress-card__chart">
@@ -475,12 +484,25 @@
           + '</div>';
       }
 
+      function escHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (c) {
+          return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+        });
+      }
+
+      function topicMetric(name) {
+        if (!name) return '';
+        return ''
+          + '<div class="metric metric--topic">'
+          +   '<div class="metric__value metric__value--text">' + escHtml(name) + '</div>'
+          +   '<span class="metric__label">Top topic</span>'
+          + '</div>';
+      }
+
       function card(r, prior) {
         const a = document.createElement('a');
         a.className = 'report-card';
         a.href = r.file;
-        const priorNeg = prior && typeof prior.negatives === 'number' ? prior.negatives : null;
-        const priorTop = prior && typeof prior.topics === 'number' ? prior.topics : null;
         const priorTd  = prior && typeof prior.thumbs_down === 'number' ? prior.thumbs_down : null;
         const priorTu  = prior && typeof prior.thumbs_up === 'number' ? prior.thumbs_up : null;
         a.innerHTML = `
@@ -490,10 +512,9 @@
             <p class="report-card__highlight">${r.highlights || ''}</p>
           </div>
           <div class="report-card__metrics">
-            ${metric(r.negatives, 'Negatives', priorNeg, false)}
-            ${metric(r.topics, 'Topics', priorTop, false)}
             ${metric(r.thumbs_down, '\u{1F44E} Down', priorTd, false)}
             ${metric(r.thumbs_up, '\u{1F44D} Up', priorTu, true)}
+            ${topicMetric(r.top_topic)}
           </div>
           <div class="report-card__cta">
             <span class="open">Open report &rarr;</span>
@@ -587,28 +608,6 @@
             labels: labels,
             datasets: [
               {
-                label: 'Negative comments received',
-                data: negs,
-                borderColor: COLOR_NEG,
-                backgroundColor: COLOR_NEG,
-                borderWidth: 2.5,
-                tension: 0.25,
-                pointRadius: 5,
-                pointHoverRadius: 7,
-                pointBackgroundColor: COLOR_BG,
-                pointBorderColor: COLOR_NEG,
-                pointBorderWidth: 2,
-                yAxisID: 'yNeg',
-                spanGaps: true,
-                datalabels: {
-                  align: function (c) { return c.dataIndex === c.dataset.data.length - 1 ? 'left' : 'top'; },
-                  offset: 8,
-                  color: COLOR_NEG,
-                  font: { weight: 600, size: 11 },
-                  formatter: function (v) { return v === null ? '' : v; }
-                }
-              },
-              {
                 label: 'User rating',
                 data: ratings,
                 borderColor: COLOR_POS,
@@ -629,6 +628,28 @@
                   color: COLOR_POS,
                   font: { weight: 600, size: 11 },
                   formatter: function (v) { return v === null ? '' : v + '%'; }
+                }
+              },
+              {
+                label: 'Negative comments received',
+                data: negs,
+                borderColor: COLOR_NEG,
+                backgroundColor: COLOR_NEG,
+                borderWidth: 2.5,
+                tension: 0.25,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointBackgroundColor: COLOR_BG,
+                pointBorderColor: COLOR_NEG,
+                pointBorderWidth: 2,
+                yAxisID: 'yNeg',
+                spanGaps: true,
+                datalabels: {
+                  align: function (c) { return c.dataIndex === c.dataset.data.length - 1 ? 'left' : 'top'; },
+                  offset: 8,
+                  color: COLOR_NEG,
+                  font: { weight: 600, size: 11 },
+                  formatter: function (v) { return v === null ? '' : v; }
                 }
               }
             ]

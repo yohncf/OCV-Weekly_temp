@@ -12,6 +12,7 @@
       "topics": 13,
       "thumbs_down": 215,
       "thumbs_up": 864,
+      "top_topic": "Action not executed",
       "highlights": "1079 total submissions (134 verbatim, 945 thumbs-only); 68 negatives. Agent Mode drafts-not-landing P0 (3 items); capability-refusal cluster emerging (memory/staff-calendar/session-continuity).",
       "published": "2026-06-01"
     },
@@ -24,6 +25,7 @@
       "topics": 10,
       "thumbs_down": 318,
       "thumbs_up": 1085,
+      "top_topic": "Action not executed",
       "highlights": "T1 (Action not executed) tops the queue at 43 items (36.8%); T8 (Wrong context / grounding) surged +16pp WoW to 32 items.",
       "published": "2026-06-01"
     },
@@ -36,6 +38,7 @@
       "topics": 11,
       "thumbs_down": 315,
       "thumbs_up": 908,
+      "top_topic": "Action not executed",
       "highlights": "Drafting & Scheduling dominate; 1 new Dash<->OCV join surfaced.",
       "published": "2026-06-01"
     },
@@ -48,6 +51,7 @@
       "topics": 13,
       "thumbs_down": 1235,
       "thumbs_up": 2812,
+      "top_topic": "Action not executed",
       "highlights": "Baseline week: 249 negatives across 97 subtopics. Top topics: Action not executed (66), Wrong context (39), HitL violation (29). P0=10, P1=33.",
       "published": "2026-06-01"
     }
