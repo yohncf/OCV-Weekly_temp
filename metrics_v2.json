@@ -70,6 +70,458 @@
       "ticket_worthy_rows": 71,
       "ado_synced_rows": 0,
       "subtopic_rows": 97,
+      "subtopics_by_topic": {
+        "2": [
+          {
+            "priority": "P0",
+            "brief_title": "Replying: reply sent without approval",
+            "item_count": 9,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: approval controls appear before draft content",
+            "item_count": 7,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Replying: forward action sent without visible preview",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: drafts placed in Drafts folder without direct review",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Replying: reply or forward sent without review",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: approval prompt appears before message is generated",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: draft content not visible before approval",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Triage: mailbox cleanup action falsely reports success or misses items",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: email creation returns blank output",
+            "item_count": 7,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: email creation returns canned im-sorry error",
+            "item_count": 7,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: rewrite or polish returns canned im-sorry error",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Replying: reply creation returns canned im-sorry error",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Settings: Outlook setting action not executed",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar availability check returns error",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: rewrite or polish returns blank output",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Replying: reply action not created in thread or Drafts",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: mail merge drafts not created or usable",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar action returns blank or stalls",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar update or cancellation returns canned im-sorry error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar meeting creation returns canned im-sorry error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Replying: forward or briefing action returns execution error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: compose handoff does not put content in email body",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Triage: pin or unpin mailbox action partially executes",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: folder move action fails or targets wrong folder",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "11": [
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: availability or date/time suggestion incorrect",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: event created on wrong date or time",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Unknown: sparse generic reliability error",
+            "item_count": 7,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: search or triage returns canned error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: summary request returns canned error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: search or triage hangs without output",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "8": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: wrong source material used for rewrite",
+            "item_count": 7,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: open email or draft context is missing",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: weekly or inbox summary misses important items",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Replying: wrong email or recipient selected",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: search filters or selected scope not honored",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: invalid folder path or prior rule context lost",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: summary returns no content despite success message",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: email lookup returns wrong or stale message",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: sent or deleted-items search misses relevant email",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: time-range search returns stale or partial results",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: mailbox triage is not grounded in current mailbox state",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: live mailbox data unavailable or fallback used",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: prior or dictated context lost during revision",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: rule or folder action uses wrong context or invalid path",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: similar-rule analysis misses matching rules",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: calendar lookup misses meetings or days",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "3": [
+          {
+            "priority": "P1",
+            "brief_title": "Unknown: sparse unrelated or low-evidence complaint",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: output does not match requested writing task",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: requested output is incomplete or generic",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "General: response does not match requested task",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "5": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: unnecessary recipient clarification blocks draft",
+            "item_count": 5,
+            "ado_url": null
+          }
+        ],
+        "7": [
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: summary content is inaccurate",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: generated content includes wrong or unsupported facts",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Settings: guidance or setting information is wrong",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: mailbox lookup returns inaccurate or fabricated results",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "9": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: sparse subjective writing-quality complaint",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: tone/style complaint without explicit prompt constraint",
+            "item_count": 4,
+            "ado_url": null
+          }
+        ],
+        "10": [
+          {
+            "priority": "P1",
+            "brief_title": "File: PDF attachment cannot be read or compared",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "File: Excel or spreadsheet output not produced",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "File: ICS or calendar file output not produced",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "File: Word or OneDrive attachment not incorporated",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "File: unsupported file operation outside Outlook scope",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "12": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: in-scope drafting request refused as unsupported",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Translation: in-scope language request refused",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Translation: requested language not followed",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: draft-only constraint routed to send approval",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: content constraints supplied in prompt are not followed",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: prompt treated as send workflow instead of write-only",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Replying: requested reply constraints not followed",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: explicit format or guideline constraint ignored",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: do-not-leave-app constraint ignored",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ]
+      },
       "clients": {
         "Desktop (Monarch)": 2424,
         "OWA": 1172,
@@ -164,6 +616,176 @@
       "ticket_worthy_rows": 44,
       "ado_synced_rows": 3,
       "subtopic_rows": 54,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: Calendar action acknowledged but no event created or modified",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: Claimed drafts saved to Drafts folder but they are not there",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Draft request returns empty or error with no draft produced",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: Calendar action returns canned error string",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Settings: Out-of-office configuration not executed",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "2": [
+          {
+            "priority": "P0",
+            "brief_title": "Replying: Reply sent automatically without surfacing draft for review",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432127"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Replying: Draft exists but is not visible inline for review",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432128"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Triage: Emails archived without user approval or undo",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "10": [
+          {
+            "priority": "P1",
+            "brief_title": "File (input): Attached file or image not read/processed",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "File (output): No actual Excel/CSV file produced when asked",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: Inbox/email summary requests fail with canned error_string",
+            "item_count": 4,
+            "ado_url": null
+          }
+        ],
+        "3": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Polished/enhanced draft is on a different topic than requested",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "8": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Polish/rewrite operated on the wrong source email or wrong draft",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Did not actually search the user's mailbox / sent items / group mailboxes",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Returned emails from unrelated threads or topics",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Pulled stale/historical documents instead of current-period work",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Replying: Reply was sent against a different email than the one selected",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Lost multi-turn conversation context",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Edited the wrong paragraph in the user's content",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: Wrong grouping returned when asked to act on 'Low priority' group",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Output sounds robotic or 'AI slop' despite human-voice request",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "7": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: Wrong people returned for org/award/match lookup",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: Recurrence constraint ignored (weekly request created as one-time)",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Scope constraint ignored (focus on one thread vs many threads)",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Translation: 'Don't translate' instruction violated",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ]
+      },
       "clients": {
         "Desktop (Monarch)": 876,
         "Desktop (Win32)": 185,
@@ -255,6 +877,200 @@
       "ticket_worthy_rows": 27,
       "ado_synced_rows": 32,
       "subtopic_rows": 53,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: draft creation falsely reports success",
+            "item_count": 6,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430848"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Triage: mailbox cleanup or organization action fails or targets wrong emails",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430859"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: calendar event creation falsely reports success",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar meeting creation returns canned im-sorry error",
+            "item_count": 6,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: compose handoff does not complete send/draft action",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430848"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: follow-up drafts shown in chat instead of Drafts folder",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432565"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar invite draft is not created as a usable meeting invite",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: malformed folder cleanup actions do not execute",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430651"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: rule cleanup actions do not move or delete existing emails",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430856"
+          }
+        ],
+        "11": [
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: calendar placement uses incorrect availability or date",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          }
+        ],
+        "8": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: email lookup returns wrong message",
+            "item_count": 9,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432562"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: mailbox search misses relevant emails or applies filters incorrectly",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432564"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Triage: inbox triage is not grounded in current mailbox state",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430859"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: follow-up detection misidentifies emails needing response",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432567"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: draft revision loses prior conversation context",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430848"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: recent-email lookup uses stale results",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432569"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "File: screenshot attachment ignored while Outlook email is used",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/431808"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: follow-up drafts addressed to sender instead of recipient",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: follow-up detection cannot retrieve sent mail over requested range",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: reschedule proposal loses open-email context",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Replying: draft omits prior requested context",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: calendar-instruction preview misses matching invites",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430668"
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: search request returns blank or generic error",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430852"
+          }
+        ],
+        "7": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: mailbox lookup returns inaccurate or fabricated results",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432563"
+          }
+        ],
+        "10": [
+          {
+            "priority": "P1",
+            "brief_title": "File: requested file input or output is not supported",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432566"
+          }
+        ],
+        "3": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: search intent not recognized",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432568"
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Replying: requested reply draft constraints are not followed",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432127"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: table formatting inserts raw HTML or Markdown into email",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432571"
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: answer includes extraneous or unsolicited content",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432570"
+          }
+        ]
+      },
       "clients": {
         "Desktop (Monarch)": 1019,
         "OWA": 208,
@@ -370,6 +1186,142 @@
       "ticket_worthy_rows": 19,
       "ado_synced_rows": 20,
       "subtopic_rows": 28,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: Drafts confirmed but never appear in Drafts folder (Agent Mode regression)",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432565"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Triage: Mailbox actions (move/folder/mark-read) execute partially or not at all",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: Calendar add / candidate-time action returns canned error or false success",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997"
+          }
+        ],
+        "11": [
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: Suggested or listed availability conflicts with existing booked meetings",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434990"
+          }
+        ],
+        "2": [
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: Draft content not exposed for inline review/edit in the Outlook surface",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432128"
+          }
+        ],
+        "4": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Recipient / length / format / inclusion constraints ignored",
+            "item_count": 6,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434992"
+          }
+        ],
+        "7": [
+          {
+            "priority": "P1",
+            "brief_title": "Search & Summarization: Fabricated or outdated factual answers",
+            "item_count": 6,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434991"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting/Tasks: Hallucinated data or fabricated link inserted into draft or task",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/435001"
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Search & Summarization: Canned 'something went wrong' on informational queries",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Unknown: Sparse rows (empty prompt or empty response, vague comment)",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/435000"
+          }
+        ],
+        "8": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Wrong source email pulled for rewrite, reply, or links",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434993"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Multi-turn context lost - prior turn instructions or content forgotten",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/435002"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Tasks: ToDo or reminder created against wrong source email",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/435004"
+          }
+        ],
+        "12": [
+          {
+            "priority": "P1",
+            "brief_title": "General: Copilot promises capabilities it doesn't have, then admits gap",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434994"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: CalendarInstructions UX dead-ends - set-up flow refuses or rule never applied",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434998"
+          }
+        ],
+        "3": [
+          {
+            "priority": "P1",
+            "brief_title": "Search & Drafting: Output unrelated to user intent (initial misunderstanding)",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434995"
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: Vague quality complaints with no specific failure mode",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434999"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting/Replying: Subjective tone/style complaints",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432582"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Replying/Search: Performance - 'slow today' / 'took too long' on simple email tasks",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/435003"
+          }
+        ]
+      },
       "clients": {
         "Desktop (Monarch)": 763,
         "OWA": 163,
