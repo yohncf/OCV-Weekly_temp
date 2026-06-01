@@ -435,40 +435,65 @@ table.data-table, table.dataset-table {
 .finding-card__title { color: var(--md-sys-color-on-surface); }
 .finding-card__body { color: var(--md-sys-color-on-surface-variant); margin: 0; }
 
-/* ===== WoW chip + magnitude bar ===== */
-.wow-th { text-align: left !important; padding-left: 16px; min-width: 220px; }
+/* ===== WoW chip ===== */
+.wow-th { text-align: left !important; padding-left: 16px; min-width: 180px; }
 .wow-cell { vertical-align: middle; }
-.wow-delta { display: flex; flex-direction: column; gap: 6px; min-width: 180px; }
 .wow-chip {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 4px 10px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
   border-radius: 100px;
-  font-family: var(--font-mono); font-weight: 600; font-size: 12px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 13px;
   width: fit-content;
 }
-.wow-chip .material-symbols-rounded { font-size: 14px; }
+.wow-chip .material-symbols-rounded { font-size: 18px; }
 .wow-chip--up   { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
 .wow-chip--down { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
 .wow-chip--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
-.wow-bar {
+
+/* ===== Category breakdown horizontal bar chart ===== */
+.cat-bar-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.cat-bar {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.cat-bar__label { color: var(--md-sys-color-on-surface); text-align: right; }
+.cat-bar__track {
   position: relative;
-  height: 6px; width: 100%;
-  background: var(--md-sys-color-surface-container-high);
-  border-radius: 3px;
+  height: 36px;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: 100px;
   overflow: hidden;
+  display: flex; align-items: center;
 }
-.wow-bar__zero {
-  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
-  background: var(--md-sys-color-outline-variant);
+.cat-bar__fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 100px;
+  opacity: 0.85;
+  transition: width 500ms var(--md-easing-emphasized);
 }
-.wow-bar__fill {
-  position: absolute; top: 0; bottom: 0;
-  border-radius: 3px;
-  transition: width 400ms var(--md-easing-emphasized);
+.cat-bar__count {
+  position: relative; z-index: 1;
+  margin-left: 14px;
+  color: #0a1726;
+  font-variant-numeric: tabular-nums;
 }
-.wow-bar__fill--up   { left: 50%; background: var(--md-sys-color-error); }
-.wow-bar__fill--down { right: 50%; background: var(--md-sys-color-tertiary); }
-.wow-bar__fill--flat { left: 50%; background: var(--md-sys-color-secondary); width: 0 !important; }
+.cat-bar__share {
+  position: relative; z-index: 1;
+  margin-left: auto; margin-right: 14px;
+  color: var(--md-sys-color-on-surface-faint);
+  font-variant-numeric: tabular-nums;
+}
+.cat-bar-caption {
+  margin-top: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.cat-bar-caption strong { color: var(--md-sys-color-on-surface); }
+@media (max-width: 640px) {
+  .cat-bar { grid-template-columns: 1fr; gap: 4px; }
+  .cat-bar__label { text-align: left; }
+}
 
 /* ===== Donut chart for routing paths ===== */
 .donut-layout {
@@ -568,7 +593,7 @@ table.data-table, table.dataset-table {
     <main class="content">
       <section id="hero">
         <div class="hero-header" style="margin-bottom: 16px;">
-          <div class="section-eyebrow label-medium">02 · Headline numbers</div>
+          <div class="section-eyebrow label-medium">Headline numbers</div>
           <div class="hero-header__title headline-large">Week of 2026-05-25 to 2026-05-31</div>
           <div class="hero-header__subtitle body-large">Customer-feedback signal · classified into 13-topic taxonomy</div>
         </div>
@@ -576,7 +601,7 @@ table.data-table, table.dataset-table {
     <div class="kpi">
       <div class="kpi__header">
         <span class="material-symbols-rounded">sentiment_satisfied</span>
-        <span class="label-medium">Positive rating</span>
+        <span class="label-medium">Rating</span>
       </div>
       <div class="kpi__value ">80.1%</div>
       <div class="kpi__sub kpi__sub--pos">
@@ -628,7 +653,7 @@ table.data-table, table.dataset-table {
       </section>
 
       <section id="tldr" class="report-card">
-        <div class="section-eyebrow label-medium">01 · TL;DR</div>
+        <div class="section-eyebrow label-medium">TL;DR</div>
         <h2 class="section-title headline-medium">What you need to know</h2>
         <div class="md-content"><ul class="md-list">
 <li class="body-medium"><strong>Volume:</strong> 1,079 total submissions this week — 134 with a written comment (12.4%) and 945 thumbs-only ratings.</li>
@@ -642,7 +667,7 @@ table.data-table, table.dataset-table {
 
       
 <section id="dataset" class="report-card">
-  <div class="section-eyebrow label-medium">03 · Dataset summary</div>
+  <div class="section-eyebrow label-medium">Dataset summary</div>
   <h2 class="section-title headline-medium">What was sampled</h2>
   <div class="mini-card-grid">
     
@@ -669,7 +694,7 @@ table.data-table, table.dataset-table {
 
 
       <section id="findings" class="report-card">
-        <div class="section-eyebrow label-medium">04 · Key findings</div>
+        <div class="section-eyebrow label-medium">Key findings</div>
         <h2 class="section-title headline-medium">What the data is telling us</h2>
         <div class="md-content"><div class="finding-list">
         <div class="finding-card ">
@@ -740,7 +765,7 @@ table.data-table, table.dataset-table {
 
       
 <section id="topics" class="report-card">
-  <div class="section-eyebrow label-medium">05 · Topic shifts (week over week)</div>
+  <div class="section-eyebrow label-medium">Topic shifts (week over week)</div>
   <h2 class="section-title headline-medium">WoW shifts vs week of 2026-05-24</h2>
   <div class="data-table-wrap">
     <table class="data-table">
@@ -751,16 +776,10 @@ table.data-table, table.dataset-table {
             <td class="num">10 <span class="cell-sub">(14.7%)</span></td>
             <td class="num">43 <span class="cell-sub">(36.8%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--down">
               <span class="material-symbols-rounded">trending_down</span>
               -22.0 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--down" style="width: 100.0%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -769,16 +788,10 @@ table.data-table, table.dataset-table {
             <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
             <td class="num">9 <span class="cell-sub">(7.7%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +5.5 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 25.1%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -787,16 +800,10 @@ table.data-table, table.dataset-table {
             <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
             <td class="num">7 <span class="cell-sub">(6.0%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +7.3 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 32.9%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -805,16 +812,10 @@ table.data-table, table.dataset-table {
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +9.2 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 41.7%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -823,16 +824,10 @@ table.data-table, table.dataset-table {
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">5 <span class="cell-sub">(4.3%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +7.5 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 34.0%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -841,16 +836,10 @@ table.data-table, table.dataset-table {
             <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
             <td class="num">32 <span class="cell-sub">(27.4%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--down">
               <span class="material-symbols-rounded">trending_down</span>
               -15.6 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--down" style="width: 70.7%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -859,16 +848,10 @@ table.data-table, table.dataset-table {
             <td class="num">6 <span class="cell-sub">(8.8%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +8.8 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 40.0%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -877,16 +860,10 @@ table.data-table, table.dataset-table {
             <td class="num">4 <span class="cell-sub">(5.9%)</span></td>
             <td class="num">11 <span class="cell-sub">(9.4%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--down">
               <span class="material-symbols-rounded">trending_down</span>
               -3.5 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--down" style="width: 16.0%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -895,16 +872,10 @@ table.data-table, table.dataset-table {
             <td class="num">2 <span class="cell-sub">(2.9%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +0.4 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 1.7%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -913,16 +884,10 @@ table.data-table, table.dataset-table {
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +1.5 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 6.7%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -931,16 +896,10 @@ table.data-table, table.dataset-table {
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +1.5 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 6.7%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -949,16 +908,10 @@ table.data-table, table.dataset-table {
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">3 <span class="cell-sub">(2.6%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--down">
               <span class="material-symbols-rounded">trending_down</span>
               -1.1 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--down" style="width: 5.0%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         
@@ -967,16 +920,10 @@ table.data-table, table.dataset-table {
             <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
             <td class="num">1 <span class="cell-sub">(0.9%)</span></td>
             <td class="wow-cell">
-          <div class="wow-delta">
             <span class="wow-chip wow-chip--up">
               <span class="material-symbols-rounded">trending_up</span>
               +0.6 pp
             </span>
-            <div class="wow-bar" aria-hidden="true">
-              <span class="wow-bar__zero"></span>
-              <span class="wow-bar__fill wow-bar__fill--up" style="width: 2.8%;"></span>
-            </div>
-          </div>
         </td>
           </tr>
         </tbody>
@@ -986,7 +933,7 @@ table.data-table, table.dataset-table {
 
       
 <section id="routing" class="report-card">
-  <div class="section-eyebrow label-medium">06 · Routing path</div>
+  <div class="section-eyebrow label-medium">Routing path</div>
   <h2 class="section-title headline-medium">Which routing path is generating the most issues</h2>
   <div class="donut-layout">
     <figure class="donut-figure" aria-label="Donut chart of routing-path distribution">
@@ -1035,85 +982,116 @@ table.data-table, table.dataset-table {
 
       
 <section id="categories" class="report-card">
-  <div class="section-eyebrow label-medium">07 · Category breakdown</div>
+  <div class="section-eyebrow label-medium">Category breakdown</div>
   <h2 class="section-title headline-medium">Which surfaces are bearing the load</h2>
-  <div class="data-table-wrap">
-    <table class="data-table">
-      <thead><tr><th>Category</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
-      <tbody>
-          <tr>
-            <td>Search</td>
-            <td class="num">18</td>
-            <td class="num"><span class="cell-sub">26.5%</span></td>
-          </tr>
+  <ul class="cat-bar-list">
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Search</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 100.0%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">18</span>
+              <span class="cat-bar__share label-medium">26.5%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Drafting</td>
-            <td class="num">14</td>
-            <td class="num"><span class="cell-sub">20.6%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Drafting</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 77.8%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">14</span>
+              <span class="cat-bar__share label-medium">20.6%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>General</td>
-            <td class="num">9</td>
-            <td class="num"><span class="cell-sub">13.2%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">General</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 50.0%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">9</span>
+              <span class="cat-bar__share label-medium">13.2%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Scheduling</td>
-            <td class="num">6</td>
-            <td class="num"><span class="cell-sub">8.8%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Scheduling</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 33.3%; background: #ffd1ac;"></span>
+              <span class="cat-bar__count title-medium">6</span>
+              <span class="cat-bar__share label-medium">8.8%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Summarization</td>
-            <td class="num">5</td>
-            <td class="num"><span class="cell-sub">7.4%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Summarization</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 27.8%; background: #d7bbff;"></span>
+              <span class="cat-bar__count title-medium">5</span>
+              <span class="cat-bar__share label-medium">7.4%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Triage</td>
-            <td class="num">4</td>
-            <td class="num"><span class="cell-sub">5.9%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Triage</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 22.2%; background: #85d0e7;"></span>
+              <span class="cat-bar__count title-medium">4</span>
+              <span class="cat-bar__share label-medium">5.9%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Rules</td>
-            <td class="num">3</td>
-            <td class="num"><span class="cell-sub">4.4%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Rules</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 16.7%; background: #f6c1da;"></span>
+              <span class="cat-bar__count title-medium">3</span>
+              <span class="cat-bar__share label-medium">4.4%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Tasks</td>
-            <td class="num">3</td>
-            <td class="num"><span class="cell-sub">4.4%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Tasks</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 16.7%; background: #bbc7db;"></span>
+              <span class="cat-bar__count title-medium">3</span>
+              <span class="cat-bar__share label-medium">4.4%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Replying</td>
-            <td class="num">3</td>
-            <td class="num"><span class="cell-sub">4.4%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Replying</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 16.7%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">3</span>
+              <span class="cat-bar__share label-medium">4.4%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>Unknown</td>
-            <td class="num">2</td>
-            <td class="num"><span class="cell-sub">2.9%</span></td>
-          </tr>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Unknown</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 11.1%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">2</span>
+              <span class="cat-bar__share label-medium">2.9%</span>
+            </div>
+          </li>
         
-          <tr>
-            <td>File</td>
-            <td class="num">1</td>
-            <td class="num"><span class="cell-sub">1.5%</span></td>
-          </tr>
-        </tbody>
-    </table>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">File</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 5.6%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">1</span>
+              <span class="cat-bar__share label-medium">1.5%</span>
+            </div>
+          </li>
+        </ul>
+  <div class="cat-bar-caption body-small">
+    Top surface: <strong>Search</strong> · 26.5% of categorized items · 68 categorized
   </div>
 </section>
 
       
 <section id="tickets">
-  <div class="section-eyebrow label-medium">08 · Ticket queue</div>
+  <div class="section-eyebrow label-medium">Ticket queue</div>
   <h2 class="section-title headline-medium">P0 / P1 / P2 rows worth engineering attention</h2>
   <p class="section-note body-medium">Showing top 12 rows by priority then prevalence. Click any row to expand.</p>
   <div class="ticket-list">
