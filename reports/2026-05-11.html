@@ -2,1332 +2,1234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>OCV Weekly · Outlook Agent · May 4-11, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCV Weekly · Outlook AI Agent · Week of 2026-05-11</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Google+Sans+Code:wght@400;500&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   <style>
+
 :root {
-  --bg: #0f1115;
-  --bg-tint: #14171d;
-  --surface: #1a1d24;
-  --surface-elevated: #20242c;
-  --surface-recessed: #14171d;
-  --text: #e8eaed;
-  --text-dim: #9aa0a6;
-  --text-faint: #5f6368;
-  --border: rgba(232, 234, 237, 0.08);
-  --border-strong: rgba(232, 234, 237, 0.16);
-
-  /* Accent palette: muted navy + gold + terracotta, dark-mode tuned. */
-  --navy: #8ab4f8;
-  --navy-dim: rgba(138, 180, 248, 0.14);
-  --gold: #fdd663;
-  --gold-dim: rgba(253, 214, 99, 0.14);
-  --terracotta: #f28b82;
-  --terracotta-dim: rgba(242, 139, 130, 0.14);
-  --sage: #81c995;
-  --sage-dim: rgba(129, 201, 149, 0.14);
-  --plum: #c58af9;
-  --plum-dim: rgba(197, 138, 249, 0.14);
-
-  --p0: #f28b82;
-  --p0-bg: rgba(242, 139, 130, 0.14);
-  --p1: #fdd663;
-  --p1-bg: rgba(253, 214, 99, 0.14);
-  --p2: #8ab4f8;
-  --p2-bg: rgba(138, 180, 248, 0.14);
-  --p3: #9aa0a6;
-  --p3-bg: rgba(154, 160, 166, 0.12);
-
-  --up: #f28b82;
-  --down: #81c995;
-  --flat: #9aa0a6;
-
-  /* Google's public-site font stack: Google Sans Display / Text / Code. */
-  --font-display: 'Google Sans Display', 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
-  --font-body: 'Google Sans Text', 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Google Sans Code', 'Roboto Mono', ui-monospace, 'JetBrains Mono', monospace;
+  --md-sys-color-surface: #101418;
+  --md-sys-color-surface-container-low: #161a1f;
+  --md-sys-color-surface-container: #1a1e23;
+  --md-sys-color-surface-container-high: #22272d;
+  --md-sys-color-surface-container-highest: #2a2f36;
+  --md-sys-color-on-surface: #e3e2e6;
+  --md-sys-color-on-surface-variant: #c4c6cf;
+  --md-sys-color-on-surface-faint: #8a8d94;
+  --md-sys-color-outline-variant: #43474e;
+  --md-sys-color-primary: #a8c7fa;
+  --md-sys-color-primary-container: rgba(168, 199, 250, 0.12);
+  --md-sys-color-tertiary: #a4ccaf;
+  --md-sys-color-tertiary-container: rgba(164, 204, 175, 0.14);
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-error-container: rgba(255, 180, 171, 0.14);
+  --md-sys-color-secondary: #bbc7db;
+  --md-sys-color-secondary-container: rgba(187, 199, 219, 0.10);
+  --md-shape-corner-small: 8px;
+  --md-shape-corner-medium: 12px;
+  --md-shape-corner-large: 16px;
+  --md-shape-corner-extra-large: 28px;
+  --md-elevation-1: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-elevation-2: 0 2px 6px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --font-display: 'Google Sans Display','Google Sans','Roboto',system-ui,sans-serif;
+  --font-body: 'Google Sans Text','Google Sans','Roboto',system-ui,sans-serif;
+  --font-mono: 'Roboto Mono',ui-monospace,monospace;
 }
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 14px; line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-image:
-    radial-gradient(ellipse 900px 600px at 80% -10%, var(--gold-dim), transparent 60%),
-    radial-gradient(ellipse 700px 500px at -10% 20%, var(--navy-dim), transparent 60%);
-  background-attachment: fixed;
+  min-height: 100vh;
+}
+a { color: var(--md-sys-color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, .mono { font-family: var(--font-mono); }
+.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.cell-sub { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
+
+/* ===== Type scale ===== */
+.display-medium  { font-family: var(--font-display); font-weight: 400; font-size: 45px; line-height: 52px; }
+.headline-large  { font-family: var(--font-display); font-weight: 500; font-size: 32px; line-height: 40px; }
+.headline-medium { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 36px; }
+.title-large     { font-family: var(--font-body); font-weight: 500; font-size: 22px; line-height: 28px; }
+.title-medium    { font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 24px; }
+.body-large      { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 24px; }
+.body-medium     { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 20px; }
+.body-small      { font-family: var(--font-body); font-weight: 400; font-size: 12px; line-height: 16px; }
+.label-medium    { font-family: var(--font-body); font-weight: 500; font-size: 12px; line-height: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* ===== Top app bar ===== */
+.top-bar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding: 12px 32px;
+  display: flex; align-items: center; gap: 16px;
+}
+.top-bar__back {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  color: var(--md-sys-color-on-surface);
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.top-bar__back:hover { background: var(--md-sys-color-surface-container-high); text-decoration: none; }
+.top-bar__title { color: var(--md-sys-color-on-surface); }
+.top-bar__subtitle { color: var(--md-sys-color-on-surface-variant); margin-top: 2px; }
+.top-bar__spacer { flex: 1; }
+.top-bar__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-tertiary);
+}
+.top-bar__chip-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--md-sys-color-tertiary);
 }
 
-a { color: var(--navy); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.12s; }
-a:hover { border-bottom-color: currentColor; }
-code { font-family: var(--font-mono); font-size: 0.9em; background: var(--surface-recessed); padding: 1px 6px; border-radius: 4px; color: var(--text); }
-em { font-style: italic; color: var(--navy); }
-
-/* ============== LAYOUT ============== */
+/* ===== Layout: TOC rail + content ===== */
 .page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 56px 40px 96px;
+  max-width: 1400px; margin: 0 auto;
+  padding: 32px;
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 56px;
+  gap: 32px;
+  align-items: start;
 }
-@media (max-width: 900px) {
-  .page { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; }
-  .toc { position: static; }
-}
-
-/* ============== SIDEBAR TOC ============== */
 .toc {
-  position: sticky;
-  top: 32px;
-  align-self: start;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  position: sticky; top: 96px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 4px;
 }
-.toc__label { color: var(--text-faint); margin: 0 0 12px; font-weight: 500; }
-.toc__list {
-  list-style: none; margin: 0; padding: 0;
-  border-left: 1px solid var(--border-strong);
+.toc a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px;
+  border-radius: 100px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px; font-weight: 500;
+  transition: background 200ms var(--md-easing-emphasized), color 200ms var(--md-easing-emphasized);
 }
-.toc__list a {
-  display: block;
-  padding: 7px 0 7px 16px;
-  margin-left: -1px;
-  border-left: 2px solid transparent;
-  color: var(--text-dim);
-  border-bottom: none;
-  transition: color 0.15s, border-color 0.15s;
+.toc a:hover { background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-on-surface); text-decoration: none; }
+.toc a.is-active {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
 }
-.toc__list a:hover { color: var(--text); }
-.toc__list a.active {
-  color: var(--gold);
-  border-left-color: var(--gold);
-  font-weight: 600;
+.toc a .material-symbols-rounded { font-size: 18px; }
+.content { display: flex; flex-direction: column; gap: 28px; }
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+  .toc { position: static; flex-direction: row; overflow-x: auto; flex-wrap: nowrap; }
+  .toc a { white-space: nowrap; }
 }
 
-/* ============== HEADER ============== */
-header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 36px; }
-.back-link {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-dim);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  display: inline-block;
-  margin: 0 0 22px;
-  transition: color .15s, border-color .15s;
+/* ===== Hero ===== */
+.hero-header {
+  display: flex; flex-direction: column; gap: 6px;
 }
-.back-link:hover { color: var(--text); border-bottom-color: var(--border-strong); }
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  margin: 0 0 14px;
-  display: flex; align-items: center; gap: 12px;
-}
-.eyebrow em { color: var(--gold); font-style: normal; font-weight: 600; }
-.eyebrow::before {
-  content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block;
-}
-h1 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(40px, 5vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-  margin: 0 0 18px;
-  color: var(--text);
-}
-h1 em { color: var(--navy); font-style: normal; font-weight: 500; }
-.header__meta {
-  display: flex; gap: 28px; flex-wrap: wrap;
-  font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);
-}
-.header__meta span { display: inline-flex; align-items: center; gap: 6px; }
-.header__meta strong { color: var(--text); font-weight: 500; }
-
-/* ============== SECTIONS ============== */
-section { margin-bottom: 64px; scroll-margin-top: 24px; }
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-faint);
-  margin: 0 0 8px;
-  display: flex; align-items: center; gap: 10px;
-}
-.section-label::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--navy); display: inline-block;
-}
-h2 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 1.15;
-  margin: 0 0 24px;
-  color: var(--text);
-  letter-spacing: -0.012em;
-}
-h2 em { color: var(--gold); font-style: normal; font-weight: 500; }
-h3 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 20px;
-  margin: 32px 0 14px;
-  color: var(--text);
-}
-h4 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-dim);
-  margin: 0 0 12px;
-}
-p { margin: 0 0 14px; }
-p.note {
-  font-size: 13px; color: var(--text-dim); margin-top: -8px; margin-bottom: 20px;
-}
-
-/* ============== TL;DR HERO ============== */
-.tldr {
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  padding: 36px 40px;
-  position: relative;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-}
-.tldr::before {
-  content: ''; position: absolute;
-  left: 0; top: 24px; bottom: 24px;
-  width: 3px; background: var(--gold); border-radius: 2px;
-}
-.tldr__lead {
-  font-family: var(--font-display);
-  font-size: 22px; line-height: 1.4; font-weight: 400;
-  color: var(--text); margin: 0 0 16px;
-}
-.tldr__lead em { color: var(--gold); font-style: normal; font-weight: 500; }
-.tldr__body p { font-size: 15px; color: var(--text); }
-.tldr__hint { font-size: 13px; color: var(--text-dim); font-style: italic; }
-.tldr__caveats {
-  margin-top: 24px; padding-top: 20px;
-  border-top: 1px dashed var(--border-strong);
-}
-.tldr__caveats h4 { color: var(--terracotta); }
-.tldr__caveats ul {
-  margin: 0; padding-left: 18px; font-size: 13px; color: var(--text-dim);
-}
-.tldr__caveats li { margin-bottom: 6px; }
-.tldr__method {
-  margin-top: 18px; font-size: 13px; color: var(--text-dim);
-}
-.tldr__method summary {
-  cursor: pointer; font-family: var(--font-mono); font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint);
-  padding: 4px 0;
-}
-.tldr__method ul { margin: 10px 0 0; padding-left: 18px; }
-.tldr__method li { margin-bottom: 6px; }
-
-/* ============== KPI GRID ============== */
-.kpi-grid {
+.hero-header__title { color: var(--md-sys-color-on-surface); }
+.hero-header__subtitle { color: var(--md-sys-color-on-surface-variant); }
+.hero {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
-.kpi-grid--three { grid-template-columns: 1.4fr 1fr 1.4fr; }
-@media (max-width: 900px) { .kpi-grid, .kpi-grid--three { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1100px) { .hero { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .hero { grid-template-columns: 1fr; } }
 .kpi {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 24px 22px;
-  min-width: 0;
-}
-.kpi--hero {
-  background: var(--surface-elevated);
-  border-color: var(--navy);
-  box-shadow: 0 0 0 1px var(--navy-dim);
-}
-.kpi--p0 { border-color: rgba(242, 139, 130, 0.35); }
-.kpi__label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-faint);
-  margin-bottom: 12px;
-}
-.kpi__value {
-  font-family: var(--font-display);
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--text);
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.kpi--hero .kpi__value { color: var(--navy); }
-.kpi--p0 .kpi__value { color: var(--p0); }
-.kpi__divider { color: var(--text-faint); font-weight: 400; padding: 0 2px; }
-.kpi__meta {
-  font-size: 12px;
-  color: var(--text-dim);
-  margin-top: 12px;
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-}
-.kpi__meta strong { color: var(--text); font-weight: 500; }
-
-/* "was X last week" subtitle on every KPI card */
-.kpi__was {
-  display: flex; align-items: baseline; gap: 10px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--border);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  flex-wrap: wrap;
-}
-.kpi__was-label {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-}
-.kpi__was-value {
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-.kpi__was--none { color: var(--text-faint); font-style: italic; }
-.kpi__sublabel {
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  letter-spacing: 0.08em;
-  margin-left: 6px;
-}
-
-/* breakdown variant (sentiment / rating) */
-.kpi--breakdown { padding-top: 22px; padding-bottom: 22px; }
-.kpi__rows {
-  display: flex; flex-direction: column; gap: 2px;
-  margin-top: 4px;
-}
-.kpi__row {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 7px 0;
-  border-bottom: 1px solid var(--border);
-  gap: 12px;
-}
-.kpi__row:last-child { border-bottom: none; }
-.kpi__row > span:first-child {
-  font-family: var(--font-mono); font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--text-dim);
-}
-.kpi__row-vals {
-  display: inline-flex; align-items: baseline; gap: 8px;
-  font-variant-numeric: tabular-nums;
-}
-.kpi__row-vals strong {
-  font-family: var(--font-display);
-  font-size: 20px; font-weight: 500;
-  color: var(--text);
-  line-height: 1;
-}
-.kpi__row--neg .kpi__row-vals strong { color: var(--terracotta); }
-.was {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--text-faint);
-}
-.row-delta {
-  font-family: var(--font-mono); font-size: 10px;
-  padding: 1px 5px; border-radius: 3px;
-  font-variant-numeric: tabular-nums;
-  color: var(--text-dim);
-  background: var(--surface-recessed);
-}
-.row-delta--up::before, .row-delta--down::before, .row-delta--flat::before { content: ''; }
-.row-delta--flat { color: var(--text-faint); }
-
-.kpi__thumbs {
-  display: flex; flex-direction: column; gap: 14px;
-  margin-top: 6px;
-}
-.thumb {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--font-display);
-  flex-wrap: wrap;
-}
-.thumb__icon { font-size: 22px; line-height: 1; }
-.thumb strong {
-  font-size: 24px; font-weight: 500;
-  font-variant-numeric: tabular-nums; color: var(--text);
-  line-height: 1;
-}
-.thumb--down strong { color: var(--terracotta); }
-.thumb--up strong { color: var(--sage); }
-
-/* ============== DELTA INDICATORS ============== */
-.delta {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
-  padding: 4px 10px; border-radius: 5px;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.3px;
-}
-.delta--up { color: var(--up); background: rgba(242, 139, 130, 0.18); }
-.delta--up::before { content: '▲'; font-size: 11px; }
-.delta--down { color: var(--down); background: rgba(129, 201, 149, 0.18); }
-.delta--down::before { content: '▼'; font-size: 11px; }
-.delta--flat { color: var(--flat); background: rgba(154, 160, 166, 0.12); }
-.delta--flat::before { content: '●'; font-size: 9px; }
-.delta--none { color: var(--text-faint); }
-
-/* ============== DATASET GRID ============== */
-.dataset-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.dataset-grid--two { grid-template-columns: repeat(2, 1fr); }
-.dataset-grid--three { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px) { .dataset-grid, .dataset-grid--two, .dataset-grid--three { grid-template-columns: repeat(2, 1fr); } }
-.dataset-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px;
-  min-width: 0;
-}
-.micro-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.micro-table td {
-  padding: 6px 0;
-  border-bottom: 1px solid var(--border);
-}
-.micro-table tr:last-child td { border-bottom: none; }
-.micro-table td.num {
-  text-align: right;
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  color: var(--text);
-}
-.micro-table td.dim { color: var(--text-faint); font-size: 12px; }
-.micro-table__more td { font-family: var(--font-mono); font-size: 11px; padding-top: 8px; }
-.dataset-card__hint {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: none;
-  letter-spacing: 0.04em;
-  color: var(--text-faint);
-  margin-left: 6px;
-  font-weight: 400;
-}
-
-/* ============== CATEGORY DONUT ============== */
-.cat-chart-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 24px 16px;
-  display: flex;
-  justify-content: center;
-}
-.cat-chart { width: 100%; max-width: 720px; height: auto; }
-.donut-center__label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  fill: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-.donut-center__value {
-  font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 500;
-  fill: var(--text);
-}
-.callout__name {
-  font-family: var(--font-display);
-  font-size: 13px;
-  fill: var(--text);
-  font-weight: 500;
-}
-.callout__count {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  fill: var(--text-faint);
-  font-weight: 400;
-}
-.callout__delta {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  fill: var(--text-dim);
-}
-.callout__delta--up { fill: var(--terracotta); }
-.callout__delta--down { fill: var(--sage); }
-.callout__delta--flat { fill: var(--text-dim); }
-.callout__delta--none { fill: var(--text-faint); }
-
-/* ============== FINDINGS ============== */
-.finding-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-@media (max-width: 900px) { .finding-grid { grid-template-columns: 1fr; } }
-.finding-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-shape-corner-extra-large);
   padding: 24px;
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 16px;
-  min-width: 0;
+  box-shadow: var(--md-elevation-1);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background 200ms var(--md-easing-emphasized);
 }
-.finding-card__num {
-  font-family: var(--font-mono); font-size: 12px;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-  padding-top: 4px;
+.kpi:hover { background: var(--md-sys-color-surface-container-highest); }
+.kpi__header { display: flex; align-items: center; gap: 10px; color: var(--md-sys-color-on-surface-variant); }
+.kpi__header .material-symbols-rounded { font-size: 20px; color: var(--md-sys-color-primary); }
+.kpi__value { color: var(--md-sys-color-on-surface); font-size: 44px; line-height: 52px; font-weight: 500; font-family: var(--font-display); }
+.kpi__value--text { font-size: 24px; line-height: 32px; }
+.kpi__sub {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--md-shape-corner-small);
+  width: fit-content;
+  font-size: 13px; font-weight: 500;
 }
-.finding-card__body { font-size: 14px; color: var(--text); line-height: 1.55; }
-.finding-card__body p:last-child { margin-bottom: 0; }
+.kpi__sub--pos { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.kpi__sub--neg { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.kpi__sub--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.kpi__sub .material-symbols-rounded { font-size: 16px; }
+.kpi__caption { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
 
-/* ============== TABLES (topic / wow) ============== */
-.data-table {
+/* ===== Report cards (sections) ===== */
+.report-card {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 28px;
+  box-shadow: var(--md-elevation-1);
+  scroll-margin-top: 96px;
+}
+.section-eyebrow {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 6px;
+}
+.section-title { color: var(--md-sys-color-on-surface); margin: 0 0 20px 0; }
+.section-note { color: var(--md-sys-color-on-surface-faint); margin-bottom: 16px; }
+
+/* ===== Markdown content ===== */
+.md-p { color: var(--md-sys-color-on-surface); margin: 0 0 12px 0; }
+.md-p:last-child { margin-bottom: 0; }
+.md-list { color: var(--md-sys-color-on-surface); padding-left: 20px; margin: 0; }
+.md-list li { margin-bottom: 8px; }
+.md-list li:last-child { margin-bottom: 0; }
+.md-list strong, .md-p strong { color: var(--md-sys-color-on-surface); font-weight: 600; }
+.md-h3 { color: var(--md-sys-color-on-surface); margin: 20px 0 12px 0; }
+
+/* ===== Tables (data + dataset) ===== */
+.data-table-wrap, .dataset-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--md-shape-corner-medium);
+  background: var(--md-sys-color-surface-container-low);
+}
+table.data-table, table.dataset-table {
   width: 100%;
-  border-collapse: collapse;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  font-size: 14px;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 .data-table thead th {
   text-align: left;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-  font-weight: 500;
-  padding: 14px 16px;
-  background: var(--surface-recessed);
-  border-bottom: 1px solid var(--border-strong);
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 .data-table thead th.num { text-align: right; }
-.data-table tbody td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: middle;
-}
+.data-table tbody td { padding: 12px 16px; border-bottom: 1px solid var(--md-sys-color-outline-variant); }
 .data-table tbody tr:last-child td { border-bottom: none; }
-.data-table tbody tr:hover { background: var(--surface-elevated); }
-.data-table td.num {
-  text-align: right;
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+.data-table tbody tr:hover { background: var(--md-sys-color-surface-container-high); }
+.topic-cell { color: var(--md-sys-color-on-surface); }
+.topic-id {
+  display: inline-block; min-width: 22px; text-align: center;
+  padding: 2px 6px; border-radius: 6px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  margin-right: 6px;
 }
-.data-table td.dim { color: var(--text-dim); }
-.topic-id code { background: transparent; color: var(--text-faint); padding: 0; }
-.topic-name { color: var(--text); font-weight: 500; }
-.bar-cell { width: 18%; }
-.bar {
-  height: 6px;
-  border-radius: 3px;
-  background: var(--navy);
-  min-width: 2px;
-}
-.bar--red { background: var(--terracotta); }
-.bar--amber { background: var(--gold); }
-.bar--navy { background: var(--navy); }
-.bar--green { background: var(--sage); }
+.delta-up   { color: var(--md-sys-color-error); }
+.delta-down { color: var(--md-sys-color-tertiary); }
+.delta-flat { color: var(--md-sys-color-on-surface-faint); }
 
-/* ============== CATEGORY GRID ============== */
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+.dataset-table th.row-head {
+  text-align: left; padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top; min-width: 200px;
 }
-@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .cat-grid { grid-template-columns: 1fr; } }
-.cat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 18px;
-  min-width: 0;
+.dataset-table .cell {
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top;
 }
-.cat-card__head {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 12px;
-}
-.cat-card__name {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text);
-}
-.cat-card__count {
-  display: flex; align-items: baseline; gap: 8px;
-  margin-bottom: 10px;
-}
-.cat-card__n {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--gold);
-  font-variant-numeric: tabular-nums;
-}
-.cat-card__pct { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); }
-.cat-card__tops {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  padding-top: 10px;
-  border-top: 1px dashed var(--border);
-}
-.cat-card__tops code { font-size: 10px; padding: 1px 4px; }
-.cat-card__tops .dim { color: var(--text-faint); }
+.dataset-table tbody tr:last-child th, .dataset-table tbody tr:last-child td { border-bottom: none; }
 
-/* ============== TICKET CARDS ============== */
-.ticket-list { display: flex; flex-direction: column; gap: 10px; }
+/* ===== Ticket cards ===== */
+.ticket-list { display: flex; flex-direction: column; gap: 12px; }
 .ticket-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--text-faint);
-  border-radius: 6px;
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
   overflow: hidden;
+  transition: border-color 200ms var(--md-easing-emphasized), background 200ms var(--md-easing-emphasized);
 }
-.ticket-card--p0 { border-left-color: var(--p0); }
-.ticket-card--p1 { border-left-color: var(--p1); }
-.ticket-card--p2 { border-left-color: var(--p2); }
+.ticket-card[open] { background: var(--md-sys-color-surface-container-high); }
+.ticket-card--p0[open] { border-color: var(--md-sys-color-error); }
+.ticket-card--p1[open] { border-color: #ffd1ac; }
+.ticket-card--p2[open] { border-color: var(--md-sys-color-secondary); }
 .ticket-card__head {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto 28px;
+  align-items: center; gap: 12px;
+  padding: 16px 20px;
   cursor: pointer;
   list-style: none;
 }
 .ticket-card__head::-webkit-details-marker { display: none; }
-.ticket-card__head::after {
-  content: '+'; margin-left: auto;
-  color: var(--text-faint); font-family: var(--font-mono); font-size: 16px;
+.ticket-card__title { color: var(--md-sys-color-on-surface); }
+.ticket-card__count { color: var(--md-sys-color-on-surface-faint); font-size: 13px; }
+.ticket-card__chevron {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 22px;
+  transition: transform 200ms var(--md-easing-emphasized);
 }
-.ticket-card[open] .ticket-card__head::after { content: '−'; }
-.ticket-card__prio {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-  padding: 3px 8px; border-radius: 4px; min-width: 28px; text-align: center;
+.ticket-card[open] .ticket-card__chevron { transform: rotate(180deg); }
+
+.prio-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.5px;
 }
-.prio--p0 { color: var(--p0); background: var(--p0-bg); }
-.prio--p1 { color: var(--p1); background: var(--p1-bg); }
-.prio--p2 { color: var(--p2); background: var(--p2-bg); }
-.prio--p3 { color: var(--p3); background: var(--p3-bg); }
-.ticket-card__title {
-  font-family: var(--font-display);
-  font-size: 15px; color: var(--text); font-weight: 500;
-  flex: 1; min-width: 0;
-}
-.ticket-card__count {
-  font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);
-  background: var(--surface-recessed); padding: 2px 8px; border-radius: 4px;
-}
+.prio-p0 { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.prio-p1 { background: rgba(255, 209, 172, 0.16); color: #ffd1ac; }
+.prio-p2 { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.prio-p3 { background: var(--md-sys-color-surface-container-highest); color: var(--md-sys-color-on-surface-faint); }
+
 .ticket-card__body {
-  padding: 4px 18px 18px;
-  border-top: 1px solid var(--border);
+  padding: 0 20px 20px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  padding-top: 16px;
 }
-.ticket-card__meta {
-  display: flex; flex-wrap: wrap; gap: 16px;
-  align-items: center;
-  font-size: 12px; color: var(--text-dim);
-  padding: 12px 0;
+.ticket-chips {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
 }
-.ticket-card__meta strong { color: var(--text); font-weight: 500; }
-.tw { font-family: var(--font-mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; }
-.tw--yes { color: var(--sage); background: rgba(129, 201, 149, 0.12); }
-.tw--no { color: var(--text-faint); background: rgba(154, 160, 166, 0.08); }
-.tw--needs { color: var(--gold); background: var(--gold-dim); }
 .ticket-card__desc {
-  font-size: 14px; color: var(--text);
-  line-height: 1.55; margin: 6px 0 12px;
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
 }
-.ticket-card__links {
-  font-size: 12px; color: var(--text-dim);
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+.ticket-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
 }
-.ticket-card__links-label {
-  font-family: var(--font-mono); font-size: 10px;
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint);
+.ticket-links__label {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-right: 4px;
 }
-.ticket-card__links a {
+.ticket-model-tag {
   font-family: var(--font-mono); font-size: 11px;
-  padding: 2px 8px; border-radius: 3px;
-  background: var(--surface-recessed); color: var(--navy);
-}
-.ticket-card__links .dim { color: var(--text-faint); font-style: italic; }
-.model-tag {
-  font-family: var(--font-mono); font-size: 10px;
-  color: var(--text-faint);
-  padding: 1px 6px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: rgba(255,255,255,0.03);
-  white-space: nowrap;
+  color: var(--md-sys-color-on-surface-faint);
 }
 
-/* Routing path × surface table */
-.path-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-mono); font-size: 12px;
-  margin-top: 12px;
+/* ===== Material 3 chips & buttons ===== */
+.m3-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px; font-weight: 500;
 }
-.path-table th, .path-table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--border);
-  text-align: right;
-  color: var(--text-dim);
+.m3-chip .material-symbols-rounded { font-size: 14px; }
+.m3-chip--assist {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
-.path-table th {
-  color: var(--text-faint);
-  font-weight: normal;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  font-size: 10px;
-  background: var(--surface-recessed);
+.m3-chip--link {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
 }
-.path-table td:first-child, .path-table th:first-child {
-  text-align: left;
-  color: var(--text);
-}
-.path-table tr.path-row--total td { color: var(--text); border-top: 1px solid var(--border); font-weight: 600; }
-.path-table td.cell--zero { color: var(--text-faint); opacity: 0.5; }
-.path-table .path-pill {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-size: 10px;
-  background: var(--surface-recessed);
-  color: var(--navy);
-}
+.m3-chip--link:hover { background: rgba(168,199,250,0.22); text-decoration: none; }
 
-/* ADO link badge in ticket card head */
-.ado-link {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 3px 9px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  white-space: nowrap;
-  margin-left: auto;
+.m3-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  transition: background 200ms var(--md-easing-emphasized);
 }
-.ado-link--created {
-  color: var(--sage);
-  border-color: rgba(129, 201, 149, 0.4);
-  background: rgba(129, 201, 149, 0.08);
-}
-.ado-link--linked {
-  color: var(--navy);
-  border-color: rgba(138, 180, 248, 0.4);
-  background: rgba(138, 180, 248, 0.08);
-}
-.ado-link--open {
-  color: var(--text);
-  background: var(--surface-recessed);
-}
-.ado-link--missing {
-  color: var(--text-faint);
+.m3-btn .material-symbols-rounded { font-size: 16px; }
+.m3-btn--outlined {
   background: transparent;
-  border-style: dashed;
-  font-style: italic;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline-variant);
 }
-.ado-link__arrow { opacity: 0.7; margin-left: 2px; }
-.ado-link:hover:not(.ado-link--missing) {
-  filter: brightness(1.15);
+.m3-btn--outlined:hover { background: var(--md-sys-color-primary-container); text-decoration: none; }
+
+/* ===== FAB ===== */
+.fab {
+  position: fixed; bottom: 32px; right: 32px;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  background: var(--md-sys-color-primary);
+  color: #002e69;
+  border: none; border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  z-index: 30;
   text-decoration: none;
+  transition: background 200ms var(--md-easing-emphasized),
+              transform 200ms var(--md-easing-emphasized),
+              box-shadow 200ms var(--md-easing-emphasized);
+}
+.fab:hover { transform: translateY(-2px); text-decoration: none; }
+.fab .material-symbols-rounded { font-size: 20px; }
+@media (max-width: 600px) {
+  .fab { bottom: 20px; right: 20px; padding: 12px 16px; }
+  .fab__label { display: none; }
 }
 
-/* ============== FOOTER ============== */
-footer {
-  margin-top: 80px; padding-top: 28px;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--text-faint);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+/* ===== Preview tag (only on v2 preview files) ===== */
+.preview-tag {
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
 }
-footer a { color: var(--text-dim); }
-</style>
+
+/* ===== Dataset mini-cards (3-pill vertical grid) ===== */
+.mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.mini-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mini-card__eyebrow { color: var(--md-sys-color-on-surface-faint); }
+.mini-card__title { color: var(--md-sys-color-on-surface); margin-bottom: 4px; }
+.pill-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pill {
+  display: grid;
+  grid-template-columns: 8px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.pill__dot { width: 8px; height: 8px; border-radius: 50%; }
+.pill__dot.pill--pos { background: var(--md-sys-color-tertiary); }
+.pill__dot.pill--neg { background: var(--md-sys-color-error); }
+.pill__dot.pill--neutral { background: var(--md-sys-color-on-surface-faint); }
+.pill__label { color: var(--md-sys-color-on-surface); }
+.pill__value { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.pill__share { color: var(--md-sys-color-on-surface-faint); }
+
+/* ===== Findings cards ===== */
+.finding-list { display: flex; flex-direction: column; gap: 12px; }
+.finding-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-left: 4px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 20px;
+}
+.finding-card--p0 { border-left-color: var(--md-sys-color-error); }
+.finding-card--p1 { border-left-color: #ffd1ac; }
+.finding-card--p2 { border-left-color: var(--md-sys-color-secondary); }
+.finding-card--p3 { border-left-color: var(--md-sys-color-on-surface-faint); }
+.finding-card__head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  margin-bottom: 6px;
+}
+.finding-card__title { color: var(--md-sys-color-on-surface); }
+.finding-card__body { color: var(--md-sys-color-on-surface-variant); margin: 0; }
+
+/* ===== WoW chip ===== */
+.wow-th { text-align: left !important; padding-left: 16px; min-width: 180px; }
+.wow-cell { vertical-align: middle; }
+.wow-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 13px;
+  width: fit-content;
+}
+.wow-chip .material-symbols-rounded { font-size: 18px; }
+.wow-chip--up   { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.wow-chip--down { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.wow-chip--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+
+/* ===== Category breakdown horizontal bar chart ===== */
+.cat-bar-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.cat-bar {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.cat-bar__label { color: var(--md-sys-color-on-surface); text-align: right; }
+.cat-bar__track {
+  position: relative;
+  height: 36px;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: 100px;
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+.cat-bar__fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 100px;
+  opacity: 0.85;
+  transition: width 500ms var(--md-easing-emphasized);
+}
+.cat-bar__count {
+  position: relative; z-index: 1;
+  margin-left: 14px;
+  color: #0a1726;
+  font-variant-numeric: tabular-nums;
+}
+.cat-bar__share {
+  position: relative; z-index: 1;
+  margin-left: auto; margin-right: 14px;
+  color: var(--md-sys-color-on-surface-faint);
+  font-variant-numeric: tabular-nums;
+}
+.cat-bar-caption {
+  margin-top: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.cat-bar-caption strong { color: var(--md-sys-color-on-surface); }
+@media (max-width: 640px) {
+  .cat-bar { grid-template-columns: 1fr; gap: 4px; }
+  .cat-bar__label { text-align: left; }
+}
+
+/* ===== Donut chart for routing paths ===== */
+.donut-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 720px) { .donut-layout { grid-template-columns: 1fr; } }
+.donut-figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.donut-svg { width: 220px; height: 220px; display: block; }
+.donut-seg {
+  transition: transform 220ms var(--md-easing-emphasized), opacity 200ms var(--md-easing-emphasized);
+  transform-origin: 100px 100px;
+  cursor: pointer;
+}
+.donut-svg:hover .donut-seg { opacity: 0.55; }
+.donut-svg .donut-seg:hover { opacity: 1; transform: scale(1.035); }
+.donut-center__num {
+  fill: var(--md-sys-color-on-surface);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+}
+.donut-center__lbl {
+  fill: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.donut-caption { color: var(--md-sys-color-on-surface-variant); text-align: center; }
+.donut-caption strong { color: var(--md-sys-color-on-surface); }
+.donut-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.donut-legend__item {
+  display: grid;
+  grid-template-columns: 14px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.donut-legend__swatch {
+  width: 12px; height: 12px; border-radius: 3px;
+}
+.donut-legend__label  { color: var(--md-sys-color-on-surface); }
+.donut-legend__share  { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.donut-legend__count  { color: var(--md-sys-color-on-surface-faint); font-variant-numeric: tabular-nums; }
+.donut-swatch {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.donut-details { margin-top: 20px; }
+.donut-details__summary {
+  cursor: pointer;
+  color: var(--md-sys-color-primary);
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--md-sys-color-primary-container);
+  display: inline-flex; align-items: center;
+  width: fit-content;
+  list-style: none;
+}
+.donut-details__summary::-webkit-details-marker { display: none; }
+.donut-details__summary::before {
+  content: "▸"; margin-right: 8px;
+  transition: transform 200ms var(--md-easing-emphasized);
+  display: inline-block;
+}
+.donut-details[open] .donut-details__summary::before { transform: rotate(90deg); }
+
+  </style>
 </head>
 <body>
-  <div class="page">
-    <aside class="toc" aria-label="On this page">
-      <p class="toc__label">On this page</p>
-      <ul class="toc__list">
-      <li><a href="#tldr">01 · TL;DR</a></li>
-      <li><a href="#kpis">02 · Headlines</a></li>
-      <li><a href="#dataset">03 · Dataset</a></li>
-      <li><a href="#findings">04 · Findings</a></li>
-      <li><a href="#topics">05 · Topic shifts</a></li>
-      <li><a href="#categories">06 · Categories</a></li>
-      <li><a href="#tickets">07 · Ticket queue</a></li>
-      </ul>
-    </aside>
-    <main>
-      <header>
-  <a href="https://yohncf.github.io/OCV-Weekly_temp" class="back-link">&larr; All weekly reports</a>
-  <p class="eyebrow">OCV Weekly Report &middot; <em>Outlook Agent</em></p>
-  <h1>Week of <em>May 4-11, 2026</em></h1>
-  <div class="header__meta">
-    <span><strong>Analysis date:</strong> 2026-05-25</span>
-  </div>
-</header>
-<section id="tldr">
-  <p class="section-label">01 · TL;DR</p>
-  <h2>tl;dr</h2>
-  <div class="tldr">
-    <div class="tldr__body"><p>This week, 249 negative verbatim items were classified into the 13-topic Outlook Agent taxonomy. The largest topic was <strong>T1 (Action not executed)</strong> at 66 items (26.5%), followed by <strong>T8 (Wrong context / grounding)</strong> at 39 (15.7%) and <strong>T2 (HitL violation)</strong> at 29 (11.6%).</p></div>
-  </div>
-</section>
-<section id="kpis">
-  <p class="section-label">02 · Headline numbers</p>
-  <h2>What changed this week</h2>
-  <div class="kpi-grid kpi-grid--three">
-    <div class="kpi kpi--hero">
-      <div class="kpi__label">Verbatim negative items</div>
-      <div class="kpi__value">249</div>
-      <div class="kpi__was kpi__was--none">no prior baseline</div>
+  <div class="top-bar">
+    <a class="top-bar__back" href="../index.html" aria-label="Back to dashboard">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </a>
+    <div>
+      <div class="top-bar__title title-large">OCV Weekly · Outlook AI Agent</div>
+      <div class="top-bar__subtitle body-small">Week of May 4-11, 2026</div>
     </div>
-    <div class="kpi">
-      <div class="kpi__label">Topics surfaced</div>
-      <div class="kpi__value">13</div>
-      <div class="kpi__was kpi__was--none">no prior baseline</div>
-    </div>
-    <div class="kpi kpi--breakdown">
-      <div class="kpi__label">Rating <span class="kpi__sublabel">now · was · Δ%</span></div>
-      <div class="kpi__thumbs">
-        <div class="thumb thumb--down">
-          <span class="thumb__icon" aria-hidden="true">👎</span>
-          <strong>1,235</strong>
-          <span class="was">—</span>
-          
-        </div>
-        <div class="thumb thumb--up">
-          <span class="thumb__icon" aria-hidden="true">👍</span>
-          <strong>2,812</strong>
-          <span class="was">—</span>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="dataset">
-  <p class="section-label">03 · Dataset summary</p>
-  <h2>What was sampled</h2>
-  <div class="dataset-grid dataset-grid--three">
-    <div class="dataset-card">
-      <h4>Sentiment</h4>
-      <table class="micro-table"><tr><td>No verbatim (unscored)</td><td class="num">3,575</td><td class="num dim">88.3%</td></tr><tr><td>Negative</td><td class="num">272</td><td class="num dim">6.7%</td></tr><tr><td>Neutral</td><td class="num">109</td><td class="num dim">2.7%</td></tr><tr><td>Positive</td><td class="num">91</td><td class="num dim">2.2%</td></tr></table>
-    </div>
-    <div class="dataset-card">
-      <h4>Language <span class="dataset-card__hint">top 4</span></h4>
-      <table class="micro-table"><tr><td>en</td><td class="num">3,957</td><td class="num dim">97.8%</td></tr><tr><td>es</td><td class="num">41</td><td class="num dim">1.0%</td></tr><tr><td>pt</td><td class="num">16</td><td class="num dim">0.4%</td></tr><tr><td>de</td><td class="num">8</td><td class="num dim">0.2%</td></tr><tr class="micro-table__more"><td class="dim">+ 11 more</td><td class="num dim">25</td><td class="num dim">0.6%</td></tr></table>
-    </div>
-    <div class="dataset-card">
-      <h4>Client</h4>
-      <table class="micro-table"><tr><td>Desktop (Monarch)</td><td class="num">2,424</td><td class="num dim">59.9%</td></tr><tr><td>OWA</td><td class="num">1,172</td><td class="num dim">29.0%</td></tr><tr><td>Desktop (Win32)</td><td class="num">450</td><td class="num dim">11.1%</td></tr><tr><td>Mobile (iOS)</td><td class="num">1</td><td class="num dim">0.0%</td></tr></table>
-    </div>
-  </div>
-</section>
-<section id="findings">
-  <p class="section-label">04 · Key findings</p>
-  <h2>What the data is telling us</h2>
-  <div class="finding-grid">
+    <div class="top-bar__spacer"></div>
     
-        <div class="finding-card">
-          <div class="finding-card__num">01</div>
-          <div class="finding-card__body"><p><strong>T1 (Action not executed)</strong> is the largest topic at 66 items (26.5% of negatives). Failure patterns concentrate in Drafting, Scheduling, Replying.</p></div>
+    <div class="top-bar__chip label-medium">
+      <span class="top-bar__chip-dot"></span>
+      <span>live</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <nav class="toc" id="toc"><a href="#hero" data-target="hero"><span class="material-symbols-rounded">speed</span>Headline</a><a href="#tldr" data-target="tldr"><span class="material-symbols-rounded">summarize</span>TL;DR</a><a href="#dataset" data-target="dataset"><span class="material-symbols-rounded">dataset</span>Dataset</a><a href="#findings" data-target="findings"><span class="material-symbols-rounded">lightbulb</span>Findings</a><a href="#topics" data-target="topics"><span class="material-symbols-rounded">compare_arrows</span>Topic shifts</a><a href="#categories" data-target="categories"><span class="material-symbols-rounded">category</span>Categories</a><a href="#tickets" data-target="tickets"><span class="material-symbols-rounded">assignment</span>Tickets</a></nav>
+
+    <main class="content">
+      <section id="hero">
+        <div class="hero-header" style="margin-bottom: 16px;">
+          <div class="section-eyebrow label-medium">Headline numbers</div>
+          <div class="hero-header__title headline-large">Week of May 4-11, 2026</div>
+          <div class="hero-header__subtitle body-large">Customer-feedback signal · classified into 13-topic taxonomy</div>
+        </div>
+        <div class="hero">
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">sentiment_satisfied</span>
+        <span class="label-medium">Rating</span>
+      </div>
+      <div class="kpi__value ">69.5%</div>
+      <div class="kpi__sub kpi__sub--flat">
+        <span class="material-symbols-rounded">horizontal_rule</span>
+        no prior week
+      </div>
+      <div class="kpi__caption">2,812 up · 1,235 down</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">comment</span>
+        <span class="label-medium">Verbatim negatives</span>
+      </div>
+      <div class="kpi__value ">249</div>
+      <div class="kpi__sub kpi__sub--flat">
+        <span class="material-symbols-rounded">horizontal_rule</span>
+        no prior week
+      </div>
+      <div class="kpi__caption">of 473 verbatim, 4,047 total submissions</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">warning</span>
+        <span class="label-medium">Top pain topic</span>
+      </div>
+      <div class="kpi__value kpi__value--text">Action not executed</div>
+      <div class="kpi__sub kpi__sub--flat">
+        <span class="material-symbols-rounded">horizontal_rule</span>
+        no prior week
+      </div>
+      <div class="kpi__caption">66 negatives this week</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">engineering</span>
+        <span class="label-medium">P0 + P1 queue</span>
+      </div>
+      <div class="kpi__value ">43</div>
+      <div class="kpi__sub kpi__sub--flat">
+        <span class="material-symbols-rounded">horizontal_rule</span>
+        no prior week
+      </div>
+      <div class="kpi__caption">10 P0 · 33 P1 · 0 synced to ADO</div>
+    </div>
+    </div>
+      </section>
+
+      <section id="tldr" class="report-card">
+        <div class="section-eyebrow label-medium">TL;DR</div>
+        <h2 class="section-title headline-medium">What you need to know</h2>
+        <div class="md-content"><p class="md-p body-large">This week, 249 negative verbatim items were classified into the 13-topic Outlook Agent taxonomy. The largest topic was <strong>T1 (Action not executed)</strong> at 66 items (26.5%), followed by <strong>T8 (Wrong context / grounding)</strong> at 39 (15.7%) and <strong>T2 (HitL violation)</strong> at 29 (11.6%).</p></div>
+      </section>
+
+      
+<section id="dataset" class="report-card">
+  <div class="section-eyebrow label-medium">Dataset summary</div>
+  <h2 class="section-title headline-medium">What was sampled</h2>
+  <div class="mini-card-grid">
+    
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Volume</div>
+          <div class="mini-card__title title-medium">Submissions</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Total submissions</span><span class="pill__value title-medium">4,047</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">With verbatim</span><span class="pill__value title-medium">473</span><span class="pill__share label-medium">11.7%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">No verbatim (unscored)</span><span class="pill__value title-medium">3,574</span><span class="pill__share label-medium">88.3%</span></li></ul>
         </div>
         
-        <div class="finding-card">
-          <div class="finding-card__num">02</div>
-          <div class="finding-card__body"><p><strong>T8 (Wrong context / grounding)</strong> is #2 at 39 items (15.7%). Often surfaces as wrong-source retrieval in search and inbox scans.</p></div>
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Voice of customer</div>
+          <div class="mini-card__title title-medium">Sentiment &amp; rating</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Negative</span><span class="pill__value title-medium">272</span><span class="pill__share label-medium">6.7%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Positive</span><span class="pill__value title-medium">91</span><span class="pill__share label-medium">2.2%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Neutral</span><span class="pill__value title-medium">109</span><span class="pill__share label-medium">2.7%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Thumbs up</span><span class="pill__value title-medium">2,812</span><span class="pill__share label-medium">69.5%</span></li><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Thumbs down</span><span class="pill__value title-medium">1,235</span><span class="pill__share label-medium">30.5%</span></li></ul>
         </div>
         
-        <div class="finding-card">
-          <div class="finding-card__num">03</div>
-          <div class="finding-card__body"><p><strong>Engineering queue shape:</strong> 10 P0 (trust / false-success), 33 P1 (pervasive core capability), 28 P2 (recurring), 26 P3 (anecdotal). Multi-item clusters (count &gt; 1): 66 of 97 subtopic rows.</p></div>
-        </div>
-        
-        <div class="finding-card">
-          <div class="finding-card__num">04</div>
-          <div class="finding-card__body"><p><strong>Long tail:</strong> 31 subtopic rows are singletons (anecdotal per the n&lt;3 rule); these are P3 unless promoted by topic-specific P0 criteria.</p></div>
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Surface mix</div>
+          <div class="mini-card__title title-medium">Clients &amp; languages</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Monarch)</span><span class="pill__value title-medium">2,424</span><span class="pill__share label-medium">59.9%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">OWA</span><span class="pill__value title-medium">1,172</span><span class="pill__share label-medium">29.0%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Win32)</span><span class="pill__value title-medium">450</span><span class="pill__share label-medium">11.1%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Mobile (iOS)</span><span class="pill__value title-medium">1</span><span class="pill__share label-medium">0.0%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">en</span><span class="pill__value title-medium">3,957</span><span class="pill__share label-medium">97.8%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">es</span><span class="pill__value title-medium">41</span><span class="pill__share label-medium">1.0%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">pt</span><span class="pill__value title-medium">16</span><span class="pill__share label-medium">0.4%</span></li></ul>
         </div>
         
   </div>
 </section>
-<section id="topics">
-  <p class="section-label">05 · Topic shifts (week over week)</p>
-  <h2>Where the negatives are concentrating</h2>
-  <p class="note">Sorted by this-week volume. No prior manifest available — pass <code>--prior-manifest</code> to populate the Δ pp column.</p>
-  <table class="data-table topic-table">
-    <thead>
-      <tr>
-        <th class="num">#</th>
-        <th>Topic</th>
-        <th class="num">This week</th>
-        <th>Distribution</th>
-        <th class="num">Last week</th>
-        <th class="num">Δ pp</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td class="topic-id"><code>01</code></td>
-          <td class="topic-name">Action not executed</td>
-          <td class="num">66 · 26.5%</td>
-          <td class="bar-cell"><div class="bar bar--red" style="width:100.0%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>08</code></td>
-          <td class="topic-name">Wrong context / grounding</td>
-          <td class="num">39 · 15.7%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:59.1%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>02</code></td>
-          <td class="topic-name">HitL violation</td>
-          <td class="num">29 · 11.6%</td>
-          <td class="bar-cell"><div class="bar bar--red" style="width:43.9%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>07</code></td>
-          <td class="topic-name">Inaccurate or fabricated content</td>
-          <td class="num">18 · 7.2%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:27.3%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>03</code></td>
-          <td class="topic-name">Output doesn&#x27;t match intent</td>
-          <td class="num">17 · 6.8%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:25.8%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>09</code></td>
-          <td class="topic-name">Tone, language, or format quality</td>
-          <td class="num">17 · 6.8%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:25.8%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>10</code></td>
-          <td class="topic-name">File I/O failure</td>
-          <td class="num">17 · 6.8%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:25.8%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>06</code></td>
-          <td class="topic-name">Reliability failure</td>
-          <td class="num">16 · 6.4%</td>
-          <td class="bar-cell"><div class="bar bar--red" style="width:24.2%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>04</code></td>
-          <td class="topic-name">Constraints ignored</td>
-          <td class="num">10 · 4.0%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:15.2%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>12</code></td>
-          <td class="topic-name">Capability refusal (in-scope)</td>
-          <td class="num">7 · 2.8%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:10.6%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>11</code></td>
-          <td class="topic-name">Calendar correctness</td>
-          <td class="num">6 · 2.4%</td>
-          <td class="bar-cell"><div class="bar bar--red" style="width:9.1%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>05</code></td>
-          <td class="topic-name">Unnecessary clarifying question</td>
-          <td class="num">5 · 2.0%</td>
-          <td class="bar-cell"><div class="bar bar--amber" style="width:7.6%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr>
-        <tr>
-          <td class="topic-id"><code>13</code></td>
-          <td class="topic-name">Intrusive Outlook Agent UI</td>
-          <td class="num">2 · 0.8%</td>
-          <td class="bar-cell"><div class="bar bar--navy" style="width:3.0%"></div></td>
-          <td class="num dim">—</td>
-          <td class="num"><span class="delta delta--none">—</span></td>
-        </tr></tbody>
-  </table>
+
+
+      <section id="findings" class="report-card">
+        <div class="section-eyebrow label-medium">Key findings</div>
+        <h2 class="section-title headline-medium">What the data is telling us</h2>
+        <div class="md-content"><div class="finding-list">
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">T1 (Action not executed)</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">is the largest topic at 66 items (26.5% of negatives). Failure patterns concentrate in Drafting, Scheduling, Replying.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">T8 (Wrong context / grounding)</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">is #2 at 39 items (15.7%). Often surfaces as wrong-source retrieval in search and inbox scans.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Engineering queue shape:</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          <p class="finding-card__body body-medium">10 P0 (trust / false-success), 33 P1 (pervasive core capability), 28 P2 (recurring), 26 P3 (anecdotal). Multi-item clusters (count &gt; 1): 66 of 97 subtopic rows.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p3">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Long tail:</div>
+            <span class="prio-badge prio-p3">P3</span>
+          </div>
+          <p class="finding-card__body body-medium">31 subtopic rows are singletons (anecdotal per the n&lt;3 rule); these are P3 unless promoted by topic-specific P0 criteria.</p>
+        </div>
+        </div></div>
+      </section>
+
+      
+<section id="topics" class="report-card">
+  <div class="section-eyebrow label-medium">Topic shifts (week over week)</div>
+  <h2 class="section-title headline-medium">WoW shifts vs week of —</h2>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Topic</th><th class="num">This week</th><th class="num">Last week</th><th class="wow-th">Δ vs last week</th></tr></thead>
+      <tbody>
+          <tr>
+            <td class="topic-cell"><span class="topic-id">1</span> Action not executed</td>
+            <td class="num">66 <span class="cell-sub">(26.5%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +26.5 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">8</span> Wrong context / grounding</td>
+            <td class="num">39 <span class="cell-sub">(15.7%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +15.7 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">2</span> HitL violation</td>
+            <td class="num">29 <span class="cell-sub">(11.6%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +11.6 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">7</span> Inaccurate or fabricated content</td>
+            <td class="num">18 <span class="cell-sub">(7.2%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +7.2 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">3</span> Output doesn&#x27;t match intent</td>
+            <td class="num">17 <span class="cell-sub">(6.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +6.8 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">9</span> Tone / language / format</td>
+            <td class="num">17 <span class="cell-sub">(6.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +6.8 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">10</span> File I/O failure</td>
+            <td class="num">17 <span class="cell-sub">(6.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +6.8 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">6</span> Reliability failure</td>
+            <td class="num">16 <span class="cell-sub">(6.4%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +6.4 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">4</span> Constraints ignored</td>
+            <td class="num">10 <span class="cell-sub">(4.0%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +4.0 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">12</span> Capability refusal</td>
+            <td class="num">7 <span class="cell-sub">(2.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +2.8 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">11</span> Calendar correctness</td>
+            <td class="num">6 <span class="cell-sub">(2.4%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +2.4 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">5</span> Unnecessary clarifying question</td>
+            <td class="num">5 <span class="cell-sub">(2.0%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +2.0 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">13</span> Intrusive Outlook Agent UI</td>
+            <td class="num">2 <span class="cell-sub">(0.8%)</span></td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +0.8 pp
+            </span>
+        </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
 </section>
-<section id="categories">
-  <p class="section-label">07 · Category breakdown</p>
-  <h2>Which surfaces are bearing the load</h2>
-  <p class="note">Slice size = share of this week's negative items. Callouts show the WoW change in share (percentage points) vs the prior manifest.</p>
-  <div class="cat-chart-wrap"><svg viewBox="0 0 700 460" preserveAspectRatio="xMidYMid meet" class="cat-chart" role="img" aria-label="Category breakdown donut chart">
-      <g><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#8ab4f8" stroke-width="50.0" stroke-dasharray="241.11 418.63" stroke-dashoffset="-0.00" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#fdd663" stroke-width="50.0" stroke-dasharray="79.49 580.25" stroke-dashoffset="-241.11" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#f28b82" stroke-width="50.0" stroke-dasharray="50.34 609.39" stroke-dashoffset="-320.59" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#81c995" stroke-width="50.0" stroke-dasharray="50.34 609.39" stroke-dashoffset="-370.94" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#c58af9" stroke-width="50.0" stroke-dasharray="45.04 614.69" stroke-dashoffset="-421.28" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#aecbfa" stroke-width="50.0" stroke-dasharray="39.74 619.99" stroke-dashoffset="-466.32" transform="rotate(-90 350.0 220.0)" /><circle cx="350.0" cy="220.0" r="105.0" fill="none" stroke="#5f6368" stroke-width="50.0" stroke-dasharray="153.67 506.06" stroke-dashoffset="-506.06" transform="rotate(-90 350.0 220.0)" /></g>
-      <g>
-    <text x="350.0" y="212.0" text-anchor="middle" class="donut-center__label">Negatives</text>
-    <text x="350.0" y="242.0" text-anchor="middle" class="donut-center__value">249</text>
-    </g>
-      <g>
-        <polyline points="263.1,123.3 251.1,109.9 251.1,109.9 130.0,109.9"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="105.9" text-anchor="end" class="callout__name">Other <tspan class="callout__count">58</tspan></text>
-        <text x="134.0" y="121.9" text-anchor="end" class="callout__delta callout__delta--none">—</text>
+
+      
+      
+<section id="categories" class="report-card">
+  <div class="section-eyebrow label-medium">Category breakdown</div>
+  <h2 class="section-title headline-medium">Which surfaces are bearing the load</h2>
+  <ul class="cat-bar-list">
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Drafting</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 100.0%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">91</span>
+              <span class="cat-bar__share label-medium">36.5%</span>
+            </div>
+          </li>
         
-        <polyline points="220.4,230.6 202.5,232.1 202.5,232.1 130.0,232.1"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="228.1" text-anchor="end" class="callout__name">Summarization <tspan class="callout__count">15</tspan></text>
-        <text x="134.0" y="244.1" text-anchor="end" class="callout__delta callout__delta--none">—</text>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Replying</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 33.0%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">30</span>
+              <span class="cat-bar__share label-medium">12.0%</span>
+            </div>
+          </li>
         
-        <polyline points="235.0,280.7 219.1,289.1 219.1,289.1 130.0,289.1"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="285.1" text-anchor="end" class="callout__name">File <tspan class="callout__count">17</tspan></text>
-        <text x="134.0" y="301.1" text-anchor="end" class="callout__delta callout__delta--none">—</text>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Scheduling</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 20.9%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">19</span>
+              <span class="cat-bar__share label-medium">7.6%</span>
+            </div>
+          </li>
         
-        <polyline points="273.3,325.0 262.7,339.5 262.7,339.5 130.0,339.5"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="335.5" text-anchor="end" class="callout__name">Search <tspan class="callout__count">19</tspan></text>
-        <text x="134.0" y="351.5" text-anchor="end" class="callout__delta callout__delta--none">—</text>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Search</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 20.9%; background: #ffd1ac;"></span>
+              <span class="cat-bar__count title-medium">19</span>
+              <span class="cat-bar__share label-medium">7.6%</span>
+            </div>
+          </li>
         
-        <polyline points="330.4,348.5 327.7,366.3 327.7,377.5 130.0,377.5"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="134.0" y="373.5" text-anchor="end" class="callout__name">Scheduling <tspan class="callout__count">19</tspan></text>
-        <text x="134.0" y="389.5" text-anchor="end" class="callout__delta callout__delta--none">—</text>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">File</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 18.7%; background: #d7bbff;"></span>
+              <span class="cat-bar__count title-medium">17</span>
+              <span class="cat-bar__share label-medium">6.8%</span>
+            </div>
+          </li>
         
-        <polyline points="468.6,166.7 485.0,159.3 485.0,159.3 570.0,159.3"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="566.0" y="155.3" text-anchor="start" class="callout__name">Drafting <tspan class="callout__count">91</tspan></text>
-        <text x="566.0" y="171.3" text-anchor="start" class="callout__delta callout__delta--none">—</text>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Summarization</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 16.5%; background: #85d0e7;"></span>
+              <span class="cat-bar__count title-medium">15</span>
+              <span class="cat-bar__share label-medium">6.0%</span>
+            </div>
+          </li>
         
-        <polyline points="408.5,336.1 416.6,352.2 416.6,352.2 570.0,352.2"
-          fill="none" stroke="var(--border-strong)" stroke-width="1" />
-        <text x="566.0" y="348.2" text-anchor="start" class="callout__name">Replying <tspan class="callout__count">30</tspan></text>
-        <text x="566.0" y="364.2" text-anchor="start" class="callout__delta callout__delta--none">—</text>
-        </g>
-    </svg></div>
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Unknown</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 16.5%; background: #f6c1da;"></span>
+              <span class="cat-bar__count title-medium">15</span>
+              <span class="cat-bar__share label-medium">6.0%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Triage</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 12.1%; background: #bbc7db;"></span>
+              <span class="cat-bar__count title-medium">11</span>
+              <span class="cat-bar__share label-medium">4.4%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Rules</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 9.9%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">9</span>
+              <span class="cat-bar__share label-medium">3.6%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">General</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 8.8%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">8</span>
+              <span class="cat-bar__share label-medium">3.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Settings</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 8.8%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">8</span>
+              <span class="cat-bar__share label-medium">3.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Translation</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 4.4%; background: #ffd1ac;"></span>
+              <span class="cat-bar__count title-medium">4</span>
+              <span class="cat-bar__share label-medium">1.6%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Tasks</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 3.3%; background: #d7bbff;"></span>
+              <span class="cat-bar__count title-medium">3</span>
+              <span class="cat-bar__share label-medium">1.2%</span>
+            </div>
+          </li>
+        </ul>
+  <div class="cat-bar-caption body-small">
+    Top surface: <strong>Drafting</strong> · 36.5% of categorized items · 249 categorized
+  </div>
 </section>
+
+      
 <section id="tickets">
-  <p class="section-label">08 · Ticket queue</p>
-  <h2>P0 / P1 / P2 rows worth engineering attention</h2>
-  <p class="note">Showing top 12 rows by priority then prevalence. Click any row to expand.</p>
+  <div class="section-eyebrow label-medium">Ticket queue</div>
+  <h2 class="section-title headline-medium">P0 / P1 / P2 rows worth engineering attention</h2>
+  <p class="section-note body-medium">Showing top 12 rows by priority then prevalence. Click any row to expand.</p>
   <div class="ticket-list">
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Replying: reply sent without approval</span>
-            <span class="ticket-card__count">×9</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Replying: reply sent without approval</span>
+            <span class="ticket-card__count mono">×9</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Replying</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">9 users reported a replying issue in Outlook Agent on Win32, Monarch and OWA. The shared failure mode is that reply sent without approval. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_7a81129ee9b65b52898d2774d25dfd61" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_1cfe35dbfd7753e6b1da67a7ca0a6133" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_2c4fa5b87e0b5629b4c9f640beaa3921" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_63b8c9175b675fcaabe0981f9a18e9fa" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_5db66347082e51899171a48442b344cc" target="_blank" rel="noopener">item 5</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Replying</span></div>
+            <p class="ticket-card__desc body-medium">9 users reported a replying issue in Outlook Agent on Win32, Monarch and OWA. The shared failure mode is that reply sent without approval. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7a81129ee9b65b52898d2774d25dfd61" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_1cfe35dbfd7753e6b1da67a7ca0a6133" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_2c4fa5b87e0b5629b4c9f640beaa3921" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_63b8c9175b675fcaabe0981f9a18e9fa" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_5db66347082e51899171a48442b344cc" target="_blank" rel="noopener">item 5</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Drafting: approval controls appear before draft content</span>
-            <span class="ticket-card__count">×7</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: approval controls appear before draft content</span>
+            <span class="ticket-card__count mono">×7</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">7 users reported a drafting issue in Outlook Agent on Monarch, OWA and Win32. The shared failure mode is that approval controls appear before draft content. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_26584ba6a21c5660a2789bb55c0647da" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_4b6b0c086a1354db8c63a27c28158b9d" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_bdce7044b2e55b348b6b66569a063bce" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_118029187ef35731b0a9b19c198da642" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f027a3f5ded254d29780f8363aa92cba" target="_blank" rel="noopener">item 5</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">7 users reported a drafting issue in Outlook Agent on Monarch, OWA and Win32. The shared failure mode is that approval controls appear before draft content. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_26584ba6a21c5660a2789bb55c0647da" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_4b6b0c086a1354db8c63a27c28158b9d" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bdce7044b2e55b348b6b66569a063bce" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_118029187ef35731b0a9b19c198da642" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f027a3f5ded254d29780f8363aa92cba" target="_blank" rel="noopener">item 5</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Replying: forward action sent without visible preview</span>
-            <span class="ticket-card__count">×4</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Replying: forward action sent without visible preview</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Replying</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">4 users reported a replying issue in Outlook Agent on Monarch and Win32. The shared failure mode is that forward action sent without visible preview. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_c51399dcc3eb5f9180e085d22f943725" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_0941d0767877564bad4f06c8398cd6b7" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_0ae416f1bdea5dceb0d62062dc1ceb6c" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_db0d02ea644354d0ad8979308db73b4b" target="_blank" rel="noopener">item 4</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Replying</span></div>
+            <p class="ticket-card__desc body-medium">4 users reported a replying issue in Outlook Agent on Monarch and Win32. The shared failure mode is that forward action sent without visible preview. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_c51399dcc3eb5f9180e085d22f943725" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_0941d0767877564bad4f06c8398cd6b7" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_0ae416f1bdea5dceb0d62062dc1ceb6c" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_db0d02ea644354d0ad8979308db73b4b" target="_blank" rel="noopener">item 4</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Drafting: drafts placed in Drafts folder without direct review</span>
-            <span class="ticket-card__count">×4</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: drafts placed in Drafts folder without direct review</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">4 users reported a drafting issue in Outlook Agent on Monarch, OWA and Win32. The shared failure mode is that drafts placed in Drafts folder without direct review. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_029cd095a7565c8c851cdc3a80d15b26" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e5278d5e44d852188f4a34b07eb67494" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_f60fe43857f05cc581f0f15220050c08" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_0474016079b8543da9fc5015bfb00df8" target="_blank" rel="noopener">item 4</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">4 users reported a drafting issue in Outlook Agent on Monarch, OWA and Win32. The shared failure mode is that drafts placed in Drafts folder without direct review. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_029cd095a7565c8c851cdc3a80d15b26" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e5278d5e44d852188f4a34b07eb67494" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f60fe43857f05cc581f0f15220050c08" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_0474016079b8543da9fc5015bfb00df8" target="_blank" rel="noopener">item 4</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Triage: mailbox cleanup action falsely reports success or misses items</span>
-            <span class="ticket-card__count">×3</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Triage: mailbox cleanup action falsely reports success or misses items</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 1. Action not executed</span>
-              <span><strong>Surface:</strong> Triage</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">3 users reported a triage issue in Outlook Agent on Monarch and OWA. The shared failure mode is that mailbox cleanup action falsely reports success or misses items. Engineers should inspect the triage routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_af294d8972d454e4af2f61e8e9242402" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_08f42105f92a5b768e7b434ffd9a9cd9" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b0eb57d0c8bc5a2a8c614d2dee78ac8c" target="_blank" rel="noopener">item 3</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Triage</span></div>
+            <p class="ticket-card__desc body-medium">3 users reported a triage issue in Outlook Agent on Monarch and OWA. The shared failure mode is that mailbox cleanup action falsely reports success or misses items. Engineers should inspect the triage routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_af294d8972d454e4af2f61e8e9242402" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_08f42105f92a5b768e7b434ffd9a9cd9" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_b0eb57d0c8bc5a2a8c614d2dee78ac8c" target="_blank" rel="noopener">item 3</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Scheduling: availability or date/time suggestion incorrect</span>
-            <span class="ticket-card__count">×3</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Scheduling: availability or date/time suggestion incorrect</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 11. Calendar correctness</span>
-              <span><strong>Surface:</strong> Scheduling</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">3 users reported a scheduling issue in Outlook Agent on Win32 and Monarch. The shared failure mode is that availability or date/time suggestion incorrect. Engineers should inspect the scheduling routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_ec1bc032be3253c2bd9264cccd1b727a" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_99303448d018555582198a770c0e343c" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_eff3c52c1e995036bb67eb80a6db3eee" target="_blank" rel="noopener">item 3</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>11. Calendar correctness</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span></div>
+            <p class="ticket-card__desc body-medium">3 users reported a scheduling issue in Outlook Agent on Win32 and Monarch. The shared failure mode is that availability or date/time suggestion incorrect. Engineers should inspect the scheduling routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_ec1bc032be3253c2bd9264cccd1b727a" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_99303448d018555582198a770c0e343c" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_eff3c52c1e995036bb67eb80a6db3eee" target="_blank" rel="noopener">item 3</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Replying: reply or forward sent without review</span>
-            <span class="ticket-card__count">×2</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Replying: reply or forward sent without review</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Replying</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">2 users reported a replying issue in Outlook Agent on Monarch. The shared failure mode is that reply or forward sent without review. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_65090126f72f5d4d96d009074a30a103" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_b74c68b705eb5d2c8dc2e023a5ced4e7" target="_blank" rel="noopener">item 2</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Replying</span></div>
+            <p class="ticket-card__desc body-medium">2 users reported a replying issue in Outlook Agent on Monarch. The shared failure mode is that reply or forward sent without review. Engineers should inspect the replying routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_65090126f72f5d4d96d009074a30a103" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_b74c68b705eb5d2c8dc2e023a5ced4e7" target="_blank" rel="noopener">item 2</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Drafting: approval prompt appears before message is generated</span>
-            <span class="ticket-card__count">×2</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: approval prompt appears before message is generated</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">2 users reported a drafting issue in Outlook Agent on Win32 and OWA. The shared failure mode is that approval prompt appears before message is generated. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_7923cdb0c9b05ef699f47fefe9828fe9" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_3b93b014358b57688cc34b6797f709c1" target="_blank" rel="noopener">item 2</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">2 users reported a drafting issue in Outlook Agent on Win32 and OWA. The shared failure mode is that approval prompt appears before message is generated. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7923cdb0c9b05ef699f47fefe9828fe9" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_3b93b014358b57688cc34b6797f709c1" target="_blank" rel="noopener">item 2</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Scheduling: event created on wrong date or time</span>
-            <span class="ticket-card__count">×2</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Scheduling: event created on wrong date or time</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 11. Calendar correctness</span>
-              <span><strong>Surface:</strong> Scheduling</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">2 users reported a scheduling issue in Outlook Agent on OWA and Monarch. The shared failure mode is that event created on wrong date or time. Engineers should inspect the scheduling routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_3079fef1178c5830a75f352e0eacaef6" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_a015ddfc80435693a51be5d06f9307a2" target="_blank" rel="noopener">item 2</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>11. Calendar correctness</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span></div>
+            <p class="ticket-card__desc body-medium">2 users reported a scheduling issue in Outlook Agent on OWA and Monarch. The shared failure mode is that event created on wrong date or time. Engineers should inspect the scheduling routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_3079fef1178c5830a75f352e0eacaef6" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a015ddfc80435693a51be5d06f9307a2" target="_blank" rel="noopener">item 2</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p0">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p0">P0</span>
-            <span class="ticket-card__title">Drafting: draft content not visible before approval</span>
-            <span class="ticket-card__count">×1</span>
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: draft content not visible before approval</span>
+            <span class="ticket-card__count mono">×1</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 2. HitL violation</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">One user reported a drafting issue in Outlook Agent on Monarch. The shared failure mode is that draft content not visible before approval. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_a47a6c0a8d31541eabd640b0a3b6a8fa" target="_blank" rel="noopener">item 1</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>2. HitL violation</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">One user reported a drafting issue in Outlook Agent on Monarch. The shared failure mode is that draft content not visible before approval. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a47a6c0a8d31541eabd640b0a3b6a8fa" target="_blank" rel="noopener">item 1</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p1">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p1">P1</span>
-            <span class="ticket-card__title">Drafting: email creation returns blank output</span>
-            <span class="ticket-card__count">×7</span>
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Drafting: email creation returns blank output</span>
+            <span class="ticket-card__count mono">×7</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 1. Action not executed</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">7 users reported a drafting issue in Outlook Agent on Monarch, Win32 and OWA. The shared failure mode is that email creation returns blank output. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_34ea3f43010b50be9de455f51f3a9035" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_a6111782c4df509b9da24e78d6109a50" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_e5f4f47e72fc585fb9aee519176739cc" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_c6ad2d74cc79577280da9587aae27cc3" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_400908fb7b9451d19f5b00eca13264e7" target="_blank" rel="noopener">item 5</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">7 users reported a drafting issue in Outlook Agent on Monarch, Win32 and OWA. The shared failure mode is that email creation returns blank output. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_34ea3f43010b50be9de455f51f3a9035" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a6111782c4df509b9da24e78d6109a50" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e5f4f47e72fc585fb9aee519176739cc" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_c6ad2d74cc79577280da9587aae27cc3" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_400908fb7b9451d19f5b00eca13264e7" target="_blank" rel="noopener">item 5</a></div>
             
           </div>
         </details>
         
         <details class="ticket-card ticket-card--p1">
           <summary class="ticket-card__head">
-            <span class="ticket-card__prio prio--p1">P1</span>
-            <span class="ticket-card__title">Drafting: email creation returns canned im-sorry error</span>
-            <span class="ticket-card__count">×7</span>
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Drafting: email creation returns canned im-sorry error</span>
+            <span class="ticket-card__count mono">×7</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
           </summary>
           <div class="ticket-card__body">
-            <div class="ticket-card__meta">
-              <span><strong>Topic:</strong> 1. Action not executed</span>
-              <span><strong>Surface:</strong> Drafting</span>
-              <span class="ado-link ado-link--missing">no ADO item</span>
-            </div>
-            <p class="ticket-card__desc">7 users reported a drafting issue in Outlook Agent on Win32 and Monarch. The shared failure mode is that email creation returns canned im-sorry error. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
-            <div class="ticket-card__links">
-              <span class="ticket-card__links-label">OCV items:</span> <a href="https://ocv.microsoft.com/#/item/fdcl_v4_79677d31d97e5d86afcb3549b0bd2fca" target="_blank" rel="noopener">item 1</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_362c6dd6c59e5ef6bf57b0a416c024c6" target="_blank" rel="noopener">item 2</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_183d55e0dc415dcfb9af4f25b4bd5a59" target="_blank" rel="noopener">item 3</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_70f9cd85710152d8b57559ca45ce120a" target="_blank" rel="noopener">item 4</a><a href="https://ocv.microsoft.com/#/item/fdcl_v4_6e23286ec3755e41b1c7f0a78b60cea2" target="_blank" rel="noopener">item 5</a>
-            </div>
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span></div>
+            <p class="ticket-card__desc body-medium">7 users reported a drafting issue in Outlook Agent on Win32 and Monarch. The shared failure mode is that email creation returns canned im-sorry error. Engineers should inspect the drafting routing, grounding, action handoff, or review surface associated with this pattern.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_79677d31d97e5d86afcb3549b0bd2fca" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_362c6dd6c59e5ef6bf57b0a416c024c6" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_183d55e0dc415dcfb9af4f25b4bd5a59" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_70f9cd85710152d8b57559ca45ce120a" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_6e23286ec3755e41b1c7f0a78b60cea2" target="_blank" rel="noopener">item 5</a></div>
             
           </div>
         </details>
         </div>
 </section>
-      <footer>
-        <span>Generated 2026-06-01 15:58 · publish-ocv-report · Outlook Agent · 2026-05-11</span>
-        <span><a href="https://ocv.microsoft.com/" target="_blank" rel="noopener">OCV →</a></span>
-      </footer>
+
     </main>
   </div>
+
+  <a class="fab" href="#hero" aria-label="Back to top">
+    <span class="material-symbols-rounded">arrow_upward</span>
+    <span class="fab__label">Back to top</span>
+  </a>
+
   <script>
-(function () {
-  const links = document.querySelectorAll('.toc__list a');
-  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = '#' + e.target.id;
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+    // Active-section highlighting in TOC
+    (function () {
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      const targets = links.map(a => document.getElementById(a.dataset.target)).filter(Boolean);
+      function onScroll() {
+        const fromTop = window.scrollY + 120;
+        let activeIdx = 0;
+        targets.forEach((t, i) => { if (t.offsetTop <= fromTop) activeIdx = i; });
+        links.forEach((a, i) => a.classList.toggle('is-active', i === activeIdx));
       }
-    });
-  }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
-  sections.forEach(s => s && observer.observe(s));
-})();
-</script>
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 </body>
 </html>
