@@ -523,9 +523,72 @@
     }
     footer a { color: var(--md-sys-color-primary); text-decoration: none; }
   </style>
+<!-- EVAL-NAV-CSS-START -->
+<style>
+/* Dropdown lives INSIDE .top-bar (injected before .top-bar__chip). */
+.eval-nav-dropdown { position: relative; }
+.eval-nav-dropdown > summary {
+  list-style: none; cursor: pointer; user-select: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 8px 6px 12px;
+  border-radius: 999px;
+  background: var(--md-sys-color-surface-container-high, #22272d);
+  color: var(--md-sys-color-on-surface-variant, #c4c6cf);
+  border: 1px solid var(--md-sys-color-outline-variant, #43474e);
+  font: 500 13px/1 'Google Sans Text','Google Sans',system-ui,sans-serif;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+.eval-nav-dropdown > summary::-webkit-details-marker { display: none; }
+.eval-nav-dropdown > summary:hover {
+  background: var(--md-sys-color-surface-container-highest, #2a2f36);
+  color: var(--md-sys-color-on-surface, #e3e2e6);
+  border-color: var(--md-sys-color-on-surface-variant, #c4c6cf);
+}
+.eval-nav-dropdown > summary .eval-nav-icon {
+  font-size: 18px;
+  color: var(--md-sys-color-primary, #a8c7fa);
+}
+.eval-nav-dropdown > summary .eval-nav-caret {
+  font-size: 18px;
+  color: var(--md-sys-color-on-surface-variant, #c4c6cf);
+  transition: transform 150ms ease;
+}
+.eval-nav-dropdown[open] > summary .eval-nav-caret { transform: rotate(180deg); }
+.eval-nav-dropdown[open] > summary {
+  background: var(--md-sys-color-surface-container-highest, #2a2f36);
+  color: var(--md-sys-color-on-surface, #e3e2e6);
+}
+.eval-nav-dropdown ul {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  margin: 0; padding: 6px;
+  list-style: none; min-width: 200px;
+  background: var(--md-sys-color-surface-container-highest, #2a2f36);
+  border: 1px solid var(--md-sys-color-outline-variant, #43474e);
+  border-radius: var(--md-shape-corner-medium, 12px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.40);
+  z-index: 100;
+}
+.eval-nav-dropdown li a {
+  display: block; padding: 8px 12px; border-radius: 8px;
+  font: 500 13px/1.4 'Google Sans Text','Google Sans',system-ui,sans-serif;
+  color: var(--md-sys-color-on-surface-variant, #c4c6cf); text-decoration: none;
+}
+.eval-nav-dropdown li a:hover {
+  background: var(--md-sys-color-surface-container-high, #22272d);
+  color: var(--md-sys-color-on-surface, #e3e2e6);
+}
+.eval-nav-dropdown li a[aria-current="page"] {
+  color: var(--md-sys-color-primary, #a8c7fa);
+  background: var(--md-sys-color-primary-container, rgba(168,199,250,0.12));
+}
+@media (max-width: 600px) {
+  .eval-nav-dropdown > summary .eval-nav-text { display: none; }
+  .eval-nav-dropdown > summary { padding: 6px 8px; }
+}
+</style>
+<!-- EVAL-NAV-CSS-END -->
 </head>
-<body>
-  <!-- ============ Top app bar ============ -->
+<body><!-- ============ Top app bar ============ -->
   <div class="top-bar">
     <div class="top-bar__icon">
       <span class="material-symbols-rounded">insights</span>
@@ -535,6 +598,19 @@
       <div class="top-bar__subtitle body-small">Customer-feedback signal for the Outlook AI Agent team</div>
     </div>
     <div class="top-bar__spacer"></div>
+    <!-- EVAL-NAV-START -->
+    <details class="eval-nav-dropdown" aria-label="Site sections">
+      <summary>
+        <span class="material-symbols-rounded eval-nav-icon">dashboard</span>
+        <span class="eval-nav-text">Dashboards</span>
+        <span class="material-symbols-rounded eval-nav-caret">arrow_drop_down</span>
+      </summary>
+      <ul>
+        <li><a href="./index.html" aria-current="page">OCV Weekly</a></li>
+        <li><a href="./eval.html">EVAL Analysis</a></li>
+      </ul>
+    </details>
+    <!-- EVAL-NAV-END -->
     <div class="top-bar__chip label-medium">
       <span class="top-bar__chip-dot"></span>
       <span id="liveLabel">live</span>
