@@ -4,6 +4,31 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-06-05_540387_vs_546431",
+      "label": "Mainline 540387 vs CodeGen 546431 (2026-06-05)",
+      "date": "2026-06-05",
+      "file": "eval-reports/2026-06-05_540387_vs_546431.html",
+      "control": {
+        "id": "540387",
+        "name": "Mainline",
+        "run_date": "2026-06-03"
+      },
+      "experiment": {
+        "id": "546431",
+        "name": "CodeGen",
+        "run_date": "2026-06-05"
+      },
+      "regressions": {
+        "control_vs_control": 10,
+        "experiment_vs_experiment": 29,
+        "total": 39,
+        "comparable": 197
+      },
+      "pass_rate_delta_pp": -10.25,
+      "highlights": "Run-over-run regressions between SEVAL 540387 (2026-06-03) and 546431 (2026-06-05): 10 Mainline-side and 29 CodeGen-side assertions dropped from pass to fail out of 197 comparable pairs. No feature-flag deltas on either side.",
+      "published": "2026-06-05T20:13:03+00:00"
+    },
+    {
       "slug": "2026-06-03_538053_vs_538953",
       "label": "Mainline 538053 vs CodeGen 538953 (2026-06-03)",
       "date": "2026-06-03",
