@@ -3917,7 +3917,7 @@ score: 0</div></div></details></div></div></details>
 </section>
 
 <footer class="footer-meta">
-  <div>Generated 2026-06-11T21:17:06+00:00 from <code>data\eval-manifests\2026-06-09_556890_vs_557140_manifest.json</code>.</div>
+  <div>Generated 2026-06-11T21:31:11+00:00 from <code>data\eval-manifests\2026-06-09_556890_vs_557140_manifest.json</code>.</div>
   <div>Schema version 1.1. SEVAL replies are model outputs (not customer content).</div>
 </footer>
 
@@ -4010,7 +4010,7 @@ score: 0</div></div></details></div></div></details>
     const clearVisibleBtn = document.getElementById('ado-clear-visible');
     if (!boxes.length || !counterOn || !downloadBtn) return;
 
-    // Load saved state. Schema: { "<id>": false } means excluded; missing keys
+    // Load saved state. Schema: { "<id>": true } means excluded; missing keys
     // default to included. We only persist excludes so re-rendering with new
     // rows defaults them to included.
     let excludes = {};
@@ -4018,6 +4018,9 @@ score: 0</div></div></details></div></div></details>
       const raw = localStorage.getItem(storageKey);
       if (raw) excludes = JSON.parse(raw) || {};
     } catch (e) { excludes = {}; }
+    // Back-compat: an earlier build stored `false` to mean excluded. Normalize
+    // any falsy entries to `true` so the toggle logic below works.
+    Object.keys(excludes).forEach(k => { excludes[k] = true; });
 
     function applyToBox(box) {
       const id = box.getAttribute('data-id');
@@ -4040,7 +4043,7 @@ score: 0</div></div></details></div></div></details>
       applyToBox(box);
       box.addEventListener('change', () => {
         const id = box.getAttribute('data-id');
-        if (box.checked) delete excludes[id]; else excludes[id] = false;
+        if (box.checked) delete excludes[id]; else excludes[id] = true;
         applyToBox(box);
         updateCounter();
         persist();
@@ -4068,7 +4071,7 @@ score: 0</div></div></details></div></div></details>
     clearVisibleBtn && clearVisibleBtn.addEventListener('click', () => {
       visibleBoxes().forEach(b => {
         const id = b.getAttribute('data-id');
-        excludes[id] = false;
+        excludes[id] = true;
         applyToBox(b);
       });
       updateCounter(); persist();

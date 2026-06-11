@@ -26,7 +26,7 @@
       },
       "pass_rate_delta_pp": -1.44,
       "highlights": "CodeGen drifts -1.44pp (36 regressions/357) vs Mainline -0.64pp (27/357); concentrated CodeGen losses on Tasks_Create (mock-task payload), Rules-Personal (new category pre-check) and Search FYI-filter; same single flag added on both sides (Seval.SydFlight100).",
-      "published": "2026-06-11T21:26:09+00:00"
+      "published": "2026-06-11T21:31:11+00:00"
     },
     {
       "slug": "2026-06-05_540387_vs_546431",
