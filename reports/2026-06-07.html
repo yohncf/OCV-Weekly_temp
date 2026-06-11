@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCV Weekly · Outlook AI Agent · Week of 2026-06-07</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <style>
+
+:root {
+  --md-sys-color-surface: #101418;
+  --md-sys-color-surface-container-low: #161a1f;
+  --md-sys-color-surface-container: #1a1e23;
+  --md-sys-color-surface-container-high: #22272d;
+  --md-sys-color-surface-container-highest: #2a2f36;
+  --md-sys-color-on-surface: #e3e2e6;
+  --md-sys-color-on-surface-variant: #c4c6cf;
+  --md-sys-color-on-surface-faint: #8a8d94;
+  --md-sys-color-outline-variant: #43474e;
+  --md-sys-color-primary: #a8c7fa;
+  --md-sys-color-primary-container: rgba(168, 199, 250, 0.12);
+  --md-sys-color-tertiary: #a4ccaf;
+  --md-sys-color-tertiary-container: rgba(164, 204, 175, 0.14);
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-error-container: rgba(255, 180, 171, 0.14);
+  --md-sys-color-secondary: #bbc7db;
+  --md-sys-color-secondary-container: rgba(187, 199, 219, 0.10);
+  --md-shape-corner-small: 8px;
+  --md-shape-corner-medium: 12px;
+  --md-shape-corner-large: 16px;
+  --md-shape-corner-extra-large: 28px;
+  --md-elevation-1: 0 1px 3px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-elevation-2: 0 2px 6px rgba(0,0,0,0.30), 0 1px 2px rgba(0,0,0,0.40);
+  --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --font-display: 'Google Sans Display','Google Sans','Roboto',system-ui,sans-serif;
+  --font-body: 'Google Sans Text','Google Sans','Roboto',system-ui,sans-serif;
+  --font-mono: 'Roboto Mono',ui-monospace,monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--font-body);
+  font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+a { color: var(--md-sys-color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, .mono { font-family: var(--font-mono); }
+.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.cell-sub { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
+
+/* ===== Type scale ===== */
+.display-medium  { font-family: var(--font-display); font-weight: 400; font-size: 45px; line-height: 52px; }
+.headline-large  { font-family: var(--font-display); font-weight: 500; font-size: 32px; line-height: 40px; }
+.headline-medium { font-family: var(--font-display); font-weight: 500; font-size: 28px; line-height: 36px; }
+.title-large     { font-family: var(--font-body); font-weight: 500; font-size: 22px; line-height: 28px; }
+.title-medium    { font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 24px; }
+.body-large      { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 24px; }
+.body-medium     { font-family: var(--font-body); font-weight: 400; font-size: 14px; line-height: 20px; }
+.body-small      { font-family: var(--font-body); font-weight: 400; font-size: 12px; line-height: 16px; }
+.label-medium    { font-family: var(--font-body); font-weight: 500; font-size: 12px; line-height: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* ===== Top app bar ===== */
+.top-bar {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  padding: 12px 32px;
+  display: flex; align-items: center; gap: 16px;
+}
+.top-bar__back {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  color: var(--md-sys-color-on-surface);
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.top-bar__back:hover { background: var(--md-sys-color-surface-container-high); text-decoration: none; }
+.top-bar__title { color: var(--md-sys-color-on-surface); }
+.top-bar__subtitle { color: var(--md-sys-color-on-surface-variant); margin-top: 2px; }
+.top-bar__spacer { flex: 1; }
+.top-bar__chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-tertiary);
+}
+.top-bar__chip-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--md-sys-color-tertiary);
+}
+
+/* ===== Layout: TOC rail + content ===== */
+.page {
+  max-width: 1400px; margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.toc {
+  position: sticky; top: 96px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.toc a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px;
+  border-radius: 100px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px; font-weight: 500;
+  transition: background 200ms var(--md-easing-emphasized), color 200ms var(--md-easing-emphasized);
+}
+.toc a:hover { background: var(--md-sys-color-surface-container-high); color: var(--md-sys-color-on-surface); text-decoration: none; }
+.toc a.is-active {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+.toc a .material-symbols-rounded { font-size: 18px; }
+.content { display: flex; flex-direction: column; gap: 28px; }
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+  .toc { position: static; flex-direction: row; overflow-x: auto; flex-wrap: nowrap; }
+  .toc a { white-space: nowrap; }
+}
+
+/* ===== Hero ===== */
+.hero-header {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.hero-header__title { color: var(--md-sys-color-on-surface); }
+.hero-header__subtitle { color: var(--md-sys-color-on-surface-variant); }
+.hero {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1100px) { .hero { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .hero { grid-template-columns: 1fr; } }
+.kpi {
+  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-shape-corner-extra-large);
+  padding: 24px;
+  box-shadow: var(--md-elevation-1);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.kpi:hover { background: var(--md-sys-color-surface-container-highest); }
+.kpi__header { display: flex; align-items: center; gap: 10px; color: var(--md-sys-color-on-surface-variant); }
+.kpi__header .material-symbols-rounded { font-size: 20px; color: var(--md-sys-color-primary); }
+.kpi__value { color: var(--md-sys-color-on-surface); font-size: 44px; line-height: 52px; font-weight: 500; font-family: var(--font-display); }
+.kpi__value--text { font-size: 24px; line-height: 32px; }
+.kpi__sub {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--md-shape-corner-small);
+  width: fit-content;
+  font-size: 13px; font-weight: 500;
+}
+.kpi__sub--pos { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.kpi__sub--neg { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.kpi__sub--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.kpi__sub .material-symbols-rounded { font-size: 16px; }
+.kpi__caption { color: var(--md-sys-color-on-surface-faint); font-size: 12px; }
+
+/* ===== Report cards (sections) ===== */
+.report-card {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  padding: 28px;
+  box-shadow: var(--md-elevation-1);
+  scroll-margin-top: 96px;
+}
+.section-eyebrow {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 6px;
+}
+.section-title { color: var(--md-sys-color-on-surface); margin: 0 0 20px 0; }
+.section-note { color: var(--md-sys-color-on-surface-faint); margin-bottom: 16px; }
+
+/* ===== Markdown content ===== */
+.md-p { color: var(--md-sys-color-on-surface); margin: 0 0 12px 0; }
+.md-p:last-child { margin-bottom: 0; }
+.md-list { color: var(--md-sys-color-on-surface); padding-left: 20px; margin: 0; }
+.md-list li { margin-bottom: 8px; }
+.md-list li:last-child { margin-bottom: 0; }
+.md-list strong, .md-p strong { color: var(--md-sys-color-on-surface); font-weight: 600; }
+.md-h3 { color: var(--md-sys-color-on-surface); margin: 20px 0 12px 0; }
+
+/* ===== Tables (data + dataset) ===== */
+.data-table-wrap, .dataset-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--md-shape-corner-medium);
+  background: var(--md-sys-color-surface-container-low);
+}
+table.data-table, table.dataset-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.data-table thead th {
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+.data-table thead th.num { text-align: right; }
+.data-table tbody td { padding: 12px 16px; border-bottom: 1px solid var(--md-sys-color-outline-variant); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--md-sys-color-surface-container-high); }
+.topic-cell { color: var(--md-sys-color-on-surface); }
+.topic-id {
+  display: inline-block; min-width: 22px; text-align: center;
+  padding: 2px 6px; border-radius: 6px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  margin-right: 6px;
+}
+.delta-up   { color: var(--md-sys-color-error); }
+.delta-down { color: var(--md-sys-color-tertiary); }
+.delta-flat { color: var(--md-sys-color-on-surface-faint); }
+
+.dataset-table th.row-head {
+  text-align: left; padding: 12px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top; min-width: 200px;
+}
+.dataset-table .cell {
+  padding: 12px 16px;
+  color: var(--md-sys-color-on-surface);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  vertical-align: top;
+}
+.dataset-table tbody tr:last-child th, .dataset-table tbody tr:last-child td { border-bottom: none; }
+
+/* ===== Ticket cards ===== */
+.ticket-list { display: flex; flex-direction: column; gap: 12px; }
+.ticket-card {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  overflow: hidden;
+  transition: border-color 200ms var(--md-easing-emphasized), background 200ms var(--md-easing-emphasized);
+}
+.ticket-card[open] { background: var(--md-sys-color-surface-container-high); }
+.ticket-card--p0[open] { border-color: var(--md-sys-color-error); }
+.ticket-card--p1[open] { border-color: #ffd1ac; }
+.ticket-card--p2[open] { border-color: var(--md-sys-color-secondary); }
+.ticket-card__head {
+  display: grid;
+  grid-template-columns: auto 1fr auto 28px;
+  align-items: center; gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+.ticket-card__head::-webkit-details-marker { display: none; }
+.ticket-card__title { color: var(--md-sys-color-on-surface); }
+.ticket-card__count { color: var(--md-sys-color-on-surface-faint); font-size: 13px; }
+.ticket-card__chevron {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 22px;
+  transition: transform 200ms var(--md-easing-emphasized);
+}
+.ticket-card[open] .ticket-card__chevron { transform: rotate(180deg); }
+
+.prio-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.prio-p0 { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.prio-p1 { background: rgba(255, 209, 172, 0.16); color: #ffd1ac; }
+.prio-p2 { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+.prio-p3 { background: var(--md-sys-color-surface-container-highest); color: var(--md-sys-color-on-surface-faint); }
+
+.ticket-card__body {
+  padding: 0 20px 20px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  padding-top: 16px;
+}
+.ticket-chips {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.ticket-card__desc {
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+}
+.ticket-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.ticket-links__label {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-right: 4px;
+}
+.ticket-model-tag {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--md-sys-color-on-surface-faint);
+}
+
+/* ===== Material 3 chips & buttons ===== */
+.m3-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px; font-weight: 500;
+}
+.m3-chip .material-symbols-rounded { font-size: 14px; }
+.m3-chip--assist {
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+.m3-chip--link {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+.m3-chip--link:hover { background: rgba(168,199,250,0.22); text-decoration: none; }
+
+.m3-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  transition: background 200ms var(--md-easing-emphasized);
+}
+.m3-btn .material-symbols-rounded { font-size: 16px; }
+.m3-btn--outlined {
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+.m3-btn--outlined:hover { background: var(--md-sys-color-primary-container); text-decoration: none; }
+
+/* ===== FAB ===== */
+.fab {
+  position: fixed; bottom: 32px; right: 32px;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  background: var(--md-sys-color-primary);
+  color: #002e69;
+  border: none; border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  z-index: 30;
+  text-decoration: none;
+  transition: background 200ms var(--md-easing-emphasized),
+              transform 200ms var(--md-easing-emphasized),
+              box-shadow 200ms var(--md-easing-emphasized);
+}
+.fab:hover { transform: translateY(-2px); text-decoration: none; }
+.fab .material-symbols-rounded { font-size: 20px; }
+@media (max-width: 600px) {
+  .fab { bottom: 20px; right: 20px; padding: 12px 16px; }
+  .fab__label { display: none; }
+}
+
+/* ===== Preview tag (only on v2 preview files) ===== */
+.preview-tag {
+  padding: 6px 12px;
+  border-radius: var(--md-shape-corner-small);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+
+/* ===== Dataset mini-cards (3-pill vertical grid) ===== */
+.mini-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.mini-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mini-card__eyebrow { color: var(--md-sys-color-on-surface-faint); }
+.mini-card__title { color: var(--md-sys-color-on-surface); margin-bottom: 4px; }
+.pill-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pill {
+  display: grid;
+  grid-template-columns: 8px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.pill__dot { width: 8px; height: 8px; border-radius: 50%; }
+.pill__dot.pill--pos { background: var(--md-sys-color-tertiary); }
+.pill__dot.pill--neg { background: var(--md-sys-color-error); }
+.pill__dot.pill--neutral { background: var(--md-sys-color-on-surface-faint); }
+.pill__label { color: var(--md-sys-color-on-surface); }
+.pill__value { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.pill__share { color: var(--md-sys-color-on-surface-faint); }
+
+/* ===== Findings cards ===== */
+.finding-list { display: flex; flex-direction: column; gap: 12px; }
+.finding-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-left: 4px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-large);
+  padding: 16px 20px;
+}
+.finding-card--p0 { border-left-color: var(--md-sys-color-error); }
+.finding-card--p1 { border-left-color: #ffd1ac; }
+.finding-card--p2 { border-left-color: var(--md-sys-color-secondary); }
+.finding-card--p3 { border-left-color: var(--md-sys-color-on-surface-faint); }
+.finding-card__head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  margin-bottom: 6px;
+}
+.finding-card__title { color: var(--md-sys-color-on-surface); }
+.finding-card__body { color: var(--md-sys-color-on-surface-variant); margin: 0; }
+
+/* ===== WoW chip ===== */
+.wow-th { text-align: left !important; padding-left: 16px; min-width: 180px; }
+.wow-cell { vertical-align: middle; }
+.wow-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--font-mono); font-weight: 600; font-size: 13px;
+  width: fit-content;
+}
+.wow-chip .material-symbols-rounded { font-size: 18px; }
+.wow-chip--up   { background: var(--md-sys-color-error-container); color: var(--md-sys-color-error); }
+.wow-chip--down { background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-tertiary); }
+.wow-chip--flat { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-secondary); }
+
+/* ===== Category breakdown horizontal bar chart ===== */
+.cat-bar-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.cat-bar {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.cat-bar__label { color: var(--md-sys-color-on-surface); text-align: right; }
+.cat-bar__track {
+  position: relative;
+  height: 36px;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: 100px;
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+.cat-bar__fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 100px;
+  opacity: 0.85;
+  transition: width 500ms var(--md-easing-emphasized);
+}
+.cat-bar__count {
+  position: relative; z-index: 1;
+  margin-left: 14px;
+  color: #0a1726;
+  font-variant-numeric: tabular-nums;
+}
+.cat-bar__share {
+  position: relative; z-index: 1;
+  margin-left: auto; margin-right: 14px;
+  color: var(--md-sys-color-on-surface-faint);
+  font-variant-numeric: tabular-nums;
+}
+.cat-bar-caption {
+  margin-top: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.cat-bar-caption strong { color: var(--md-sys-color-on-surface); }
+@media (max-width: 640px) {
+  .cat-bar { grid-template-columns: 1fr; gap: 4px; }
+  .cat-bar__label { text-align: left; }
+}
+
+/* ===== Donut chart for routing paths ===== */
+.donut-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 720px) { .donut-layout { grid-template-columns: 1fr; } }
+.donut-figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.donut-svg { width: 220px; height: 220px; display: block; }
+.donut-seg {
+  transition: transform 220ms var(--md-easing-emphasized), opacity 200ms var(--md-easing-emphasized);
+  transform-origin: 100px 100px;
+  cursor: pointer;
+}
+.donut-svg:hover .donut-seg { opacity: 0.55; }
+.donut-svg .donut-seg:hover { opacity: 1; transform: scale(1.035); }
+.donut-center__num {
+  fill: var(--md-sys-color-on-surface);
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+}
+.donut-center__lbl {
+  fill: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.donut-caption { color: var(--md-sys-color-on-surface-variant); text-align: center; }
+.donut-caption strong { color: var(--md-sys-color-on-surface); }
+.donut-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.donut-legend__item {
+  display: grid;
+  grid-template-columns: 14px 1fr auto auto;
+  align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border-radius: 100px;
+  background: var(--md-sys-color-surface-container-high);
+}
+.donut-legend__swatch {
+  width: 12px; height: 12px; border-radius: 3px;
+}
+.donut-legend__label  { color: var(--md-sys-color-on-surface); }
+.donut-legend__share  { color: var(--md-sys-color-on-surface); font-variant-numeric: tabular-nums; }
+.donut-legend__count  { color: var(--md-sys-color-on-surface-faint); font-variant-numeric: tabular-nums; }
+.donut-swatch {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.donut-details { margin-top: 20px; }
+.donut-details__summary {
+  cursor: pointer;
+  color: var(--md-sys-color-primary);
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--md-sys-color-primary-container);
+  display: inline-flex; align-items: center;
+  width: fit-content;
+  list-style: none;
+}
+.donut-details__summary::-webkit-details-marker { display: none; }
+.donut-details__summary::before {
+  content: "▸"; margin-right: 8px;
+  transition: transform 200ms var(--md-easing-emphasized);
+  display: inline-block;
+}
+.donut-details[open] .donut-details__summary::before { transform: rotate(90deg); }
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a class="top-bar__back" href="../index.html" aria-label="Back to dashboard">
+      <span class="material-symbols-rounded">arrow_back</span>
+    </a>
+    <div>
+      <div class="top-bar__title title-large">OCV Weekly · Outlook AI Agent</div>
+      <div class="top-bar__subtitle body-small">Week of 2026-06-01 to 2026-06-07</div>
+    </div>
+    <div class="top-bar__spacer"></div>
+    <div class="preview-tag label-medium">M3 Preview</div>
+    <div class="top-bar__chip label-medium">
+      <span class="top-bar__chip-dot"></span>
+      <span>live</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <nav class="toc" id="toc"><a href="#hero" data-target="hero"><span class="material-symbols-rounded">speed</span>Headline</a><a href="#tldr" data-target="tldr"><span class="material-symbols-rounded">summarize</span>TL;DR</a><a href="#dataset" data-target="dataset"><span class="material-symbols-rounded">dataset</span>Dataset</a><a href="#findings" data-target="findings"><span class="material-symbols-rounded">lightbulb</span>Findings</a><a href="#topics" data-target="topics"><span class="material-symbols-rounded">compare_arrows</span>Topic shifts</a><a href="#routing" data-target="routing"><span class="material-symbols-rounded">route</span>Routing</a><a href="#categories" data-target="categories"><span class="material-symbols-rounded">category</span>Categories</a><a href="#tickets" data-target="tickets"><span class="material-symbols-rounded">assignment</span>Tickets</a></nav>
+
+    <main class="content">
+      <section id="hero">
+        <div class="hero-header" style="margin-bottom: 16px;">
+          <div class="section-eyebrow label-medium">Headline numbers</div>
+          <div class="hero-header__title headline-large">Week of 2026-06-01 to 2026-06-07</div>
+          <div class="hero-header__subtitle body-large">Customer-feedback signal · classified into 13-topic taxonomy</div>
+        </div>
+        <div class="hero">
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">sentiment_satisfied</span>
+        <span class="label-medium">Rating</span>
+      </div>
+      <div class="kpi__value ">80.0%</div>
+      <div class="kpi__sub kpi__sub--neg">
+        <span class="material-symbols-rounded">trending_down</span>
+        -0.1 pp vs last week
+      </div>
+      <div class="kpi__caption">1,041 up · 261 down</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">comment</span>
+        <span class="label-medium">Verbatim negatives</span>
+      </div>
+      <div class="kpi__value ">97</div>
+      <div class="kpi__sub kpi__sub--neg">
+        <span class="material-symbols-rounded">trending_up</span>
+        +42.6% vs last week
+      </div>
+      <div class="kpi__caption">of 155 verbatim, 1,302 total submissions</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">warning</span>
+        <span class="label-medium">Top pain topic</span>
+      </div>
+      <div class="kpi__value kpi__value--text">Action not executed</div>
+      <div class="kpi__sub kpi__sub--neg">
+        <span class="material-symbols-rounded">trending_up</span>
+        +11 items vs last week
+      </div>
+      <div class="kpi__caption">21 negatives this week</div>
+    </div>
+    
+    <div class="kpi">
+      <div class="kpi__header">
+        <span class="material-symbols-rounded">engineering</span>
+        <span class="label-medium">P0 + P1 queue</span>
+      </div>
+      <div class="kpi__value ">11</div>
+      <div class="kpi__sub kpi__sub--flat">
+        <span class="material-symbols-rounded">horizontal_rule</span>
+        flat vs last week
+      </div>
+      <div class="kpi__caption">4 P0 · 7 P1 · 11 synced to ADO</div>
+    </div>
+    </div>
+      </section>
+
+      <section id="tldr" class="report-card">
+        <div class="section-eyebrow label-medium">TL;DR</div>
+        <h2 class="section-title headline-medium">What you need to know</h2>
+        <div class="md-content"><ul class="md-list">
+<li class="body-medium"><strong>Volume.</strong> 1,302 OCV submissions ingested for the week; 97 verbatim items classified as Negative.</li>
+<li class="body-medium"><strong>Sentiment (verbatim only).</strong> Negative 97 / Positive 31 / Neutral 26; ThumbsDown 261 vs ThumbsUp 1041 across all 1,302 submissions (incl. structured-only).</li>
+<li class="body-medium"><strong>Top topic.</strong> <em>Action not executed</em> leads at 21 of 97 (21.6%) — heavily concentrated on Scheduling, Triage, and Rules surfaces.</li>
+<li class="body-medium"><strong>Runner-ups.</strong> Inaccurate/fabricated content (20, 20.6%), Wrong context/grounding (11, 11.3%), Capability refusal for in-scope (11, 11.3%), Reliability failures (13, 13.4%).</li>
+<li class="body-medium"><strong>P0 callouts.</strong> 4 subtopic rows at P0 (false-success on calendar / drafting / triage actions, plus one Topic 11 free/busy correctness row). Each is reproducible from the captured trace.</li>
+<li class="body-medium"><strong>Pattern to watch.</strong> False-success language (&#x27;✅ invite created&#x27;, &#x27;draft is ready&#x27;, &#x27;N emails moved&#x27;) appears on at least 5 distinct user sessions this week and is the single highest trust-impact pattern.</li>
+<li class="body-medium"><strong>Caveats.</strong> Sampling bias: self-selected dissatisfied users (~7% of weekly verbatim submissions). Any subtopic with Item Count &lt; 3 is anecdotal. Negative-share % reflects the OCV verbatim ingestion, not overall user satisfaction. Methodology and taxonomy version match prior week (13-topic-2026-05-19); WoW deltas are not approximate.</li>
+</ul></div>
+      </section>
+
+      
+<section id="dataset" class="report-card">
+  <div class="section-eyebrow label-medium">Dataset summary</div>
+  <h2 class="section-title headline-medium">What was sampled</h2>
+  <div class="mini-card-grid">
+    
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Volume</div>
+          <div class="mini-card__title title-medium">Submissions</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Total submissions</span><span class="pill__value title-medium">1,302</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">With verbatim</span><span class="pill__value title-medium">155</span><span class="pill__share label-medium">11.9%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">No verbatim (unscored)</span><span class="pill__value title-medium">1,147</span><span class="pill__share label-medium">88.1%</span></li></ul>
+        </div>
+        
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Voice of customer</div>
+          <div class="mini-card__title title-medium">Sentiment &amp; rating</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Negative</span><span class="pill__value title-medium">97</span><span class="pill__share label-medium">7.5%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Positive</span><span class="pill__value title-medium">31</span><span class="pill__share label-medium">2.4%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Neutral</span><span class="pill__value title-medium">26</span><span class="pill__share label-medium">2.0%</span></li><li class="pill"><span class="pill__dot pill--pos"></span><span class="pill__label body-medium">Thumbs up</span><span class="pill__value title-medium">1,041</span><span class="pill__share label-medium">80.0%</span></li><li class="pill"><span class="pill__dot pill--neg"></span><span class="pill__label body-medium">Thumbs down</span><span class="pill__value title-medium">261</span><span class="pill__share label-medium">20.0%</span></li></ul>
+        </div>
+        
+        <div class="mini-card">
+          <div class="mini-card__eyebrow label-medium">Surface mix</div>
+          <div class="mini-card__title title-medium">Clients &amp; languages</div>
+          <ul class="pill-list"><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Monarch)</span><span class="pill__value title-medium">948</span><span class="pill__share label-medium">72.8%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Desktop (Win32)</span><span class="pill__value title-medium">186</span><span class="pill__share label-medium">14.3%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">OWA</span><span class="pill__value title-medium">167</span><span class="pill__share label-medium">12.8%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">Mobile (Android)</span><span class="pill__value title-medium">1</span><span class="pill__share label-medium">0.1%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">en</span><span class="pill__value title-medium">1,279</span><span class="pill__share label-medium">98.2%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">es</span><span class="pill__value title-medium">11</span><span class="pill__share label-medium">0.8%</span></li><li class="pill"><span class="pill__dot pill--neutral"></span><span class="pill__label body-medium">pt</span><span class="pill__value title-medium">7</span><span class="pill__share label-medium">0.5%</span></li></ul>
+        </div>
+        
+  </div>
+</section>
+
+
+      <section id="findings" class="report-card">
+        <div class="section-eyebrow label-medium">Key findings</div>
+        <h2 class="section-title headline-medium">What the data is telling us</h2>
+        <div class="md-content"><div class="finding-list">
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">False-success on action surfaces is the highest-trust-impact pattern this week</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          <p class="finding-card__body body-medium">5 distinct sessions show explicit success confirmations (<code>✅ invite created</code>, <code>Your draft is ready</code>, <code>41 emails moved</code>, <code>event set to busy with all 4 reminders</code>, <code>invite has been created</code>) for actions that never persisted. All 5 surfaces (Scheduling × 3, Drafting × 1, Triage × 1) are core capabilities; each is P0 per the trust-break rule.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Action-bearing prompts continue to fall through to canned errors</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">Cancel meetings / create calendar events / compose long emails returned the canned &#x27;I wasn&#x27;t able to process&#x27; string on at least 5 sessions. This is the same Topic 1 / Topic 6 misrouting pattern flagged in prior weeks; the action-vs-informational classifier remains the highest-leverage fix surface.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Rules and folder creation underperform</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">Three sessions show blank or no-op responses to rule-creation prompts; one shows a confirm-rule loop that never completes. User self-reports &#x27;is rules creation broken?&#x27; (Item 55). Worth surfacing to the Rules team as a focused cluster of 4 items.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Search retrieves the wrong document with notable consistency</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">6 distinct sessions report the model returned a wrong-document hit (PLTR vs SNOW, &#x27;WG: Certificate&#x27; vs Death Certificate, wrong meeting-forward notification recipients, wrong approval list). Cross-language (EN, DE, ZH). This is the top Topic 8 (wrong grounding) cluster of the week.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p2">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Folder-scope constraints are dropped in summary tasks</div>
+            <span class="prio-badge prio-p2">P2</span>
+          </div>
+          <p class="finding-card__body body-medium">Two distinct sessions: user constrains &#x27;EngOps Updates folder&#x27; / &#x27;current folder&#x27; for a summary; model summarizes the entire inbox. Topic 4 (constraints ignored), P2.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p1">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Attachment reading remains a capability gap</div>
+            <span class="prio-badge prio-p1">P1</span>
+          </div>
+          <p class="finding-card__body body-medium">3 sessions (File category, Topic 10 input): PDF, PowerPoint, invoice images — Copilot could not extract content from attached documents. Documented-supported file types should be readable; promote to P1.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Capability boundary is poorly signaled</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">8 sessions in Topic 12 (capability refusal for in-scope). Refusals span &#x27;create calendar events&#x27;, &#x27;see subfolders&#x27;, &#x27;see my draft&#x27;, &#x27;redraft in place&#x27;, &#x27;see calendar instructions&#x27;, &#x27;reminders on followed meetings&#x27;. Each request is within documented scope; the model is over-refusing.</p>
+        </div>
+        
+        <div class="finding-card finding-card--p0">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Calendar correctness (free/busy) on availability replies</div>
+            <span class="prio-badge prio-p0">P0</span>
+          </div>
+          <p class="finding-card__body body-medium">2 sessions: slot-finder and drafted availability reply both proposed times the user is already booked for. Topic 11, P0 by the &#x27;Item Count &gt;= 2&#x27; rule.</p>
+        </div>
+        
+        <div class="finding-card ">
+          <div class="finding-card__head">
+            <div class="finding-card__title title-medium">Anecdotal-tier signal</div>
+            
+          </div>
+          <p class="finding-card__body body-medium">Topic 13 (intrusive UI, n=1), Topic 3 (off-topic output, n=1), Topic 5 (no items): all are anecdotal per the n&lt;3 rule and not worth ticketing this week.</p>
+        </div>
+        </div></div>
+      </section>
+
+      
+<section id="topics" class="report-card">
+  <div class="section-eyebrow label-medium">Topic shifts (week over week)</div>
+  <h2 class="section-title headline-medium">WoW shifts vs week of 2026-05-31</h2>
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Topic</th><th class="num">This week</th><th class="num">Last week</th><th class="wow-th">Δ vs last week</th></tr></thead>
+      <tbody>
+          <tr>
+            <td class="topic-cell"><span class="topic-id">1</span> Action not executed</td>
+            <td class="num">21 <span class="cell-sub">(21.6%)</span></td>
+            <td class="num">10 <span class="cell-sub">(14.7%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +6.9 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">7</span> Inaccurate or fabricated content</td>
+            <td class="num">20 <span class="cell-sub">(20.6%)</span></td>
+            <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +7.4 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">6</span> Reliability failure</td>
+            <td class="num">13 <span class="cell-sub">(13.4%)</span></td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +1.6 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">8</span> Wrong context / grounding</td>
+            <td class="num">11 <span class="cell-sub">(11.3%)</span></td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -0.4 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">12</span> Capability refusal</td>
+            <td class="num">11 <span class="cell-sub">(11.3%)</span></td>
+            <td class="num">6 <span class="cell-sub">(8.8%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +2.5 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">9</span> Tone / language / format</td>
+            <td class="num">10 <span class="cell-sub">(10.3%)</span></td>
+            <td class="num">9 <span class="cell-sub">(13.2%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -2.9 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">4</span> Constraints ignored</td>
+            <td class="num">4 <span class="cell-sub">(4.1%)</span></td>
+            <td class="num">8 <span class="cell-sub">(11.8%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -7.6 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">10</span> File I/O failure</td>
+            <td class="num">3 <span class="cell-sub">(3.1%)</span></td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--up">
+              <span class="material-symbols-rounded">trending_up</span>
+              +1.6 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">11</span> Calendar correctness</td>
+            <td class="num">2 <span class="cell-sub">(2.1%)</span></td>
+            <td class="num">2 <span class="cell-sub">(2.9%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -0.9 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">3</span> Output doesn&#x27;t match intent</td>
+            <td class="num">1 <span class="cell-sub">(1.0%)</span></td>
+            <td class="num">4 <span class="cell-sub">(5.9%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -4.9 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">13</span> Intrusive Outlook Agent UI</td>
+            <td class="num">1 <span class="cell-sub">(1.0%)</span></td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -0.4 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">2</span> HitL violation</td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -1.5 pp
+            </span>
+        </td>
+          </tr>
+        
+          <tr>
+            <td class="topic-cell"><span class="topic-id">5</span> Unnecessary clarifying question</td>
+            <td class="num">0 <span class="cell-sub">(0.0%)</span></td>
+            <td class="num">1 <span class="cell-sub">(1.5%)</span></td>
+            <td class="wow-cell">
+            <span class="wow-chip wow-chip--down">
+              <span class="material-symbols-rounded">trending_down</span>
+              -1.5 pp
+            </span>
+        </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+      
+<section id="routing" class="report-card">
+  <div class="section-eyebrow label-medium">Routing path</div>
+  <h2 class="section-title headline-medium">Which routing path is generating the most issues</h2>
+  <div class="donut-layout">
+    <figure class="donut-figure" aria-label="Donut chart of routing-path distribution">
+      <svg viewBox="0 0 200 200" class="donut-svg" role="img" aria-hidden="false">
+        <title>Routing-path distribution</title>
+        <path d="M 100.000 12.000 A 88 88 0 0 1 102.850 187.954 L 101.813 155.971 A 56 56 0 0 0 100.000 44.000 Z" fill="#a8c7fa" class="donut-seg" data-label="Sydney-Tools" data-count="48" data-pct="49.5%"><title>Sydney-Tools · 48 · 49.5%</title></path><path d="M 102.850 187.954 A 88 88 0 0 1 13.943 81.611 L 45.236 88.298 A 56 56 0 0 0 101.813 155.971 Z" fill="#a4ccaf" class="donut-seg" data-label="Unknown" data-count="28" data-pct="28.9%"><title>Unknown · 28 · 28.9%</title></path><path d="M 13.943 81.611 A 88 88 0 0 1 100.000 12.000 L 100.000 44.000 A 56 56 0 0 0 45.236 88.298 Z" fill="#ffb4ab" class="donut-seg" data-label="Sydney-Tools+WorkBerry" data-count="21" data-pct="21.6%"><title>Sydney-Tools+WorkBerry · 21 · 21.6%</title></path>
+        <text x="100" y="92" class="donut-center__num" text-anchor="middle">97</text>
+        <text x="100" y="112" class="donut-center__lbl" text-anchor="middle">items routed</text>
+      </svg>
+      <figcaption class="donut-caption body-small">
+        Top path: <strong>Sydney-Tools</strong> · 49.5%
+      </figcaption>
+    </figure>
+    <ul class="donut-legend">
+      <li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#a8c7fa"></span><span class="donut-legend__label body-medium">Sydney-Tools</span><span class="donut-legend__share label-medium">49.5%</span><span class="donut-legend__count body-small">48</span></li><li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#a4ccaf"></span><span class="donut-legend__label body-medium">Unknown</span><span class="donut-legend__share label-medium">28.9%</span><span class="donut-legend__count body-small">28</span></li><li class="donut-legend__item"><span class="donut-legend__swatch" style="background:#ffb4ab"></span><span class="donut-legend__label body-medium">Sydney-Tools+WorkBerry</span><span class="donut-legend__share label-medium">21.6%</span><span class="donut-legend__count body-small">21</span></li>
+    </ul>
+  </div>
+  <details class="donut-details">
+    <summary class="donut-details__summary label-medium">Full breakdown table</summary>
+    <div class="data-table-wrap" style="margin-top: 12px;">
+      <table class="data-table">
+        <thead><tr><th>Path</th><th class="num">Count</th><th class="num">Share</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="donut-swatch" style="background:#a8c7fa"></span><span class="mono">Sydney-Tools</span></td>
+            <td class="num">48</td>
+            <td class="num"><span class="cell-sub">49.5%</span></td>
+          </tr>
+        
+          <tr>
+            <td><span class="donut-swatch" style="background:#a4ccaf"></span><span class="mono">Unknown</span></td>
+            <td class="num">28</td>
+            <td class="num"><span class="cell-sub">28.9%</span></td>
+          </tr>
+        
+          <tr>
+            <td><span class="donut-swatch" style="background:#ffb4ab"></span><span class="mono">Sydney-Tools+WorkBerry</span></td>
+            <td class="num">21</td>
+            <td class="num"><span class="cell-sub">21.6%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</section>
+
+      
+<section id="categories" class="report-card">
+  <div class="section-eyebrow label-medium">Category breakdown</div>
+  <h2 class="section-title headline-medium">Which surfaces are bearing the load</h2>
+  <ul class="cat-bar-list">
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Search</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 100.0%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">28</span>
+              <span class="cat-bar__share label-medium">28.9%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Scheduling</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 60.7%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">17</span>
+              <span class="cat-bar__share label-medium">17.5%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Drafting</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 60.7%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">17</span>
+              <span class="cat-bar__share label-medium">17.5%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Triage</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 28.6%; background: #ffd1ac;"></span>
+              <span class="cat-bar__count title-medium">8</span>
+              <span class="cat-bar__share label-medium">8.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">File</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 17.9%; background: #d7bbff;"></span>
+              <span class="cat-bar__count title-medium">5</span>
+              <span class="cat-bar__share label-medium">5.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Rules</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 17.9%; background: #85d0e7;"></span>
+              <span class="cat-bar__count title-medium">5</span>
+              <span class="cat-bar__share label-medium">5.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Summarization</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 17.9%; background: #f6c1da;"></span>
+              <span class="cat-bar__count title-medium">5</span>
+              <span class="cat-bar__share label-medium">5.2%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">General</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 14.3%; background: #bbc7db;"></span>
+              <span class="cat-bar__count title-medium">4</span>
+              <span class="cat-bar__share label-medium">4.1%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Settings</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 10.7%; background: #a8c7fa;"></span>
+              <span class="cat-bar__count title-medium">3</span>
+              <span class="cat-bar__share label-medium">3.1%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Unknown</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 7.1%; background: #a4ccaf;"></span>
+              <span class="cat-bar__count title-medium">2</span>
+              <span class="cat-bar__share label-medium">2.1%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Translation</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 3.6%; background: #ffb4ab;"></span>
+              <span class="cat-bar__count title-medium">1</span>
+              <span class="cat-bar__share label-medium">1.0%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Tasks</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 3.6%; background: #ffd1ac;"></span>
+              <span class="cat-bar__count title-medium">1</span>
+              <span class="cat-bar__share label-medium">1.0%</span>
+            </div>
+          </li>
+        
+          <li class="cat-bar">
+            <div class="cat-bar__label body-medium">Reminders</div>
+            <div class="cat-bar__track">
+              <span class="cat-bar__fill" style="width: 3.6%; background: #d7bbff;"></span>
+              <span class="cat-bar__count title-medium">1</span>
+              <span class="cat-bar__share label-medium">1.0%</span>
+            </div>
+          </li>
+        </ul>
+  <div class="cat-bar-caption body-small">
+    Top surface: <strong>Search</strong> · 28.9% of categorized items · 97 categorized
+  </div>
+</section>
+
+      
+<section id="tickets">
+  <div class="section-eyebrow label-medium">Ticket queue</div>
+  <h2 class="section-title headline-medium">P0 / P1 / P2 rows worth engineering attention</h2>
+  <p class="section-note body-medium">Showing top 12 rows by priority then prevalence. Click any row to expand.</p>
+  <div class="ticket-list">
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Scheduling: false-success on calendar invite create/move</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Model emits explicit success confirmation (&#x27;✅ invite created&#x27;, &#x27;event set to busy with reminders&#x27;) for calendar create/move actions that never reached the calendar.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_8a20c40c79065f5aa0f8e1864181548e" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_bc371ae0b46658689d4bbecfe91eef0d" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f835c59932675a929f5e86c62a6eb016" target="_blank" rel="noopener">item 3</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/a02f7740-e4d2-445c-8400-386d8e90a4e6 | https://copilotdash.microsoft.com/ticket/c8c92911-e8d0-463f-82da-fe1eb644c9b3" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools | Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Triage: false-success on move-to-folder</span>
+            <span class="ticket-card__count mono">×1</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Triage</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Model confirms N emails moved to a specific subfolder; move never executed against the mailbox.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_0433fd051bd2565a8a424955f62ef794" target="_blank" rel="noopener">item 1</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/5fceef93-f269-4721-a4de-1ba85e4e03a8" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown: prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Drafting: false-success on draft creation</span>
+            <span class="ticket-card__count mono">×1</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Drafting</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436912" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Model says &#x27;Your draft is ready&#x27; or claims a draft was saved to OWA Drafts; user verifies no draft exists.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_17eb7112b74b518dbcd09000dcc5d104" target="_blank" rel="noopener">item 1</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/05a0adb5-29ae-45d9-8814-5779d754254a" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p0">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p0">P0</span>
+            <span class="ticket-card__title title-medium">Search: FalseSuccess - Action not executed</span>
+            <span class="ticket-card__count mono">×1</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436913" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">FALSE SUCCESS-like: model promised &#x27;quick brief&#x27; via suggested prompt but did not actually invoke web/search tools to ground the brief.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e06a2489aaeb5269b9e5868e0642b4a4" target="_blank" rel="noopener">item 1</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/0c097747-016f-4700-b263-17013bde9cb5" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search: incorrect retrieval on multi-criteria query (batch 1/2)</span>
+            <span class="ticket-card__count mono">×5</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>7. Inaccurate or fabricated content</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436914" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Multi-criteria search returns wrong recipients / wrong document / wrong text on Meeting Forward Notification, AON access codes, no-image claim, etc.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_06d2af0e77255a588474a25ced868c59" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_13ebe729818759f38dc65b0db7a9c6bc" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_2659bbd22c9d5bf18ee4a8f7a918ebeb" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_570e123d4f125436822e68cce72f2bde" target="_blank" rel="noopener">item 4</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_9aae56e3a7da5d2ebe2e582032cfeaa7" target="_blank" rel="noopener">item 5</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/25165312-7745-4858-9d06-4826657c6135 | https://copilotdash.microsoft.com/ticket/2955db53-e12a-4069-b995-5c0796b0a9a0 | https://copilotdash.microsoft.com/ticket/fac3d7a5-c4a5-4ddf-a566-36fee288bb93 | https://copilotdash.microsoft.com/ticket/544e01e4-3c0b-41cb-874e-7282815bb284 | https://copilotdash.microsoft.com/ticket/a06f2b2c-519e-4c2f-b5c1-f4c0fc926d2c" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools | Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry | Sydney-Tools | Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search: canned-error on informational mailbox search</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>6. Reliability failure</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Search-the-inbox prompts return the canned &#x27;I wasn&#x27;t able to process&#x27; (or hour-rate-limit) error after a noticeable wait.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_02d4d8412e9751658957caeab600d12d" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_589b2a7ac5c350edac03fe7db9b55971" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_809e514fe69e5d79929150ef722dda57" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e695a72ec7da51afa86db4b39eb45284" target="_blank" rel="noopener">item 4</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/8e520ee1-5c3b-4a25-a15b-ffd791ba0fce | https://copilotdash.microsoft.com/ticket/cacf0af1-38e8-4398-b05b-0a3c0528673d | https://copilotdash.microsoft.com/ticket/f48b5f4c-4d8c-429a-a5bf-ca73844e95a3 | https://copilotdash.microsoft.com/ticket/b2a36474-a3f9-444c-8ccd-7798875dba0f" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown | Unknown | Sydney-Tools+WorkBerry | Unknown: prod-gpt-41-mini-04-14 | prod-gpt-41-mini-04-14 | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search: known email not surfaced by sender/subject query</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>7. Inaccurate or fabricated content</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436915" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Targeted searches by sender + topic (e.g., &#x27;find email from X about Y attachment&#x27;, &#x27;Adam Harmetz Netwoven&#x27;, &#x27;online endorsement&#x27;) miss emails the user knows exist.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_30f038286d1a502bbf0eb82cad672df9" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7328e593f7c75e6f91b7ba25560e0d61" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_b36e20c70a1d507ba072a4b6b79aa679" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_f955f9f4627b5f5e878e59e0051c4032" target="_blank" rel="noopener">item 4</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/777b5cbf-9fe2-402c-b0a0-11316c31e2ae | https://copilotdash.microsoft.com/ticket/48df4d77-6554-4084-af06-ef9f8ba12e48 | https://copilotdash.microsoft.com/ticket/94b72cff-2d2a-4553-bf6b-242dcb408942 | https://copilotdash.microsoft.com/ticket/c8794876-6364-4ab4-8263-eb46341e7740" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown | Sydney-Tools | Sydney-Tools | Sydney-Tools: prod-gpt-41-mini-04-14 | prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Search: vague &#x27;useless/limited/inefficient&#x27; complaints (anecdotal)</span>
+            <span class="ticket-card__count mono">×4</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>9. Tone, language, or format quality</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434999" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Search/answer responses where the user comment is generic (&#x27;useless&#x27;, &#x27;very limited&#x27;, &#x27;inefficient&#x27;) without a specific failure mode.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_5cd8e9eb0f165e0eac5c81e6710d8884" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_7394a46ef2325dceb539c8504d9db638" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_a740cbeee9885d24b55b3848bad70660" target="_blank" rel="noopener">item 3</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_fbcfef36541056acab069fc1a0da9d69" target="_blank" rel="noopener">item 4</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/27e5341f-aa85-4e0e-89c9-b15ef1393ea9 | https://copilotdash.microsoft.com/ticket/b2596da6-700c-4ba5-871b-7479e1d7a397 | https://copilotdash.microsoft.com/ticket/0bc5280f-a74f-411b-92e8-6f1195435b0a | https://copilotdash.microsoft.com/ticket/6a5c14b1-77c5-4fd3-a709-673b5de1b0ef" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry: prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">File: Copilot cannot read attached document/PDF content</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>10. File I/O failure</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>File</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436916" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">User asks Copilot to read content from an attached PDF / PPTX / image (invoice readings, INL-RPT report, travel itinerary, presentation deck); attachment is not parsed.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_018f14643284522493d602987285fe85" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_276b7097095c5489a1abf203ea294390" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_8a5506d24df95119af287610b88fb752" target="_blank" rel="noopener">item 3</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/973a61df-bd7b-405d-b0b1-1b284e115900 | https://copilotdash.microsoft.com/ticket/6a5b2a74-9800-44e8-8bf2-1b30aa287761 | https://copilotdash.microsoft.com/ticket/49bd5a9e-edd5-41b2-94ed-18d548c96ad8" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools | Sydney-Tools+WorkBerry | Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Scheduling: action-bearing calendar prompt returns canned error</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997" target="_blank" rel="noopener"><span>ADO (linked)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Calendar create / cancel / move requests with concrete intent hit the canned &#x27;I wasn&#x27;t able to process&#x27; string instead of attempting the action.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_02603bb198ed5410a62765c706888a56" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_fb52c9ee7a195f0d82012225b339ad88" target="_blank" rel="noopener">item 2</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/720770b2-8069-4b20-b182-aef55039e6b6 | https://copilotdash.microsoft.com/ticket/aad0b4f4-2798-452a-aaa7-5b85ad46f3dc" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown | Unknown: prod-gpt-41-mini-04-14 | prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p1">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p1">P1</span>
+            <span class="ticket-card__title title-medium">Scheduling: action-bearing prompt returns blank</span>
+            <span class="ticket-card__count mono">×2</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>1. Action not executed</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Scheduling</span><a class="m3-btn m3-btn--outlined" href="https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436917" target="_blank" rel="noopener"><span>ADO (created)</span><span class="material-symbols-rounded">open_in_new</span></a></div>
+            <p class="ticket-card__desc body-medium">Set/move/add-link calendar actions return an empty response with no error and no action taken.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_14681d87ddbe5167bb92720d0801d5b5" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_35a6df90cb9652099d25e8a8a2e34564" target="_blank" rel="noopener">item 2</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/c06c2a15-f2f5-41b2-abd1-72fd51c17fe2 | https://copilotdash.microsoft.com/ticket/d36fe1b8-e112-4d01-b937-8def9a3bc731" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Unknown | Unknown: prod-gpt-41-mini-04-14 | prod-gpt-41-mini-04-14</span></div>
+          </div>
+        </details>
+        
+        <details class="ticket-card ticket-card--p2">
+          <summary class="ticket-card__head">
+            <span class="prio-badge prio-p2">P2</span>
+            <span class="ticket-card__title title-medium">Search: wrong document retrieved across languages</span>
+            <span class="ticket-card__count mono">×3</span>
+            <span class="material-symbols-rounded ticket-card__chevron">expand_more</span>
+          </summary>
+          <div class="ticket-card__body">
+            <div class="ticket-chips"><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">label</span>8. Wrong context / grounding</span><span class="m3-chip m3-chip--assist"><span class="material-symbols-rounded">apps</span>Search</span></div>
+            <p class="ticket-card__desc body-medium">Searches return a wrong-document hit: PLTR instead of SNOW, &#x27;WG: Certificate&#x27; instead of Death Certificate (DE), wrong approval list instead of timesheets, wrong Lenovo reasoning.</p>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">OCV items</span><a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_1b3156c8d94f559686a979072abc6a6c" target="_blank" rel="noopener">item 1</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_79a2f2dab95b5185974b248951810695" target="_blank" rel="noopener">item 2</a> <a class="m3-chip m3-chip--link" href="https://ocv.microsoft.com/#/item/fdcl_v4_e118421269c15dc2a3219c018608554d" target="_blank" rel="noopener">item 3</a></div>
+            <div class="ticket-links"><span class="ticket-links__label label-medium">Dash</span><a class="m3-chip m3-chip--link" href="https://copilotdash.microsoft.com/ticket/6c701fdc-cb29-471b-a558-731fd77f07d8 | https://copilotdash.microsoft.com/ticket/92f0b64e-922d-4cb1-9f52-d07f77a10921 | https://copilotdash.microsoft.com/ticket/35415a52-cae2-4934-8f68-3c809de3c567" target="_blank" rel="noopener">dash 1</a><span class="ticket-model-tag">Sydney-Tools+WorkBerry | Sydney-Tools+WorkBerry | Sydney-Tools: prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat;prod-sonicberry | prod-gpt-41-mini-04-14;prod-gpt-53-chat</span></div>
+          </div>
+        </details>
+        </div>
+</section>
+
+    </main>
+  </div>
+
+  <a class="fab" href="#hero" aria-label="Back to top">
+    <span class="material-symbols-rounded">arrow_upward</span>
+    <span class="fab__label">Back to top</span>
+  </a>
+
+  <script>
+    // Active-section highlighting in TOC
+    (function () {
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      const targets = links.map(a => document.getElementById(a.dataset.target)).filter(Boolean);
+      function onScroll() {
+        const fromTop = window.scrollY + 120;
+        let activeIdx = 0;
+        targets.forEach((t, i) => { if (t.offsetTop <= fromTop) activeIdx = i; });
+        links.forEach((a, i) => a.classList.toggle('is-active', i === activeIdx));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>

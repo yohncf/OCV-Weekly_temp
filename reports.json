@@ -4,6 +4,19 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "week_of": "2026-06-07",
+      "label": "Week of June 7, 2026",
+      "range": "2026-06-01 to 2026-06-07",
+      "file": "reports/2026-06-07.html",
+      "negatives": 97,
+      "topics": 11,
+      "thumbs_down": 261,
+      "thumbs_up": 1041,
+      "top_topic": "Action not executed",
+      "highlights": "False-success on action surfaces (5 sessions across Scheduling, Drafting, Triage) is the top trust-impact pattern; action-bearing prompts also continue to land on canned errors.",
+      "published": "2026-06-08"
+    },
+    {
       "week_of": "2026-05-31",
       "label": "Week of May 31, 2026",
       "range": "2026-05-25 to 2026-05-31",

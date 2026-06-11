@@ -1367,6 +1367,301 @@
           "delta": 3
         }
       ]
+    },
+    {
+      "week_of": "2026-06-07",
+      "date_range": "2026-06-01 to 2026-06-07",
+      "total_items": 1302,
+      "verbatim_items": 155,
+      "structured_only_items": 1147,
+      "negative_items": 97,
+      "rating": {
+        "up": 1041,
+        "down": 261,
+        "total": 1302,
+        "positive_pct": 80.0
+      },
+      "sentiment": {
+        "negative": 97,
+        "positive": 31,
+        "neutral": 26,
+        "negative_pct_of_scored": 63.0
+      },
+      "topic_counts": {
+        "1": 21,
+        "2": 0,
+        "3": 1,
+        "4": 4,
+        "5": 0,
+        "6": 13,
+        "7": 20,
+        "8": 11,
+        "9": 10,
+        "10": 3,
+        "11": 2,
+        "12": 11,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 21
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 20
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 13
+        },
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 11
+        },
+        {
+          "topic_id": 12,
+          "name": "Capability refusal",
+          "count": 11
+        }
+      ],
+      "priority": {
+        "p0": 4,
+        "p1": 7,
+        "p2": 16,
+        "p3": 40
+      },
+      "ticket_worthy_rows": 60,
+      "ado_synced_rows": 11,
+      "subtopic_rows": 67,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: false-success on calendar invite create/move",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Triage: false-success on move-to-folder",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: false-success on draft creation",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436912"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Search: FalseSuccess - Action not executed",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436913"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: action-bearing calendar prompt returns canned error",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434997"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: action-bearing prompt returns blank",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436917"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules: rule/sub-folder creation returns blank",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "7": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: incorrect retrieval on multi-criteria query (batch 1/2)",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436914"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: known email not surfaced by sender/subject query",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436915"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: incorrect retrieval on multi-criteria query (batch 2/2)",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: wrong email count for 'emails today'",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: canned-error on informational mailbox search",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434996"
+          }
+        ],
+        "9": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: vague 'useless/limited/inefficient' complaints (anecdotal)",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434999"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "General: verbose unnecessary backstory",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "10": [
+          {
+            "priority": "P1",
+            "brief_title": "File: Copilot cannot read attached document/PDF content",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436916"
+          }
+        ],
+        "8": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: wrong document retrieved across languages",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: WrongDoc - Wrong context / grounding",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: meeting prep grounded on the wrong email",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: summarized the wrong document/thread",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: WrongDoc - Wrong context / grounding",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: calendar read missed user's known event context",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "12": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: out-of-scope web search refused correctly (not ticket-worthy)",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: model cannot see existing Outlook draft / cannot redraft in place",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: rich-HTML newsletter constraint dropped",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Settings: OOO date-range constraint dropped",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: folder-scope constraint dropped in summary",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: folder-scope constraint dropped in summary",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ]
+      },
+      "clients": {
+        "Desktop (Monarch)": 948,
+        "OWA": 167,
+        "Desktop (Win32)": 186,
+        "Mobile (Android)": 1
+      },
+      "languages": {
+        "en": 1279,
+        "zh-Hans": 2,
+        "de": 1,
+        "pt": 7,
+        "es": 11,
+        "ja": 1,
+        "fr": 1
+      },
+      "wow": {
+        "rating_pp": -0.1,
+        "volume_pct": 20.7,
+        "negatives_pct": 42.6,
+        "p0p1_delta": 0
+      },
+      "emerging": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "this_week": 21,
+          "last_week": 10,
+          "delta": 11
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "this_week": 20,
+          "last_week": 9,
+          "delta": 11
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "this_week": 13,
+          "last_week": 8,
+          "delta": 5
+        }
+      ]
     }
   ],
   "topic_names": {

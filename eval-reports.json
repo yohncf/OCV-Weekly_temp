@@ -4,6 +4,31 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-06-09_556890_vs_557140",
+      "label": "Mainline 556890 vs CodeGen 557140 (2026-06-09)",
+      "date": "2026-06-09",
+      "file": "eval-reports/2026-06-09_556890_vs_557140.html",
+      "control": {
+        "id": "556890",
+        "name": "Mainline",
+        "run_date": "2026-06-04"
+      },
+      "experiment": {
+        "id": "557140",
+        "name": "CodeGen",
+        "run_date": "2026-06-09"
+      },
+      "regressions": {
+        "control_vs_control": 27,
+        "experiment_vs_experiment": 36,
+        "total": 63,
+        "comparable": 357
+      },
+      "pass_rate_delta_pp": -1.44,
+      "highlights": "CodeGen drifts -1.44pp (36 regressions/357) vs Mainline -0.64pp (27/357); concentrated CodeGen losses on Tasks_Create (mock-task payload), Rules-Personal (new category pre-check) and Search FYI-filter; same single flag added on both sides (Seval.SydFlight100).",
+      "published": "2026-06-11T20:51:24+00:00"
+    },
+    {
       "slug": "2026-06-05_540387_vs_546431",
       "label": "Mainline 540387 vs CodeGen 546431 (2026-06-05)",
       "date": "2026-06-05",
