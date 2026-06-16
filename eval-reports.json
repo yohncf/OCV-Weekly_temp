@@ -4,6 +4,31 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-06-12_559151_vs_561048",
+      "label": "Mainline 559151 vs CodeGen 561048 (2026-06-12)",
+      "date": "2026-06-12",
+      "file": "eval-reports/2026-06-12_559151_vs_561048.html",
+      "control": {
+        "id": "559151",
+        "name": "Mainline",
+        "run_date": "2026-06-11"
+      },
+      "experiment": {
+        "id": "561048",
+        "name": "CodeGen",
+        "run_date": "2026-06-12"
+      },
+      "regressions": {
+        "control_vs_control": 21,
+        "experiment_vs_experiment": 28,
+        "total": 49,
+        "comparable": 363
+      },
+      "pass_rate_delta_pp": 2.48,
+      "highlights": "49 regressions across 363 comparable assertions (21 Mainline, 28 CodeGen) between the 06/11 and 06/12 runs — no feature-flag changes, so deltas reflect run-to-run model variance; dominant modes are failed writes, capability refusals, and rule-detection misses.",
+      "published": "2026-06-16T22:51:12+00:00"
+    },
+    {
       "slug": "2026-06-09_556890_vs_557140",
       "label": "Mainline 556890 vs CodeGen 557140 (2026-06-09)",
       "date": "2026-06-09",
