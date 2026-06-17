@@ -4,6 +4,31 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-06-16_561048_vs_567131",
+      "label": "Mainline 561048 vs CodeGen 567131 (2026-06-16)",
+      "date": "2026-06-16",
+      "file": "eval-reports/2026-06-16_561048_vs_567131.html",
+      "control": {
+        "id": "561048",
+        "name": "Mainline",
+        "run_date": "2026-06-12"
+      },
+      "experiment": {
+        "id": "567131",
+        "name": "CodeGen",
+        "run_date": "2026-06-16"
+      },
+      "regressions": {
+        "control_vs_control": 47,
+        "experiment_vs_experiment": 37,
+        "total": 84,
+        "comparable": 363
+      },
+      "pass_rate_delta_pp": -5.51,
+      "highlights": "84 assertion regressions (47 Mainline-side, 37 CodeGen-side); pass-rate fell -6.9pp Mainline / -5.5pp CodeGen. Top themes: action-not-confirmed, capability refusal, partial execution.",
+      "published": "2026-06-17T21:32:23+00:00"
+    },
+    {
       "slug": "2026-06-12_559151_vs_561048",
       "label": "Mainline 559151 vs CodeGen 561048 (2026-06-12)",
       "date": "2026-06-12",
