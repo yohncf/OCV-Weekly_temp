@@ -1662,6 +1662,317 @@
           "delta": 5
         }
       ]
+    },
+    {
+      "week_of": "2026-06-17",
+      "date_range": "June 8 - 17, 2026 (inclusive)",
+      "total_items": 213,
+      "verbatim_items": 0,
+      "structured_only_items": 0,
+      "negative_items": 125,
+      "rating": {
+        "up": 66,
+        "down": 147,
+        "total": 213,
+        "positive_pct": 31.0
+      },
+      "sentiment": {
+        "negative": 125,
+        "positive": 53,
+        "neutral": 35,
+        "negative_pct_of_scored": 58.7
+      },
+      "topic_counts": {
+        "1": 34,
+        "3": 8,
+        "4": 5,
+        "5": 1,
+        "6": 12,
+        "7": 11,
+        "8": 33,
+        "9": 14,
+        "10": 1,
+        "11": 1,
+        "12": 4,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 34
+        },
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 33
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "count": 14
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 12
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 11
+        }
+      ],
+      "priority": {
+        "p0": 4,
+        "p1": 7,
+        "p2": 19,
+        "p3": 8
+      },
+      "ticket_worthy_rows": 24,
+      "ado_synced_rows": 11,
+      "subtopic_rows": 38,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: agent claims draft created/opened but nothing is produced",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/436912"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Scheduling: agent claims meeting/invite created or removed but it was not",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430862"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Rules: agent confirms rule creation but rule is not created",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/439420"
+          },
+          {
+            "priority": "P0",
+            "brief_title": "Triage: agent claims emails deleted but they remain",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Edit-and-Send / compose action does not insert draft into Outlook",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/439421"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar invite/event not created or decline never completes",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: agent returns manual how-to steps instead of acting",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/439422"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: draft edits not persisted / draft lost",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/439423"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Triage: folder move / subfolder operations fail or unsupported",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: needs-reply / catch-up summary returns generic error string",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432575"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: folder search / contact-list build returns error string",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/439424"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "General: Generic error string, surface unclear",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Scheduling: Reliability: summary hang and meeting-subject suggestion error",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "3": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Agent performed a different action than requested",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Output off-intent / irrelevant to request",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "7": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: Fabricated or incorrect facts in output",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Settings: Inaccurate settings/how-to directions",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "8": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: auto-rewrite/refine does not receive selected or highlighted text",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: auto-rewrite operates on wrong text / open body not received",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: rewrite uses received/earlier email instead of the draft being composed",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: compose grounded on wrong or no context (generic / wrong thread)",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search/QnA does not access mailbox or open email; returns no/irrelevant results",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Mixed: Grounding: agent ignores provided/open content (assorted surfaces)",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: cannot read open email headers / missed referenced emails",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: summary omits details present in source emails/attachments",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Mixed: Inbox brief items not clickable; output too long / slow",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Mixed: Output contains random foreign-language text injection",
+            "item_count": 4,
+            "ado_url": null
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Explicit formatting/content constraint ignored in drafting",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Settings/OOF constraint ignored",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "12": [
+          {
+            "priority": "P2",
+            "brief_title": "General: Capability refusal where feature appears in scope (misfire)",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ]
+      },
+      "clients": {
+        "Desktop (Monarch)": 116,
+        "Desktop (Win32)": 73,
+        "OWA": 24
+      },
+      "languages": {
+        "en": 199,
+        "es": 6,
+        "pt": 3,
+        "ja": 2,
+        "he": 1,
+        "fr": 1,
+        "ko": 1
+      },
+      "wow": {
+        "rating_pp": -49.0,
+        "volume_pct": -83.6,
+        "negatives_pct": 28.9,
+        "p0p1_delta": 0
+      },
+      "emerging": [
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "this_week": 33,
+          "last_week": 11,
+          "delta": 22
+        },
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "this_week": 34,
+          "last_week": 21,
+          "delta": 13
+        },
+        {
+          "topic_id": 3,
+          "name": "Output doesn't match intent",
+          "this_week": 8,
+          "last_week": 1,
+          "delta": 7
+        }
+      ]
     }
   ],
   "topic_names": {

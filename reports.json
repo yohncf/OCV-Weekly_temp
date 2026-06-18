@@ -4,6 +4,19 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "week_of": "2026-06-17",
+      "label": "Week of June 17, 2026",
+      "range": "June 8 - 17, 2026 (inclusive)",
+      "file": "reports/2026-06-17.html",
+      "negatives": 125,
+      "topics": 12,
+      "thumbs_down": 147,
+      "thumbs_up": 66,
+      "top_topic": "Action not executed",
+      "highlights": "Action-not-executed (27%) and grounding failures (26%, up 15pp) dominate this week; Drafting surface up to 34%. 5 new P0/P1 bugs filed, 6 linked.",
+      "published": "2026-06-18"
+    },
+    {
       "week_of": "2026-06-07",
       "label": "Week of June 7, 2026",
       "range": "2026-06-01 to 2026-06-07",
