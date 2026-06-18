@@ -1666,15 +1666,15 @@
     {
       "week_of": "2026-06-17",
       "date_range": "June 8 - 17, 2026 (inclusive)",
-      "total_items": 213,
-      "verbatim_items": 0,
-      "structured_only_items": 0,
+      "total_items": 2048,
+      "verbatim_items": 213,
+      "structured_only_items": 1835,
       "negative_items": 125,
       "rating": {
-        "up": 66,
-        "down": 147,
-        "total": 213,
-        "positive_pct": 31.0
+        "up": 1621,
+        "down": 427,
+        "total": 2048,
+        "positive_pct": 79.2
       },
       "sentiment": {
         "negative": 125,
@@ -1931,12 +1931,13 @@
         ]
       },
       "clients": {
-        "Desktop (Monarch)": 116,
-        "Desktop (Win32)": 73,
-        "OWA": 24
+        "Desktop (Monarch)": 1494,
+        "Desktop (Win32)": 315,
+        "OWA": 238,
+        "Mobile (iOS)": 1
       },
       "languages": {
-        "en": 199,
+        "en": 2034,
         "es": 6,
         "pt": 3,
         "ja": 2,
@@ -1945,8 +1946,8 @@
         "ko": 1
       },
       "wow": {
-        "rating_pp": -49.0,
-        "volume_pct": -83.6,
+        "rating_pp": -0.8,
+        "volume_pct": 57.3,
         "negatives_pct": 28.9,
         "p0p1_delta": 0
       },
