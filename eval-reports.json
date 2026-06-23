@@ -4,6 +4,38 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-06-21_573247_vs_575436",
+      "label": "Mainline 573247 vs CodeGen 575436 (2026-06-21)",
+      "date": "2026-06-21",
+      "file": "eval-reports/2026-06-21_573247_vs_575436.html",
+      "control": {
+        "id": "573247",
+        "name": "Mainline",
+        "run_date": "2026-06-19"
+      },
+      "experiment": {
+        "id": "575436",
+        "name": "CodeGen",
+        "run_date": "2026-06-21"
+      },
+      "regressions": {
+        "control_vs_control": 16,
+        "experiment_vs_experiment": 14,
+        "total": 30,
+        "comparable": 363
+      },
+      "pass_rate_delta_pp": -0.55,
+      "pass_rate_delta_pp_control": 3.03,
+      "pass_rates": {
+        "latest_control_side": 0.7989,
+        "latest_experiment_side": 0.7548,
+        "base_control_side": 0.7686,
+        "base_experiment_side": 0.7603
+      },
+      "highlights": "Mainline-side pass rate rose +3.0pp (76.9%->79.9%) while CodeGen held roughly flat (-0.55pp); 30 regressions of 363 comparable - 16 Mainline / 14 CodeGen, 6 of them from empty captured replies in run 575436.",
+      "published": "2026-06-23T16:52:12+00:00"
+    },
+    {
       "slug": "2026-06-16_561048_vs_567131",
       "label": "Mainline 561048 vs CodeGen 567131 (2026-06-16)",
       "date": "2026-06-16",
