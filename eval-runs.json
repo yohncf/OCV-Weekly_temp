@@ -1,0 +1,19 @@
+{
+  "title": "OL Agent EVAL Run Analysis",
+  "subtitle": "Standalone deep-dive analyses of individual SEVAL HeroEval runs",
+  "owner": "Yohnathan Carletti",
+  "analyses": [
+    {
+      "slug": "2026-06-24_herov28-june21_both-arm-failures",
+      "label": "HeroV28 Mainline vs CodeGen \u2014 both-arm assertion triage",
+      "date": "2026-06-24",
+      "file": "eval-runs/2026-06-24_herov28-june21_both-arm-failures.html",
+      "kind": "Failure triage",
+      "run": { "name": "HeroV28 Mainline vs CodeGen", "run_date": "2026-06-21" },
+      "stats": { "both_arm_failures": 78, "queries": 37, "comparable": 466 },
+      "buckets": { "model": 54, "missing_data": 18, "assertion": 6 },
+      "highlights": "78 of 466 assertions failed in BOTH control and experiment across 37 queries. Root causes: 69% model/agent behavior (HITL confirmation gaps + capability refusals), 23% missing data (empty mailbox), 8% bad assertions (false negatives).",
+      "published": "2026-06-24T18:49:00Z"
+    }
+  ]
+}
