@@ -67,6 +67,10 @@ h1.title { font-family: var(--font-display); font-weight: 500; font-size: 32px; 
 .tag.model { color: var(--model); border-color: var(--model); background: rgba(224,137,43,0.10); }
 .tag.missing { color: var(--missing); border-color: var(--missing); background: rgba(31,159,184,0.10); }
 .tag.assertion { color: var(--assertion); border-color: var(--assertion); background: rgba(106,168,79,0.10); }
+.tag.omni { color: #7cc4a0; border-color: #7cc4a0; background: rgba(124,196,160,0.10); }
+.tag.cg { color: var(--model); border-color: var(--model); background: rgba(224,137,43,0.10); }
+.tag.fail { color: var(--error); border-color: var(--error); background: rgba(255,180,171,0.10); }
+.tag.neutral { color: var(--text-muted); border-color: var(--outline); background: var(--surface-2); }
 .highlights { margin-top: 10px; color: var(--text-muted); font-size: 13px; }
 .empty { margin-top: 24px; padding: 40px; text-align: center; background: var(--surface);
   border: 1px dashed var(--outline); border-radius: 14px; color: var(--text-faint); }
@@ -95,6 +99,20 @@ footer { margin-top: 60px; color: var(--text-faint); font-size: 12px; }
 </header>
 
 <section class="list">
+<a class="card" href="eval-runs/2026-06-24_581345-codegen-vs-omni_head-to-head.html">
+  <div class="card-head">
+    <span class="card-label">CodeGen vs CodeGen+OMNI — head-to-head<span class="kind">Head-to-head</span></span>
+    <span class="card-date">2026-06-24</span>
+  </div>
+  <div class="card-row">
+      <span class="metric"><span class="n">71.8%</span> CodeGen pass</span>
+      <span class="metric"><span class="n">73.8%</span> OMNI pass</span>
+      <span class="metric"><span class="n">347</span> comparable</span>
+      <span class="metric"><span class="n">61</span> queries</span>
+      <span class="buckets"><span class="tag omni">OMNI wins 47</span><span class="tag cg">CodeGen wins 40</span><span class="tag fail">Both fail 51</span></span>
+  </div>
+  <div class="highlights">CodeGen+OMNI nets +2.0pp (73.8% vs 71.8%) over 347 comparable assertions. OMNI wins 47 (saves drafts to the Drafts folder, disambiguates); CodeGen wins 40 — but 32 of those are empty / uncaptured OMNI replies on heavy compound tasks (Calendar OOO, Rules), not quality losses. 51 both-fail (folder-delete unsupported, compound multi-step).</div>
+</a>
 <a class="card" href="eval-runs/2026-06-24_herov28-june21_both-arm-failures.html">
   <div class="card-head">
     <span class="card-label">HeroV28 Mainline vs CodeGen — both-arm assertion triage<span class="kind">Failure triage</span></span>

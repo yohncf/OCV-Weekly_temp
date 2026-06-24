@@ -4,6 +4,27 @@
   "owner": "Yohnathan Carletti",
   "analyses": [
     {
+      "slug": "2026-06-24_581345-codegen-vs-omni_head-to-head",
+      "label": "CodeGen vs CodeGen+OMNI \u2014 head-to-head",
+      "date": "2026-06-24",
+      "file": "eval-runs/2026-06-24_581345-codegen-vs-omni_head-to-head.html",
+      "kind": "Head-to-head",
+      "run": { "name": "HeroV27 CodeGen vs CodeGen+OMNI", "run_date": "2026-06-23" },
+      "metrics": [
+        { "label": "CodeGen pass", "value": "71.8%" },
+        { "label": "OMNI pass", "value": "73.8%" },
+        { "label": "comparable", "value": 347 },
+        { "label": "queries", "value": 61 }
+      ],
+      "tags": [
+        { "label": "OMNI wins", "value": 47, "kind": "omni" },
+        { "label": "CodeGen wins", "value": 40, "kind": "cg" },
+        { "label": "Both fail", "value": 51, "kind": "fail" }
+      ],
+      "highlights": "CodeGen+OMNI nets +2.0pp (73.8% vs 71.8%) over 347 comparable assertions. OMNI wins 47 (saves drafts to the Drafts folder, disambiguates); CodeGen wins 40 \u2014 but 32 of those are empty / uncaptured OMNI replies on heavy compound tasks (Calendar OOO, Rules), not quality losses. 51 both-fail (folder-delete unsupported, compound multi-step).",
+      "published": "2026-06-24T21:57:00Z"
+    },
+    {
       "slug": "2026-06-24_herov28-june21_both-arm-failures",
       "label": "HeroV28 Mainline vs CodeGen \u2014 both-arm assertion triage",
       "date": "2026-06-24",
