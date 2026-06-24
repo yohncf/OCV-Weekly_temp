@@ -99,6 +99,20 @@ footer { margin-top: 60px; color: var(--text-faint); font-size: 12px; }
 </header>
 
 <section class="list">
+<a class="card" href="eval-runs/2026-06-24_576292_codegen-failure-triage.html">
+  <div class="card-head">
+    <span class="card-label">CodeGen failure triage — EmailTriage Primitives (run 576292)<span class="kind">Failure triage</span></span>
+    <span class="card-date">2026-06-24</span>
+  </div>
+  <div class="card-row">
+      <span class="metric"><span class="n">32%</span> CodeGen pass</span>
+      <span class="metric"><span class="n">632</span> CodeGen fails</span>
+      <span class="metric"><span class="n">470</span> regressions</span>
+      <span class="metric"><span class="n">203</span> queries</span>
+      <span class="buckets"><span class="tag model">Model 587</span><span class="tag missing">Missing data 27</span><span class="tag assertion">Assertion 18</span></span>
+  </div>
+  <div class="highlights">632 of 932 CodeGen assertions failed (32% pass) across 203 queries; 470 are regressions where Mainline passed the same check. Top trends: tool-not-invoked (202), CreateRule target-folder-missing (91), missing disambiguation list (55), missing citation (49), write-did-not-persist (49), mock tool response (49), capability refusal (49). Interactive report filters by trend/tool and exports an ADO selection JSON.</div>
+</a>
 <a class="card" href="eval-runs/2026-06-24_581345-codegen-vs-omni_head-to-head.html">
   <div class="card-head">
     <span class="card-label">CodeGen vs CodeGen+OMNI — head-to-head<span class="kind">Head-to-head</span></span>
