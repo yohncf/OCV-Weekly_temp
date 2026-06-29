@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OL Agent EVAL Run Analysis</title>
+<title>OL Agent - Stand Alone Evaluations</title>
 <meta name="description" content="Standalone deep-dive analyses of individual SEVAL HeroEval runs">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +93,7 @@ footer { margin-top: 60px; color: var(--text-faint); font-size: 12px; }
 
 <header>
   <span class="eyebrow">EVAL Run Analysis</span>
-  <h1 class="title">OL Agent EVAL Run Analysis</h1>
+  <h1 class="title">OL Agent - Stand Alone Evaluations</h1>
   <p class="subtitle">Standalone deep-dive analyses of individual SEVAL HeroEval runs</p>
   <p class="subtitle" style="font-size:12px">Owner: Yohnathan Carletti</p>
 </header>
@@ -139,6 +139,20 @@ footer { margin-top: 60px; color: var(--text-faint); font-size: 12px; }
       <span class="buckets"><span class="tag model">Model 54</span><span class="tag missing">Missing data 18</span><span class="tag assertion">Assertion 6</span></span>
   </div>
   <div class="highlights">78 of 466 assertions failed in BOTH control and experiment across 37 queries. Root causes: 69% model/agent behavior (HITL confirmation gaps + capability refusals), 23% missing data (empty mailbox), 8% bad assertions (false negatives).</div>
+</a>
+<a class="card" href="eval-runs/2026-06-22_outlook-seval-herov27_single-run.html">
+  <div class="card-head">
+    <span class="card-label">Outlook agent — HeroPrompt V27 single-run report<span class="kind">Single-run report</span></span>
+    <span class="card-date">2026-06-22</span>
+  </div>
+  <div class="card-row">
+      <span class="metric"><span class="n">43.1%</span> Query pass</span>
+      <span class="metric"><span class="n">78.5%</span> Assertion score</span>
+      <span class="metric"><span class="n">65</span> queries</span>
+      <span class="metric"><span class="n">325</span> assertions</span>
+      <span class="buckets"><span class="tag omni">Passed 28</span><span class="tag fail">Failed 37</span><span class="tag model">Critical 75.2%</span></span>
+  </div>
+  <div class="highlights">Single-run evaluation of the Outlook agent (gpt-55-reasoning) over the 65-query HeroPrompt V27 hero set: 28 of 65 queries fully passed (43.1%) and 255 of 325 assertions passed (78.5%). By level: critical 75.2% (191/254), expected 89.8% (53/59), aspirational 91.7% (11/12). Execution dimensions are near-ceiling (tool call / code generated / answer generated 100%, execution success 98.5%); the remaining gap is answer-correctness (43.1%). Run cost $32.36 over 18.3M tokens, ~47s average latency. Report merges a filterable per-query list with judge rationales, generated code, and execution traces.</div>
 </a>
 </section>
 

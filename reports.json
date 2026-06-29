@@ -4,6 +4,19 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "week_of": "2026-06-25",
+      "label": "Week of June 25, 2026",
+      "range": "June 18 - 25, 2026 (inclusive)",
+      "file": "reports/2026-06-25.html",
+      "negatives": 93,
+      "topics": 11,
+      "thumbs_down": 329,
+      "thumbs_up": 1058,
+      "top_topic": "Wrong context / grounding",
+      "highlights": "Overall rating 76.3% thumbs-up (down ~2.9pp WoW). Among verbatim: grounding leads (T8, 29%); reliability errors nearly doubled (T6, 17%); 2 P0 trust breaks (HitL gaps, false-success).",
+      "published": "2026-06-25"
+    },
+    {
       "week_of": "2026-06-17",
       "label": "Week of June 17, 2026",
       "range": "June 8 - 17, 2026 (inclusive)",

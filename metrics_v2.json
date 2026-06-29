@@ -1974,6 +1974,314 @@
           "delta": 7
         }
       ]
+    },
+    {
+      "week_of": "2026-06-25",
+      "date_range": "June 18 - 25, 2026 (inclusive)",
+      "total_items": 1387,
+      "verbatim_items": 148,
+      "structured_only_items": 1239,
+      "negative_items": 93,
+      "rating": {
+        "up": 1058,
+        "down": 329,
+        "total": 1387,
+        "positive_pct": 76.3
+      },
+      "sentiment": {
+        "negative": 93,
+        "positive": 31,
+        "neutral": 24,
+        "negative_pct_of_scored": 62.8
+      },
+      "topic_counts": {
+        "1": 16,
+        "2": 2,
+        "3": 10,
+        "4": 2,
+        "6": 16,
+        "7": 5,
+        "8": 27,
+        "9": 6,
+        "10": 3,
+        "12": 5,
+        "13": 1
+      },
+      "top_topics": [
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 27
+        },
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 16
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 16
+        },
+        {
+          "topic_id": 3,
+          "name": "Output doesn't match intent",
+          "count": 10
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "count": 6
+        }
+      ],
+      "priority": {
+        "p0": 2,
+        "p1": 9,
+        "p2": 18,
+        "p3": 5
+      },
+      "ticket_worthy_rows": 29,
+      "ado_synced_rows": 0,
+      "subtopic_rows": 34,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Multiple surfaces: Action reported complete but state did not change (false success)",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: Calendar write actions not executed (cancel/remove/add)",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Triage: Move/sort actions not executed; false 'not found'",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Rules/folders: Cannot create rule; only top-level folders visible",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Navigation: 'Open email' returns an OWA web link instead of opening it",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Action prompts return a canned/execution error",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Tasks: Bulk to-do creation fails partway (throttling)",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ],
+        "2": [
+          {
+            "priority": "P0",
+            "brief_title": "Drafting: Draft/invite created without visible inline review",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "6": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: 'Unable to retrieve your data' on search/find queries",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: Canned error on summarize / activity requests",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Triage: 'Unable to access mailbox data' on inbox triage",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Backend execution error / external lookups fail",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "8": [
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Rewrite/edit feature ignores the selected email text",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: Reply fabricated from generic content when mailbox retrieval fails",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Conversation: Earlier turn context lost on follow-up requests",
+            "item_count": 4,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Returns wrong or irrelevant email as the top match",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: Misses known existing items / wrong scope",
+            "item_count": 5,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Draft grounded on the wrong party, thread, or prior-email style",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "10": [
+          {
+            "priority": "P1",
+            "brief_title": "File: Attachments and linked files not read (input)",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "12": [
+          {
+            "priority": "P2",
+            "brief_title": "Capability refusal: In-scope calendar/rule automation refused",
+            "item_count": 4,
+            "ado_url": null
+          }
+        ],
+        "3": [
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: Output does not match the requested analysis",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Draft misreads user-provided context or intent",
+            "item_count": 3,
+            "ado_url": null
+          }
+        ],
+        "7": [
+          {
+            "priority": "P2",
+            "brief_title": "Inaccuracy: Wrong date/day or incorrect factual claims",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Fabrication: Hallucinated links or invented detail",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: Explicit content/template constraints ignored",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Output quality: Stray Hindi/Devanagari characters in responses",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Output usability: Email links are not clickable / broken",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Output format: Raw metadata or unfriendly format returned",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "13": [
+          {
+            "priority": "P2",
+            "brief_title": "Settings: Wrong steps to disable intrusive AI inbox summaries",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ]
+      },
+      "clients": {
+        "Desktop (Monarch)": 973,
+        "OWA": 209,
+        "Desktop (Win32)": 205
+      },
+      "languages": {
+        "en": 1380,
+        "es": 4,
+        "pt": 1,
+        "ja": 1,
+        "th": 1
+      },
+      "wow": {
+        "rating_pp": -2.9,
+        "volume_pct": -32.3,
+        "negatives_pct": -25.6,
+        "p0p1_delta": 0
+      },
+      "emerging": [
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "this_week": 16,
+          "last_week": 12,
+          "delta": 4
+        },
+        {
+          "topic_id": 2,
+          "name": "HitL violation",
+          "this_week": 2,
+          "last_week": 0,
+          "delta": 2
+        },
+        {
+          "topic_id": 3,
+          "name": "Output doesn't match intent",
+          "this_week": 10,
+          "last_week": 8,
+          "delta": 2
+        }
+      ]
     }
   ],
   "topic_names": {
