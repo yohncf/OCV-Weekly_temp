@@ -4,6 +4,54 @@
   "owner": "Yohnathan Carletti",
   "analyses": [
     {
+      "slug": "2026-07-01_599853-mainline-vs-codegen-omni_head-to-head",
+      "label": "Mainline vs CodeGen+Omni (New Omni variant) — head-to-head (run 599853)",
+      "date": "2026-07-01",
+      "file": "eval-runs/2026-07-01_599853-mainline-vs-codegen-omni_head-to-head.html",
+      "kind": "Head-to-head",
+      "run": {
+        "name": "HeroV27 Mainline vs CodeGen+Omni (New Omni variant)",
+        "run_date": "2026-07-01"
+      },
+      "metrics": [
+        {
+          "label": "Mainline pass",
+          "value": "78.0%"
+        },
+        {
+          "label": "CG+Omni pass",
+          "value": "63.9%"
+        },
+        {
+          "label": "comparable",
+          "value": 290
+        },
+        {
+          "label": "queries",
+          "value": 61
+        }
+      ],
+      "tags": [
+        {
+          "label": "Mainline wins",
+          "value": 33,
+          "kind": "neutral"
+        },
+        {
+          "label": "CG+Omni wins",
+          "value": 37,
+          "kind": "omni"
+        },
+        {
+          "label": "Both fail",
+          "value": 25,
+          "kind": "fail"
+        }
+      ],
+      "highlights": "On all 363 assertions Mainline leads 78.0% (283/363) vs CodeGen+Omni 63.9% (232/363), but the gap is driven by 12 of 61 queries where CodeGen+Omni returned no response (73 assertions auto-failed). On the 290 comparable assertions the New Omni variant reverses the prior run: CodeGen+Omni edges ahead 80.0% vs 78.6% (+1.4pp), winning 37 exclusive assertions to Mainline's 33 (195 both-pass, 25 both-fail). By level CodeGen+Omni now fails fewer critical assertions (39 vs 49) but trails on aspirational (6 vs 0). Weakest segments: Draft, Pin_Flag, Rules_Folders; biggest gains in Inbox_noSend.",
+      "published": "2026-07-01T21:06:46Z"
+    },
+    {
       "slug": "2026-07-01_597131-mainline-vs-codegen-omni_head-to-head",
       "label": "Mainline vs CodeGen+Omni — head-to-head (run 597131)",
       "date": "2026-07-01",

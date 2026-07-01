@@ -4,6 +4,38 @@
   "owner": "Yohnathan Carletti",
   "reports": [
     {
+      "slug": "2026-07-01_597131_vs_599853",
+      "label": "Mainline vs CG+Omni (597131) 597131 vs Mainline vs CG+Omni (599853) 599853 (2026-07-01)",
+      "date": "2026-07-01",
+      "file": "eval-reports/2026-07-01_597131_vs_599853.html",
+      "control": {
+        "id": "597131",
+        "name": "Mainline vs CG+Omni (597131)",
+        "run_date": "2026-06-30"
+      },
+      "experiment": {
+        "id": "599853",
+        "name": "Mainline vs CG+Omni (599853)",
+        "run_date": "2026-07-01"
+      },
+      "regressions": {
+        "control_vs_control": 19,
+        "experiment_vs_experiment": 17,
+        "total": 36,
+        "comparable": 363
+      },
+      "pass_rate_delta_pp": 2.26,
+      "pass_rate_delta_pp_control": -1.38,
+      "pass_rates": {
+        "latest_control_side": 0.7796,
+        "latest_experiment_side": 0.8,
+        "base_control_side": 0.7934,
+        "base_experiment_side": 0.7774
+      },
+      "highlights": "597131 -> 599853 (identical config, New Omni variant): CodeGen+Omni nets +7 (24 improvements vs 17 regressions) and cuts no-response 16->12, flipping the comparable head-to-head to 80.0% vs 78.6%; Mainline drifts -5 within run-to-run noise.",
+      "published": "2026-07-01T21:15:00+00:00"
+    },
+    {
       "slug": "2026-06-21_573247_vs_575436",
       "label": "Mainline 573247 vs CodeGen 575436 (2026-06-21)",
       "date": "2026-06-21",

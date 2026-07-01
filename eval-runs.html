@@ -99,6 +99,20 @@ footer { margin-top: 60px; color: var(--text-faint); font-size: 12px; }
 </header>
 
 <section class="list">
+<a class="card" href="eval-runs/2026-07-01_599853-mainline-vs-codegen-omni_head-to-head.html">
+  <div class="card-head">
+    <span class="card-label">Mainline vs CodeGen+Omni (New Omni variant) — head-to-head (run 599853)<span class="kind">Head-to-head</span></span>
+    <span class="card-date">2026-07-01</span>
+  </div>
+  <div class="card-row">
+      <span class="metric"><span class="n">78.0%</span> Mainline pass</span>
+      <span class="metric"><span class="n">63.9%</span> CG+Omni pass</span>
+      <span class="metric"><span class="n">290</span> comparable</span>
+      <span class="metric"><span class="n">61</span> queries</span>
+      <span class="buckets"><span class="tag neutral">Mainline wins 33</span><span class="tag omni">CG+Omni wins 37</span><span class="tag fail">Both fail 25</span></span>
+  </div>
+  <div class="highlights">On all 363 assertions Mainline leads 78.0% (283/363) vs CodeGen+Omni 63.9% (232/363), but the gap is driven by 12 of 61 queries where CodeGen+Omni returned no response (73 assertions auto-failed). On the 290 comparable assertions the New Omni variant reverses the prior run: CodeGen+Omni edges ahead 80.0% vs 78.6% (+1.4pp), winning 37 exclusive assertions to Mainline&#x27;s 33 (195 both-pass, 25 both-fail). By level CodeGen+Omni now fails fewer critical assertions (39 vs 49) but trails on aspirational (6 vs 0). Weakest segments: Draft, Pin_Flag, Rules_Folders; biggest gains in Inbox_noSend.</div>
+</a>
 <a class="card" href="eval-runs/2026-07-01_597131-mainline-vs-codegen-omni_head-to-head.html">
   <div class="card-head">
     <span class="card-label">Mainline vs CodeGen+Omni — head-to-head (run 597131)<span class="kind">Head-to-head</span></span>
