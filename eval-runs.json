@@ -4,6 +4,54 @@
   "owner": "Yohnathan Carletti",
   "analyses": [
     {
+      "slug": "2026-07-01_597131-mainline-vs-codegen-omni_head-to-head",
+      "label": "Mainline vs CodeGen+Omni — head-to-head (run 597131)",
+      "date": "2026-07-01",
+      "file": "eval-runs/2026-07-01_597131-mainline-vs-codegen-omni_head-to-head.html",
+      "kind": "Head-to-head",
+      "run": {
+        "name": "HeroV27 Mainline vs CodeGen+Omni",
+        "run_date": "2026-06-30"
+      },
+      "metrics": [
+        {
+          "label": "Mainline pass",
+          "value": "79.3%"
+        },
+        {
+          "label": "CG+Omni pass",
+          "value": "56.7%"
+        },
+        {
+          "label": "comparable",
+          "value": 265
+        },
+        {
+          "label": "queries",
+          "value": 61
+        }
+      ],
+      "tags": [
+        {
+          "label": "Mainline wins",
+          "value": 39,
+          "kind": "neutral"
+        },
+        {
+          "label": "CG+Omni wins",
+          "value": 35,
+          "kind": "omni"
+        },
+        {
+          "label": "Both fail",
+          "value": 20,
+          "kind": "fail"
+        }
+      ],
+      "highlights": "Mainline is the stronger arm on run 597131: 79.3% assertion pass (288/363) vs CodeGen+Omni 56.7% (206/363). The gap is driven almost entirely by 16 of 61 queries where CodeGen+Omni returned no response (98 assertions auto-failed). On the 265 comparable assertions where both arms replied they are near parity — Mainline 79.2% vs CodeGen+Omni 77.7% — trading 39 Mainline wins for 35 CodeGen+Omni wins (171 both-pass, 20 both-fail). The decisive difference is response coverage, not per-assertion quality.",
+      "published": "2026-07-01T18:41:22Z"
+    },
+    {
       "slug": "2026-06-24_576292_codegen-failure-triage",
       "label": "CodeGen failure triage — EmailTriage Primitives (run 576292)",
       "date": "2026-06-24",

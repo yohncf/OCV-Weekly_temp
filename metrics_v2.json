@@ -2282,6 +2282,251 @@
           "delta": 2
         }
       ]
+    },
+    {
+      "week_of": "2026-07-01",
+      "date_range": "June 25 - July 1, 2026 (inclusive)",
+      "total_items": 1193,
+      "verbatim_items": 132,
+      "structured_only_items": 1061,
+      "negative_items": 75,
+      "rating": {
+        "up": 935,
+        "down": 258,
+        "total": 1193,
+        "positive_pct": 78.4
+      },
+      "sentiment": {
+        "negative": 75,
+        "positive": 28,
+        "neutral": 29,
+        "negative_pct_of_scored": 56.8
+      },
+      "topic_counts": {
+        "8": 34,
+        "7": 6,
+        "6": 5,
+        "1": 6,
+        "2": 3,
+        "9": 10,
+        "3": 4,
+        "12": 5,
+        "4": 2
+      },
+      "top_topics": [
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "count": 34
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "count": 10
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "count": 6
+        },
+        {
+          "topic_id": 1,
+          "name": "Action not executed",
+          "count": 6
+        },
+        {
+          "topic_id": 6,
+          "name": "Reliability failure",
+          "count": 5
+        }
+      ],
+      "priority": {
+        "p0": 1,
+        "p1": 6,
+        "p2": 13,
+        "p3": 13
+      },
+      "ticket_worthy_rows": 22,
+      "ado_synced_rows": 17,
+      "subtopic_rows": 33,
+      "subtopics_by_topic": {
+        "1": [
+          {
+            "priority": "P0",
+            "brief_title": "Triage: emails reported moved but mailbox unchanged",
+            "item_count": 1,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Scheduling: calendar event/meeting not created",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430851"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Triage: mailbox action (move / triage unread) not executed",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434989"
+          }
+        ],
+        "8": [
+          {
+            "priority": "P1",
+            "brief_title": "Search: mailbox search returns no results for emails the user expects",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432563"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: agent cannot locate or retrieve requested emails",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432573"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Search: results irrelevant, incomplete, or from wrong timeframe",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432569"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Drafting: reply drafted without grounding on the referenced email",
+            "item_count": 5,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434993"
+          },
+          {
+            "priority": "P1",
+            "brief_title": "Summarization: cannot access source records; returns generic template",
+            "item_count": 4,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/442493"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Summarization: folder extraction truncated; partial rows/fields",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Search: existing Outlook folders reported missing/inaccessible",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: wrong-perspective reply or partial rewrite",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/434993"
+          }
+        ],
+        "2": [
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: draft not visible/editable inline; missing edit affordance",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432128"
+          }
+        ],
+        "6": [
+          {
+            "priority": "P2",
+            "brief_title": "General: blank/empty response (reliability)",
+            "item_count": 3,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/430855"
+          }
+        ],
+        "7": [
+          {
+            "priority": "P2",
+            "brief_title": "General: on-topic answer with inaccurate or fabricated facts",
+            "item_count": 3,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "General: fabricated or unrealistic answer content",
+            "item_count": 2,
+            "ado_url": null
+          }
+        ],
+        "9": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: results shown as plain text/grid; links not actionable",
+            "item_count": 2,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: formatting/font not preserved; hard to read",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432571"
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: unwanted emojis / tone mismatch",
+            "item_count": 2,
+            "ado_url": "https://outlookweb.visualstudio.com/Outlook%20Web/_workitems/edit/432582"
+          }
+        ],
+        "4": [
+          {
+            "priority": "P2",
+            "brief_title": "Search: explicit sender-domain filter ignored (repeated)",
+            "item_count": 1,
+            "ado_url": null
+          },
+          {
+            "priority": "P2",
+            "brief_title": "Drafting: reply dropped recipients (reply vs reply-all)",
+            "item_count": 1,
+            "ado_url": null
+          }
+        ]
+      },
+      "clients": {
+        "Desktop (Monarch)": 893,
+        "Desktop (Win32)": 180,
+        "OWA": 120
+      },
+      "languages": {
+        "en": 1183,
+        "pt": 4,
+        "es": 2,
+        "ja": 2,
+        "fr": 1,
+        "de": 1
+      },
+      "wow": {
+        "rating_pp": 2.1,
+        "volume_pct": -14.0,
+        "negatives_pct": -19.4,
+        "p0p1_delta": -4
+      },
+      "emerging": [
+        {
+          "topic_id": 8,
+          "name": "Wrong context / grounding",
+          "this_week": 34,
+          "last_week": 27,
+          "delta": 7
+        },
+        {
+          "topic_id": 9,
+          "name": "Tone / language / format",
+          "this_week": 10,
+          "last_week": 6,
+          "delta": 4
+        },
+        {
+          "topic_id": 7,
+          "name": "Inaccurate or fabricated content",
+          "this_week": 6,
+          "last_week": 5,
+          "delta": 1
+        }
+      ]
     }
   ],
   "topic_names": {

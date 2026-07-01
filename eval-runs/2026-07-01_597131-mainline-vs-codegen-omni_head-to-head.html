@@ -1,0 +1,761 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEVAL Head-to-Head 597131 — Mainline vs CodeGen+Omni</title>
+<style>
+:root{--bg:#0d1117;--surf:#161b22;--surf2:#1c2230;--bd:#2a3140;--tx:#e6edf3;--mut:#8b949e;
+--blue:#4f9bff;--green:#3fb950;--red:#f85149;--amber:#e3b341;--pur:#bc8cff;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Google Sans","Segoe UI",system-ui,Arial,sans-serif;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:26px;margin:0 0 4px} h2{font-size:19px;margin:34px 0 12px;border-bottom:1px solid var(--bd);padding-bottom:8px}
+.sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+.verdict{background:linear-gradient(180deg,#182231,#141a24);border:1px solid var(--bd);border-left:4px solid var(--blue);border-radius:12px;padding:16px 18px;font-size:15px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0}
+.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.kpi .lab{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.kpi .val{font-size:28px;font-weight:600;margin-top:4px}
+.kpi .val.ml{color:var(--blue)} .kpi .val.cg{color:var(--pur)} .kpi .val.bad{color:var(--red)}
+.kpi .d{font-size:12px;color:var(--mut);margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--bd)}
+th{background:var(--surf2);color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+tr.hot td{background:#211a1a} tr:last-child td{border-bottom:none}
+td.neg{color:var(--red);font-weight:600} td.pos{color:var(--green);font-weight:600}
+.bars{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}
+.bar{flex:1;min-width:150px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.bar .n{font-size:26px;font-weight:700} .bar .t{color:var(--mut);font-size:13px}
+.b-bp .n{color:var(--green)} .b-bf .n{color:var(--red)} .b-ml .n{color:var(--blue)} .b-cg .n{color:var(--pur)}
+details{background:var(--surf);border:1px solid var(--bd);border-radius:10px;margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:15px;list-style:none;user-select:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";color:var(--mut)} details[open] summary::before{content:"▾ "}
+.frow{border-top:1px solid var(--bd);padding:12px 16px}
+.fhead{margin-bottom:6px} .q{font-weight:600;margin-bottom:4px}
+.a{font-size:13.5px;color:#cdd7e1;margin-bottom:4px} .rat{font-size:13px;color:var(--mut)}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin-right:6px;border:1px solid var(--bd)}
+.pill.seg{background:#12233a;color:#7db3ff}
+.pill.lvl.critical{background:#3a1414;color:#ff8f88} .pill.lvl.expected{background:#2e2510;color:#e3b341} .pill.lvl.aspirational{background:#1c2a1c;color:#7ee787}
+.flags{display:flex;flex-wrap:wrap;gap:6px} .flag{font-size:11.5px;background:var(--surf2);border:1px solid var(--bd);border-radius:6px;padding:3px 7px;color:#b9c4d0}
+.flag.add{color:#7ee787;border-color:#264d2e} .flag.rem{color:#ff8f88;border-color:#4d2626}
+.fcard{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin:10px 0}
+.fcard h4{margin:0 0 8px;font-size:14px}
+.muted{color:var(--mut)} .search{width:100%;padding:9px 12px;background:var(--surf);border:1px solid var(--bd);border-radius:8px;color:var(--tx);margin:6px 0 2px}
+.note{font-size:12.5px;color:var(--mut);margin-top:6px}
+</style></head><body><div class="wrap">
+<h1>SEVAL Head-to-Head — Mainline vs CodeGen+Omni</h1>
+<div class="sub">Run <a style="color:var(--blue)" href="https://seval.microsoft.com/job/597131">#597131</a>
+&middot; Hero V2.7 &middot; 2026-06-30 &middot; 61 queries / 363 assertions
+&middot; generated 2026-07-01T10:59:53</div>
+
+<div class="verdict"><b>Verdict.</b> Mainline is the stronger arm on this run: 79.3% assertion pass (288/363) vs
+CodeGen+Omni 56.7% (206/363). The gap is driven almost entirely by
+<b>16 of 61 queries where CodeGen+Omni returned no response at all</b>
+(98 assertions auto-failed). When both arms do respond (265 comparable assertions), they are near parity:
+Mainline 79.2% vs CodeGen+Omni 77.7%, trading 39 Mainline wins for 35 CodeGen+Omni wins.</div>
+
+<div class="kpis">
+ <div class="kpi"><div class="lab">Mainline · all assertions</div><div class="val ml">79.3%</div><div class="d">288/363 passed</div></div>
+ <div class="kpi"><div class="lab">CodeGen+Omni · all assertions</div><div class="val cg">56.7%</div><div class="d">206/363 passed (no-response = fail)</div></div>
+ <div class="kpi"><div class="lab">No-response queries (CG+Omni)</div><div class="val bad">16</div><div class="d">of 61 · 98 assertions dropped</div></div>
+ <div class="kpi"><div class="lab">Comparable pass (both replied)</div><div class="val">79.2% <span class="muted" style="font-size:16px">/ 77.7%</span></div><div class="d">Mainline / CodeGen+Omni · n=265</div></div>
+</div>
+
+<h2>Head-to-head on the 265 comparable assertions</h2>
+<div class="bars">
+ <div class="bar b-bp"><div class="n">171</div><div class="t">Both pass</div></div>
+ <div class="bar b-ml"><div class="n">39</div><div class="t">Mainline wins<br><span class="muted">(ML pass / CG fail)</span></div></div>
+ <div class="bar b-cg"><div class="n">35</div><div class="t">CodeGen+Omni wins<br><span class="muted">(CG pass / ML fail)</span></div></div>
+ <div class="bar b-bf"><div class="n">20</div><div class="t">Both fail (shared gap)</div></div>
+</div>
+<div class="note">When both arms respond they are effectively tied (39 vs 35 exclusive wins). The decisive difference is response coverage, not per-assertion quality.</div>
+
+<h2>Failures by assertion level (comparable)</h2>
+<table><thead><tr><th>Level</th><th>n</th><th>Mainline fails</th><th>CodeGen+Omni fails</th><th>Both fail</th></tr></thead><tbody><tr><td>critical</td><td>178</td><td>46</td><td>38</td><td>16</td></tr><tr><td>expected</td><td>69</td><td>7</td><td>17</td><td>4</td></tr><tr><td>aspirational</td><td>18</td><td>2</td><td>4</td><td>0</td></tr></tbody></table>
+<div class="note">CodeGen+Omni's excess failures concentrate in <b>expected</b>-level assertions (confirmations, identifications, field-preservation) — 17 vs Mainline's 7.</div>
+
+<h2>Failures by segment (comparable)</h2>
+<table><thead><tr><th>Segment</th><th>n</th><th>ML fail</th><th>CG fail</th><th>Both fail</th><th>CG loses</th><th>CG wins</th></tr></thead><tbody><tr class='hot'><td>Draft</td><td>23</td><td>1</td><td>7</td><td>0</td><td class='neg'>7</td><td class='pos'>1</td></tr><tr class='hot'><td>Inbox_noSend</td><td>21</td><td>8</td><td>6</td><td>2</td><td class='neg'>4</td><td class='pos'>6</td></tr><tr class='hot'><td>Rules</td><td>6</td><td>0</td><td>3</td><td>0</td><td class='neg'>3</td><td class='pos'>0</td></tr><tr class='hot'><td>Unread</td><td>14</td><td>4</td><td>3</td><td>0</td><td class='neg'>3</td><td class='pos'>4</td></tr><tr class='hot'><td>Meetings_Prep</td><td>6</td><td>1</td><td>3</td><td>1</td><td class='neg'>2</td><td class='pos'>0</td></tr><tr class='hot'><td>Pin_Flag</td><td>14</td><td>1</td><td>3</td><td>1</td><td class='neg'>2</td><td class='pos'>0</td></tr><tr class='hot'><td>Reply</td><td>7</td><td>1</td><td>3</td><td>1</td><td class='neg'>2</td><td class='pos'>0</td></tr><tr class='hot'><td>Contacts_Create</td><td>6</td><td>2</td><td>2</td><td>0</td><td class='neg'>2</td><td class='pos'>2</td></tr><tr class='hot'><td>Flag_Reminder</td><td>5</td><td>0</td><td>2</td><td>0</td><td class='neg'>2</td><td class='pos'>0</td></tr><tr class='hot'><td>Meetings_Decisions</td><td>11</td><td>0</td><td>2</td><td>0</td><td class='neg'>2</td><td class='pos'>0</td></tr><tr class='hot'><td>Folders</td><td>12</td><td>6</td><td>7</td><td>6</td><td class='neg'>1</td><td class='pos'>0</td></tr><tr class='hot'><td>Reply_Receipts</td><td>6</td><td>2</td><td>3</td><td>2</td><td class='neg'>1</td><td class='pos'>0</td></tr><tr><td>ActionItems</td><td>4</td><td>0</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>0</td></tr><tr><td>Archive</td><td>5</td><td>0</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>0</td></tr><tr><td>Categorize</td><td>6</td><td>1</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>1</td></tr><tr><td>Search</td><td>23</td><td>5</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>5</td></tr><tr><td>Summarize</td><td>12</td><td>1</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>1</td></tr><tr><td>Tasks_Create</td><td>5</td><td>3</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>3</td></tr><tr><td>Tasks_Subtasks</td><td>9</td><td>1</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>1</td></tr><tr><td>Unflag</td><td>5</td><td>0</td><td>1</td><td>0</td><td class='neg'>1</td><td class='pos'>0</td></tr><tr class='hot'><td>Forward_Receipts</td><td>6</td><td>3</td><td>2</td><td>2</td><td class='neg'>0</td><td class='pos'>1</td></tr><tr><td>Contacts_Update</td><td>5</td><td>4</td><td>1</td><td>1</td><td class='neg'>0</td><td class='pos'>3</td></tr><tr><td>Delete</td><td>6</td><td>1</td><td>1</td><td>1</td><td class='neg'>0</td><td class='pos'>0</td></tr><tr><td>Junk</td><td>5</td><td>1</td><td>1</td><td>1</td><td class='neg'>0</td><td class='pos'>0</td></tr><tr><td>Tasks_Update</td><td>5</td><td>4</td><td>1</td><td>1</td><td class='neg'>0</td><td class='pos'>3</td></tr><tr><td>Triage</td><td>7</td><td>3</td><td>1</td><td>1</td><td class='neg'>0</td><td class='pos'>2</td></tr><tr><td>Categorize_Move</td><td>6</td><td>0</td><td>0</td><td>0</td><td class='neg'>0</td><td class='pos'>0</td></tr><tr><td>Categorize_Summarize</td><td>7</td><td>0</td><td>0</td><td>0</td><td class='neg'>0</td><td class='pos'>0</td></tr><tr><td>Meetings_ActionItems</td><td>14</td><td>2</td><td>0</td><td>0</td><td class='neg'>0</td><td class='pos'>2</td></tr><tr><td>Rules_Folders</td><td>4</td><td>0</td><td>0</td><td>0</td><td class='neg'>0</td><td class='pos'>0</td></tr></tbody></table>
+<div class="note">Highlighted rows = CodeGen+Omni loses ≥2 or both arms fail ≥2. <b>Draft</b>, <b>Rules</b>, and <b>Unread</b> are CodeGen+Omni's weakest comparable segments; <b>Folders</b> is the top shared-failure segment.</div>
+
+<h2>① Where CodeGen+Omni fails hardest: 16 queries with NO response</h2>
+<div class="note">These complex, multi-action queries produced an empty reply from CodeGen+Omni while Mainline answered every one. This is the single largest source of the overall gap.</div>
+<table><thead><tr><th>Segment</th><th>Query</th><th>Assertions dropped</th><th>Mainline pass rate</th></tr></thead><tbody><tr><td><span class='pill seg'>Rules</span></td><td>Analyze my inbox rules and remove the duplicate rules</td><td>7</td><td>100%</td></tr><tr><td><span class='pill seg'>Rules_Folders</span></td><td>Create a folder called CIRCA and a rule to move all emails with CIRCA in the subject line from noreply-aqem@mastercontrol.com into that folder.</td><td>5</td><td>100%</td></tr><tr><td><span class='pill seg'>Tasks_Create</span></td><td>Create a recurring task every Friday at 4 pm to review and triage my inbox before the weekend.</td><td>4</td><td>50%</td></tr><tr><td><span class='pill seg'>Rules</span></td><td>Create a rule that automatically applies my existing &#x27;Personal&#x27; category to every email that arrives from nicolas.moseley@gmail.com.</td><td>4</td><td>100%</td></tr><tr><td><span class='pill seg'>Rules</span></td><td>Create an inbox rule that flags all new emails from my boss with me on the To: line and assign them the category &quot;High Priority&quot;</td><td>7</td><td>71%</td></tr><tr><td><span class='pill seg'>Delete_Rules</span></td><td>Delete read newsletters from the last month and create a rule to move future ones to a newsletter folder</td><td>7</td><td>71%</td></tr><tr><td><span class='pill seg'>Triage</span></td><td>Do a full inbox sweep: mark all notification emails older than 14 days as read, delete newsletters older than 2 weeks, and archive any other emails older than 2 weeks.</td><td>7</td><td>100%</td></tr><tr><td><span class='pill seg'>Triage</span></td><td>I just returned from vacation. Help me catch up what I&#x27;ve missed, clear out clutter, and focus on what is most urgent. Send me a briefing email, then offer to archive all email you think is noise. Once that&#x27;s done, suggest 1-2 tasks to focus on first.</td><td>9</td><td>89%</td></tr><tr><td><span class='pill seg'>Quota</span></td><td>My mailbox says it&#x27;s 90% full. Help me get that down to 80%</td><td>7</td><td>56%</td></tr><tr><td><span class='pill seg'>Calendar_OOO</span></td><td>Set my Out-of-Office and cancel meetings for the time period including an ask to reschedule if attendence is required or reach out to backup, create draft for any outstanding hand-offs</td><td>7</td><td>100%</td></tr><tr><td><span class='pill seg'>Calendar_OOO</span></td><td>Set up automatic replies and block my calendar for next week</td><td>5</td><td>100%</td></tr><tr><td><span class='pill seg'>Calendar_OOO</span></td><td>Set up automatic replies for tomorrow and ensure to loop in Chloe Ramirez for the AI Ethics project as my delegate during my absence.</td><td>5</td><td>80%</td></tr><tr><td><span class='pill seg'>Calendar_OOO</span></td><td>Set up automatic replies for tomorrow and flag all my emails coming from my manager during this period.</td><td>5</td><td>60%</td></tr><tr><td><span class='pill seg'>Calendar_OOO</span></td><td>Set up my automatic replies for tomorrow and draft a handover email to my manager summarizing open items, pending decisions, and who to contact in my absence and send it before I leave.</td><td>8</td><td>75%</td></tr><tr><td><span class='pill seg'>Unsubscribe</span></td><td>Unsubscribe me from anything I haven&#x27;t opened in three months.</td><td>6</td><td>67%</td></tr><tr><td><span class='pill seg'>Calendar_WorkingHours</span></td><td>Update my working hours to Monday through Friday 7 am to 3 pm Central Time. I just changed shifts and my current availability is wrong.</td><td>5</td><td>40%</td></tr></tbody></table>
+
+<h2>② Where CodeGen+Omni fails (Mainline passed): 39 assertions</h2>
+<input class="search" data-t="loss" placeholder="filter these failures…">
+<details open><summary>CodeGen+Omni-only failures — judge rationale for the CodeGen+Omni reply</summary>
+<div data-list="loss"><div class="frow" data-seg="Tasks_Subtasks" data-txt="add subtasks to &#x27;launch email campaign&#x27;: finalize copy, get legal sign-off, set up a/b test segments, schedule send for tuesday 10 am, create analytics dashboar the response indicates the parent task&#x27;s existing fields were preserved.">
+          <div class="fhead"><span class="pill seg">Tasks_Subtasks</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Add subtasks to &#x27;Launch email campaign&#x27;: finalize copy, get legal sign-off, set up A/B test segments, schedule send for Tuesday 10 AM, create analytics dashboar</div>
+          <div class="a"><b>Assertion:</b> The response indicates the parent task&#x27;s existing fields were preserved.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only states that five subtasks were added to the &quot;Launch email campaign&quot; task. It does not mention or indicate whether the existing fields of the parent task were preserved or altered. There is no information provided about the status of the parent task&#x27;s fields.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="ActionItems" data-txt="display the action items addressed to me in this email. the response organizes action items as bullets or a numbered list when it includes 3 or more action items.">
+          <div class="fhead"><span class="pill seg">ActionItems</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Display the action items addressed to me in this email.</div>
+          <div class="a"><b>Assertion:</b> The response organizes action items as bullets or a numbered list when it includes 3 or more action items.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response organizes the action items in a table format, not as bullets or a numbered list. Although there are three action items, they are presented in a table rather than a list format. Therefore, the assertion does not hold in the context of the response provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Rules" data-txt="looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time the response suggests a rule for an identified recurring or automated pattern.">
+          <div class="fhead"><span class="pill seg">Rules</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time</div>
+          <div class="a"><b>Assertion:</b> The response suggests a rule for an identified recurring or automated pattern.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that no recurring or automated emails were found in the Inbox for the specified period, and therefore, no mail rule recommendations were provided. Since no patterns were identified, no rules were suggested.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Rules" data-txt="looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time the response includes the proposed rule&#x27;s conditions.">
+          <div class="fhead"><span class="pill seg">Rules</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time</div>
+          <div class="a"><b>Assertion:</b> The response includes the proposed rule&#x27;s conditions.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that no recurring or automated emails were found in the Inbox for the specified period, and therefore, no mail rule recommendations (including their conditions) were provided. Since no rules were proposed, the response does not include any rule conditions.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Rules" data-txt="looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time the response includes the proposed rule&#x27;s action.">
+          <div class="fhead"><span class="pill seg">Rules</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Looking at the past week, identify recurring or automated emails in my inbox and suggest rules to manage them, one at a time</div>
+          <div class="a"><b>Assertion:</b> The response includes the proposed rule&#x27;s action.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that no recurring or automated emails were found in the Inbox for the specified period, and therefore, no mail rule recommendations (and thus, no proposed rule actions) were provided. Since no rules were suggested, there are no actions included in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark that email from david as unread — i want to come back to it later. the response identifies the referenced email from david by subject, date, or active email context.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark that email from David as unread — I want to come back to it later.</div>
+          <div class="a"><b>Assertion:</b> The response identifies the referenced email from David by subject, date, or active email context.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only mentions &quot;David Lee’s email&quot; and does not provide any identification by subject, date, or active email context. It simply states that the email from David Lee is marked unread, without specifying further details.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark that email from david as unread — i want to come back to it later. the response does not claim success if the referenced email from david cannot be uniquely identified.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Mark that email from David as unread — I want to come back to it later.</div>
+          <div class="a"><b>Assertion:</b> The response does not claim success if the referenced email from David cannot be uniquely identified.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response claims success (&quot;Done — David Lee’s email is marked unread&quot;) without any indication that it checked whether the email from David could be uniquely identified. There is no evidence in the conversation that the referenced email was ambiguous or that Copilot verified its uniqueness before marking it as unread. Therefore, the assertion fails because the response claims success regardless of whether the email could be uniquely identified.</div>
+        </div>
+<div class="frow" data-seg="Flag_Reminder" data-txt="flag chloe ramirez&#x27;s most recent email and set a reminder for next monday at 10am to follow up. the response identifies chloe ramirez&#x27;s single most recent email by subject or received date.">
+          <div class="fhead"><span class="pill seg">Flag_Reminder</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Flag Chloe Ramirez&#x27;s most recent email and set a reminder for next Monday at 10am to follow up.</div>
+          <div class="a"><b>Assertion:</b> The response identifies Chloe Ramirez&#x27;s single most recent email by subject or received date.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that Chloe Ramirez&#x27;s latest email was flagged, but it does not provide the subject or received date of the email. Therefore, the response does not explicitly identify the single most recent email by subject or received date.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Flag_Reminder" data-txt="flag chloe ramirez&#x27;s most recent email and set a reminder for next monday at 10am to follow up. the response does not claim success if no email from chloe ramirez can be found.">
+          <div class="fhead"><span class="pill seg">Flag_Reminder</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Flag Chloe Ramirez&#x27;s most recent email and set a reminder for next Monday at 10am to follow up.</div>
+          <div class="a"><b>Assertion:</b> The response does not claim success if no email from Chloe Ramirez can be found.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response claims success (&quot;Done — flagged Chloe Ramirez’s latest email...&quot;) without indicating whether an email from Chloe Ramirez was actually found. There is no information in the response about the existence or absence of Chloe Ramirez&#x27;s email, so it is possible that the response could claim success even if no such email exists. Therefore, the assertion fails.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Categorize" data-txt="show me my existing email categories, then apply the best match to each of my flagged emails from today the response states a best-match existing category was applied to each flagged email from today.">
+          <div class="fhead"><span class="pill seg">Categorize</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Show me my existing email categories, then apply the best match to each of my flagged emails from today</div>
+          <div class="a"><b>Assertion:</b> The response states a best-match existing category was applied to each flagged email from today.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that no flagged emails were found for today, so nothing was categorized. Therefore, the assertion that a best-match existing category was applied to each flagged email from today is false, as there were no flagged emails to categorize.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unflag" data-txt="unflag all emails from derek obi in the last week. the response states the matching flagged emails were unflagged.">
+          <div class="fhead"><span class="pill seg">Unflag</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Unflag all emails from Derek Obi in the last week.</div>
+          <div class="a"><b>Assertion:</b> The response states the matching flagged emails were unflagged.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that no flagged emails from Derek Obi were found in the past 7 days, so nothing was changed. Therefore, it does not state that any matching flagged emails were unflagged.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. if more than one email from david could plausibly be &#x27;the latest&#x27;, the response identifies the chosen one unambiguously or asks for disambiguation rather than guessing silently.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> If more than one email from David could plausibly be &#x27;the latest&#x27;, the response identifies the chosen one unambiguously or asks for disambiguation rather than guessing silently.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not indicate which specific email from David was chosen, nor does it ask for clarification if there are multiple possible emails. It simply states that a reply draft was created to David Lee, without addressing the possibility of ambiguity. Therefore, if more than one email from David could plausibly be &#x27;the latest&#x27;, the response fails to identify the chosen one unambiguously or to ask for disambiguation.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_Decisions" data-txt="what did we decide about project alpha, and who owns the next step? the response cites the source or source type supporting the decision, next step, or owner.">
+          <div class="fhead"><span class="pill seg">Meetings_Decisions</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">What did we decide about Project Alpha, and who owns the next step?</div>
+          <div class="a"><b>Assertion:</b> The response cites the source or source type supporting the decision, next step, or owner.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response provides information about the decision, next step, and owner, but it does not cite any specific source or source type (such as a document, email, meeting notes, etc.) supporting these statements. The information is presented without reference to where it was found or derived from.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Create" data-txt="create a recurring task every monday at 9 am called &#x27;submit weekly status report&#x27; with a reminder 30 minutes before. the response confirms the task time is 9:00 am.">
+          <div class="fhead"><span class="pill seg">Tasks_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Create a recurring task every Monday at 9 AM called &#x27;Submit weekly status report&#x27; with a reminder 30 minutes before.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the task time is 9:00 AM.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the recurring task &quot;Submit weekly status report&quot; was created for Mondays starting 2026-07-06 with a reminder set 30 minutes before, but it does not explicitly confirm that the task time is 9:00 AM. The time of the task is not mentioned in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Reply" data-txt="based on what caroline said in her last email, draft a reply to this thread with scott. the response includes a draft body plus recipient or subject details.">
+          <div class="fhead"><span class="pill seg">Reply</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Based on what Caroline said in her last email, draft a reply to this thread with Scott.</div>
+          <div class="a"><b>Assertion:</b> The response includes a draft body plus recipient or subject details.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only mentions that a draft was saved to Robert Scott with the subject &quot;RE: Taking Some Personal Time Off&quot; and summarizes the content of the draft (noting Carol’s unexpected personal time off, keeping details limited, and mentioning coverage planning). However, it does not provide the actual draft body text. It does include recipient and subject details, but not the draft body itself.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Reply" data-txt="based on what caroline said in her last email, draft a reply to this thread with scott. the response preserves the original thread context through a quoted history or explicit reference.">
+          <div class="fhead"><span class="pill seg">Reply</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Based on what Caroline said in her last email, draft a reply to this thread with Scott.</div>
+          <div class="a"><b>Assertion:</b> The response preserves the original thread context through a quoted history or explicit reference.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response summary indicates that a draft reply was created to the thread with Scott, referencing Carol&#x27;s unexpected personal time off. However, there is no explicit mention of a quoted history or an explicit reference to the original thread context in the response. The summary only describes the content of the draft, not whether the thread context was preserved through quoting or explicit referencing.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark the 3 most recent emails from my manager as unread so i remember to respond. the response identifies the 3 most recent emails from the user&#x27;s manager by subject or received date, or identifies every available manager email if fewer than 3 exist.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark the 3 most recent emails from my manager as unread so I remember to respond.</div>
+          <div class="a"><b>Assertion:</b> The response identifies the 3 most recent emails from the user&#x27;s manager by subject or received date, or identifies every available manager email if fewer than 3 exist.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the 3 most recent emails from Robert Scott (presumably the user&#x27;s manager) were marked as unread, but it does not identify these emails by subject or received date. There is no indication that the emails were specified or listed in any way, nor is there mention of handling the case where fewer than 3 emails exist. Therefore, the assertion fails because the response does not meet the criteria of identifying the emails by s</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="who hasn&#x27;t gotten back to my emails that i am waiting for? the response treats auto-replies or out-of-office notices as non-responses.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Who hasn&#x27;t gotten back to my emails that I am waiting for?</div>
+          <div class="a"><b>Assertion:</b> The response treats auto-replies or out-of-office notices as non-responses.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not mention auto-replies or out-of-office notices at all. It only states that it checked for &quot;no later reply from in-thread&quot; and lists people who have not replied, but does not specify how auto-replies or out-of-office messages are handled. Therefore, there is no evidence in the response that auto-replies or out-of-office notices are treated as non-responses.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Pin_Flag" data-txt="pin my 3 most recent emails from my manager and flag anything unread from today that&#x27;s addressed directly to me. the response states the identified manager emails were pinned.">
+          <div class="fhead"><span class="pill seg">Pin_Flag</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Pin my 3 most recent emails from my manager and flag anything unread from today that&#x27;s addressed directly to me.</div>
+          <div class="a"><b>Assertion:</b> The response states the identified manager emails were pinned.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that pinning was blocked and that the mailbox action does not support pinning, so the identified manager emails were not pinned. Therefore, the assertion is false.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="send an email to my manager letting them know i&#x27;ll be 10 minutes late to our 11am sync. the response includes a message body stating the user will be 10 minutes late to the 11am sync.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Send an email to my manager letting them know I&#x27;ll be 10 minutes late to our 11am sync.</div>
+          <div class="a"><b>Assertion:</b> The response includes a message body stating the user will be 10 minutes late to the 11am sync.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only provides the subject line &quot;Running 10 minutes late&quot; and does not include a message body explicitly stating that the user will be 10 minutes late to the 11am sync. There is no detailed message body shown in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="send an email to my manager letting them know i&#x27;ll be 10 minutes late to our 11am sync. the response identifies the user&#x27;s manager as the draft recipient by name or relationship.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Send an email to my manager letting them know I&#x27;ll be 10 minutes late to our 11am sync.</div>
+          <div class="a"><b>Assertion:</b> The response identifies the user&#x27;s manager as the draft recipient by name or relationship.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the draft was created for &quot;Robert Scott,&quot; but it does not explicitly identify Robert Scott as the user&#x27;s manager by name or relationship. The user&#x27;s manager is referenced in the user&#x27;s request, but the response does not confirm that Robert Scott is indeed the manager. Therefore, the assertion does not hold in the context of the response provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Pin_Flag" data-txt="pin today&#x27;s emails from my manager. also flag for follow up anything unread from today that needs a reply from me; no newsletters or automated mail. the response states the matching reply-needed unread emails were flagged for follow-up.">
+          <div class="fhead"><span class="pill seg">Pin_Flag</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Pin today&#x27;s emails from my manager. Also flag for follow up anything unread from today that needs a reply from me; no newsletters or automated mail.</div>
+          <div class="a"><b>Assertion:</b> The response states the matching reply-needed unread emails were flagged for follow-up.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that after reviewing today&#x27;s unread emails (excluding newsletters and automated mail), no messages were found that needed a reply. Therefore, nothing was flagged for follow-up. Since there were no matching emails, the assertion that the response states the matching reply-needed unread emails were flagged for follow-up is false in this context.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Archive" data-txt="archive all emails older than 3 months, except any emails from brian frank, jeff powrie, or sara chen. the response states matching emails older than 3 months were archived.">
+          <div class="fhead"><span class="pill seg">Archive</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Archive all emails older than 3 months, except any emails from Brian Frank, Jeff Powrie, or Sara Chen.</div>
+          <div class="a"><b>Assertion:</b> The response states matching emails older than 3 months were archived.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that no messages were moved. It further clarifies that the 12 emails older than 3 months were either already archived (8) or from Jeff Powrie (4), who was excluded. Therefore, the response does not state that matching emails older than 3 months were archived; instead, it states that no action was taken because either the emails were already archived or excluded.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Summarize" data-txt="summarize my unread emails and let me know if any are urgent. the response gives a reason for each urgent classification it reports.">
+          <div class="fhead"><span class="pill seg">Summarize</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Summarize my unread emails and let me know if any are urgent.</div>
+          <div class="a"><b>Assertion:</b> The response gives a reason for each urgent classification it reports.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that &quot;None appear urgent&quot; but does not provide a reason for why the emails are not considered urgent. There is no explanation or justification for the urgency classification, only the summaries of the emails themselves.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="draft a follow-up to priya about the vendor contract status and send it now so she has it before her 3pm meeting. the response references the user&#x27;s 3pm time-sensitivity so the user knows to send the draft manually in time.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Draft a follow-up to Priya about the vendor contract status and send it now so she has it before her 3pm meeting.</div>
+          <div class="a"><b>Assertion:</b> The response references the user&#x27;s 3pm time-sensitivity so the user knows to send the draft manually in time.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not mention the user&#x27;s 3pm time-sensitivity or Priya&#x27;s 3pm meeting. It only states that the draft is ready in Outlook and must be sent manually, but does not reference the urgency or deadline. Therefore, the assertion is false.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_Decisions" data-txt="what did we decide about project quark, and who owns the next step? the response cites the source of each decision, next step, or owner it reports.">
+          <div class="fhead"><span class="pill seg">Meetings_Decisions</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">What did we decide about Project Quark, and who owns the next step?</div>
+          <div class="a"><b>Assertion:</b> The response cites the source of each decision, next step, or owner it reports.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response mentions that the evidence indicates Project Quark is pending input/direction, and specifies Jennifer Taylor as the next-step owner, referencing Anthony King&#x27;s unread &quot;Next steps on Project Quark&quot; invites/thread from Apr 1. This provides a source for the next-step owner (the invites/thread), but for the decision (that Project Quark is pending input/direction), the source is only vaguely referred to as &quot;the evidence&quot; without specifyin</div>
+        </div>
+<div class="frow" data-seg="Reply_Receipts" data-txt="draft a reply to priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. i need proof it was received and opened for compliance. the response indicates the draft is addressed to priya raman or priya&#x27;s matching email address.">
+          <div class="fhead"><span class="pill seg">Reply_Receipts</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Draft a reply to Priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. I need proof it was received and opened for compliance.</div>
+          <div class="a"><b>Assertion:</b> The response indicates the draft is addressed to Priya Raman or Priya&#x27;s matching email address.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that a draft was updated in Outlook for &quot;RE: Vendor contract - Northwind Logistics MSA renewal&quot; and references &quot;Priya&#x27;s thread,&quot; but it does not explicitly mention that the draft is addressed to Priya Raman or provide Priya&#x27;s email address. There is no direct evidence in the response that confirms the recipient is Priya Raman or her matching email address.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="who hasn&#x27;t replied to my emails that i sent them more than 24 hours ago? draft follow-up emails for me the response identifies outbound emails sent more than 24 hours ago that have not received a reply by recipient and subject or context.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Who hasn&#x27;t replied to my emails that I sent them more than 24 hours ago? Draft follow-up emails for me</div>
+          <div class="a"><b>Assertion:</b> The response identifies outbound emails sent more than 24 hours ago that have not received a reply by recipient and subject or context.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that 88 unreplied sent-email threads older than 24 hours were found and follow-up drafts were created. It lists some top recipients but does not provide subject lines or specific context for each email thread. Therefore, while recipients are partially identified, the subject or context for each thread is not provided in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="who hasn&#x27;t replied to my emails that i sent them more than 24 hours ago? draft follow-up emails for me the response limits results to messages where a reply is expected rather than fyi or no-reply-needed messages.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Who hasn&#x27;t replied to my emails that I sent them more than 24 hours ago? Draft follow-up emails for me</div>
+          <div class="a"><b>Assertion:</b> The response limits results to messages where a reply is expected rather than FYI or no-reply-needed messages.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that it found &quot;88 unreplied sent-email threads older than 24 hours&quot; and created follow-up drafts, but it does not specify that it limited the results to only those messages where a reply is expected. There is no indication in the response that FYI or no-reply-needed messages were excluded from the results. Therefore, we cannot confirm that the response meets the criteria.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="who hasn&#x27;t replied to my emails that i sent them more than 24 hours ago? draft follow-up emails for me the response makes each follow-up draft reference the original email context.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Who hasn&#x27;t replied to my emails that I sent them more than 24 hours ago? Draft follow-up emails for me</div>
+          <div class="a"><b>Assertion:</b> The response makes each follow-up draft reference the original email context.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that 88 follow-up drafts were created for unreplied sent-email threads older than 24 hours, but it does not specify whether each follow-up draft references the original email context. There is no explicit mention or evidence in the response that the drafts reference the original email context, so the assertion cannot be confirmed as true based on the information provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="who hasn&#x27;t replied to my emails that i sent them more than 24 hours ago? draft follow-up emails for me the response separates each follow-up draft by recipient or original thread when multiple follow-ups are drafted.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Who hasn&#x27;t replied to my emails that I sent them more than 24 hours ago? Draft follow-up emails for me</div>
+          <div class="a"><b>Assertion:</b> The response separates each follow-up draft by recipient or original thread when multiple follow-ups are drafted.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that 88 follow-up drafts were created and lists some top recipients, but it does not provide a separation or breakdown of each follow-up draft by recipient or original thread within the response itself. The drafts are said to be available in the user&#x27;s Drafts folder, but the response does not separate or enumerate them in the text.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Create" data-txt="add a new contact: anika rao, anika.rao@legalpartners.com, phone 206-555-0142, company legalpartners llp. put her in my &#x27;external legal&#x27; contact folder. the response confirms the contact phone is 206-555-0142.">
+          <div class="fhead"><span class="pill seg">Contacts_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Add a new contact: Anika Rao, anika.rao@legalpartners.com, phone 206-555-0142, company LegalPartners LLP. Put her in my &#x27;External Legal&#x27; contact folder.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the contact phone is 206-555-0142.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only confirms the creation of the contact &quot;Anika Rao&quot; with the email address &quot;anika.rao@legalpartners.com&quot; in the &quot;External Legal&quot; contact folder. It does not mention or confirm the phone number 206-555-0142 anywhere in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Create" data-txt="add a new contact: anika rao, anika.rao@legalpartners.com, phone 206-555-0142, company legalpartners llp. put her in my &#x27;external legal&#x27; contact folder. the response confirms the contact company is legalpartners llp.">
+          <div class="fhead"><span class="pill seg">Contacts_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Add a new contact: Anika Rao, anika.rao@legalpartners.com, phone 206-555-0142, company LegalPartners LLP. Put her in my &#x27;External Legal&#x27; contact folder.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the contact company is LegalPartners LLP.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only confirms that a contact named Anika Rao with the email anika.rao@legalpartners.com was created in the &#x27;External Legal&#x27; contact folder. It does not mention or confirm the company name LegalPartners LLP anywhere in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="prepare a combined summary mail for each of my directs and the key items they are working on and items i need to follow-up in my 1:1s this week the response summarizes key work items for each identified direct report using available evidence.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Prepare a combined summary mail for each of my directs and the key items they are working on and items I need to follow-up in my 1:1s this week</div>
+          <div class="a"><b>Assertion:</b> The response summarizes key work items for each identified direct report using available evidence.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response identifies four direct reports (Sophia Morgan, Chloe Ramirez, Thomas Moore, and Dexter Brown) and summarizes key work items for three of them: Chloe’s deployment cutover decision, Thomas’s Acme latency triage owner, and Sophia’s Adaptive Learning / Computer Vision threads. However, there is no mention of any key work items for Dexter Brown. Therefore, the response does not summarize key work items for each identified direct report.
+s</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="prepare a combined summary mail for each of my directs and the key items they are working on and items i need to follow-up in my 1:1s this week the response includes a section or content for every identified direct report.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Prepare a combined summary mail for each of my directs and the key items they are working on and items I need to follow-up in my 1:1s this week</div>
+          <div class="a"><b>Assertion:</b> The response includes a section or content for every identified direct report.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the draft includes 4 directs: Sophia Morgan, Chloe Ramirez, Thomas Moore, and Dexter Brown. It also mentions key follow-ups for Sophia, Chloe, and Thomas, but does not specify any work items or follow-ups for Dexter Brown. Since the assertion requires content for every identified direct report, and there is no mention of Dexter Brown&#x27;s work items or follow-ups, the criteria is not fully met.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="prepare a combined summary mail for each of my directs and the key items they are working on and items i need to follow-up in my 1:1s this week the response separates each direct report&#x27;s section from the others when multiple direct reports are summarized.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Prepare a combined summary mail for each of my directs and the key items they are working on and items I need to follow-up in my 1:1s this week</div>
+          <div class="a"><b>Assertion:</b> The response separates each direct report&#x27;s section from the others when multiple direct reports are summarized.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that it included 4 directs and lists their names, along with key follow-ups for Chloe, Thomas, and Sophia. However, it does not explicitly indicate that each direct report&#x27;s section is separated from the others. The summary mentions the key items for each person, but there is no evidence in the provided text that the sections are clearly separated (e.g., by headings, bullet points, or distinct paragraphs for each direct). Ther</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="delete &#x27;project titan,&#x27; &#x27;q2 sprint reviews,&#x27; and &#x27;vendor onboarding old&#x27; from my mailbox. they&#x27;re all empty. the response verifies the folders were empty or acknowledges the user&#x27;s statement that they were empty before deletion.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Delete &#x27;Project Titan,&#x27; &#x27;Q2 Sprint Reviews,&#x27; and &#x27;Vendor Onboarding OLD&#x27; from my mailbox. They&#x27;re all empty.</div>
+          <div class="a"><b>Assertion:</b> The response verifies the folders were empty or acknowledges the user&#x27;s statement that they were empty before deletion.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not verify that the folders were empty, nor does it acknowledge the user&#x27;s statement that they were empty. It only states that the folders were not found in the mailbox folder list and therefore no deletions were performed. There is no mention of the folders&#x27; contents or their emptiness.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_Prep" data-txt="prep me for my 1:1 with jennifer — pull our recent threads and any recent docs, and anything i committed to in our last 1:1. the response surfaces recent email or chat threads with jennifer by subject, date, or topic.">
+          <div class="fhead"><span class="pill seg">Meetings_Prep</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Prep me for my 1:1 with Jennifer — pull our recent threads and any recent docs, and anything I committed to in our last 1:1.</div>
+          <div class="a"><b>Assertion:</b> The response surfaces recent email or chat threads with Jennifer by subject, date, or topic.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not explicitly surface any recent email or chat threads with Jennifer by subject, date, or topic. While it summarizes &quot;recent themes to cover&quot; and mentions issues such as the CEO memo and budget submission, it does not reference any specific email or chat thread, nor does it provide subjects, dates, or topics of actual threads. The information provided is more of a summary or synthesis rather than a direct surfacing of threads.
+</div>
+        </div>
+<div class="frow" data-seg="Meetings_Prep" data-txt="prep me for my 1:1 with jennifer — pull our recent threads and any recent docs, and anything i committed to in our last 1:1. the response separates threads, docs, and commitments when it includes all three groups.">
+          <div class="fhead"><span class="pill seg">Meetings_Prep</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Prep me for my 1:1 with Jennifer — pull our recent threads and any recent docs, and anything I committed to in our last 1:1.</div>
+          <div class="a"><b>Assertion:</b> The response separates threads, docs, and commitments when it includes all three groups.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not clearly separate threads, docs, and commitments into distinct sections. Instead, it provides a combined list under &quot;Recent themes to cover,&quot; which includes status updates, follow-ups, people/project updates, and inbox issues. The recent documents are listed together, but there is no explicit separation of threads, docs, and commitments. Additionally, the response states it could not verify commitments from the last 1:1, so c</div>
+        </div></div></details>
+
+<h2>③ Where BOTH arms fail: 20 shared failures</h2>
+<input class="search" data-t="shared" placeholder="filter shared failures…">
+<details open><summary>Shared failures — capability gaps hitting both arms (Folders renames/deletes, receipts, empty-retrieval)</summary>
+<div data-list="shared"><div class="frow" data-seg="Triage" data-txt="clear my inbox down to what actually needs me. the response reports counts for items kept, archived, or labeled.">
+          <div class="fhead"><span class="pill seg">Triage</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Clear my inbox down to what actually needs me.</div>
+          <div class="a"><b>Assertion:</b> The response reports counts for items kept, archived, or labeled.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that there are &quot;0 messages&quot; in the Inbox and that nothing was moved, deleted, or archived. It does not provide counts for items kept, archived, or labeled, only that the Inbox is empty and no action was taken.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. the response identifies the source email from david by subject, date, or thread reference so the user can verify the right thread was used.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> The response identifies the source email from David by subject, date, or thread reference so the user can verify the right thread was used.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not mention the subject, date, or thread reference of the email from David. It only states that a reply draft was created to David Lee, confirming attendance at Thursday&#x27;s review. There is no information provided that would allow the user to verify the right thread was used.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. the response explains that sending is unavailable and the reply was left as a draft for the user to send manually.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> The response explains that sending is unavailable and the reply was left as a draft for the user to send manually.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not explicitly explain that sending is unavailable; it only states that the reply draft is in the user&#x27;s Drafts folder for review and sending. It does not clarify whether sending is unavailable or why the draft was not sent automatically. Therefore, the assertion is false.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Reply" data-txt="based on what caroline said in her last email, draft a reply to this thread with scott. the response includes caroline as a recipient of the draft reply.">
+          <div class="fhead"><span class="pill seg">Reply</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Based on what Caroline said in her last email, draft a reply to this thread with Scott.</div>
+          <div class="a"><b>Assertion:</b> The response includes Caroline as a recipient of the draft reply.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the draft was saved to &quot;Robert Scott&quot; with the subject &quot;RE: Taking Some Personal Time Off.&quot; There is no indication that Caroline was included as a recipient of the draft reply. The response only mentions Robert Scott as the recipient.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Update" data-txt="set my &#x27;review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 pm. the response indicates existing task fields not mentioned by the user were preserved.">
+          <div class="fhead"><span class="pill seg">Tasks_Update</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Set my &#x27;Review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 PM.</div>
+          <div class="a"><b>Assertion:</b> The response indicates existing task fields not mentioned by the user were preserved.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response only mentions updating the recurrence schedule and reminder time for the &#x27;Review vendor invoices&#x27; task. There is no information provided about other task fields (such as description, assignee, priority, etc.), nor is there any explicit statement that these fields were preserved. Therefore, based solely on the response, we cannot confirm that existing task fields not mentioned by the user were preserved.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="i restructured our team names. rename &#x27;east region leads&#x27; to &#x27;americas leads&#x27; and &#x27;west region leads&#x27; to &#x27;apac leads&#x27; in my folder list. the response confirms the east region leads folder was renamed to americas leads.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">I restructured our team names. Rename &#x27;East Region Leads&#x27; to &#x27;Americas Leads&#x27; and &#x27;West Region Leads&#x27; to &#x27;APAC Leads&#x27; in my folder list.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the East Region Leads folder was renamed to Americas Leads.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that &quot;neither East Region Leads nor West Region Leads showed up in the folder list I can access,&quot; and therefore, the folders could not be renamed. There is no confirmation in the response that the &quot;East Region Leads&quot; folder was renamed to &quot;Americas Leads.&quot;
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="i restructured our team names. rename &#x27;east region leads&#x27; to &#x27;americas leads&#x27; and &#x27;west region leads&#x27; to &#x27;apac leads&#x27; in my folder list. the response confirms the west region leads folder was renamed to apac leads.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">I restructured our team names. Rename &#x27;East Region Leads&#x27; to &#x27;Americas Leads&#x27; and &#x27;West Region Leads&#x27; to &#x27;APAC Leads&#x27; in my folder list.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the West Region Leads folder was renamed to APAC Leads.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that the West Region Leads folder did not show up in the folder list accessible to Copilot, and therefore it could not be renamed. There is no confirmation in the response that the folder was renamed; in fact, the response confirms the opposite.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="i restructured our team names. rename &#x27;east region leads&#x27; to &#x27;americas leads&#x27; and &#x27;west region leads&#x27; to &#x27;apac leads&#x27; in my folder list. the response indicates folder contents were preserved during the renames.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">I restructured our team names. Rename &#x27;East Region Leads&#x27; to &#x27;Americas Leads&#x27; and &#x27;West Region Leads&#x27; to &#x27;APAC Leads&#x27; in my folder list.</div>
+          <div class="a"><b>Assertion:</b> The response indicates folder contents were preserved during the renames.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response states that the folders &quot;East Region Leads&quot; and &quot;West Region Leads&quot; could not be found or renamed, and specifically mentions that no messages were found inside those folders to recover their IDs. There is no indication that any renaming occurred, nor is there any information about the preservation of folder contents. Therefore, the assertion that the response indicates folder contents were preserved during the renames is false.
+score</div>
+        </div>
+<div class="frow" data-seg="Pin_Flag" data-txt="pin today&#x27;s emails from my manager. also flag for follow up anything unread from today that needs a reply from me; no newsletters or automated mail. the response states today&#x27;s manager emails were pinned.">
+          <div class="fhead"><span class="pill seg">Pin_Flag</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Pin today&#x27;s emails from my manager. Also flag for follow up anything unread from today that needs a reply from me; no newsletters or automated mail.</div>
+          <div class="a"><b>Assertion:</b> The response states today&#x27;s manager emails were pinned.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that no messages from the manager (Robert Scott) were found in today&#x27;s mail, so there was nothing to pin. Additionally, it clarifies that a true pin action cannot be applied due to limitations in Outlook mail actions. Therefore, the response does not state that today&#x27;s manager emails were pinned.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Delete" data-txt="delete read newsletters from the last 2 days. the response states the matching read newsletter emails were deleted.">
+          <div class="fhead"><span class="pill seg">Delete</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Delete read newsletters from the last 2 days.</div>
+          <div class="a"><b>Assertion:</b> The response states the matching read newsletter emails were deleted.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states multiple times that &quot;No read newsletters were found in the last 2 days, so nothing was deleted.&quot; Therefore, the response does not state that any matching read newsletter emails were deleted.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Junk" data-txt="junk emails from robertscott in the last week. the response states the matching emails were moved to junk.">
+          <div class="fhead"><span class="pill seg">Junk</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Junk emails from robertscott in the last week.</div>
+          <div class="a"><b>Assertion:</b> The response states the matching emails were moved to Junk.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that there were &quot;0 messages matching that sender in a Junk folder&quot; and repeats that &quot;No junk emails from `robertscott` in the last 7 days.&quot; At no point does the response state that any matching emails were moved to Junk; instead, it confirms that none were found.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Forward_Receipts" data-txt="forward that purchase order approval request email from last friday to my manager with a delivery receipt enabled. i want confirmation it actually lands in her  the response confirms a delivery receipt was enabled on the forwarded message.">
+          <div class="fhead"><span class="pill seg">Forward_Receipts</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Forward that Purchase Order Approval Request email from last Friday to my manager with a delivery receipt enabled. I want confirmation it actually lands in her </div>
+          <div class="a"><b>Assertion:</b> The response confirms a delivery receipt was enabled on the forwarded message.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that a delivery receipt could not be enabled from Copilot and that Outlook requires the user to turn it on before sending. Therefore, the response does not confirm that a delivery receipt was enabled on the forwarded message.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Forward_Receipts" data-txt="forward that purchase order approval request email from last friday to my manager with a delivery receipt enabled. i want confirmation it actually lands in her  the response asks the user to choose among named matches rather than guessing if last friday matches more than one purchase order approval request email.">
+          <div class="fhead"><span class="pill seg">Forward_Receipts</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Forward that Purchase Order Approval Request email from last Friday to my manager with a delivery receipt enabled. I want confirmation it actually lands in her </div>
+          <div class="a"><b>Assertion:</b> The response asks the user to choose among named matches rather than guessing if last Friday matches more than one Purchase Order Approval Request email.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not ask the user to choose among named matches. It simply creates a draft to Priya Sharma and references a specific subject line (&quot;FW: Purchase Order #PO-2026-0892 — Approval Request&quot;). There is no indication that Copilot found multiple possible emails or prompted the user to select among them. Therefore, the assertion does not hold in the context of the response provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Reply_Receipts" data-txt="draft a reply to priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. i need proof it was received and opened for compliance. the response confirms read receipts were enabled for the draft or applicable outgoing mail setting.">
+          <div class="fhead"><span class="pill seg">Reply_Receipts</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Draft a reply to Priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. I need proof it was received and opened for compliance.</div>
+          <div class="a"><b>Assertion:</b> The response confirms read receipts were enabled for the draft or applicable outgoing mail setting.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that read and delivery receipts could not be turned on through automation. Instead, it instructs the user to manually enable these options before sending the draft. Therefore, the response does not confirm that read receipts were enabled for the draft or outgoing mail setting.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Reply_Receipts" data-txt="draft a reply to priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. i need proof it was received and opened for compliance. the response confirms delivery receipts were enabled for the draft or applicable outgoing mail setting.">
+          <div class="fhead"><span class="pill seg">Reply_Receipts</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Draft a reply to Priya&#x27;s thread about the vendor contract and turn on both read and delivery receipts. I need proof it was received and opened for compliance.</div>
+          <div class="a"><b>Assertion:</b> The response confirms delivery receipts were enabled for the draft or applicable outgoing mail setting.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that delivery receipts could not be turned on through automation and instructs the user to manually enable &quot;Request a Delivery Receipt&quot; and &quot;Request a Read Receipt&quot; before sending. It does not confirm that delivery receipts were enabled for the draft or outgoing mail; it only provides instructions for the user to do so.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Update" data-txt="update carla mendes&#x27;s contact — she moved to london, new phone +44 20 7946 0958, title changed to senior director of partnerships. the response confirms carla mendes&#x27;s location or business address was updated to london.">
+          <div class="fhead"><span class="pill seg">Contacts_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Update Carla Mendes&#x27;s contact — she moved to London, new phone +44 20 7946 0958, title changed to Senior Director of Partnerships.</div>
+          <div class="a"><b>Assertion:</b> The response confirms Carla Mendes&#x27;s location or business address was updated to London.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that the contact surface does not support a separate city/location field, so London could not be stored as an address field. Therefore, the location or business address was not updated to London.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="delete &#x27;project titan,&#x27; &#x27;q2 sprint reviews,&#x27; and &#x27;vendor onboarding old&#x27; from my mailbox. they&#x27;re all empty. the response confirms the project titan folder was deleted.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Delete &#x27;Project Titan,&#x27; &#x27;Q2 Sprint Reviews,&#x27; and &#x27;Vendor Onboarding OLD&#x27; from my mailbox. They&#x27;re all empty.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the Project Titan folder was deleted.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that the &#x27;Project Titan&#x27; folder, along with the other two folders, did not show up in the mailbox folder list and that no folder deletions were performed. Therefore, the response does not confirm that the &#x27;Project Titan&#x27; folder was deleted; in fact, it confirms the opposite.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="delete &#x27;project titan,&#x27; &#x27;q2 sprint reviews,&#x27; and &#x27;vendor onboarding old&#x27; from my mailbox. they&#x27;re all empty. the response confirms the q2 sprint reviews folder was deleted.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Delete &#x27;Project Titan,&#x27; &#x27;Q2 Sprint Reviews,&#x27; and &#x27;Vendor Onboarding OLD&#x27; from my mailbox. They&#x27;re all empty.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the Q2 Sprint Reviews folder was deleted.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that none of the three folder names, including &#x27;Q2 Sprint Reviews,&#x27; showed up in the mailbox folder list and that no folder deletions were performed. Therefore, the response does not confirm that the &#x27;Q2 Sprint Reviews&#x27; folder was deleted.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Folders" data-txt="delete &#x27;project titan,&#x27; &#x27;q2 sprint reviews,&#x27; and &#x27;vendor onboarding old&#x27; from my mailbox. they&#x27;re all empty. the response confirms the vendor onboarding old folder was deleted.">
+          <div class="fhead"><span class="pill seg">Folders</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Delete &#x27;Project Titan,&#x27; &#x27;Q2 Sprint Reviews,&#x27; and &#x27;Vendor Onboarding OLD&#x27; from my mailbox. They&#x27;re all empty.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the Vendor Onboarding OLD folder was deleted.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response explicitly states that none of the three folder names, including &#x27;Vendor Onboarding OLD,&#x27; showed up in the mailbox folder list and that no folder deletions were performed. Therefore, the response does not confirm that the &#x27;Vendor Onboarding OLD&#x27; folder was deleted; in fact, it confirms the opposite.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_Prep" data-txt="prep me for my 1:1 with jennifer — pull our recent threads and any recent docs, and anything i committed to in our last 1:1. the response identifies the upcoming 1:1 with jennifer by date or calendar event.">
+          <div class="fhead"><span class="pill seg">Meetings_Prep</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Prep me for my 1:1 with Jennifer — pull our recent threads and any recent docs, and anything I committed to in our last 1:1.</div>
+          <div class="a"><b>Assertion:</b> The response identifies the upcoming 1:1 with Jennifer by date or calendar event.</div>
+          <div class="rat"><b>CodeGen+Omni judge:</b> The response does not mention a specific date or calendar event for the upcoming 1:1 with Jennifer. It only refers to &quot;your 1:1 with Jennifer&quot; in general terms and states that it couldn&#x27;t find a confirmed recent 1:1, transcript, or action list. There is no identification of the upcoming 1:1 by date or calendar event in the response.
+score: 0</div>
+        </div></div></details>
+
+<h2>④ Where CodeGen+Omni wins (Mainline failed): 35 assertions</h2>
+<details><summary>CodeGen+Omni-only wins — judge rationale for the Mainline reply that failed</summary>
+<div data-list="win"><div class="frow" data-seg="Tasks_Subtasks" data-txt="add subtasks to &#x27;launch email campaign&#x27;: finalize copy, get legal sign-off, set up a/b test segments, schedule send for tuesday 10 am, create analytics dashboar the response confirms subtasks were added under the existing launch email campaign task, or avoids creating duplicates.">
+          <div class="fhead"><span class="pill seg">Tasks_Subtasks</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Add subtasks to &#x27;Launch email campaign&#x27;: finalize copy, get legal sign-off, set up A/B test segments, schedule send for Tuesday 10 AM, create analytics dashboar</div>
+          <div class="a"><b>Assertion:</b> The response confirms subtasks were added under the existing Launch email campaign task, or avoids creating duplicates.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not find an existing task named &quot;Launch email campaign&quot; and does not confirm that subtasks were added. It also does not mention avoiding creating duplicates; it simply lists the requested subtasks and asks for more information to proceed. Therefore, the assertion does not hold in the context of the response provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Triage" data-txt="clear my inbox down to what actually needs me. the response archives or labels non-essential items rather than deleting them.">
+          <div class="fhead"><span class="pill seg">Triage</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Clear my inbox down to what actually needs me.</div>
+          <div class="a"><b>Assertion:</b> The response archives or labels non-essential items rather than deleting them.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that the Copilot flagged three emails for follow-up (labeling them as essential), and notes that everything else appears to be non-essential (meeting invites, workshops, etc.). However, Copilot explicitly says it cannot reliably delete or bulk-archive the rest based on the search alone, and offers to identify low-value meeting invites for mass-archiving or marking as read if requested. There is no evidence in the response that</div>
+        </div>
+<div class="frow" data-seg="Triage" data-txt="clear my inbox down to what actually needs me. the response separates cleanup buckets into keep, archive, and label groups when it reports multiple buckets.">
+          <div class="fhead"><span class="pill seg">Triage</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Clear my inbox down to what actually needs me.</div>
+          <div class="a"><b>Assertion:</b> The response separates cleanup buckets into keep, archive, and label groups when it reports multiple buckets.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not explicitly separate emails into &quot;keep,&quot; &quot;archive,&quot; and &quot;label&quot; groups. Instead, it identifies three emails that &quot;need your attention&quot; (which could be interpreted as &quot;keep&quot;) and describes the rest as meeting invitations, workshops, etc., that do not require action. However, it does not explicitly group these into &quot;archive&quot; or &quot;label&quot; buckets, nor does it use those terms or create clear, separate lists for each bucket. Therefo</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark all unread emails older than 2 weeks as read. the response identifies unread emails older than 2 weeks by count, subject, or folder, or explicitly reports that none were found.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark all unread emails older than 2 weeks as read.</div>
+          <div class="a"><b>Assertion:</b> The response identifies unread emails older than 2 weeks by count, subject, or folder, or explicitly reports that none were found.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not identify any unread emails older than 2 weeks by count, subject, or folder, nor does it explicitly report that none were found. Instead, it states that it was unable to retrieve the list of unread emails and therefore cannot identify which messages are older than two weeks.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark all unread emails older than 2 weeks as read. the response states the matching unread emails were marked as read.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark all unread emails older than 2 weeks as read.</div>
+          <div class="a"><b>Assertion:</b> The response states the matching unread emails were marked as read.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not state that the matching unread emails were marked as read. Instead, it explains that the action could not be completed because the list of unread emails could not be retrieved. It only offers to try again with a more targeted search, but does not confirm that any emails were marked as read.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Categorize" data-txt="show me my existing email categories, then apply the best match to each of my flagged emails from today the response explains the category choice for each flagged email that received a category.">
+          <div class="fhead"><span class="pill seg">Categorize</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Show me my existing email categories, then apply the best match to each of my flagged emails from today</div>
+          <div class="a"><b>Assertion:</b> The response explains the category choice for each flagged email that received a category.</div>
+          <div class="rat"><b>Mainline judge:</b> The response lists the flagged emails and the categories applied to each, but it does not provide any explanation for why each category was chosen. It simply states which category was applied (e.g., &quot;Urgent&quot; or &quot;High Priority&quot;) without describing the reasoning or criteria used to determine the best match. Therefore, the response does not meet the criteria of explaining the category choice.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. the response creates a reply draft on the latest email thread from david.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> The response creates a reply draft on the latest email thread from David.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not create a reply draft. Instead, it states that it could not reliably identify which &quot;David&quot; or which email is being referred to, and requests clarification from the user before proceeding. No draft is created or sent in this response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. the response saves the reply draft to the drafts folder, or shows the reply body in chat and saves it to the drafts folder.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> The response saves the reply draft to the Drafts folder, or shows the reply body in chat and saves it to the Drafts folder.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not save any reply draft to the Drafts folder, nor does it show a reply body in chat. Instead, it asks for clarification about which &quot;David&quot; and which email to reply to, due to ambiguity in the search results. No draft was created or saved.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="reply to the latest email from david and send confirming i&#x27;ll attend thursday&#x27;s review. the response includes a reply body confirming the user will attend thursday&#x27;s review.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Reply to the latest email from David and send confirming I&#x27;ll attend Thursday&#x27;s review.</div>
+          <div class="a"><b>Assertion:</b> The response includes a reply body confirming the user will attend Thursday&#x27;s review.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not include a reply body confirming attendance at Thursday&#x27;s review. Instead, it explains that it cannot identify the correct &quot;David&quot; or email and requests clarification from the user. No confirmation message was generated or included in the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_ActionItems" data-txt="what were my action items from the next steps on project quark meeting, and check my sent items to see which ones i am missing the response extracts action items assigned to the user from that meeting.">
+          <div class="fhead"><span class="pill seg">Meetings_ActionItems</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">What were my action items from the Next steps on Project Quark meeting, and check my sent items to see which ones I am missing</div>
+          <div class="a"><b>Assertion:</b> The response extracts action items assigned to the user from that meeting.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not find a meeting transcript, chat, notes, or action-item list associated with the &quot;Next steps on Project Quark&quot; meeting. It further clarifies that the available records only contain calendar invitation metadata and no meeting discussion content or documented action items. Therefore, the response does not extract any action items assigned to the user from that meeting.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Meetings_ActionItems" data-txt="what were my action items from the next steps on project quark meeting, and check my sent items to see which ones i am missing the response identifies which extracted action items are still missing based on the sent-items check.">
+          <div class="fhead"><span class="pill seg">Meetings_ActionItems</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">What were my action items from the Next steps on Project Quark meeting, and check my sent items to see which ones I am missing</div>
+          <div class="a"><b>Assertion:</b> The response identifies which extracted action items are still missing based on the sent-items check.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not determine any Project Quark action items because the meeting content (transcript, notes, chat, or action-item list) was not available. As a result, it also states that it cannot reliably identify which action items are missing from the sent follow-up emails. No action items were extracted, so the response does not identify any missing items based on the sent-items check.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Create" data-txt="create a recurring task every monday at 9 am called &#x27;submit weekly status report&#x27; with a reminder 30 minutes before. the response confirms a task titled submit weekly status report was created.">
+          <div class="fhead"><span class="pill seg">Tasks_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Create a recurring task every Monday at 9 AM called &#x27;Submit weekly status report&#x27; with a reminder 30 minutes before.</div>
+          <div class="a"><b>Assertion:</b> The response confirms a task titled Submit weekly status report was created.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that the task was not created due to a scheduling service error and that Copilot was unable to confirm the creation of the task. Therefore, the assertion that the response confirms the task was created is false.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Create" data-txt="create a recurring task every monday at 9 am called &#x27;submit weekly status report&#x27; with a reminder 30 minutes before. the response confirms the task recurs weekly on monday.">
+          <div class="fhead"><span class="pill seg">Tasks_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Create a recurring task every Monday at 9 AM called &#x27;Submit weekly status report&#x27; with a reminder 30 minutes before.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the task recurs weekly on Monday.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not confirm that the task recurs weekly on Monday. Instead, it states that the scheduling service returned an error and the task creation could not be confirmed. The requested schedule is restated, but there is no confirmation that the recurring task was successfully created.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Create" data-txt="create a recurring task every monday at 9 am called &#x27;submit weekly status report&#x27; with a reminder 30 minutes before. the response confirms the reminder is set 30 minutes before the task time.">
+          <div class="fhead"><span class="pill seg">Tasks_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Create a recurring task every Monday at 9 AM called &#x27;Submit weekly status report&#x27; with a reminder 30 minutes before.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the reminder is set 30 minutes before the task time.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that the reminder is intended to be set 30 minutes before the task time (8:30 AM for a 9:00 AM task), but also clarifies that the task creation was unsuccessful due to a scheduling service error. Therefore, the response does not confirm that the reminder is actually set; it only describes the requested schedule.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Update" data-txt="set my &#x27;review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 pm. the response confirms the existing review vendor invoices task was updated rather than creating a new task.">
+          <div class="fhead"><span class="pill seg">Tasks_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Set my &#x27;Review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 PM.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the existing Review vendor invoices task was updated rather than creating a new task.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it cannot directly make an existing task recur with reminders using the available task tools. Instead, it offers to create new reminder schedules, not to update the existing task. There is no confirmation or indication that the existing task was updated.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Update" data-txt="set my &#x27;review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 pm. the response confirms the recurrence includes the 1st day of every month.">
+          <div class="fhead"><span class="pill seg">Tasks_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Set my &#x27;Review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 PM.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the recurrence includes the 1st day of every month.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explains that setting a reminder for the evening before the 1st of every month is not possible with a single recurrence rule due to varying month lengths. It does not confirm that the recurrence includes the 1st day of every month; instead, it offers to create multiple schedules to approximate this, but does not state that it can be done as requested.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Tasks_Update" data-txt="set my &#x27;review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 pm. the response confirms each occurrence has a reminder at 5:00 pm on the evening before.">
+          <div class="fhead"><span class="pill seg">Tasks_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Set my &#x27;Review vendor invoices&#x27; task to recur on the 1st and 15th of every month with a reminder the evening before at 5 PM.</div>
+          <div class="a"><b>Assertion:</b> The response confirms each occurrence has a reminder at 5:00 PM on the evening before.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explains that it cannot directly set a reminder for the evening before the 1st of every month due to limitations in recurrence rules. It offers to create a reminder for the 14th at 5:00 PM for the 15th, but for the 1st, it would require multiple schedules and does not confirm that each occurrence will have a reminder at 5:00 PM on the evening before. Therefore, the assertion does not hold in the context of the response.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="who hasn&#x27;t gotten back to my emails that i am waiting for? the response identifies outbound emails awaiting reply by recipient and original subject or context.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Who hasn&#x27;t gotten back to my emails that I am waiting for?</div>
+          <div class="a"><b>Assertion:</b> The response identifies outbound emails awaiting reply by recipient and original subject or context.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not reliably determine a complete list of emails still awaiting a response and did not return a verified set of sent messages with unanswered conversation status. The only example provided is of an email that has already received a reply, and no outbound emails awaiting reply are identified by recipient or subject/context. Therefore, the assertion is false.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="who hasn&#x27;t gotten back to my emails that i am waiting for? the response lists the recipients who have not yet responded.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Who hasn&#x27;t gotten back to my emails that I am waiting for?</div>
+          <div class="a"><b>Assertion:</b> The response lists the recipients who have not yet responded.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not reliably determine a complete list of emails that are still awaiting a response and did not return a verified set of sent messages with unanswered conversation status. It only provides an example of a recipient who has already responded, not those who have not. Therefore, the response does not list the recipients who have not yet responded.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="who hasn&#x27;t gotten back to my emails that i am waiting for? the response limits results to messages where a reply is expected rather than fyi, broadcast, or no-reply-needed messages.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Who hasn&#x27;t gotten back to my emails that I am waiting for?</div>
+          <div class="a"><b>Assertion:</b> The response limits results to messages where a reply is expected rather than FYI, broadcast, or no-reply-needed messages.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that it could not reliably determine a complete list of emails still awaiting a response and only provides one example where a reply was received (thus not awaiting a reply). It does not present any list of messages awaiting a reply, nor does it attempt to filter or limit results to only those where a reply is expected. Instead, it explains the limitations of the data and offers to perform a deeper search. Therefore</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="send an email to my manager letting them know i&#x27;ll be 10 minutes late to our 11am sync. the response explains that sending is unavailable and the email was left as a draft for the user to send manually.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl expected">expected</span></div>
+          <div class="q">Send an email to my manager letting them know I&#x27;ll be 10 minutes late to our 11am sync.</div>
+          <div class="a"><b>Assertion:</b> The response explains that sending is unavailable and the email was left as a draft for the user to send manually.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states, &quot;The draft is ready in Outlook for sending,&quot; which indicates that the email was prepared as a draft and not sent automatically. However, the response does not explicitly explain that sending is unavailable; it only mentions that the draft is ready for sending. Therefore, the response does not fully meet the criteria of explaining that sending is unavailable.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark all my unread emails as read across every folder in my mailbox. the response states the total count of unread emails marked as read, or explicitly reports that there were none.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark all my unread emails as read across every folder in my mailbox.</div>
+          <div class="a"><b>Assertion:</b> The response states the total count of unread emails marked as read, or explicitly reports that there were none.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not state the total count of unread emails marked as read, nor does it explicitly report that there were none. Instead, it explains that it was unable to retrieve any unread-email results and therefore could not perform the action. There is no explicit statement about the count or about there being no unread emails.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Unread" data-txt="mark all my unread emails as read across every folder in my mailbox. the response confirms the action covered every folder in the user&#x27;s mailbox.">
+          <div class="fhead"><span class="pill seg">Unread</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Mark all my unread emails as read across every folder in my mailbox.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the action covered every folder in the user&#x27;s mailbox.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that Copilot can mark all unread emails as read &quot;across your mailbox folders in a single operation,&quot; indicating that the intended action would cover every folder. However, Copilot also clarifies that it was unable to retrieve unread-email results and therefore did not perform the action. The response does not confirm that the action was actually completed, only that it would cover every folder if executed. Since the criteria a</div>
+        </div>
+<div class="frow" data-seg="Summarize" data-txt="summarize my unread emails and let me know if any are urgent. the response summarizes the substantive content of the unread emails retrieved.">
+          <div class="fhead"><span class="pill seg">Summarize</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Summarize my unread emails and let me know if any are urgent.</div>
+          <div class="a"><b>Assertion:</b> The response summarizes the substantive content of the unread emails retrieved.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that no unread email results were found, so there was nothing to summarize. Therefore, the response does not summarize any substantive content of unread emails, as none were retrieved.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Forward_Receipts" data-txt="forward that purchase order approval request email from last friday to my manager with a delivery receipt enabled. i want confirmation it actually lands in her  the response forwards the identified email to the user&#x27;s resolved manager rather than to a literal &#x27;my manager&#x27; string.">
+          <div class="fhead"><span class="pill seg">Forward_Receipts</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Forward that Purchase Order Approval Request email from last Friday to my manager with a delivery receipt enabled. I want confirmation it actually lands in her </div>
+          <div class="a"><b>Assertion:</b> The response forwards the identified email to the user&#x27;s resolved manager rather than to a literal &#x27;my manager&#x27; string.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that Copilot could not complete the forward-and-send action, so the email was not forwarded at all—neither to the resolved manager nor to a literal &#x27;my manager&#x27; string. Therefore, the assertion that the response forwards the email to the user&#x27;s resolved manager is false in the context of the response provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="draft a follow-up to priya about the vendor contract status and send it now so she has it before her 3pm meeting. the response creates a draft follow-up addressed to priya about the vendor contract status.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Draft a follow-up to Priya about the vendor contract status and send it now so she has it before her 3pm meeting.</div>
+          <div class="a"><b>Assertion:</b> The response creates a draft follow-up addressed to Priya about the vendor contract status.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that a follow-up email was prepared in Outlook with the subject “Follow-up: Vendor Contract Status Before Your 3 PM Meeting.” However, it also notes that the recipient &quot;Priya&quot; could not be resolved from the directory, so the message was created without a verified recipient address. While the content and intent of the draft are correct (about the vendor contract status and intended for Priya), the email is not actually addresse</div>
+        </div>
+<div class="frow" data-seg="Inbox_noSend" data-txt="draft a follow-up to priya about the vendor contract status and send it now so she has it before her 3pm meeting. the response saves the draft to the drafts folder, or shows the draft body in chat and saves it to the drafts folder.">
+          <div class="fhead"><span class="pill seg">Inbox_noSend</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Draft a follow-up to Priya about the vendor contract status and send it now so she has it before her 3pm meeting.</div>
+          <div class="a"><b>Assertion:</b> The response saves the draft to the Drafts folder, or shows the draft body in chat and saves it to the Drafts folder.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that the follow-up email was prepared in Outlook, but it does not explicitly mention that the draft was saved to the Drafts folder or show the draft body in the chat. It only indicates that the message was created without a verified recipient address and asks for additional information to target the message. There is no clear evidence in the response that the draft was saved to the Drafts folder or that the draft body was show</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="searches messages from sophia morgan with hasattachments, filters .xlsx, sorts by receiveddatetime descending the response limits returned attachments to .xlsx spreadsheet files.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Searches messages from Sophia Morgan with hasAttachments, filters .xlsx, sorts by receivedDateTime descending</div>
+          <div class="a"><b>Assertion:</b> The response limits returned attachments to .xlsx spreadsheet files.</div>
+          <div class="rat"><b>Mainline judge:</b> The response does not limit returned attachments to .xlsx spreadsheet files. It lists emails with attachments from Sophia Morgan, but the attachments are .pptx and .pdf files. The response explicitly states that no emails with actual .xlsx attachments were found, and it includes details about non-.xlsx attachments and references to .xlsx files via links. Therefore, the response does not restrict the returned attachments to only .xlsx files.
+score</div>
+        </div>
+<div class="frow" data-seg="Search" data-txt="searches messages from sophia morgan with hasattachments, filters .xlsx, sorts by receiveddatetime descending the response shows matching messages as a list with dates visible when it includes 3 or more matching messages.">
+          <div class="fhead"><span class="pill seg">Search</span><span class="pill lvl aspirational">aspirational</span></div>
+          <div class="q">Searches messages from Sophia Morgan with hasAttachments, filters .xlsx, sorts by receivedDateTime descending</div>
+          <div class="a"><b>Assertion:</b> The response shows matching messages as a list with dates visible when it includes 3 or more matching messages.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that 4 relevant email messages were found, but only 2 processed email results are shown in the list. Both listed messages include dates. However, since only 2 matching messages are actually displayed in the list (not 3 or more), the criteria is not met. The criteria requires that when there are 3 or more matching messages, the response must show them as a list with dates visible. Here, only 2 are shown.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Draft" data-txt="my manager needs an update on project alpha. make it confidential, high importance and cover the last two weeks. draft this for me and let me know when it is re the response identifies the user&#x27;s manager as the draft email recipient.">
+          <div class="fhead"><span class="pill seg">Draft</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">My manager needs an update on Project Alpha. Make it confidential, high importance and cover the last two weeks. Draft this for me and let me know when it is re</div>
+          <div class="a"><b>Assertion:</b> The response identifies the user&#x27;s manager as the draft email recipient.</div>
+          <div class="rat"><b>Mainline judge:</b> The response addresses the draft email to &quot;Robert Scott,&quot; which is presented as a hyperlink and appears to be the intended recipient. However, the user&#x27;s manager is not explicitly named in the user&#x27;s prompt, so unless &quot;Robert Scott&quot; is the manager (which is not confirmed in the conversation), the response does not definitively identify the user&#x27;s manager as the recipient. The response assumes &quot;Robert Scott&quot; is the manager, but this is not establi</div>
+        </div>
+<div class="frow" data-seg="Contacts_Create" data-txt="add a new contact: anika rao, anika.rao@legalpartners.com, phone 206-555-0142, company legalpartners llp. put her in my &#x27;external legal&#x27; contact folder. the response confirms a new contact named anika rao was created.">
+          <div class="fhead"><span class="pill seg">Contacts_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Add a new contact: Anika Rao, anika.rao@legalpartners.com, phone 206-555-0142, company LegalPartners LLP. Put her in my &#x27;External Legal&#x27; contact folder.</div>
+          <div class="a"><b>Assertion:</b> The response confirms a new contact named Anika Rao was created.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that Copilot cannot create or manage Outlook contacts directly and provides instructions for manual creation. There is no confirmation that a new contact named Anika Rao was actually created; only the details and steps to do so are provided.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Create" data-txt="add a new contact: anika rao, anika.rao@legalpartners.com, phone 206-555-0142, company legalpartners llp. put her in my &#x27;external legal&#x27; contact folder. the response confirms the contact was filed in the external legal contact folder.">
+          <div class="fhead"><span class="pill seg">Contacts_Create</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Add a new contact: Anika Rao, anika.rao@legalpartners.com, phone 206-555-0142, company LegalPartners LLP. Put her in my &#x27;External Legal&#x27; contact folder.</div>
+          <div class="a"><b>Assertion:</b> The response confirms the contact was filed in the External Legal contact folder.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that Microsoft 365 Copilot cannot create or manage Outlook contacts directly and provides instructions for the user to manually add the contact to the External Legal folder. There is no confirmation in the response that the contact was actually filed in the External Legal contact folder; only guidance is given.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Update" data-txt="update carla mendes&#x27;s contact — she moved to london, new phone +44 20 7946 0958, title changed to senior director of partnerships. the response confirms carla mendes&#x27;s existing contact was updated rather than duplicated.">
+          <div class="fhead"><span class="pill seg">Contacts_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Update Carla Mendes&#x27;s contact — she moved to London, new phone +44 20 7946 0958, title changed to Senior Director of Partnerships.</div>
+          <div class="a"><b>Assertion:</b> The response confirms Carla Mendes&#x27;s existing contact was updated rather than duplicated.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that Microsoft 365 Copilot cannot make the requested contact change and does not have the tools to update Outlook or directory contact records. It also lists the desired updates but does not confirm that any changes were made. Therefore, the response does not confirm that Carla Mendes&#x27;s existing contact was updated, nor does it mention duplication.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Update" data-txt="update carla mendes&#x27;s contact — she moved to london, new phone +44 20 7946 0958, title changed to senior director of partnerships. the response confirms carla mendes&#x27;s phone number was updated to +44 20 7946 0958.">
+          <div class="fhead"><span class="pill seg">Contacts_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Update Carla Mendes&#x27;s contact — she moved to London, new phone +44 20 7946 0958, title changed to Senior Director of Partnerships.</div>
+          <div class="a"><b>Assertion:</b> The response confirms Carla Mendes&#x27;s phone number was updated to +44 20 7946 0958.</div>
+          <div class="rat"><b>Mainline judge:</b> The response explicitly states that Microsoft 365 Copilot does not have the capability to update contact records and therefore cannot make the requested change to Carla Mendes&#x27;s phone number. There is no confirmation in the response that the phone number was updated; instead, it lists the desired update and advises the user to make the change elsewhere.
+score: 0</div>
+        </div>
+<div class="frow" data-seg="Contacts_Update" data-txt="update carla mendes&#x27;s contact — she moved to london, new phone +44 20 7946 0958, title changed to senior director of partnerships. the response confirms carla mendes&#x27;s title was updated to senior director of partnerships.">
+          <div class="fhead"><span class="pill seg">Contacts_Update</span><span class="pill lvl critical">critical</span></div>
+          <div class="q">Update Carla Mendes&#x27;s contact — she moved to London, new phone +44 20 7946 0958, title changed to Senior Director of Partnerships.</div>
+          <div class="a"><b>Assertion:</b> The response confirms Carla Mendes&#x27;s title was updated to Senior Director of Partnerships.</div>
+          <div class="rat"><b>Mainline judge:</b> The response states that Carla Mendes&#x27;s current listed profession is already &quot;Senior Director of Partnerships.&quot; However, it also clarifies that Copilot cannot make the requested contact change and did not update the title itself. The assertion is about whether the response confirms the title was updated, but the response only confirms that the title is already set to &quot;Senior Director of Partnerships,&quot; not that it was updated as a result of the re</div>
+        </div></div></details>
+
+<h2>SEVAL config &amp; enabled flags (run #597131)</h2>
+
+    <p class="note">Endpoint <code>https://sdf-s01-00-nam-centralus.substrate.cosmic-ppe.office.net/m365Copilotcanary</code> &middot; cluster <code>Turing-CDEX</code>.
+    Both arms share 82 base X-Variants; the option-sets, plugins and extra-params are <b>identical</b>.
+    The entire Mainline&nbsp;→&nbsp;CodeGen+Omni difference is the injected agent + 7 extra variant flags below.</p>
+    <div class="fcard"><h4>Built-in agent injected (extra_fields.gpts)</h4>
+      <div class="flags"><span class="flag">Mainline: none</span><span class="flag add">CodeGen+Omni: OutlookAiAgent (BuiltInAgents)</span></div></div>
+    <div class="fcard"><h4>CodeGen+Omni-only X-Variants flags (7 added)</h4><div class="flags"><span class='flag add'>+ agt_outlookaiagent_disableOutlookTools</span><span class='flag add'>+ agt_outlookaiagent_enableOfficeAgentV2</span><span class='flag add'>+ agt_outlookaiagent_enableOfficeContainer</span><span class='flag add'>+ agt_outlookaiagent_enableWorkBerrySwitcher</span><span class='flag add'>+ feature.enableGpt55ForOutlook</span><span class='flag add'>+ feature.enableModelSwitcherForOutlook</span><span class='flag add'>+ feature.useGhcpHarnessForOutlook</span></div>
+      <p class="note">Note <code>agt_outlookaiagent_disableOutlookTools</code> — native Outlook tools are turned <b>off</b> for the agent arm and routed through the GHCP harness (<code>useGhcpHarnessForOutlook</code>) on GPT-5.5 (<code>enableGpt55ForOutlook</code>). This is a plausible mechanism behind the Folders-rename/delete, receipts, and empty-retrieval failures where the agent reports it "could not find" mailbox objects.</p></div>
+    <div class="fcard"><h4>Flags removed vs Mainline</h4><div class="flags"><span class='muted'>none</span></div></div>
+
+<p class="note" style="margin-top:40px">Source: <code>[Assertions]_HeroV27_Mainline_CodeGenOmni_June30_NewOmniVariant_20260630124409.csv</code>. Assertion pass = judge score 1. CodeGen+Omni no-response rows counted as failures in the "all assertions" totals and excluded from the comparable head-to-head. Model replies are treated as untrusted content.</p>
+</div>
+<script>
+document.querySelectorAll('.search').forEach(inp=>{
+  inp.addEventListener('input',()=>{
+    const q=inp.value.toLowerCase(), list=document.querySelector('[data-list="'+inp.dataset.t+'"]');
+    list.querySelectorAll('.frow').forEach(r=>{r.style.display=r.dataset.txt.includes(q)?'':'none';});
+  });
+});
+</script>
+</body></html>
