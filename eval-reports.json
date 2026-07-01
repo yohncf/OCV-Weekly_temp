@@ -5,17 +5,17 @@
   "reports": [
     {
       "slug": "2026-07-01_597131_vs_599853",
-      "label": "Mainline vs CG+Omni (597131) 597131 vs Mainline vs CG+Omni (599853) 599853 (2026-07-01)",
+      "label": "Mainline 597131 vs CodeGen+Omni 599853 (2026-07-01)",
       "date": "2026-07-01",
       "file": "eval-reports/2026-07-01_597131_vs_599853.html",
       "control": {
         "id": "597131",
-        "name": "Mainline vs CG+Omni (597131)",
+        "name": "Mainline",
         "run_date": "2026-06-30"
       },
       "experiment": {
         "id": "599853",
-        "name": "Mainline vs CG+Omni (599853)",
+        "name": "CodeGen+Omni",
         "run_date": "2026-07-01"
       },
       "regressions": {
@@ -33,7 +33,7 @@
         "base_experiment_side": 0.7774
       },
       "highlights": "597131 -> 599853 (identical config, New Omni variant): CodeGen+Omni nets +7 (24 improvements vs 17 regressions) and cuts no-response 16->12, flipping the comparable head-to-head to 80.0% vs 78.6%; Mainline drifts -5 within run-to-run noise.",
-      "published": "2026-07-01T21:15:00+00:00"
+      "published": "2026-07-01T22:04:17+00:00"
     },
     {
       "slug": "2026-06-21_573247_vs_575436",
